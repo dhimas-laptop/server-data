@@ -39,6 +39,7 @@
                                     <th>No</th>
                                     <th>NIP</th>
                                     <th>Nama</th>
+                                    <th>Nomor Telepon</th>
                                     <th>Email</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -49,16 +50,11 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->nip }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->no_telp }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <a
-                                        class="btn btn-outline-info btn-block"
-                                        href="#">
-                                        <i class="nav-icon fa-solid fa-circle-info"></i>info</a>
-                                    <a
-                                        class="btn btn-outline-secondary btn-block"
-                                        href="#">
-                                        <i class="nav-icon fa-regular fa-pen-to-square"></i>ubah</a>
+                                    <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $user->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
+                                    <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $user->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tbody>
                             

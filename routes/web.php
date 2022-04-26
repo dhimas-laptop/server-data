@@ -28,4 +28,6 @@ Route::get('/perjalanan-dinas/detail', [PdinasController::class, 'detail'])->nam
 
 Route::get('/Pengguna', [UserController::class, 'index'])->name('index');
 Route::post('/Pengguna/tambah', [UserController::class, 'tambah'])->name('tambah');
-
+Route::get('/Pengguna/update/{id}', [UserController::class, 'update'])->name('update');
+Route::get('/Pengguna/update-proses', [UserController::class, 'update-proses'])->name('update-proses');
+Route::post('/Pengguna/hapus/{id}', [UserController::class, 'hapus'])->name('hapus');

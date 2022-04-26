@@ -53,8 +53,8 @@
                                 <td>{{ $user->no_telp }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $user->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
-                                    <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $user->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                    <a class="btn btn-success" href="/Pengguna/update/{{ $user->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
+                                    <a class="btn btn-danger" href="/Pengguna/hapus/{{ $user->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tbody>
                             

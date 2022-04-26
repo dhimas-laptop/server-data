@@ -35,4 +35,12 @@ class UserController extends Controller
         ]);
         return redirect()->action([UserController::class, 'index']);;
     }
+    
+    public function update($id)
+    {
+        $user = user::findOrFail($id);
+        
+        return view('/users/update',['user' => $user]);
+
+    }
 }

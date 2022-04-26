@@ -16,36 +16,46 @@
           <div class="card-header">
             <h5 class="text-center">UPDATE DATA PEGAWAI</h5>
          </div>
-         <form class="form-horizontal" action="/pegawai/update-proses" method="POST"> 
-        
-          <div class="card-body">
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">NIP</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="nip" value="{{ $user->nip }}">
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="name" value="{{ $user->name }}">
-                </div>
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" placeholder="Email" value="{{ $user->email }}">
-              </div>
+         <div class="card-body">
+          <form class="form-horizontal" action="/Pengguna/update-proses" method="POST"> 
+            @csrf
+          <input type="text" class="form-control" value="{{ $user->id }}" name="id" hidden>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{ $user->name }}" name="name" >
             </div>
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="no_telp" value="{{ $user->no_telp }}">
-              </div>
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" placeholder="password" value="{{ $user->password }}">
-              </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">NIP</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{ $user->nip }}" name="nip" >
             </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">No Telepon</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{ $user->no_telp }}" name="no_telp" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{ $user->email }}" name="email" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" placeholder="Isi Password Lama" name="password" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Password Baru</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" placeholder="Isi Password Baru" name="password" >
+            </div>
+          </div>            
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
@@ -53,7 +63,7 @@
             <button type="submit" class="btn btn-info  float-right">Simpan</button>
           </div>
           <!-- /.card-footer -->
-          
+          </div>
         </form>
      </div>
    </div>

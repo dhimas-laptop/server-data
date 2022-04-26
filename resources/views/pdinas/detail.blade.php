@@ -62,6 +62,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($spd as $spd)
+                                <tr>
                                 <td>{{ $spd->id }}</td>
                                 <td>{{ $spd->user->name }}</td>
                                 <td>{{ $spd->user->no_telp }}</td>
@@ -82,6 +83,7 @@
                                 <td>{{ $spd->no_telp }}</td>
                                 <td>{{ $spd->provinsi }}</td>
                                 <td>{{ $spd->total }}</td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

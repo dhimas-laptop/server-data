@@ -60,16 +60,11 @@
                                 <tr>
                                 <td>{{ $spd->user->name }}</td>
                                 <td>{{ $spd->user->no_telp }}</td>
-                                <td>@if ($spd->nomor_spt = null)
-                                    {{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}
+                                <td>{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</td>
+                                <td>@if ($spd->nomor_spd == null)
+                                    
                                      @else
-                                     
-                                     @endif
-                                    </td>
-                                <td>@if ($spd->nomor_spd = null)
-                                    {{ $spd->nomor_spd }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
-                                     @else
-                                     
+                                     {{ $spd->nomor_spd }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
                                      @endif
                                 </td>
                                 <td>{{ $spd->tujuan }}</td>

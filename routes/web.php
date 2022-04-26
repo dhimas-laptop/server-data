@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdinasController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function() {
-    return view('dashboard');
-});
+Route::get('/Dashboard', [DashboardController::class, 'index'])->name('index');
 
 Route::get('/perjalanan-dinas', [PdinasController::class, 'index'])->name('index');
 Route::post('/perjalanan-dinas/proses-tambah', [PdinasController::class, 'proses_tambah'])->name('proses_tambah');

@@ -23,7 +23,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/Dashboard" class="nav-link">
               <span class="material-icons">dashboard</span>
               <p>
                 Dashboard

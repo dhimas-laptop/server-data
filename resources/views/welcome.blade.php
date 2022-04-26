@@ -11,16 +11,16 @@
 
    <title>Promodise - seo and digital marketing solution </title>
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{{ asset('dashboard/plugins/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
     <!-- Icofont Css -->
-    <link rel="stylesheet" href="{{ asset('dashboard/plugins/fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/fontawesome/css/all.css') }}">
     <!-- animate.css -->
-    <link rel="stylesheet" href="{{ asset('dashboard/plugins/animate-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/animate-css/animate.css') }}">
     <!-- Icofont -->
-    <link rel="stylesheet" href="{{ asset('dashboard/plugins/icofont/icofont.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/icofont/icofont.css') }}">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('dashboard/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
 
 
 </head>
@@ -93,7 +93,7 @@
                             <h1 class="banner-title">We craft seo and digital markting services</h1>
                             <p>We provide marketing services to startups and small businesses to looking for a partner for their digital media, design-area.We are a a startup company to be commited to work and time management.</p>
 
-                            <a href="/dashboard" class="btn btn-white btn-circled">lets start</a>
+                            <a href="/Dashboard" class="btn btn-white btn-circled">lets start</a>
                         </div>
                     </div>
                 </div>
@@ -641,23 +641,23 @@
 
     
     <!-- Main jQuery -->
-    <script src="{{ asset('dashboard/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4.3.1 -->
-    <script src="{{ asset('dashboard/plugins/bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('dashboard/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
    <!-- Woow animtaion -->
-    <script src="{{ asset('dashboard/plugins/counterup/wow.min.js') }}"></script>
-    <script src="{{ asset('dashboard/plugins/counterup/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/counterup/wow.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/counterup/jquery.easing.1.3.js') }}"></script>
      <!-- Counterup -->
-    <script src="{{ asset('dashboard/plugins/counterup/jquery.waypoints.js') }}"></script>
-    <script src="{{ asset('dashboard/plugins/counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/counterup/jquery.waypoints.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/counterup/jquery.counterup.min.js') }}"></script>
 
     <!-- Google Map -->
-    <script src="{{ asset('dashboard/plugins/google-map/gmap3.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/google-map/gmap3.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>   
     <!-- Contact Form -->
-    <script src="{{ asset('dashboard/plugins/jquery/contact.js') }}"></script>
-    <script src="{{ asset('dashboard/js/custom.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/jquery/contact.js') }}"></script>
+    <script src="{{ asset('tdash/js/custom.js') }}"></script>
 
   </body>
   </html>

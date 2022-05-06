@@ -14,10 +14,8 @@
                 <h1>Data Pengguna</h1>
             </div>
             <div class="col-sm-6">
-                <div class=" col-sm-2 float-right">
-                    <button type="button" class="btn btn-info btn-block btn-flat align-middle" data-toggle="modal" data-target="#modal-lg">
-                        Tambah Data
-                      </button>
+                <div class="float-right mx-2">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg"><i class="nav-icon fa-solid fa-plus"></i></button>
                 </div>
             </div>
         </div>
@@ -36,7 +34,6 @@
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>No</th>
                                     <th>NIP</th>
                                     <th>Nama</th>
                                     <th>Nomor Telepon</th>
@@ -47,7 +44,6 @@
                             @foreach ($user as $user)
                                 
                             <tbody>
-                                <td>{{ $user->id }}</td>
                                 <td>{{ $user->nip }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->no_telp }}</td>
@@ -102,17 +98,24 @@
                     <input type="password" class="col-sm-10 form-control" name="password">
                 </div>  
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">ulangi password</label>
-                    <input type="password" class="col-sm-10 form-control">
-                </div>
-                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">No Telepon</label>
                     <input type="text" class="col-sm-10 form-control" name="no_telp">
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Bagian</label>
+                    <select class="col-sm-10 form-control" name="role" placeholder="Pilih Bagian">
+                    <option value="user">User</option>
+                    <option value="ev">Evaluasi</option>
+                    <option value="prog">Seksi Program</option>
+                    <option value="rhl">RHL</option>
+                    <option value="tu">Tata Usaha</option>
+                    </select>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
+            </form>
       </div>
       <!-- /.modal-content -->
     </div>

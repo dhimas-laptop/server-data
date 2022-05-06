@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class bagian extends Model
+class gambar extends Model
 {
     use HasFactory;
+
+    public function spd()
+    {
+        return $this->belongsToMany(spd::class);
+    }
+    
 }

@@ -4,34 +4,36 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use App\models\User;
+
 use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
     public function index()
     {
+        if (!auth()->check()) {
+           return redirect()->action('login');
+        }
         $user = user::select('*')
                 ->from('users')
                 ->get();
         
-        return view('users', ['user' => $user]);
+        return view('users', ['user' => $user , 'active' => "pengguna"]);
     }
 
     public function tambah(Request $request)
     {
-        $cek = user::get('id');
-
-        $id = count($cek);
-
-        user::insert([
-            'id' => $id+1,
-            'name' => $request->name,
-            'nip' => $request->nip,
-            'email' => $request->email,
-            'password' => $request->password,
-            'no_telp' => $request->no_telp
-
+        $validate = $request->validate([
+            'name' => 'required',
+            'nip' => 'required|min:18|unique:users,nip',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|alpha_num',
+            'no_telp' => 'required',
+            'role' => 'required'
         ]);
+        $validate['password'] = bcrypt($validate['password']);
+        user::create($validate);
+
         return redirect()->action([UserController::class, 'index']);;
     }
     
@@ -40,20 +42,24 @@ class UserController extends Controller
         $user = user::findOrFail($id);
        
 
-        return view('/users/update',['user' => $user]);
+        return view('/users/update',['user' => $user ,  'active' => "pengguna"]);
 
     }
     public function update_proses(Request $request)
     {
         
-       user::where('id', $request->id)
-            ->update([
-            'name' => $request->name,
-            'nip' => $request->nip,
-            'email' => $request->email,
-            'password' => $request->password,
-            'no_telp' => $request->no_telp
-            ]);
+        $validate = $request->validate([
+            'name' => 'required',
+            'nip' => 'required|min:18',
+            'email' => 'required|email',
+            'password' => 'required|min:6|alpha_num',
+            'no_telp' => 'required',
+            'role' => 'required'
+        ]);
+
+        $validate['password'] = bcrypt($validate['password']);
+
+        user::where('id' , $request->id)->update($validate);
             
         return redirect()->action([UserController::class, 'index']);
 

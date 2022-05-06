@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\spd;
-use App\Models\user;
-use App\Models\bagian;
+use App\Models\user;    
 use Illuminate\Http\Request; 
 
 
@@ -15,62 +14,60 @@ class PdinasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index1()
     {
-        $user = user::select('*')->from('users')->get();
-        $bagian = bagian::select('*')->from('bagian')->get();
-        $spd = spd::select('*')->from('spd')->get();  
-        $nomor_spt = spd::select('nomor_spt')->from('spd')->get();
-        $nomor_spd= spd::select('nomor_spd')->from('spd')->get();
-        $tgl_spt = spd::select('tgl_spt')->from('spd')->get();
-        $tgl_spd = spd::select('tgl_spd')->from('spd')->get();
-        $tujuan = spd::select('tujuan')->from('spd')->get();
-        $berangkat = spd::select('berangkat')->from('spd')->get();
-        $pulang = spd::select('pulang')->from('spd')->get();
+        $user = user::get();
+        $today = today(); 
         
+        $spd = spd::where('tgl_spt' , $today)->get();
         
-        return view('pdinas', [
-            'spd' => $spd, 
-            'nomor_spt' => $nomor_spt,
-            'nomor_spd' => $nomor_spd,
-            'tgl_spt' => $tgl_spt,
-            'tgl_spd' => $tgl_spd,
-            'tujuan' => $tujuan,
-            'berangkat' => $berangkat,
-            'pulang' => $pulang,
-        ], compact('user', 'bagian'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal" ], compact('user'));
+        
+    }
+
+    public function index2()
+    {
+        $user = user::get();
+        $today = today(); 
+        $bulan = date('m', strtotime($today));
+        $tahun = date('Y', strtotime($today));
+        $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan"], compact('user'));
+        
+    }
+
+    public function index3()
+    {
+        $user = user::get();
+        $today = today(); 
+        $tahun = date('Y', strtotime($today));
+        
+        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "tahun"], compact('user'));
         
     }
 
     public function proses_tambah(Request $request)
     {
-        $nomor_spt = $request->nomor_spt;
-        $tgl_spt = $request->tgl_spt;
-        $tujuan = $request->tujuan;
-        $berangkat = $request->berangkat;
-        $pulang = $request->pulang;
-        $bagian = $request->bagian_id;
-        $user_id = $request->user_id;
-        $total = count($user_id);
+        $validate = $request->validate([
+            'nomor_spt' => 'required',
+            'tgl_spt' => 'required',
+            'tujuan' => 'required',
+            'berangkat' => 'required',
+            'pulang' => 'required',
+            'user_id' => 'required'
+        ]);     
+                
+        $total = count($validate['user_id']);
         
         for($i=0; $i<$total; $i++){
-            $take = spd::orderBy('id','asc')->get('id');
-            foreach($take as $key){
-                $id = $key->id;
-            }
-            spd::insert([
-                'id' => $id+1,
-                'nomor_spt' => $nomor_spt,
-                'tgl_spt' => $tgl_spt,
-                'tujuan' => $tujuan,
-                'berangkat' => $berangkat,
-                'pulang' => $pulang,
-                'bagian_id' => $bagian,
-                'user_id' => $user_id[$i]
-            ]);
+            $validate['user_id'] = $request->user_id[$i];
+            spd::insert($validate);
         }
         
-        return redirect()->action([PdinasController::class, 'index']);
+        return redirect()->back();
     }
 
     public function update($id)
@@ -106,15 +103,15 @@ class PdinasController extends Controller
                 'total' => $request->total,
             ]);
             
-        return redirect()->action([PdinasController::class, 'index']);
+        return redirect()->back();
 
     }
     
-    public function detail()
+    public function download()
     {
         $spd = spd::get();
         
-        return view('/pdinas/detail',['spd' => $spd]);
+        return view('/pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }
 
@@ -122,7 +119,7 @@ class PdinasController extends Controller
     {
         spd::select('*')->where('id', $id)->delete();
                 
-        return redirect()->action([PdinasController::class, 'index']);
+        return redirect()->back();
     }
 
 }

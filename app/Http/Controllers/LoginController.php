@@ -19,8 +19,9 @@ class LoginController extends Controller
         'nip' => 'required',
         'password' => 'required|min:6'
     ]);
+    $remember = $request->remember;
 
-    if (Auth::attempt($validate))
+    if (Auth::attempt($validate, $remember))
     {
         $request->session()->regenerate();
         return redirect()->intended('/dashboard');

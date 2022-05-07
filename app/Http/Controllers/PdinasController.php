@@ -57,11 +57,22 @@ class PdinasController extends Controller
             'tujuan' => 'required',
             'berangkat' => 'required',
             'pulang' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'required',
         ]);     
-                
+        $validate2 = $request->validate([
+            'gambar' => 'file|max:1024'   
+        ]);   
         $total = count($validate['user_id']);
-        
+        $gambars = [];
+        foreach ($request->file('gambar') as $gambar) {
+            if ($gambar->isvalid()) {
+                $nama_gambar = $gambar->getClientOriginalName();
+                $gambar->move(public_path($validate['nomor_spt']), $nama_gambar);                    
+                    $files[] = [
+                        'filename' => $nama_gambar,
+                    ];
+            }
+        }
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];
             spd::insert($validate);

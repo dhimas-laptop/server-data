@@ -113,7 +113,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah">
+                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah" enctype="multipart/form-data">
                     @csrf
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Surat</label>
@@ -141,8 +141,16 @@
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach
-                    </select>  
-                    </div> 
+                    </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="gambar[]" multiple>
+                          <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                     
                     
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -170,7 +178,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>

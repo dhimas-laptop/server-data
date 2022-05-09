@@ -58,7 +58,7 @@
                                 <tr>
                                 <td>{{ $spd->user->name }}</td>
                                 <td>{{ $spd->user->no_telp }}</td>
-                                <td>{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</td>
+                                <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
                                      @else
@@ -146,8 +146,8 @@
                     <div class="input-group">
                         <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="gambar[]" multiple>
-                          <label class="custom-file-label">Choose file</label>
+                            <input type="file" class="custom-file-input" name="gambar[]" multiple>
+                            <label class="custom-file-label">Choose file</label>
                         </div>
                     </div>
                      
@@ -207,7 +207,11 @@ $(document).ready(function() {
     })
 })
 </script>
-
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+</script>
 
 
 @endsection

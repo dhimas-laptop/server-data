@@ -67,28 +67,22 @@ class PdinasController extends Controller
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];
             spd::insert($validate);
+            $id_spd[] = spd::max('id');  
         }  
 
-        $gambars = [];      
         foreach ($request->file('gambar') as $gambar) {
-            if ($gambar->isvalid()) {
-                $nama_gambar = $validate['nomor_spt'].'-'.$gambar->getClientOriginalName();
-                $gambar->move(public_path('gambar'), $nama_gambar);                    
-                    $gambars[] = [
-                        'gambar' => $nama_gambar,
-                    ];
-                gambar::insert($gambars);
-                $id_gambar = gambar::max('id');
-                $id_spd = spd::select('id')->where('nomor_spt', $validate['nomor_spt'])->get(); 
-                foreach ($id_spd as $key) {
-                    gambar_spd::create([
-                        'gambar_id' => $id_gambar,
-                        'spd_id' => $key->id
-                    ]);
-                }
-                
+            $nama_gambar = $gambar->getClientOriginalName();
+            $gambar->move(public_path('gambar'), $nama_gambar);                    
+            gambar::insert(['gambar' => $nama_gambar]);
+            $id_gambar = gambar::max('id');
+            foreach ($id_spd as $key) {
+            gambar_spd::create([
+                'gambar_id' => $id_gambar,
+                'spd_id' => $key
+                ]);
             }
-        }
+            }
+        
         return back()->with('Sukses', 'Data Berhasil Di input');
 
     }
@@ -97,7 +91,7 @@ class PdinasController extends Controller
     {
         $spd = spd::findOrFail($id);
         
-        return view('/pdinas/update',['spd' => $spd]);
+        return view('/pdinas/update',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }
     public function update_proses(Request $request)
@@ -133,13 +127,26 @@ class PdinasController extends Controller
     public function download()
     {
         $spd = spd::get();
-        
-        return view('/pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }
 
     public function hapus($id)
     {
+        $gambar_id = [];
+        $gambar = gambar_spd::select('gambar_id')->where('spd_id', $id)->get();
+        foreach ($gambar as $key) {
+            $gambar_id[] = $key->gambar_id; 
+        }
+        gambar_spd::select('*')->where('spd_id', $id)->delete();
+        foreach ($gambar_id as $key) {
+            if (gambar_spd::select('*')->where('gambar_id', $key)=== null) {
+                foreach ($gambar_id as $key1) {
+                    gambar::select('*')->where('id', $key1)->delete();
+                }
+            }
+        }
+        
         spd::select('*')->where('id', $id)->delete();
                 
         return redirect()->back();
@@ -147,8 +154,8 @@ class PdinasController extends Controller
 
     public function detail($id)
     {
-        $spd = spd::select('*')->where('id', $id)->get();
-                
+        $spd = spd::findOrFail($id);
+        
         return view('pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
     }
 

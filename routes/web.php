@@ -35,6 +35,7 @@ Route::get('/perjalanan-dinas/tahun', [PdinasController::class, 'index3'])->midd
 Route::post('/perjalanan-dinas/proses-tambah', [PdinasController::class, 'proses_tambah'])->middleware('auth');
 Route::get('/perjalanan-dinas/update/{id}', [PdinasController::class, 'update'])->middleware('auth');
 Route::post('/perjalanan-dinas/update-proses', [PdinasController::class, 'update_proses'])->middleware('auth');
+Route::get('/perjalanan-dinas/{id}', [PdinasController::class, 'detail'])->middleware('auth');
 
 Route::get('/perjalanan-dinas/hapus/{id}', [PdinasController::class, 'hapus'])->middleware('auth');
 Route::get('/perjalanan-dinas/download', [PdinasController::class, 'download'])->middleware('auth');

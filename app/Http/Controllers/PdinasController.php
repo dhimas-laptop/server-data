@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\spd;
-use App\Models\user;    
+use App\Models\user; 
+use App\Models\gambar;    
+use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
 
 
@@ -51,6 +53,7 @@ class PdinasController extends Controller
 
     public function proses_tambah(Request $request)
     {
+        
         $validate = $request->validate([
             'nomor_spt' => 'required',
             'tgl_spt' => 'required',
@@ -58,16 +61,36 @@ class PdinasController extends Controller
             'berangkat' => 'required',
             'pulang' => 'required',
             'user_id' => 'required'
-        ]);     
-                
+        ]);    
+        $request->validate(['gambar.*' => 'file|max:1024']);
         $total = count($validate['user_id']);
-        
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];
             spd::insert($validate);
+        }  
+
+        $gambars = [];      
+        foreach ($request->file('gambar') as $gambar) {
+            if ($gambar->isvalid()) {
+                $nama_gambar = $validate['nomor_spt'].'-'.$gambar->getClientOriginalName();
+                $gambar->move(public_path('gambar'), $nama_gambar);                    
+                    $gambars[] = [
+                        'gambar' => $nama_gambar,
+                    ];
+                gambar::insert($gambars);
+                $id_gambar = gambar::max('id');
+                $id_spd = spd::select('id')->where('nomor_spt', $validate['nomor_spt'])->get(); 
+                foreach ($id_spd as $key) {
+                    gambar_spd::create([
+                        'gambar_id' => $id_gambar,
+                        'spd_id' => $key->id
+                    ]);
+                }
+                
+            }
         }
-        
-        return redirect()->back();
+        return back()->with('Sukses', 'Data Berhasil Di input');
+
     }
 
     public function update($id)
@@ -120,6 +143,13 @@ class PdinasController extends Controller
         spd::select('*')->where('id', $id)->delete();
                 
         return redirect()->back();
+    }
+
+    public function detail($id)
+    {
+        $spd = spd::select('*')->where('id', $id)->get();
+                
+        return view('pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
     }
 
 }

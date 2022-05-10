@@ -123,13 +123,6 @@ class PdinasController extends Controller
         return redirect()->back();
 
     }
-    
-    public function download()
-    {
-        $spd = spd::get();
-        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
-
-    }
 
     public function hapus($id)
     {
@@ -159,4 +152,10 @@ class PdinasController extends Controller
         return view('pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
     }
 
+    public function download()
+    {
+        $spd = spd::get();
+        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+
+    }
 }

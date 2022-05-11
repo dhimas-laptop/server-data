@@ -9,7 +9,7 @@
     <meta name="keywords" content="marketing,digital marketing,creative, agency, startup,promodise,onepage, clean, modern,seo,business, company">
     <meta name="author" content="Themefisher.com">
 
-   <title>Promodise - seo and digital marketing solution </title>
+   <title>BPDASHL Sei Jang Duriangkang </title>
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
     <!-- Icofont Css -->
@@ -27,14 +27,14 @@
 
 
 <body data-spy="scroll" data-target=".fixed-top">
-
-
-
 <nav class="navbar navbar-expand-lg fixed-top trans-navigation">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="" class="img-fluid b-logo">
-            </a>
+            <div class="navbar-brand" href="index.html">
+                <img src="{{ asset('tdash/images/logo.png') }}" alt="" class="img-fluid b-logo">
+            </div>
+            <div class="navbar-brand" href="index.html">
+                <img src="{{ asset('tdash/images/logo2.png') }}" alt="" class="img-fluid b-logo">
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fa fa-bars"></i>
@@ -43,36 +43,27 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="mainNav">
                 <ul class="navbar-nav ">
-                   <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" href="#">Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Home
+                            Pelayanan
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                            <a class="dropdown-item " href="index.html">
-                                Home-1
+                            <a class="dropdown-item " href="#">
+                                Bibit Gratis
                             </a>
-                            <a class="dropdown-item " href="index-2.html">
-                                Home-2
+                            <a class="dropdown-item " href="#">
+                                Konsultasi Penanaman
                             </a> 
-                            <a class="dropdown-item " href="index-3.html" target="blank">
-                                Onepage
+                            <a class="dropdown-item " href="#" target="blank">
+                                Perizinan
                             </a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smoth-scroll" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link smoth-scroll" href="service.html">Service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link smoth-scroll" href="pricing.html">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link smoth-scroll" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link smoth-scroll" href="contact.html">Contact</a>
+                        <a class="nav-link smoth-scroll rounded-pill" href="login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -89,11 +80,11 @@
                 <div class="row">
                     <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                         <div class="banner-content content-padding">
-                            <h5 class="subtitle">A creative agency</h5>
-                            <h1 class="banner-title">We craft seo and digital markting services</h1>
-                            <p>We provide marketing services to startups and small businesses to looking for a partner for their digital media, design-area.We are a a startup company to be commited to work and time management.</p>
+                            <h5 class="subtitle">Kementrian Lingkungan Hidup dan Kehutanan</h5>
+                            <h1 class="banner-title">BPDASHL Sei Jang Duriangkang</h1>
+                            <p>Balai Pengelolaan Daerah Aliran Sungai dan Hutan Lindung Kepulauan Riau</p>
 
-                            <a href="/dashboard" class="btn btn-white btn-circled">lets start</a>
+                            <a href="/dashboard" class="btn btn-white btn-circled">Mulai Jelajah</a>
                         </div>
                     </div>
                 </div>
@@ -163,41 +154,7 @@
     <!--  ABOUT AREA END  -->
 
 <!--  SERVICE AREA START  -->
-<section id="about" class="bg-light">
-    <div class="about-bg-img d-none d-lg-block d-md-block"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-sm-12 col-md-8">
-                <div class="about-content">
-                    <h5 class="subtitle">About us</h5>
-                    <h3>We are making beautiful <br>design layout for your business</h3>
-                    <p>We craft beautiful website layout from scratch.You need not to worry about site design and other technial issue.We provide these attractive service as a bonus.Let's have atalk together for your next project.</p>
 
-                    <ul class="about-list">
-                        <li><i class="icofont icofont-check-circled"></i> Responsive site</li>
-
-                        <li>
-                            <i class="icofont icofont-check-circled"> </i> Latest bootstrap 4
-                        </li>
-
-                        <li>
-                            <i class="icofont icofont-check-circled"> </i> Modern and clean design
-                        </li>
-                        <li>
-                            <i class="icofont icofont-check-circled"> </i> Working contact form
-                        </li>
-                        <li>
-                            <i class="icofont icofont-check-circled"> </i> Premium services and support
-                        </li>
-                        <li>
-                            <i class="icofont icofont-check-circled"></i> Cross browser compatiabilty
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!--  SERVICE AREA END  -->
 
 <!--  SERVICE PARTNER START  -->
@@ -290,91 +247,6 @@
         </div>
     </section>
     <!--  SERVICE AREA END  -->
-<!-- PRICE AREA START  -->
-    <section id="pricing" class="section-padding bg-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 m-auto">
-                    <div class="section-heading">
-                        <h4 class="section-title">Affordable pricing plan for you</h4>
-                        <p>We have different type of pricing table to choose with your need. Check which one is most suitble for you and your business purpose. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="pricing-block ">
-                        <div class="price-header">
-                            <i class="icofont-diamond"></i>
-
-                            <h4 class="price"><small>$</small>26</h4>
-                            <h5>Monthly pack</h5>
-                        </div>
-                        <div class="line"></div>
-                        <ul>
-                            <li>5 GB Bandwidth</li>
-                            <li>Highest Speed</li>
-                            <li>1 GB Storage</li>
-                            <li>Unlimited Website</li>
-                            <li>Unlimited Users</li>
-                            <li>Data Security and Backups</li>
-                            <li>24x7 Great Support</li>
-                            <li>Monthly Reports and Analytics</li>
-                        </ul>
-
-                        <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="pricing-block ">
-                        <div class="price-header">
-                            <i class="icofont-rocket-alt-1"></i>
-
-                            <h4 class="price"><small>$</small>46</h4>
-                            <h5>Monthly pack</h5>
-                        </div>
-                        <div class="line"></div>
-                        <ul>
-                            <li>5 GB Bandwidth</li>
-                            <li>Highest Speed</li>
-                            <li>1 GB Storage</li>
-                            <li>Unlimited Website</li>
-                            <li>Unlimited Users</li>
-                            <li>Data Security and Backups</li>
-                            <li>24x7 Great Support</li>
-                            <li>Monthly Reports and Analytics</li>
-                        </ul>
-
-                        <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="pricing-block">
-                        <div class="price-header">
-                            <i class="icofont-light-bulb"></i>
-
-                            <h4 class="price"><small>$</small>76</h4>
-                            <h5>Monthly pack</h5>
-                        </div>
-                        <div class="line"></div>
-                        <ul>
-                            <li>5 GB Bandwidth</li>
-                            <li>Highest Speed</li>
-                            <li>1 GB Storage</li>
-                            <li>Unlimited Website</li>
-                            <li>Unlimited Users</li>
-                            <li>Data Security and Backups</li>
-                            <li>24x7 Great Support</li>
-                            <li>Monthly Reports and Analytics</li>
-                        </ul>
-
-                        <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- PRICE AREA END  -->
 <!--  TESTIMONIAL AREA START  -->
     <section id="testimonial" class="section-padding ">
         <div class="container">
@@ -619,13 +491,6 @@
                     <p class="mail"><span>Mail:</span> promdise@gmail.com</p>
                     <p><span>Phone :</span>+202-277-3894</p>
                     <p><span>Location:</span> 455 West Orchard Street Kings Mountain, NC 28086,NOC building</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="footer-copy">
-                    © 2018 Promodise inc. All Rights Reserved.
                 </div>
             </div>
         </div>

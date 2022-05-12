@@ -57,9 +57,6 @@
                             <a class="dropdown-item " href="#">
                                 Konsultasi Penanaman
                             </a> 
-                            <a class="dropdown-item " href="#" target="blank">
-                                Perizinan
-                            </a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -138,13 +135,6 @@
                                 <h4>Build</h4>
                                 <p>Technology and design are the core of success for real estate related businesses. Leverage our years.</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                           <div class="intro-cta">
-                               <p class="lead ">Still have any question on mind ? <a href="#contact" class="smoth-scroll">Contact us</a></p>
-                           </div>
                         </div>
                     </div>
                 </div>

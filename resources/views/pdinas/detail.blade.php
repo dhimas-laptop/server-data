@@ -1,5 +1,7 @@
 @extends('../layout/master')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>    
+@endsection
 @section('content')
 <!-- Content Header (Page header) -->
 
@@ -152,7 +154,7 @@
         <div class="col-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Ribbons</h3>
+              <h3 class="card-title">Bukti Perjalanan Dinas</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -160,7 +162,9 @@
                 @foreach ($spd->gambar as $key)
                 <div class="col-sm-4 my-2">
                   <div class="position-relative">
-                    <img src="{{ asset('gambar/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
+                    <button data-fancybox="gallery" data-src="{{ asset('gambar/'.$key->gambar) }}">
+                      <img src="{{ asset('gambar/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
+                    </button>
                   </div>
                 </div>
                 @endforeach
@@ -180,7 +184,13 @@
 @endsection 
                             
 @section('script')
-
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script>
+      // Customization example
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        infinite: false
+      });
+    </script>
 
 
 @endsection

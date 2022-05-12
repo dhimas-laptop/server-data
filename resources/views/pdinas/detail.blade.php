@@ -1,147 +1,185 @@
-@extends('layout.master')
+@extends('../layout/master')
 
-@section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"/>
-<!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-@endsection
-
-@section('content') <div class = "content-wrapper">
+@section('content')
 <!-- Content Header (Page header) -->
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Data Perjalanan Dinas</h1>
-            </div>
-        </div>
-    </div>
-    <!-- /.container-fluid -->
-</section>
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
 
-<!-- Main content -->
 <section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="card">
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        
-                        <table id="example" class="table table-bordered table-striped">
-                            <thead>
-                              <tr>
-                                <th class="align-middle text-center" rowspan="2">No</th>
-                                <th class="align-middle text-center" rowspan="2">Nama Pelaksana</th>
-                                <th class="align-middle text-center" rowspan="2">No.Telp</th>
-                                <th class="align-middle text-center" rowspan="2">SPT dan Tanggal</th>
-                                <th class="align-middle text-center" rowspan="2">NO SP2D dan Tanggal</th>
-                                <th class="align-middle text-center" rowspan="2">Tujuan</th>
-                                <th class="align-middle text-center" rowspan="2">Tanggal Berangkat</th>
-                                <th class="align-middle text-center" rowspan="2">Tanggal Kembali</th>
-                                <th class="align-middle text-center" rowspan="2">Uang Harian</th>
-                                <th class="align-middle text-center" colspan="6">Transportasi</th>
-                                <th class="align-middle text-center" colspan="4">Hotel/Penginapan</th>
-                                <th class="align-middle text-center" rowspan="2">Total SPJ</th>
-                            </tr>
-                            <tr>
-                                <th class="align-middle text-center">Pesawat/Kapal</th>
-                                <th class="align-middle text-center">No Penerbangan</th>
-                                <th class="align-middle text-center">No Tiket</th>
-                                <th class="align-middle text-center">Kode Booking</th>
-                                <th class="align-middle text-center">Harga</th>
-                                <th class="align-middle text-center">Taxi</th>
-                                <th class="align-middle text-center">Nama</th>
-                                <th class="align-middle text-center">Harga</th>
-                                <th class="align-middle text-center">No. Telp</th>
-                                <th class="align-middle text-center">Provinsi</th>
-                            </tr> 
-                            </thead>
-                            <tbody>
-                                @foreach ($spd as $spd)
-                                <tr>
-                                <td>{{ $spd->id }}</td>
-                                <td>{{ $spd->user->name }}</td>
-                                <td>{{ $spd->user->no_telp }}</td>
-                                <td>{{ $spd->nomor_spt }} tanggal {{ $spd->tgl_spt }}</td>
-                                <td>{{ $spd->nomor_spd }} tanggal {{ $spd->tgl_spd }}</td>
-                                <td>{{ $spd->tujuan }}</td>
-                                <td>{{ $spd->berangkat }}</td>
-                                <td>{{ $spd->pulang }}</td>
-                                <td>{{ $spd->uang_harian }}</td>
-                                <td>{{ $spd->pesawat }}</td>
-                                <td>{{ $spd->no_pesawat }}</td>
-                                <td>{{ $spd->no_tiket }}</td>
-                                <td>{{ $spd->kode_booking }}</td>
-                                <td>{{ $spd->harga }}</td>
-                                <td>{{ $spd->taxi }}</td>
-                                <td>{{ $spd->nama }}</td>
-                                <td>{{ $spd->harga_penginapan }}</td>
-                                <td>{{ $spd->no_telp }}</td>
-                                <td>{{ $spd->provinsi }}</td>
-                                <td>{{ $spd->total }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+  <div class="container-fluid">
+    <div class="row">
+            <!-- left column -->
+      <div class="col-md-12 my-5">
+                <!-- general form elements -->
+        <div class="card card-primary mx-5">
+          <div class="card-header">
+            <h5 class="text-center">Rincian Data SPJ</h5>
+         </div>
+         
+         <form class="form-horizontal" action="/perjalanan-dinas/update-proses" method="POST"> 
+            @csrf
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPT</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @if($spd->nomor_spt===null) is-invalid @endif" value="{{ $spd->nomor_spt }}" name="no_spt"  disabled>
+              </div>
             </div>
-            <!-- /.col -->
+             <div class="form-group row">
+               <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SPT</label>
+              <div class="col-sm-10">
+                  <input type="date" class="form-control @if($spd->tgl_spt===null) is-invalid @endif" value="{{ $spd->tgl_spt }}" name="tgl_spt"  disabled>
+              </div>
+             </div>
+             <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
+                <div class="col-sm-10">
+                 <input type="text" class="form-control @if($spd->nomor_spd===null) is-invalid @endif" value="{{ $spd->nomor_spd }}" name="no_spd" disabled>
+                </div>
+             </div>
+             <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control @if($spd->tgl_spd===null) is-invalid @endif" value="{{ $spd->tgl_spd }}" name="tgl_spd" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->tujuan===null) is-invalid @endif" value="{{ $spd->tujuan }}" name="tujuan"  disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Berangkat</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control @if($spd->berangkat===null) is-invalid @endif" value="{{ $spd->berangkat }}" name="berangkat"  disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Kembali</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control @if($spd->pulang===null) is-invalid @endif" value="{{ $spd->pulang }}" name="pulang"  disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control @if($spd->uang_harian===null) is-invalid @endif" value="{{ $spd->uang_harian }}" name="uang_harian" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->pesawat===null) is-invalid @endif" value="{{ $spd->pesawat }}"name="pesawat" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->no_penerbangan===null) is-invalid @endif" value="{{ $spd->no_penerbangan }}" name="no_penerbangan" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->no_tiket===null) is-invalid @endif" value="{{ $spd->no_tiket }}" name="no_tiket" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->kode_booking===null) is-invalid @endif" value="{{ $spd->kode_booking }}" name="kode_booking" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control @if($spd->harga_pesawat===null) is-invalid @endif" value="{{ $spd->harga_pesawat }}" name="harga_pesawat" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control @if($spd->taxi===null) is-invalid @endif" value="{{ $spd->taxi }}" name="taxi" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->hotel===null) is-invalid @endif" value="{{ $spd->hotel }}" name="hotel" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control @if($spd->harga_hotel===null) is-invalid @endif" value="{{ $spd->harga_hotel }}" name="harga_hotel" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->no_telp===null) is-invalid @endif" value="{{ $spd->no_telp }}" name="no_telp" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->provinsi===null) is-invalid @endif" value="{{ $spd->provinsi }}" name="provinsi" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control @if($spd->total===null) is-invalid @endif" value="{{ $spd->total }}" name="total" disabled>
+                </div>
+              </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="button" onclick="history.back();" class="btn btn-default">Kembali</button>
+          </div>
+          <!-- /.card-footer -->
+        </form>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Ribbons</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="row mt-4">
+                @foreach ($spd->gambar as $key)
+                <div class="col-sm-4 my-2">
+                  <div class="position-relative">
+                    <img src="{{ asset('gambar/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
+                  </div>
+                </div>
+                @endforeach
+            </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+  </section>
 </div>
-
-
 @endsection 
-
+                            
 @section('script')
-
-<!-- DataTables & Plugins -->
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
-
-<!-- Select2 -->
-<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#example').DataTable( {
-      "scrollX": true,
-      dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-</script>
-<script>
- $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-})
-</script>
 
 
 

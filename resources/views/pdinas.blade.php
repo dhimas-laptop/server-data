@@ -6,6 +6,8 @@
 <!-- Select2 -->
 <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content') <div class = "content-wrapper">
@@ -81,7 +83,7 @@
                                 <td>{{ $spd->provinsi }}</td>-->
                                 <td>{{ $spd->total }}</td> 
                                 <td>
-                                    <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
+                                    <p><a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a></p>
                                     <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                 </td>
                                 </tr>
@@ -107,7 +109,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Large Modal</h4>
+              <h4 class="modal-title">Tambah Data</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -117,27 +119,27 @@
                     @csrf
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Surat</label>
-                        <input type="text" class="col-sm-10 form-control" style="text-transform: uppercase" name="nomor_spt">
+                        <input type="text" class="col-sm-8 form-control" style="text-transform: uppercase" name="nomor_spt">
                       </div>  
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tanggal Surat</label>
-                        <input type="date" class="col-sm-10 form-control" name="tgl_spt">
+                        <input type="date" class="col-sm-3 form-control" name="tgl_spt">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tujuan</label>
-                        <input type="text" class="col-sm-10 form-control" style="text-transform: uppercase" name="tujuan">
+                        <input type="text" class="col-sm-8 form-control" style="text-transform: uppercase" name="tujuan">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Berangkat</label>
-                        <input type="date" class="col-sm-10 form-control" name="berangkat">
+                        <input type="date" class="col-sm-3 form-control" name="berangkat">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pulang</label>
-                        <input type="date" class="col-sm-10 form-control" name="pulang">
+                        <input type="date" class="col-sm-3 form-control" name="pulang">
                     </div>
                     <div class="form-group row align-middle">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]" placeholder="Pilih karyawan">
+                        <select class="form-control select2bs4" multiple="multiple" style="width:70%;" name="user_id[]" placeholder="Pilih karyawan">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach
@@ -150,13 +152,11 @@
                             <label class="custom-file-label">Choose file</label>
                         </div>
                     </div>
-                     
-                    
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                    </form>                    
+                    </form>                 
           </div>
           <!-- /.modal-content -->
         </div>

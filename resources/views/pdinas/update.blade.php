@@ -14,7 +14,7 @@
                 <!-- general form elements -->
         <div class="card card-primary mx-5">
           <div class="card-header">
-            <h5 class="text-center">UPDATE DATA PEGAWAI</h5>
+            <h5 class="text-center">UPDATE DATA SPJ</h5>
          </div>
          
          <form class="form-horizontal" action="/perjalanan-dinas/update-proses" method="POST"> 
@@ -24,7 +24,7 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPT</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="{{ $spd->nomor_spt }}" name="no_spt" >
+                <input type="text" class="form-control" value="{{ $spd->nomor_spt }}" style="text-transform: uppercase" name="no_spt" >
               </div>
             </div>
              <div class="form-group row">
@@ -36,7 +36,7 @@
              <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                 <div class="col-sm-10">
-                 <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" name="no_spd">
+                 <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
                 </div>
              </div>
              <div class="form-group row">
@@ -48,7 +48,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->tujuan }}" name="tujuan" >
+                  <input type="text" class="form-control" value="{{ $spd->tujuan }}" style="text-transform: uppercase" name="tujuan" >
                 </div>
               </div>
               <div class="form-group row">
@@ -72,31 +72,31 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->pesawat }}"name="pesawat">
+                  <input type="text" class="form-control" value="{{ $spd->pesawat }}" style="text-transform: uppercase" name="pesawat">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->no_penerbangan }}" name="no_penerbangan">
+                  <input type="text" class="form-control" value="{{ $spd->no_penerbangan }}" style="text-transform: uppercase" name="no_penerbangan">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->no_tiket }}" name="no_tiket">
+                  <input type="text" class="form-control" value="{{ $spd->no_tiket }}" style="text-transform: uppercase" name="no_tiket">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->kode_booking }}" name="kode_booking">
+                  <input type="text" class="form-control" value="{{ $spd->kode_booking }}" style="text-transform: uppercase" name="kode_booking">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" name="harga_pesawat">
+                  <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" style="text-transform: uppercase" name="harga_pesawat">
                 </div>
               </div>
               <div class="form-group row">
@@ -108,7 +108,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->hotel }}" name="hotel">
+                  <input type="text" class="form-control" value="{{ $spd->hotel }}" style="text-transform: uppercase" name="hotel">
                 </div>
               </div>
               <div class="form-group row">
@@ -126,7 +126,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->provinsi }}" name="provinsi">
+                  <input type="text" class="form-control" value="{{ $spd->provinsi }}" style="text-transform: uppercase" name="provinsi">
                 </div>
               </div>
               <div class="form-group row">

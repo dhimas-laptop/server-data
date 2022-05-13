@@ -29,8 +29,11 @@ Route::get('/perjalanan-dinas/unduh', [PdinasController::class, 'unduh'])->middl
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('/perjalanan-dinas/tanggal', [PdinasController::class, 'index1'])->middleware('auth')->name('tanggal');
+Route::post('/perjalanan-dinas/tanggal', [PdinasController::class, 'filter1'])->middleware('auth')->name('filter_tanggal');
 Route::get('/perjalanan-dinas/bulan', [PdinasController::class, 'index2'])->middleware('auth')->name('bulan');
+Route::post('/perjalanan-dinas/bulan', [PdinasController::class, 'filter2'])->middleware('auth')->name('filter_bulan');
 Route::get('/perjalanan-dinas/tahun', [PdinasController::class, 'index3'])->middleware('auth')->name('tahun');
+Route::post('/perjalanan-dinas/tahun', [PdinasController::class, 'index3'])->middleware('auth')->name('filter_tahun');
 
 Route::get('/perjalanan-dinas/download', [PdinasController::class, 'download'])->middleware('auth')->name('download');
 Route::post('/perjalanan-dinas/proses-tambah', [PdinasController::class, 'proses_tambah'])->middleware('auth');

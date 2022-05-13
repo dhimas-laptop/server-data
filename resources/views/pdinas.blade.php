@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 @endsection
 
 @section('content') <div class = "content-wrapper">
@@ -24,7 +26,17 @@
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1"><i class="nav-icon fa-solid fa-plus"></i></button>
                 </div>
                 <div class="float-right">
-                    <a class="btn btn-secondary" href="/perjalanan-dinas/download"><i class="nav-icon fa-solid fa-download"></i></a>
+                    <a class="btn btn-secondary" value="
+                    @if ($active === 'tanggal')
+                    tanggal
+                    @endif
+                    @if ($active === 'bulan')
+                    bulan
+                    @endif
+                    @if ($active === 'tahun')
+                    tahun
+                    @endif
+                    " href="/perjalanan-dinas/download"><i class="nav-icon fa-solid fa-download"></i></a>
                 </div>
             </div>
         </div>
@@ -36,11 +48,80 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-12 ">
+                @if($active === 'tanggal')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tanggal">
+                            @csrf
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Tanggal</label>
+                        <input type="date" class="col-sm-3 form-control" name="filter"> 
+                        <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </form>    
+                    </div>
+                    </div>
+                </div>
+                @endif
+                @if($active === 'bulan')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/bulan">
+                            @csrf
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Bulan</label>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih karyawan">
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>                            
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                       </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Pilih Tahun</label>
+                            <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2"></div>
+                            <button class="btn btn-info" type="submit"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
+                @if($active === 'tahun')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tahun">
+                            @csrf
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Pilih Tahun</label>
+                            <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                            @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
                                  <tr>
@@ -210,6 +291,14 @@ $(document).ready(function() {
 <script>
     $(function () {
       bsCustomFileInput.init();
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker14').datetimepicker({
+            allowMultidate: true,
+            multidateSeparator: ','
+        });
     });
 </script>
 

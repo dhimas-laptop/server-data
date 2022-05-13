@@ -23,7 +23,7 @@ class PdinasController extends Controller
         
         $spd = spd::where('tgl_spt' , $today)->get();
         
-        return view('pdinas', ['spd' => $spd , 'active' => "tanggal" ], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal"], compact('user'));
         
     }
 
@@ -34,8 +34,8 @@ class PdinasController extends Controller
         $bulan = date('m', strtotime($today));
         $tahun = date('Y', strtotime($today));
         $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
-        
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan"], compact('user'));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
     }
 
@@ -44,12 +44,59 @@ class PdinasController extends Controller
         $user = user::get();
         $today = today(); 
         $tahun = date('Y', strtotime($today));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         
+        return view('pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1], compact('user'));
+        
+    }
+
+    public function filter1(Request $request)
+    {
+        $request->validate([
+            'filter' => 'required'
+        ]);
+
+        $user = user::get();
+        
+        $spd = spd::where('tgl_spt', $request->filter)->get();
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal",], compact('user'));
+        
+    }
+
+    public function filter2(Request $request)
+    {
+        $request->validate([
+            'filter1' => 'required',
+            'filter2' => 'required'
+        ]);
+
+        $user = user::get();
+        $bulan = $request->filter1;
+        $tahun = date('Y', strtotime($request->filter2));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
         $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         
         return view('pdinas', ['spd' => $spd , 'active' => "tahun"], compact('user'));
         
     }
+
+    public function filter3(Request $request)
+    {
+        $request->validate([
+            'filter2' => 'required'
+        ]);
+
+        $user = user::get();
+        $tahun = date('Y', strtotime($request->filter2));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        
+    }
+
 
     public function proses_tambah(Request $request)
     {
@@ -63,6 +110,7 @@ class PdinasController extends Controller
             'user_id' => 'required'
         ]);    
         $request->validate(['gambar.*' => 'file|max:1024']);
+        
         $total = count($validate['user_id']);
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];

@@ -39,8 +39,8 @@
             </li>
           @endcan
 
-          <li class="nav-item @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun') menu-open @endif ">
-            <a href="#" class="nav-link @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun') active @endif ">
+          <li class="nav-item @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif ">
+            <a href="#" class="nav-link @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif ">
               <i class="nav-icon fas fa-plane-departure"></i>
               <p>
                 Perjalanan Dinas

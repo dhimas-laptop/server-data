@@ -68,7 +68,44 @@
               </li>
             </ul>
           </li>
-
+          
+          @if(Gate::check('admin') || Gate::check('ev'))
+          <li class="nav-item @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif ">
+            <a href="#" class="nav-link @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif ">
+              <i class="nav-icon fas fa-droplet"></i>
+              <p>
+                Tata Air
+                <i class="right fas fa-angle-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('curah_hujan') }}" class="nav-link {{ ($active === 'curah_hujan') ? 'active' : '' }}">
+                  <i class="far {{ ($active === 'curah_hujan') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                  <p>Curah Hujan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('tma') }}" class="nav-link {{ ($active === 'tma') ? 'active' : '' }}">
+                  <i class="far {{ ($active === 'tma') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                  <p>Tinggi Muka Air</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('debit_air') }}" class="nav-link {{ ($active === 'debit_air') ? 'active' : '' }}">
+                  <i class="far {{ ($active === 'debit_air') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                  <p>Debit Air</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('grafik') }}" class="nav-link {{ ($active === 'grafik') ? 'active' : '' }}">
+                  <i class="far {{ ($active === 'grafik') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                  <p>Grafik</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        @endif
 
       <!-- /.sidebar-menu -->
     </div>

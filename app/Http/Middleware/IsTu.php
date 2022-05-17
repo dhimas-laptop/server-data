@@ -16,9 +16,10 @@ class IsTu
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() ||auth()->user()->role !== 'tu') {
-            return redirect('dashboard');
+        if (auth()->user()->role === 'tu') {
+            return $next($request);
         }
-        return $next($request);
+        
+        return redirect('/');
     }
 }

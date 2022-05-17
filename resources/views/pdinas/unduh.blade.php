@@ -28,6 +28,46 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="card">
+                  <div class="card-body">
+                    <form class="form-horizontal" method="POST" action="/perjalanan-dinas/bulan">
+                    <div class="form-group row">
+                            @csrf
+                        <label class="col-sm-2 col-form-label">Pilih Bulan</label>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih karyawan">
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>                            
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                       </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Tahun</label>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                        @foreach ($spd as $tahun)
+                        <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <button class="btn btn-info" type="submit"><i class="nav-icon fas fa-search"></i> Cari</button>
+                    </div>
+                </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
                         

@@ -16,9 +16,10 @@ class IsRhl
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() ||auth()->user()->role !== 'rhl') {
-            return redirect('dashboard');
+        if (auth()->user()->role === 'rhl') {
+            return $next($request);
         }
-        return $next($request);
+        
+        return redirect('/');
     }
 }

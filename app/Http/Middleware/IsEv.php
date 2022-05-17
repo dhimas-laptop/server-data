@@ -16,9 +16,9 @@ class IsEv
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() ||auth()->user()->role !== 'ev') {
-            return redirect('dashboard');
+        if (auth()->user()->role === 'ev') {
+            return $next($request);
         }
-        return $next($request);
+        return redirect('/');
     }
 }

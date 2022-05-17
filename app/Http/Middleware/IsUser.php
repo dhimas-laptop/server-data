@@ -16,9 +16,10 @@ class IsUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() ||auth()->user()->role !== 'user') {
-            return redirect('dashboard');
+        if (auth()->user()->role === 'user') {
+            return $next($request);  
         }
-        return $next($request);
+        
+        return redirect('/');
     }
 }

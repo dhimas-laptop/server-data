@@ -16,9 +16,10 @@ class IsProg
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() ||auth()->user()->role !== 'prog') {
-            return redirect('dashboard');
+        if (auth()->user()->role === 'prog') {
+            return $next($request);
+            
         }
-        return $next($request);
+        return redirect('/');
     }
 }

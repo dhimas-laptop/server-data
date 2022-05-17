@@ -76,9 +76,9 @@ class PdinasController extends Controller
         $bulan = $request->filter1;
         $tahun = date('Y', strtotime($request->filter2));
         $tahun1 = spd::select('tgl_spt')->distinct()->get();
-        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        $spd = spd::whereMonth('tgl_spt' , $request->filter1)->whereYear('tgl_spt' , $tahun)->get();
         
-        return view('pdinas', ['spd' => $spd , 'active' => "tahun"], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
     }
 
@@ -203,6 +203,18 @@ class PdinasController extends Controller
     public function download()
     {
         $spd = spd::get();
+        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+
+    }
+
+    public function download_filter(Request $request)
+    {
+        $request->validate([
+            'bulan' => 'required',
+            'tahun' => 'required'
+        ]);
+        
+        $spd = spd::whereMonth('tgl_spt', $request->bulan)->whereYear('tgl_spt', $request->tahun);
         return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }

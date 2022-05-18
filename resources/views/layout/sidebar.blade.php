@@ -69,7 +69,7 @@
             </ul>
           </li>
           
-          @if(Gate::check('admin') || Gate::check('ev'))
+          @if(Gate::check('admin'))
           <li class="nav-item @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif ">
             <a href="#" class="nav-link @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif ">
               <i class="nav-icon fas fa-droplet"></i>

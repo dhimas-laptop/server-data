@@ -14,7 +14,9 @@
 
 @section('content') <div class = "content-wrapper">
 <!-- Content Header (Page header) -->
-
+@if (session()->has('sukses'))
+    oke
+@endif
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -199,25 +201,115 @@
                 <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah" enctype="multipart/form-data">
                     @csrf
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor Surat</label>
-                        <input type="text" class="col-sm-8 form-control" style="text-transform: uppercase" name="nomor_spt">
+                        <label class="col-sm-2 col-form-label">Nomor SPT</label>
+                        <input type="text" class="col-sm-8 form-control  @error('nomor_spt') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spt" placeholder="Masukkan data ">
                       </div>  
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tanggal Surat</label>
-                        <input type="date" class="col-sm-3 form-control" name="tgl_spt">
-                    </div>  
+                        <label class="col-sm-2 col-form-label">Tanggal SPT</label>
+                        <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
+                          <div class="col-sm-10">
+                           <input type="text" class="form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D">
+                          </div>
+                       </div>
+                       <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
+                          <div class="col-sm-10">
+                            <input type="date" class="form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd">
+                          </div>
+                        </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tujuan</label>
-                        <input type="text" class="col-sm-8 form-control" style="text-transform: uppercase" name="tujuan">
+                        <input type="text" class="col-sm-8 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Berangkat</label>
-                        <input type="date" class="col-sm-3 form-control" name="berangkat">
+                        <input type="date" class="col-sm-3 form-control  @error('berangkat') is-invalid @enderror" name="berangkat">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pulang</label>
-                        <input type="date" class="col-sm-3 form-control" name="pulang">
+                        <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('uang_harian') is-invalid @enderror" name="uang_harian" placeholder="Masukkan Nominal Uang Harian">
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                          <label>TRANSPORTASI</label>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('pesawat') is-invalid @enderror" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan Nama Pesawat ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_penerbangan') is-invalid @enderror" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan Nomor Penerbangan ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_tiket') is-invalid @enderror" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan No. Tiket ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('kode_booking') is-invalid @enderror" style="text-transform: uppercase" name="kode_booking" placeholder="Masukkan Kode Booking">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('harga_pesawat') is-invalid @enderror" style="text-transform: uppercase" name="harga_pesawat" placeholder="Masukkan Harga Total Pesawat ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('taxi') is-invalid @enderror" name="taxi" placeholder="Masukkan Harga Taxi ">
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                        <label>HOTEL & PENGINAPAN</label>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('hotel') is-invalid @enderror" style="text-transform: uppercase" name="hotel" placeholder="Masukkan Nama Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('harga_hotel') is-invalid @enderror" name="harga_hotel" placeholder="Masukkan Total Harga Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_telp') is-invalid @enderror" name="no_telp" placeholder="Masukkan No. Telepon Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('provinsi') is-invalid @enderror" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan Provinsi">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('total') is-invalid @enderror" name="total" placeholder="Masukkan Total SPJ">
+                        </div>
+                      </div>
                     <div class="form-group row align-middle">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:70%;" name="user_id[]" placeholder="Pilih karyawan">

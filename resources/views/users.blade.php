@@ -91,7 +91,7 @@
                 </div>  
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Email</label>
-                    <input type="email" class="col-sm-10 form-control" name="email">
+                    <input type="email" class="col-sm-10 form-control" name="email" value="example@gmail.com">
                 </div>  
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Password</label>
@@ -99,7 +99,7 @@
                 </div>  
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">No Telepon</label>
-                    <input type="text" class="col-sm-10 form-control" name="no_telp">
+                    <input type="text" class="col-sm-10 form-control" name="no_telp" value="081231231231">
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Bagian</label>
@@ -140,7 +140,7 @@
 $(document).ready(function() {
     $('#example').DataTable( {
         "scrollX": false,
-        
+
         dom: 'Bfrtip',
         buttons: [
             'excel', 'pdf',

@@ -8,7 +8,7 @@ class Tata_airController extends Controller
 {
     public function curah_hujan()
     {
-        if (Gate::check('admin')||Gate::check('ev')) {
+        if (Gate::check('admin')) {
             return view('/tata_air/curah_hujan', ['active' => 'curah_hujan']);
         }
         return redirect('/');
@@ -16,7 +16,7 @@ class Tata_airController extends Controller
 
     public function tma()
     {
-        if (Gate::check('admin')||Gate::check('ev')) {
+        if (Gate::check('admin')) {
             return view('/tata_air/tma', ['active' => 'tma']);
         }
         return redirect('/');
@@ -24,7 +24,7 @@ class Tata_airController extends Controller
 
     public function debit_air()
     {
-        if (Gate::check('admin')||Gate::check('ev')) {
+        if (Gate::check('admin')) {
             return view('/tata_air/debit_air', ['active' => 'debit_air']);
         }
         return redirect('/');
@@ -32,7 +32,7 @@ class Tata_airController extends Controller
 
     public function grafik()
     {
-        if (Gate::check('admin')||Gate::check('ev')) {
+        if (Gate::check('admin')) {
             return view('/tata_air/grafik', ['active' => 'grafik']);
         }
         return redirect('/');

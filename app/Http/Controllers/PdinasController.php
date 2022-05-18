@@ -7,6 +7,7 @@ use App\Models\user;
 use App\Models\gambar;    
 use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
+use Illuminate\Support\Facades\Auth;
 
 
 class PdinasController extends Controller
@@ -20,8 +21,15 @@ class PdinasController extends Controller
     {
         $user = user::get();
         $today = today(); 
+        $auth = auth::user()->id;
         
-        $spd = spd::where('tgl_spt' , $today)->get();
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::where('tgl_spt' , $today)->where('user_id', $auth)->get();
+        } 
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::where('tgl_spt' , $today)->get();
+        }
+        
         
         return view('pdinas', ['spd' => $spd , 'active' => "tanggal"], compact('user'));
         
@@ -33,7 +41,14 @@ class PdinasController extends Controller
         $today = today(); 
         $bulan = date('m', strtotime($today));
         $tahun = date('Y', strtotime($today));
-        $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
+        $auth = auth::user()->id;
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
+        }
+       
         $tahun1 = spd::select('tgl_spt')->distinct()->get();
         return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
@@ -44,8 +59,15 @@ class PdinasController extends Controller
         $user = user::get();
         $today = today(); 
         $tahun = date('Y', strtotime($today));
+        $auth = auth::user()->id;
         $tahun1 = spd::select('tgl_spt')->distinct()->get();
-        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        }
         
         return view('pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1], compact('user'));
         
@@ -58,8 +80,17 @@ class PdinasController extends Controller
         ]);
 
         $user = user::get();
+        $auth = auth::user()->id;
         
-        $spd = spd::where('tgl_spt', $request->filter)->get();
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::where('tgl_spt', $request->filter)
+            ->where('user_id', $auth)
+            ->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::where('tgl_spt', $request->filter)->get();
+        }
+        
         
         return view('pdinas', ['spd' => $spd , 'active' => "tanggal",], compact('user'));
         
@@ -76,7 +107,18 @@ class PdinasController extends Controller
         $bulan = $request->filter1;
         $tahun = date('Y', strtotime($request->filter2));
         $tahun1 = spd::select('tgl_spt')->distinct()->get();
-        $spd = spd::whereMonth('tgl_spt' , $request->filter1)->whereYear('tgl_spt' , $tahun)->get();
+        $auth = auth::user()->id;
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
+                    ->whereYear('tgl_spt' , $tahun)
+                    ->where('user_id', $auth)
+                    ->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
+                    ->whereYear('tgl_spt' , $tahun)
+                    ->get();
+        }
         
         return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
@@ -91,7 +133,19 @@ class PdinasController extends Controller
         $user = user::get();
         $tahun = date('Y', strtotime($request->filter2));
         $tahun1 = spd::select('tgl_spt')->distinct()->get();
-        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        $auth = auth::user()->id;
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)
+            ->where('user_id', $auth)
+            ->get();
+            
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)
+            ->get();
+        }
+       
         
         return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
@@ -104,13 +158,27 @@ class PdinasController extends Controller
         $validate = $request->validate([
             'nomor_spt' => 'required',
             'tgl_spt' => 'required',
+            'nomor_spd' => 'required',
+            'tgl_spd' => 'required',
             'tujuan' => 'required',
             'berangkat' => 'required',
             'pulang' => 'required',
+            'uang_harian' => 'required',
+            'pesawat' => 'required',
+            'no_penerbangan' => 'required',
+            'no_tiket' => 'required',
+            'kode_booking' => 'required',
+            'harga_pesawat' => 'required',
+            'taxi' => 'required',
+            'hotel' => 'required',
+            'harga_hotel' => 'required',
+            'no_telp' => 'required',
+            'provinsi' => 'required',
+            'total' => 'required',
             'user_id' => 'required'
         ]);    
         $request->validate(['gambar.*' => 'file|max:1024']);
-        
+       
         $total = count($validate['user_id']);
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];

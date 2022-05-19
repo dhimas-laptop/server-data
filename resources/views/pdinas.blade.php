@@ -359,7 +359,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example').DataTable( {
-       
+      "scrollX": true,
     } );
     $('#example1').DataTable( {
        
@@ -370,16 +370,16 @@ $(document).ready(function() {
 } );
 </script>
 <script>
- $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-})
-</script>
+  $(function () {
+     //Initialize Select2 Elements
+     $('.select2').select2()
+ 
+     //Initialize Select2 Elements
+     $('.select2bs4').select2({
+       theme: 'bootstrap4'
+     })
+ })
+ </script>
 <script>
     $(function () {
       bsCustomFileInput.init();

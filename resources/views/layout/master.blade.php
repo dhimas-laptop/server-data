@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- google icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"   rel="stylesheet">
+  <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
   @yield('css')
 </head>
 <body class="white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">

@@ -116,13 +116,13 @@
                                 <td>{{ $spd->pulang }}</td>
                                 <td>{{ $spd->uang_harian }}</td>
                                 <td>{{ $spd->pesawat }}</td>
-                                <td>{{ $spd->no_pesawat }}</td>
+                                <td>{{ $spd->no_penerbangan }}</td>
                                 <td>{{ $spd->no_tiket }}</td>
                                 <td>{{ $spd->kode_booking }}</td>
-                                <td>{{ $spd->harga }}</td>
+                                <td>{{ $spd->harga_pesawat }}</td>
                                 <td>{{ $spd->taxi }}</td>
-                                <td>{{ $spd->nama }}</td>
-                                <td>{{ $spd->harga_penginapan }}</td>
+                                <td>{{ $spd->hotel }}</td>
+                                <td>{{ $spd->harga_hotel }}</td>
                                 <td>{{ $spd->no_telp }}</td>
                                 <td>{{ $spd->provinsi }}</td>
                                 <td>{{ $spd->total }}</td>

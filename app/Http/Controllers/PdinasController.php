@@ -198,7 +198,7 @@ class PdinasController extends Controller
                 ]);
             }
             }
-        
+            
         return back()->with('Sukses', 'Data Berhasil Di input');
 
     }
@@ -273,6 +273,7 @@ class PdinasController extends Controller
         $spd = spd::get();
         return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
+
     }
 
     public function download_filter(Request $request)
@@ -283,6 +284,7 @@ class PdinasController extends Controller
         ]);
         
         $spd = spd::whereMonth('tgl_spt', $request->bulan)->whereYear('tgl_spt', $request->tahun);
+
         return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }

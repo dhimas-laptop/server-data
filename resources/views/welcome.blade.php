@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('tdash/plugins/animate-css/animate.css') }}">
     <!-- Icofont -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/icofont/icofont.css') }}">
-
+    <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
 

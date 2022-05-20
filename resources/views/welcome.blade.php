@@ -54,6 +54,9 @@
                             <a class="dropdown-item " href="#">
                                 Bibit Gratis
                             </a>
+                            <a class="dropdown-item " href="#">
+                                Konsultasi Penanaman
+                            </a> 
                         </div>
                     </li>
                     <li class="nav-item">

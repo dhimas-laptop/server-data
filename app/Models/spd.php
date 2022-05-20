@@ -36,9 +36,9 @@ class spd extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function user2()
+    public function gambar()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(gambar::class);
     }
     
 }

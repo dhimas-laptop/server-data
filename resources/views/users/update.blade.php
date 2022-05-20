@@ -23,39 +23,45 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" value="{{ $user->name }}" name="name" >
+              <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" name="name" >
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">NIP</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" value="{{ $user->nip }}" name="nip" >
+              <input type="text" class="form-control @error('nip') is-invalid @enderror" value="{{ $user->nip }}" name="nip" >
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">No Telepon</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" value="{{ $user->no_telp }}" name="no_telp" >
+              <input type="text" class="form-control @error('no_telp') is-invalid @enderror" value="{{ $user->no_telp }}" name="no_telp" >
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" value="{{ $user->email }}" name="email" >
+              <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" name="email" >
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" placeholder="Isi Password Lama" name="password" >
+              <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Isi Password Baru" name="password" >
             </div>
-          </div>
+          </div>  
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Password Baru</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Bagian</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" placeholder="Isi Password Baru" name="password" >
+              <select type="text" class="form-control" name="role">
+                <option value="user">User</option>
+                <option value="ev">Evaluasi</option>
+                <option value="prog">Seksi Program</option>
+                <option value="rhl">RHL</option>
+                <option value="tu">Tata Usaha</option>
+              </select>
             </div>
-          </div>            
+          </div>          
           </div>
           <!-- /.card-body -->
           <div class="card-footer">

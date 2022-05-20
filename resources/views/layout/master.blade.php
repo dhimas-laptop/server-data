@@ -13,15 +13,15 @@
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- google icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"   rel="stylesheet">
+  <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
   @yield('css')
 </head>
-<body class="hold-transition white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  @if (session()->has('sukses'))
+    <div id="flash" data-flash="{{ $message }}"></div>
+@endif
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
-  </div>
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white">
@@ -30,27 +30,24 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><span class="material-icons">menu</span></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <span class="material-icons">fullscreen</span>
-        </a>
+        <form action="/logout" method="post">
+          @csrf
+          <button class="btn btn-white" type="submit">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+          </button>
+        </form>
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('layout/sidebar/admin')
+  @include('layout/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   @yield('content')
@@ -70,7 +67,17 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.js') }}"></script>
+<script>
+  var flash = $('#flash').data('flash');
+  if (flash) {
+  Swal.fire({
+    icon: 'success',
+    title: 'Data Berhasil di Input',
+    text: flash
+  })
+  }
 
+</script>
 <!-- optional script -->
 
 @yield('script')

@@ -6,6 +6,11 @@
 <!-- Select2 -->
 <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css"/>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+<link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 @endsection
 
 @section('content') <div class = "content-wrapper">
@@ -18,13 +23,21 @@
                 <h1>Data Perjalanan Dinas</h1>
             </div>
             <div class="col-sm-6">
-                <div class=" col-sm-2 float-right">
-                    <button type="button" class="btn btn-info btn-block btn-flat align-middle" data-toggle="modal" data-target="#modal-1">
-                        Tambah Data
-                      </button>
+                <div class="float-right mx-2">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1"><i class="nav-icon fa-solid fa-plus"></i></button>
                 </div>
                 <div class="float-right">
-                    <a class="btn btn-secondary" href="/perjalanan-dinas/detail"><i class="nav-icon fa-solid fa-download"></i></a>
+                    <a class="btn btn-secondary" value="
+                    @if ($active === 'tanggal')
+                    tanggal
+                    @endif
+                    @if ($active === 'bulan')
+                    bulan
+                    @endif
+                    @if ($active === 'tahun')
+                    tahun
+                    @endif
+                    " href="/perjalanan-dinas/download"><i class="nav-icon fa-solid fa-download"></i></a>
                 </div>
             </div>
         </div>
@@ -36,11 +49,80 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-12 ">
+                @if($active === 'tanggal')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tanggal">
+                            @csrf
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Tanggal</label>
+                        <input type="date" class="col-sm-3 form-control" name="filter"> 
+                        <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </form>    
+                    </div>
+                    </div>
+                </div>
+                @endif
+                @if($active === 'bulan')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/bulan">
+                            @csrf
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih Bulan</label>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih karyawan">
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>                            
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                       </select>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Pilih Tahun</label>
+                            <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2"></div>
+                            <button class="btn btn-info" type="submit"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
+                @if($active === 'tahun')
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tahun">
+                            @csrf
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Pilih Tahun</label>
+                            <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                            @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
                                  <tr>
@@ -60,7 +142,7 @@
                                 <tr>
                                 <td>{{ $spd->user->name }}</td>
                                 <td>{{ $spd->user->no_telp }}</td>
-                                <td>{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</td>
+                                <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
                                      @else
@@ -83,7 +165,7 @@
                                 <td>{{ $spd->provinsi }}</td>-->
                                 <td>{{ $spd->total }}</td> 
                                 <td>
-                                    <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
+                                    <p><a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a></p>
                                     <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                 </td>
                                 </tr>
@@ -109,55 +191,144 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Large Modal</h4>
+              <h4 class="modal-title">Tambah Data</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah">
+                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah" enctype="multipart/form-data">
                     @csrf
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor Surat</label>
-                        <input type="text" class="col-sm-10 form-control" name="nomor_spt">
+                        <label class="col-sm-2 col-form-label">Nomor SPT</label>
+                        <input type="text" class="col-sm-8 form-control  @error('nomor_spt') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spt" placeholder="Masukkan data ">
                       </div>  
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tanggal Surat</label>
-                        <input type="date" class="col-sm-10 form-control" name="tgl_spt">
-                    </div>  
+                        <label class="col-sm-2 col-form-label">Tanggal SPT</label>
+                        <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
+                          <div class="col-sm-10">
+                           <input type="text" class="form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D">
+                          </div>
+                       </div>
+                       <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
+                          <div class="col-sm-10">
+                            <input type="date" class="form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd">
+                          </div>
+                        </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tujuan</label>
-                        <input type="text" class="col-sm-10 form-control" name="tujuan">
+                        <input type="text" class="col-sm-8 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Berangkat</label>
-                        <input type="date" class="col-sm-10 form-control" name="berangkat">
+                        <input type="date" class="col-sm-3 form-control  @error('berangkat') is-invalid @enderror" name="berangkat">
                     </div>  
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pulang</label>
-                        <input type="date" class="col-sm-10 form-control" name="pulang">
+                        <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('uang_harian') is-invalid @enderror" name="uang_harian" placeholder="Masukkan Nominal Uang Harian">
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                          <label>TRANSPORTASI</label>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('pesawat') is-invalid @enderror" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan Nama Pesawat ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_penerbangan') is-invalid @enderror" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan Nomor Penerbangan ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_tiket') is-invalid @enderror" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan No. Tiket ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('kode_booking') is-invalid @enderror" style="text-transform: uppercase" name="kode_booking" placeholder="Masukkan Kode Booking">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('harga_pesawat') is-invalid @enderror" style="text-transform: uppercase" name="harga_pesawat" placeholder="Masukkan Harga Total Pesawat ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('taxi') is-invalid @enderror" name="taxi" placeholder="Masukkan Harga Taxi ">
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                        <label>HOTEL & PENGINAPAN</label>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('hotel') is-invalid @enderror" style="text-transform: uppercase" name="hotel" placeholder="Masukkan Nama Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('harga_hotel') is-invalid @enderror" name="harga_hotel" placeholder="Masukkan Total Harga Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('no_telp') is-invalid @enderror" name="no_telp" placeholder="Masukkan No. Telepon Hotel ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control  @error('provinsi') is-invalid @enderror" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan Provinsi">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control  @error('total') is-invalid @enderror" name="total" placeholder="Masukkan Total SPJ">
+                        </div>
+                      </div>
                     <div class="form-group row align-middle">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]" placeholder="Pilih karyawan">
+                        <select class="form-control select2bs4" multiple="multiple" style="width:70%;" name="user_id[]" placeholder="Pilih karyawan">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach
-                    </select>  
-                    </div> 
-                    <div class="form-group row align-middle">    
-                        <label class="col-sm-2 col-form-label">Bagian</label>
-                        <select class="form-control col-sm-10" name="bagian_id" placeholder="Pilih karyawan">
-                        @foreach ($bagian as $spd)
-                        <option value="{{ $spd->id }}">{{ $spd->nama_bagian }}</option>
-                        @endforeach
-                    </select>  
+                    </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="gambar[]" multiple>
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
                     </div>
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                    </form>                    
+                    </form>                 
           </div>
           <!-- /.modal-content -->
         </div>
@@ -165,88 +336,7 @@
         </div>
       </div>
       
-      <!--------------------------------- Modal Dialog unduh ------------------------------>
-      <div class="modal fade" id="modal-2">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Large Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/unduh">
-                    @csrf
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Pelaksana</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]" placeholder="Pilih karyawan">
-                        @foreach ($user as $spd)
-                        <option value="{{ $spd->id }}">{{$spd->name}}</option>
-                        @endforeach
-                    </select>  
-                    </div>  
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Nomor SPT</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="no_spt[]" placeholder="Pilih karyawan">
-                        @foreach ($nomor_spt as $spd)
-                        <option value="{{ $spd->nomor_spt }}">{{$spd->nomor_spt}}</option>
-                        @endforeach
-                    </select>  
-                    </div>
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Tanggal SPT</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="tgl_spt[]" placeholder="Pilih karyawan">
-                        @foreach ($tgl_spt as $spd)
-                        <option value="{{ $spd->tgl_spt }}">{{ date('d-m-Y', strtotime($spd->tgl_spt))}}</option>
-                        @endforeach
-                    </select>  
-                    </div> 
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Nomor SP2D</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="no_spd[]" placeholder="Pilih karyawan">
-                        @foreach ($nomor_spd as $spd)
-                        <option value="{{ $spd->nomor_spd }}">{{$spd->nomor_spd}}</option>
-                        @endforeach
-                    </select>  
-                    </div>
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Tanggal SP2D</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="tgl_spd[]" placeholder="Pilih karyawan">
-                        @foreach ($tgl_spd as $spd)
-                        <option value="{{ $spd->tgl_spd }}">{{date('d-m-Y', strtotime($spd->tgl_spd))}}</option>
-                        @endforeach
-                    </select>  
-                    </div>
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Tujuan</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="tujuan[]" placeholder="Pilih karyawan">
-                        @foreach ($tujuan as $spd)
-                        <option value="{{ $spd->tujuan }}">{{$spd->tujuan}}</option>
-                        @endforeach
-                    </select>  
-                    </div>
 
-                    <div class="form-group row align-middle fieldGroup">    
-                        <label class="col-sm-2 col-form-label">Bagian</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="bagian[]" placeholder="Pilih karyawan">
-                        @foreach ($user as $spd)
-                        <option value="{{ $spd->name }}">{{ $spd->name }}</option>
-                        @endforeach
-                    </select>  
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>                                           
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-        </div>
-      </div>      
-<!--------------------------------- /.Modal Dialog unduh ------------------------------>
 @endsection 
 
 @section('script')
@@ -260,30 +350,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example').DataTable( {
+      "scrollX": true,
+    } );
+    $('#example1').DataTable( {
+       
+    } );
+    $('#example2').DataTable( {
        
     } );
 } );
 </script>
 <script>
- $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-})
+  $(function () {
+     //Initialize Select2 Elements
+     $('.select2').select2()
+ 
+     //Initialize Select2 Elements
+     $('.select2bs4').select2({
+       theme: 'bootstrap4'
+     })
+ })
+ </script>
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
 </script>
-
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker14').datetimepicker({
+            allowMultidate: true,
+            multidateSeparator: ','
+        });
+    });
+</script>
 
 
 @endsection

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\spd;
-use App\Models\user;
-use App\Models\bagian;
+use App\Models\user; 
+use App\Models\gambar;    
+use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
+use Illuminate\Support\Facades\Auth;
 
 
 class PdinasController extends Controller
@@ -15,69 +17,197 @@ class PdinasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index1()
     {
-        $user = user::select('*')->from('users')->get();
-        $bagian = bagian::select('*')->from('bagian')->get();
-        $spd = spd::select('*')->from('spd')->get();  
-        $nomor_spt = spd::select('nomor_spt')->from('spd')->get();
-        $nomor_spd= spd::select('nomor_spd')->from('spd')->get();
-        $tgl_spt = spd::select('tgl_spt')->from('spd')->get();
-        $tgl_spd = spd::select('tgl_spd')->from('spd')->get();
-        $tujuan = spd::select('tujuan')->from('spd')->get();
-        $berangkat = spd::select('berangkat')->from('spd')->get();
-        $pulang = spd::select('pulang')->from('spd')->get();
+        $user = user::get();
+        $today = today(); 
+        $auth = auth::user()->id;
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::where('tgl_spt' , $today)->where('user_id', $auth)->get();
+        } 
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::where('tgl_spt' , $today)->get();
+        }
         
         
-        return view('pdinas', [
-            'spd' => $spd, 
-            'nomor_spt' => $nomor_spt,
-            'nomor_spd' => $nomor_spd,
-            'tgl_spt' => $tgl_spt,
-            'tgl_spd' => $tgl_spd,
-            'tujuan' => $tujuan,
-            'berangkat' => $berangkat,
-            'pulang' => $pulang,
-        ], compact('user', 'bagian'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal"], compact('user'));
         
     }
 
-    public function proses_tambah(Request $request)
+    public function index2()
     {
-        $nomor_spt = $request->nomor_spt;
-        $tgl_spt = $request->tgl_spt;
-        $tujuan = $request->tujuan;
-        $berangkat = $request->berangkat;
-        $pulang = $request->pulang;
-        $bagian = $request->bagian_id;
-        $user_id = $request->user_id;
-        $total = count($user_id);
+        $user = user::get();
+        $today = today(); 
+        $bulan = date('m', strtotime($today));
+        $tahun = date('Y', strtotime($today));
+        $auth = auth::user()->id;
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
+        }
+       
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
-        for($i=0; $i<$total; $i++){
-            $take = spd::orderBy('id','asc')->get('id');
-            foreach($take as $key){
-                $id = $key->id;
-            }
-            spd::insert([
-                'id' => $id+1,
-                'nomor_spt' => $nomor_spt,
-                'tgl_spt' => $tgl_spt,
-                'tujuan' => $tujuan,
-                'berangkat' => $berangkat,
-                'pulang' => $pulang,
-                'bagian_id' => $bagian,
-                'user_id' => $user_id[$i]
-            ]);
+    }
+
+    public function index3()
+    {
+        $user = user::get();
+        $today = today(); 
+        $tahun = date('Y', strtotime($today));
+        $auth = auth::user()->id;
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         }
         
-        return redirect()->action([PdinasController::class, 'index']);
+        return view('pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1], compact('user'));
+        
+    }
+
+    public function filter1(Request $request)
+    {
+        $request->validate([
+            'filter' => 'required'
+        ]);
+
+        $user = user::get();
+        $auth = auth::user()->id;
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::where('tgl_spt', $request->filter)
+            ->where('user_id', $auth)
+            ->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::where('tgl_spt', $request->filter)->get();
+        }
+        
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal",], compact('user'));
+        
+    }
+
+    public function filter2(Request $request)
+    {
+        $request->validate([
+            'filter1' => 'required',
+            'filter2' => 'required'
+        ]);
+
+        $user = user::get();
+        $bulan = $request->filter1;
+        $tahun = date('Y', strtotime($request->filter2));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $auth = auth::user()->id;
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
+                    ->whereYear('tgl_spt' , $tahun)
+                    ->where('user_id', $auth)
+                    ->get();
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
+                    ->whereYear('tgl_spt' , $tahun)
+                    ->get();
+        }
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        
+    }
+
+    public function filter3(Request $request)
+    {
+        $request->validate([
+            'filter2' => 'required'
+        ]);
+
+        $user = user::get();
+        $tahun = date('Y', strtotime($request->filter2));
+        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $auth = auth::user()->id;
+        
+        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)
+            ->where('user_id', $auth)
+            ->get();
+            
+        }
+        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+            $spd = spd::whereYear('tgl_spt' , $tahun)
+            ->get();
+        }
+       
+        
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        
+    }
+
+
+    public function proses_tambah(Request $request)
+    {
+        
+        $validate = $request->validate([
+            'nomor_spt' => 'required',
+            'tgl_spt' => 'required',
+            'nomor_spd' => 'required',
+            'tgl_spd' => 'required',
+            'tujuan' => 'required',
+            'berangkat' => 'required',
+            'pulang' => 'required',
+            'uang_harian' => 'required',
+            'pesawat' => 'required',
+            'no_penerbangan' => 'required',
+            'no_tiket' => 'required',
+            'kode_booking' => 'required',
+            'harga_pesawat' => 'required',
+            'taxi' => 'required',
+            'hotel' => 'required',
+            'harga_hotel' => 'required',
+            'no_telp' => 'required',
+            'provinsi' => 'required',
+            'total' => 'required',
+            'user_id' => 'required'
+        ]);    
+        $request->validate(['gambar.*' => 'file|max:1024']);
+       
+        $total = count($validate['user_id']);
+        for($i=0; $i<$total; $i++){
+            $validate['user_id'] = $request->user_id[$i];
+            spd::insert($validate);
+            $id_spd[] = spd::max('id');  
+        }  
+
+        foreach ($request->file('gambar') as $gambar) {
+            $nama_gambar = $gambar->getClientOriginalName();
+            $gambar->move(public_path('gambar'), $nama_gambar);                    
+            gambar::insert(['gambar' => $nama_gambar]);
+            $id_gambar = gambar::max('id');
+            foreach ($id_spd as $key) {
+            gambar_spd::create([
+                'gambar_id' => $id_gambar,
+                'spd_id' => $key
+                ]);
+            }
+            }
+            
+        return back()->with('Sukses', 'Data Berhasil Di input');
+
     }
 
     public function update($id)
     {
         $spd = spd::findOrFail($id);
         
-        return view('/pdinas/update',['spd' => $spd]);
+        return view('/pdinas/update',['spd' => $spd, 'active' => 'perjalanan-dinas']);
 
     }
     public function update_proses(Request $request)
@@ -106,23 +236,56 @@ class PdinasController extends Controller
                 'total' => $request->total,
             ]);
             
-        return redirect()->action([PdinasController::class, 'index']);
-
-    }
-    
-    public function detail()
-    {
-        $spd = spd::get();
-        
-        return view('/pdinas/detail',['spd' => $spd]);
+        return redirect()->back();
 
     }
 
     public function hapus($id)
     {
+        $gambar_id = [];
+        $gambar = gambar_spd::select('gambar_id')->where('spd_id', $id)->get();
+        foreach ($gambar as $key) {
+            $gambar_id[] = $key->gambar_id; 
+        }
+        gambar_spd::select('*')->where('spd_id', $id)->delete();
+        foreach ($gambar_id as $key) {
+            if (gambar_spd::select('*')->where('gambar_id', $key)=== null) {
+                foreach ($gambar_id as $key1) {
+                    gambar::select('*')->where('id', $key1)->delete();
+                }
+            }
+        }
+        
         spd::select('*')->where('id', $id)->delete();
                 
-        return redirect()->action([PdinasController::class, 'index']);
+        return redirect()->back();
     }
 
+    public function detail($id)
+    {
+        $spd = spd::findOrFail($id);
+        
+        return view('pdinas/detail',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+    }
+
+    public function download()
+    {
+        $spd = spd::get();
+        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+
+
+    }
+
+    public function download_filter(Request $request)
+    {
+        $request->validate([
+            'bulan' => 'required',
+            'tahun' => 'required'
+        ]);
+        
+        $spd = spd::whereMonth('tgl_spt', $request->bulan)->whereYear('tgl_spt', $request->tahun);
+
+        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+
+    }
 }

@@ -34,7 +34,6 @@ return new class extends Migration
             $table->text('no_telp')->nullable();
             $table->text('provinsi')->nullable();
             $table->integer('total')->nullable();
-            $table->foreignId('bagian_id')->constrained('bagian');
             $table->string('scan_spd')->nullable();
             $table->string('scan_spt')->nullable();
             $table->foreignId('user_id')->constrained('users')->nullable();

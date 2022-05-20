@@ -56,6 +56,14 @@ return [
             'throw' => false,
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('bpdashl-sjd.com'),
+            'username' => env('dhimascandra@bpdashl-sjd.com'),
+            'password' => env('dhimas17'),
+            'root' => '/public_html/images' // for example: /var/www/html/dev/images
+        ],
+
     ],
 
     /*

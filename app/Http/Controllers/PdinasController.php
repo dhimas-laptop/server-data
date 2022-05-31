@@ -8,6 +8,8 @@ use App\Models\gambar;
 use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class PdinasController extends Controller

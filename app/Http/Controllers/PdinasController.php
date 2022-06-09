@@ -43,6 +43,7 @@ class PdinasController extends Controller
         $today = today(); 
         $bulan = date('m', strtotime($today));
         $tahun = date('Y', strtotime($today));
+        $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
         if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
@@ -51,7 +52,6 @@ class PdinasController extends Controller
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
         }
        
-        $tahun1 = spd::select('tgl_spt')->distinct()->get();
         return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
         
     }
@@ -62,8 +62,8 @@ class PdinasController extends Controller
         $today = today(); 
         $tahun = date('Y', strtotime($today));
         $auth = auth::user()->id;
-        $tahun1 = spd::select('tgl_spt')->distinct()->get();
-        
+        $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+         
         if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
         }
@@ -108,7 +108,7 @@ class PdinasController extends Controller
         $user = user::get();
         $bulan = $request->filter1;
         $tahun = date('Y', strtotime($request->filter2));
-        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $tahun1 = spd::select('tgl_spt')->get();
         $auth = auth::user()->id;
         if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
@@ -134,7 +134,7 @@ class PdinasController extends Controller
 
         $user = user::get();
         $tahun = date('Y', strtotime($request->filter2));
-        $tahun1 = spd::select('tgl_spt')->distinct()->get();
+        $tahun1 = spd::select('tgl_spt')->get();
         $auth = auth::user()->id;
         
         if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
@@ -273,21 +273,21 @@ class PdinasController extends Controller
     public function download()
     {
         $spd = spd::get();
-        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
-
-
+        $tahun = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+        
+        return view('/pdinas/download',['spd' => $spd,'tahun' => $tahun, 'active' => 'perjalanan-dinas']);
     }
 
-    public function download_filter(Request $request)
+    public function downloadfilter(Request $request)
     {
         $request->validate([
-            'bulan' => 'required',
-            'tahun' => 'required'
+            'filter1' => 'required',
+            'filter2' => 'required'
         ]);
-        
-        $spd = spd::whereMonth('tgl_spt', $request->bulan)->whereYear('tgl_spt', $request->tahun);
+        $tahun = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+        $spd = spd::whereMonth('tgl_spt', $request->filter1)->whereYear('tgl_spt', $request->filter2);
 
-        return view('/pdinas/unduh',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+        return view('/pdinas/download',['spd' => $spd, 'tahun' => $tahun, 'active' => 'perjalanan-dinas']);
 
     }
 }

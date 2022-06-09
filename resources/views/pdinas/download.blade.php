@@ -28,9 +28,19 @@
             <div class="col-md-12 ">
                 <div class="card">
                   <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="/perjalanan-dinas/bulan">
-                    <div class="form-group row">
-                            @csrf
+                    <form class="form-horizontal" method="post" action="/perjalanan-dinas/downloadfilter">
+                        @csrf
+                        @error('bulan')
+                        <div class="alert-default-danger">
+                        {{ $message }}
+                        </div> 
+                        @enderror
+                        @error('tahun')
+                        <div class="alert-default-danger">
+                        {{ $message }}
+                        </div> 
+                        @enderror
+                        <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pilih Bulan</label>
                         <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih karyawan">
                             <option value="01">Januari</option>
@@ -50,21 +60,21 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pilih Tahun</label>
                         <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
-                        @foreach ($spd as $tahun)
-                        <option value="{{ date('Y', strtotime($tahun->tgl_spt)); }}">{{ date('Y', strtotime($tahun->tgl_spt)); }}</option>
+                        @foreach ($tahun as $tahun)
+                        <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
                         @endforeach
                         </select>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-2"></div>
-                        <button class="btn btn-info" type="submit"><i class="nav-icon fas fa-search"></i> Cari</button>
+                        <button class="btn btn-info" type="submit"><i class="nav-icon fas fa-download"></i> Download</button>
                     </div>
                 </form>
                   </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12 ">
                 <div class="card">
                     <!-- /.card-header -->
@@ -135,7 +145,7 @@
                 <!-- /.card -->
             </div>
             <!-- /.col -->
-        </div>
+        </div> --}}
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->

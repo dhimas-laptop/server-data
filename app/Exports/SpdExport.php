@@ -3,15 +3,32 @@
 namespace App\Exports;
 
 use App\Models\spd;
-use Maatwebsite\Excel\Concerns\FromCollection;
 
-class SpdExport implements FromCollection
+use Maatwebsite\Excel\Concerns\Exportable;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class SpdExport implements FromView
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    use Exportable;
+    public function forYear(int $year)
     {
-        return spd::all();
+        $this->year = $year;
+        return $this;
     }
+
+    public function forMonth(int $month)
+    {
+        $this->month = $month;
+        return $this;
+    }
+
+    public function view(): View
+    {
+        $query = spd::whereYear('tgl_spt', $this->year)->whereMonth('tgl_spt',$this->month)->get();
+        return view('report.spd', [
+            'spd' => $query
+        ]);
+    }
+
 }

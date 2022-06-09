@@ -8,7 +8,7 @@ use App\Models\gambar;
 use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
-use App\Exports\UsersExport;
+use App\Exports\SpdExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -284,10 +284,7 @@ class PdinasController extends Controller
             'filter1' => 'required',
             'filter2' => 'required'
         ]);
-        $tahun = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
-        $spd = spd::whereMonth('tgl_spt', $request->filter1)->whereYear('tgl_spt', $request->filter2);
-
-        return view('/pdinas/download',['spd' => $spd, 'tahun' => $tahun, 'active' => 'perjalanan-dinas']);
+        return (new SpdExport)->forMonth($request->filter1)->forYear($request->filter2)->download('Perjalanan-Dinas.xlsx');
 
     }
 }

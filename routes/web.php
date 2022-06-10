@@ -61,3 +61,5 @@ Route::get('/grafik', [Tata_airController::class, 'grafik'])->name('grafik');
 
 
 //------------------------------------Tata Air end---------------------------------------------//
+
+Route::get('/view', [PdinasController::class, 'view'])->name('view');

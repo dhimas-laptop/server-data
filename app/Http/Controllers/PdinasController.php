@@ -284,7 +284,15 @@ class PdinasController extends Controller
             'filter1' => 'required',
             'filter2' => 'required'
         ]);
-        return (new SpdExport)->forMonth($request->filter1)->forYear($request->filter2)->download('Perjalanan-Dinas.xlsx');
+        $auth = auth::user()->id;
+        $role = auth::user()->role;
+        return (new SpdExport)->forMonth($request->filter1)->forYear($request->filter2)->forRole($role)->forUser($auth)->download('Perjalanan-Dinas'.'-'.$request->filter1.'-'.$request->filter2.'.xlsx');
+        
+    }
 
+    public function view()
+    {
+        $spd = spd::get();
+        return view('/report/spd',['spd' => $spd, 'data' => '02']);
     }
 }

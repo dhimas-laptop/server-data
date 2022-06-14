@@ -1,6 +1,7 @@
 @extends('../layout/master')
 @section('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>   
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" /> 
 @endsection
 @section('content')
 <!-- Content Header (Page header) -->
@@ -161,11 +162,15 @@
               <div class="row mt-4">
                 @foreach ($spd->gambar as $key)
                 <div class="col-sm-4 my-2">
+                  @if (substr($key->gambar,-3) === 'pdf')
+                    <a href="/bukti/{{ $key->gambar }}">Bukti.pdf</a>  
+                  @else
                   <div class="position-relative">
-                    <button data-fancybox="gallery" data-src="{{ asset('gambar/'.$key->gambar) }}">
-                      <img src="{{ asset('gambar/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
+                    <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$key->gambar) }}">
+                      <img src="{{ asset('bukti/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
                     </button>
                   </div>
+                  @endif                  
                 </div>
                 @endforeach
             </div>
@@ -185,12 +190,17 @@
                             
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
       // Customization example
       Fancybox.bind('[data-fancybox="gallery"]', {
         infinite: false
       });
     </script>
-
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.harga').mask("#.##0,00", {reverse: true});
+   });
+</script>
 
 @endsection

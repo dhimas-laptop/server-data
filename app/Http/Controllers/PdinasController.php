@@ -9,7 +9,6 @@ use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
 use App\Exports\SpdExport;
-use Maatwebsite\Excel\Facades\Excel;
 
 
 class PdinasController extends Controller
@@ -179,7 +178,7 @@ class PdinasController extends Controller
             'total' => 'required',
             'user_id' => 'required'
         ]);    
-        $request->validate(['gambar.*' => 'file|max:1024']);
+        $request->validate(['gambar.*' => 'file']);
        
         $total = count($validate['user_id']);
         for($i=0; $i<$total; $i++){
@@ -189,14 +188,14 @@ class PdinasController extends Controller
         }  
 
         foreach ($request->file('gambar') as $gambar) {
-            $nama_gambar = $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambar'), $nama_gambar);                    
+            $nama_gambar = time() . '.' . $gambar->extension();
+            $gambar->move(public_path('bukti/'), $nama_gambar);                  
             gambar::insert(['gambar' => $nama_gambar]);
             $id_gambar = gambar::max('id');
-            foreach ($id_spd as $key) {
-            gambar_spd::create([
-                'gambar_id' => $id_gambar,
-                'spd_id' => $key
+            foreach ($id_spd as $key) { 
+                gambar_spd::create([
+                    'gambar_id' => $id_gambar,
+                    'spd_id' => $key
                 ]);
             }
             }
@@ -276,6 +275,13 @@ class PdinasController extends Controller
         $tahun = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         
         return view('/pdinas/download',['spd' => $spd,'tahun' => $tahun, 'active' => 'perjalanan-dinas']);
+    }
+
+    public function downloadget($id)
+    {
+        $gambar = gambar::findOrFail($id);
+        
+        return response()->file(asset('bukti/'.$gambar->gambar));  
     }
 
     public function downloadfilter(Request $request)

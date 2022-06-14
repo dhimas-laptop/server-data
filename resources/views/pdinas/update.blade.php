@@ -5,7 +5,7 @@
 
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
-
+@can('admin')
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -148,6 +148,31 @@
      </div>
    </div>
 </section>
+@endcan
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+            <!-- left column -->
+      <div class="col-md-12 my-5">
+                <!-- general form elements -->
+        <div class="card card-primary mx-5">
+          <div class="card-header">
+            <h5 class="text-center">UPLOAD BUKTI SPJ</h5>
+          </div>
+
+        {{-- isi data --}}
+        <div class="card-body">
+          <label>hoa hoe</label>
+        </div>
+        {{-- selesai --}}
+        </div>
+      </div>
+    </div>
+  </div>    
+</section>
+
+
 </div>
 @endsection 
                             

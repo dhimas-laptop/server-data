@@ -80,8 +80,8 @@
         @endif
     </td>
     <td style="border: 1px solid black;">{{ $spd->tujuan }}</td>
-    <td style="border: 1px solid black;">{{ $spd->berangkat }}</td>
-    <td style="border: 1px solid black;">{{ $spd->pulang }}</td>
+    <td style="border: 1px solid black;">{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
+    <td style="border: 1px solid black;">{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
     <td style="border: 1px solid black;">{{ $spd->uang_harian }}</td>
     <td style="border: 1px solid black;">{{ $spd->pesawat }}</td>
     <td style="border: 1px solid black;">{{ $spd->no_penerbangan }}</td>

@@ -9,7 +9,7 @@
     <meta name="keywords" content="marketing,digital marketing,creative, agency, startup,promodise,onepage, clean, modern,seo,business, company">
     <meta name="author" content="Themefisher.com">
 
-   <title>BPDASHL Sei Jang Duriangkang </title>
+   <title>BPDAS Sei Jang Duriangkang </title>
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
     <!-- Icofont Css -->
@@ -78,8 +78,8 @@
                     <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                         <div class="banner-content content-padding">
                             <h5 class="subtitle">Kementrian Lingkungan Hidup dan Kehutanan</h5>
-                            <h1 class="banner-title">BPDASHL Sei Jang Duriangkang</h1>
-                            <p>Balai Pengelolaan Daerah Aliran Sungai dan Hutan Lindung Kepulauan Riau</p>
+                            <h1 class="banner-title">BPDAS Sei Jang Duriangkang</h1>
+                            <p>Balai Pengelolaan Daerah Aliran Sungai Sei Jang Duriangkang Kepulauan Riau</p>
 
                             <a href="/dashboard" class="btn btn-white btn-circled">Mulai Jelajah</a>
                         </div>
@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-md-12">
                     <div class="section-heading">
-                        <p class="lead">Balai Pengelolaan DAS dan Hutan Lindung Sei Jang Duriangkang<br><br>ASN BerAKHLAK<br>
+                        <p class="lead">Balai Pengelolaan DAS Sei Jang Duriangkang<br><br>ASN BerAKHLAK<br>
                         Bangga Melayani Bangsa</p>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
             <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="counter-stat">
                     <span class="counter">2967</span>
-                    <h5>DAS di wilayah Kerja BPDASHL Sei jang Duriangkang</h5>
+                    <h5>DAS di wilayah Kerja BPDAS Sei jang Duriangkang</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-md-6">
@@ -292,14 +292,14 @@
         <div class="row">
             <div class="col-lg-5 col-sm-8 col-md-8">
                 <div class="footer-widget footer-link">
-                    <h4>Kami segenap keluarga BPDASHL Sei Jang Duriangkang</h4>
+                    <h4>Kami segenap keluarga BPDAS Sei Jang Duriangkang</h4>
                     <p>Mengucapkan terimakasih telah berkunjung di situs Kami, kritik dan saran yang membangun dapat langsung disampaikan dengan menghubungi kontak yang tertera.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 col-md-6">
                 <div class="footer-widget footer-text">
                     <h4>Kontak dan Lokasi</h4>
-                    <p class="mail"><span>Mail:</span> bpdashl-sjd@gmail.com</p>
+                    <p class="mail"><span>Mail:</span> bpdas-sjd@gmail.com</p>
                     <p><span>Phone :</span>+628117706030</p>
                     <p><span>Alamat:</span> Jl. Dieng Kamboja Km. 14 Kelurahan Air Raja, Tanjungpinang – Kepulauan Riau</p>
                 </div>

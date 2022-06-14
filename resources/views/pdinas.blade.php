@@ -186,13 +186,6 @@
         </div>
         <!-- /.row -->
     </div>
-    <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fas fa-phone"></i></span>
-        </div>
-        <input type="text" class="form-control"
-               data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-      </div>
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
@@ -335,15 +328,10 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-
-<!-- InputMask -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js') }}"></script>
-
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -374,10 +362,4 @@ $(document).ready(function() {
       bsCustomFileInput.init();
     });
 </script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.harga').mask("#.##0,00", {reverse: true});
-     });
-</script>
-
 @endsection

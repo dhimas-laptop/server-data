@@ -13,7 +13,16 @@
           <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
-
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a href="https:/mail.bpdas-sjd.id/" class="d-block"><i class="fa-solid fa-mail-bulk"></i> BPDAS Mail</a>
+        </div>
+      </div>
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a href="https:/cloud.bpdas-sjd.id/" class="d-block"><i class="fa-solid fa-cloud"></i> BPDAS Drive</a>
+        </div>
+      </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -106,7 +115,6 @@
             </ul>
           </li>
         @endif
-
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

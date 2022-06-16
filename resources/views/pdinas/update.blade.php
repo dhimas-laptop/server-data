@@ -160,11 +160,24 @@
           <div class="card-header">
             <h5 class="text-center">UPLOAD BUKTI SPJ</h5>
           </div>
-
+          
         {{-- isi data --}}
-        <div class="card-body">
-          <label>hoa hoe</label>
-        </div>
+        <form class="form-horizontal" action="/perjalanan-dinas/update-bukti" method="POST">
+          @csrf
+          <div class="card-body">
+            <div class="col-sm-4 my-2">
+              @if (substr($spd->gambar->gambar,-3) === 'pdf')
+                <a href="/bukti/{{ $spd->gambar->gambar }}">Bukti.pdf</a>  
+              @else
+              <div class="position-relative">
+                <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$spd->gambar->gambar) }}">
+                  <img src="{{ asset('bukti/'.$spd->gambar->gambar) }}" alt="Photo 1" class="img-fluid">
+                </button>
+              </div>
+              @endif                  
+            </div>
+          </div>
+        </form>
         {{-- selesai --}}
         </div>
       </div>

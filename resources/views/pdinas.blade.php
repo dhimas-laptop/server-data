@@ -130,7 +130,6 @@
                             <thead>
                                  <tr>
                                     <th class="align-middle text-center">Nama Pelaksana</th>
-                                    <th class="align-middle text-center">No.Telp</th>
                                     <th class="align-middle text-center">NO SPT dan Tanggal</th>
                                     <th class="align-middle text-center">NO SP2D dan Tanggal</th>
                                     <th class="align-middle text-center">Tujuan</th>
@@ -144,7 +143,6 @@
                                 @foreach ($spd as $spd)
                                 <tr>
                                 <td>{{ $spd->user->name }}</td>
-                                <td>{{ $spd->user->no_telp }}</td>
                                 <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
@@ -168,7 +166,7 @@
                                 <td>{{ $spd->provinsi }}</td>-->
                                 <td>{{ $spd->total }}</td> 
                                 <td>
-                                    <p><a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a></p>
+                                    <p><a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-arrow-alt-circle-up"></i></a></p>
                                     @can('admin')
                                     <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                     @endcan
@@ -336,7 +334,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example').DataTable( {
-      "scrollX": true,
+      "scrollX": false,
     } );
     $('#example1').DataTable( {
        

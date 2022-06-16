@@ -115,7 +115,6 @@
             </ul>
           </li>
         @endif
-
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

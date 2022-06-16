@@ -232,7 +232,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
-                        <input type="text" class="col-sm-10 form-control harga @error('uang_harian') is-invalid @enderror" name="uang_harian">
+                        <input type="text" class="col-sm-10 form-control harga @error('uang_harian') is-invalid @enderror" name="uang_harian" placeholder="Masukkan Nominal">
                     </div>
                     <div class="form-group text-center">
                         <label>TRANSPORTASI</label>
@@ -286,7 +286,7 @@
                       </div>
                     <div class="form-group row">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]" placeholder="Pilih karyawan">
+                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach

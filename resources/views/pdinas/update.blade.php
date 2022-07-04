@@ -1,5 +1,7 @@
 @extends('../layout/master')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>   
+@endsection
 @section('content')
 <!-- Content Header (Page header) -->
 
@@ -165,17 +167,18 @@
         <form class="form-horizontal" action="/perjalanan-dinas/update-bukti" method="POST">
           @csrf
           <div class="card-body">
-            <div class="col-sm-4 my-2">
-              @if (substr($spd->gambar->gambar,-3) === 'pdf')
-                <a href="/bukti/{{ $spd->gambar->gambar }}">Bukti.pdf</a>  
-              @else
+                <a href="/bukti/{{ $spd->scan }}">Bukti.pdf</a>              
+          <div class="row">
+           @foreach ($spd->gambar as $key) 
+            <div class="col-sm-4 my-2">   
               <div class="position-relative">
-                <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$spd->gambar->gambar) }}">
-                  <img src="{{ asset('bukti/'.$spd->gambar->gambar) }}" alt="Photo 1" class="img-fluid">
+                <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$key->gambar) }}">
+                  <img src="{{ asset('bukti/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
                 </button>
-              </div>
-              @endif                  
-            </div>
+              </div>  
+            </div>  
+              @endforeach   
+            </div>                
           </div>
         </form>
         {{-- selesai --}}
@@ -190,7 +193,13 @@
 @endsection 
                             
 @section('script')
-
-
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  // Customization example
+  Fancybox.bind('[data-fancybox="gallery"]', {
+    infinite: false
+  });
+</script>
 
 @endsection

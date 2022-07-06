@@ -10,6 +10,8 @@
     <meta name="author" content="Themefisher.com">
 
    <title>BPDAS Sei Jang Duriangkang </title>
+   <!-- Main Stylesheet -->
+   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
     <!-- Icofont Css -->
@@ -19,8 +21,7 @@
     <!-- Icofont -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/icofont/icofont.css') }}">
     <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
+    
     <!--Favicon-->
      <link rel="icon" href="{{ asset('tdash/images/favicon.png') }}" type="image/x-icon">
 

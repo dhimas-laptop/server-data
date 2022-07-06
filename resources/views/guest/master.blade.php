@@ -176,10 +176,6 @@
      <!-- Counterup -->
     <script src="{{ asset('tdash/plugins/counterup/jquery.waypoints.js') }}"></script>
     <script src="{{ asset('tdash/plugins/counterup/jquery.counterup.min.js') }}"></script>
-
-    <!-- Google Map -->
-    <script src="{{ asset('tdash/plugins/google-map/gmap3.min.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>   
     
     <script src="{{ asset('tdash/js/custom.js') }}"></script>
     

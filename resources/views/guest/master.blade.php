@@ -185,7 +185,7 @@
     <script src="{{ asset('tdash/js/custom.js') }}"></script>
     
     <!-- main script -->
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('tdash/js/script.js') }}"></script>
   </body>
   </html>
    

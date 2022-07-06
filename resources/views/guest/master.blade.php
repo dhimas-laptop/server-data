@@ -67,7 +67,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                 Pelayanan
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarWelcome">

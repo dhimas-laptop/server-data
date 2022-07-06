@@ -21,10 +21,8 @@
     <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
-    <!-- fontawesome css -->
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome/css/all.css') }}">
     <!--Favicon-->
-     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+     <link rel="icon" href="{{ asset('tdash/images/favicon.png') }}" type="image/x-icon">
 
 </head>
 

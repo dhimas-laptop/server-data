@@ -177,8 +177,6 @@
     <script src="{{ asset('tdash/plugins/counterup/jquery.waypoints.js') }}"></script>
     <script src="{{ asset('tdash/plugins/counterup/jquery.counterup.min.js') }}"></script>
     
-    <script src="{{ asset('tdash/js/custom.js') }}"></script>
-    
     <!-- main script -->
     <script src="{{ asset('tdash/js/script.js') }}"></script>
   </body>

@@ -180,8 +180,7 @@
     <!-- Google Map -->
     <script src="{{ asset('tdash/plugins/google-map/gmap3.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>   
-    <!-- Contact Form -->
-    <script src="{{ asset('tdash/plugins/jquery/contact.js') }}"></script>
+    
     <script src="{{ asset('tdash/js/custom.js') }}"></script>
     
     <!-- main script -->

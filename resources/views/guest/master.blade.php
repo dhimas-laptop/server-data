@@ -10,10 +10,11 @@
     <meta name="author" content="Themefisher.com">
 
    <title>BPDAS Sei Jang Duriangkang </title>
-   <!-- Main Stylesheet -->
-   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
+   
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
+    <!-- Main Stylesheet -->
+   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
     <!-- Icofont Css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/fontawesome/css/all.css') }}">
     <!-- animate.css -->

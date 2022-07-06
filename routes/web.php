@@ -21,6 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profil', function() {return view('guest/tentang');});
+Route::get('/visi-misi', function() {return view('guest/visimisi');});
+Route::get('/tugas-pokok-dan-fungsi', function() {return view('guest/tugaspokok');});
+Route::get('/struktur-organisasi', function() {return view('guest/struktur');});
+
+
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::get('/register', [LoginController::class, 'register']);

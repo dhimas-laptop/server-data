@@ -167,7 +167,7 @@
         <form class="form-horizontal" action="/perjalanan-dinas/update-bukti" method="POST">
           @csrf
           <div class="card-body">
-                <a href="/bukti/{{ $spd->scan }}">Bukti.pdf</a>              
+                <a href="/perjalanan-dinas/download/bukti/{{ $spd->scan }}">Bukti.pdf</a>              
           <div class="row">
            @foreach ($spd->gambar as $key) 
             <div class="col-sm-4 my-2">   

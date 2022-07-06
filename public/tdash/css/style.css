@@ -369,12 +369,12 @@ h5.subtitle {
 .header-white {
   position: fixed;
   top: 0px;
-  background: #111;
+  background: #51eca5;
   z-index: 9999;
   width: 100%;
   left: 0;
   transition: all .5s ease 0s;
-  color: #000 !important;
+  color: #51eca5 !important;
 }
 
 .navbar-expand-lg.trans-navigation .navbar-nav .nav-link,
@@ -413,7 +413,7 @@ h5.subtitle {
 }
 
 .trans-navigation.header-white {
-  background: #111;
+  background: rgb(47, 249, 54);
 }
 
 .trans-navigation.header-white .navbar-nav .nav-link {

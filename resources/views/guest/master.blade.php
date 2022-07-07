@@ -7,16 +7,15 @@
    
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
-    <!-- Main Stylesheet -->
-   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
+    
     <!-- Icofont Css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/fontawesome/css/all.css') }}">
-    <!-- animate.css -->
-    <link rel="stylesheet" href="{{ asset('tdash/plugins/animate-css/animate.css') }}">
+    
     <!-- Icofont -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/icofont/icofont.css') }}">
     <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
-    
+    <!-- Main Stylesheet -->
+   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
     <!--Favicon-->
      <link rel="icon" href="{{ asset('tdash/images/favicon.png') }}" type="image/x-icon">
 
@@ -148,7 +147,7 @@
     <!-- Main jQuery -->
     <script src="{{ asset('tdash/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4.3.1 -->
-    <script src="{{ asset('tdash/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('tdash/plugins/bootstrap/bootstrap.min.js') }}"></script>
    
      <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>

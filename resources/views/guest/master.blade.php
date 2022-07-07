@@ -50,58 +50,58 @@
                             <a class="nav-link smoth-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Tentang</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <a class="dropdown-item " href="profil">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
+                                <li><a class="dropdown-item" href="profil"></li>
                                     Profil Organisasi
                                 </a>
-                                <a class="dropdown-item " href="visi-misi">
+                                <li><a class="dropdown-item" href="visi-misi"></li>
                                    Visi dan Misi Organisasi
                                 </a> 
-                                <a class="dropdown-item " href="tugas-pokok-dan-fungsi">
+                                <li><a class="dropdown-item" href="tugas-pokok-dan-fungsi"></li>
                                     Tugas Pokok Dan Fungsi
                                  </a> 
-                                 <a class="dropdown-item " href="struktur-organisasi">
+                                 <li><a class="dropdown-item" href="struktur-organisasi"></li>
                                     Struktur Organisasi
                                  </a> 
-                            </div>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pelayanan
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <a class="dropdown-item " href="#">
+                            <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Bibit Gratis
                                 </a>
-                                <a class="dropdown-item " href="#">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Konsultasi Penanaman
                                 </a> 
-                            </div>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Kegiatan
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <a class="dropdown-item " href="#">
+                            <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Kebun Bibit Rakyat
                                 </a> 
-                                <a class="dropdown-item " href="#">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Kebun Bibit Daerah
                                 </a> 
-                                <a class="dropdown-item " href="#">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Rehabilitasi Hutan dan Lahan
                                 </a>
-                                <a class="dropdown-item " href="#">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Perencanaan dan Evaluasi Pengelolaan<br> 
                                     Daerah Aliran Sungai 
                                 </a>
-                                <a class="dropdown-item " href="#">
+                                <li><a class="dropdown-item" href="#"></li>
                                     Hari Menanam Pohon Indonesia (HMPI) 
                                 </a>
                                 
-                            </div>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link smoth-scroll rounded-pill" href="login">Login</a>
@@ -170,14 +170,11 @@
     <!-- Main jQuery -->
     <script src="{{ asset('tdash/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4.3.1 -->
-    <script src="{{ asset('tdash/plugins/bootstrap/js/popper.min.js') }}"></script>
     <script src="{{ asset('tdash/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-   <!-- Woow animtaion -->
-    <script src="{{ asset('tdash/plugins/counterup/wow.min.js') }}"></script>
-    <script src="{{ asset('tdash/plugins/counterup/jquery.easing.1.3.js') }}"></script>
-     <!-- Counterup -->
-    <script src="{{ asset('tdash/plugins/counterup/jquery.waypoints.js') }}"></script>
-    <script src="{{ asset('tdash/plugins/counterup/jquery.counterup.min.js') }}"></script>
+   
+     <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+    <script src="plugins/google-map/map.js"></script>
     
     <!-- main script -->
     <script src="{{ asset('tdash/js/script.js') }}"></script>

@@ -50,6 +50,18 @@
                             <a class="nav-link smoth-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#!" id="navbarWelcome" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              Home <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
+                              <li><a class="dropdown-item" href="profil">Profil Organisasi</a></li>
+                              <li><a class="dropdown-item" href="visi-misi">Visi dan Misi Organisasi</a></li>
+                              <li><a class="dropdown-item" href="tugas-pokok-dan-fungsi">Tugas Pokok Dan Fungsi</a></li>
+                              <li><a class="dropdown-item" href="struktur-organisasi">Struktur Organisasi</a></li>
+                            </ul>
+                          </li>
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
                                 <li><a class="dropdown-item" href="profil">

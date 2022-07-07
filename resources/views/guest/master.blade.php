@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-
+    <meta charset="utf-8">
    <title>BPDAS Sei Jang Duriangkang </title>
    
     <!-- bootstrap.min css -->

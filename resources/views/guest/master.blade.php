@@ -46,7 +46,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
-                              Home <i class="fas fa-chevron-down"></i>
+                              Profil <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
                               <li><a class="dropdown-item" href="profil">Profil Organisasi</a></li>
@@ -55,60 +55,32 @@
                               <li><a class="dropdown-item" href="struktur-organisasi">Struktur Organisasi</a></li>
                             </ul>
                           </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <li><a class="dropdown-item" href="profil">
-                                    Profil Organisasi
-                                </a></li>
-                                <li><a class="dropdown-item" href="visi-misi">
-                                   Visi dan Misi Organisasi
-                                </a></li>
-                                <li><a class="dropdown-item" href="tugas-pokok-dan-fungsi">
-                                    Tugas Pokok Dan Fungsi
-                                 </a></li>
-                                 <li><a class="dropdown-item" href="struktur-organisasi">
-                                    Struktur Organisasi
-                                 </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pelayanan
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              Pelayanan <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <li><a class="dropdown-item" href="#">
-                                    Bibit Gratis
-                                </a></li>
-                                <li><a class="dropdown-item" href="#">
-                                    Konsultasi Penanaman
-                                </a></li>
+                              <li><a class="dropdown-item" href="#">Bibit Gratis</a></li>
+                              <li><a class="dropdown-item" href="#">Konsultasi Penanaman</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Kegiatan
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              Kegiatan <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                <li><a class="dropdown-item" href="#">
-                                    Kebun Bibit Rakyat
-                                </a></li>
-                                <li><a class="dropdown-item" href="#">
-                                    Kebun Bibit Daerah
-                                </a></li> 
-                                <li><a class="dropdown-item" href="#">
-                                    Rehabilitasi Hutan dan Lahan
-                                </a></li>
-                                <li><a class="dropdown-item" href="#">
-                                    Perencanaan dan Evaluasi Pengelolaan<br> 
-                                    Daerah Aliran Sungai 
-                                </a></li>
-                                <li><a class="dropdown-item" href="#">
-                                    Hari Menanam Pohon Indonesia (HMPI) 
-                                </a></li>
-                                
+                              <li><a class="dropdown-item" href="#">Kebun Bibit Rakyat</a></li>
+                              <li><a class="dropdown-item" href="#">Kebun Bibit Daerah</a></li>
+                              <li><a class="dropdown-item" href="#">Rehabilitasi Hutan dan Lahan</a></li>
+                              <li><a class="dropdown-item" href="#">Perencanaan dan Evaluasi Pengelolaan<br> 
+                                    Daerah Aliran Sungai </a></li>
+                              <li><a class="dropdown-item" href="#">Hari Menanam Pohon Indonesia (HMPI)</a></li>
+
                             </ul>
-                        </li>
+                          </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link smoth-scroll rounded-pill" href="login">Login</a>
                         </li>

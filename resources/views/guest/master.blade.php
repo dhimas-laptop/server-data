@@ -11,7 +11,7 @@
   <meta name="author" content="Themefisher">
   <meta name="generator" content="Themefisher Promodise Template v1.0">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/bootstrap.min.css') }}">
     
     <!-- Icofont Css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/fontawesome/css/all.css') }}">

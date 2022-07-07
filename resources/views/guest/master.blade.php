@@ -4,9 +4,14 @@
 <head>
     <meta charset="utf-8">
    <title>BPDAS Sei Jang Duriangkang </title>
-   
+   <!-- ** Mobile Specific Metas ** -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Business Bootstrap Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Promodise Template v1.0">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/css/bootstrap.min.css') }}">
     
     <!-- Icofont Css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/fontawesome/css/all.css') }}">

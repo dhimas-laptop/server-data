@@ -2,12 +2,6 @@
 <html lang="zxx">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="seo & digital marketing">
-    <meta name="keywords" content="marketing,digital marketing,creative, agency, startup,promodise,onepage, clean, modern,seo,business, company">
-    <meta name="author" content="Themefisher.com">
 
    <title>BPDAS Sei Jang Duriangkang </title>
    
@@ -50,7 +44,7 @@
                             <a class="nav-link smoth-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#!" id="navbarWelcome" role="button" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
                               Home <i class="fas fa-chevron-down"></i>
                             </a>

@@ -159,46 +159,45 @@ class PdinasController extends Controller
         $validate = $request->validate([
             'nomor_spt' => 'required',
             'tgl_spt' => 'required',
-            'nomor_spd' => 'required',
-            'tgl_spd' => 'required',
+            // 'nomor_spd' => 'required',
+            // 'tgl_spd' => 'required',
             'tujuan' => 'required',
             'berangkat' => 'required',
             'pulang' => 'required',
-            'uang_harian' => 'required',
-            'pesawat' => 'required',
-            'no_penerbangan' => 'required',
-            'no_tiket' => 'required',
-            'kode_booking' => 'required',
-            'harga_pesawat' => 'required',
-            'taxi' => 'required',
-            'hotel' => 'required',
-            'harga_hotel' => 'required',
-            'no_telp' => 'required',
-            'provinsi' => 'required',
-            'total' => 'required',
+            // 'uang_harian' => 'required',
+            // 'pesawat' => 'required',
+            // 'no_penerbangan' => 'required',
+            // 'no_tiket' => 'required',
+            // 'kode_booking' => 'required',
+            // 'harga_pesawat' => 'required',
+            // 'taxi' => 'required',
+            // 'hotel' => 'required',
+            // 'harga_hotel' => 'required',
+            // 'no_telp' => 'required',
+            // 'provinsi' => 'required',
+            // 'total' => 'required',
             'user_id' => 'required'
         ]);    
-        $request->validate(['gambar.*' => 'file']);
+        // $request->validate(['gambar.*' => 'file']);
        
         $total = count($validate['user_id']);
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];
-            spd::insert($validate);
-            $id_spd[] = spd::max('id');  
+            spd::insert($validate);  
         }  
 
-        foreach ($request->file('gambar') as $gambar) {
-            $nama_gambar = time() . '.' . $gambar->extension();
-            $gambar->move(public_path('bukti/'), $nama_gambar);                  
-            gambar::insert(['gambar' => $nama_gambar]);
-            $id_gambar = gambar::max('id');
-            foreach ($id_spd as $key) { 
-                gambar_spd::create([
-                    'gambar_id' => $id_gambar,
-                    'spd_id' => $key
-                ]);
-            }
-            }
+        // foreach ($request->file('gambar') as $gambar) {
+        //     $nama_gambar = time() . '.' . $gambar->extension();
+        //     $gambar->move(public_path('bukti/'), $nama_gambar);                  
+        //     gambar::insert(['gambar' => $nama_gambar]);
+        //     $id_gambar = gambar::max('id');
+        //     foreach ($id_spd as $key) { 
+        //         gambar_spd::create([
+        //             'gambar_id' => $id_gambar,
+        //             'spd_id' => $key
+        //         ]);
+        //     }
+        //     }
             
         return back()->with('Sukses', 'Data Berhasil Di input');
 
@@ -237,6 +236,23 @@ class PdinasController extends Controller
                 'total' => $request->total,
             ]);
             
+        return redirect()->back();
+
+    }
+
+    public function tambah_gambar(Request $request)
+    {
+        foreach ($request->file('gambar') as $gambar) {
+                $nama_gambar = time() . '.' . $gambar->extension();
+                $gambar->move(public_path('bukti/'), $nama_gambar);                  
+                gambar::insert(['gambar' => $nama_gambar]);
+                $id_gambar = gambar::max('id');
+                gambar_spd::create([
+                        'gambar_id' => $id_gambar,
+                        'spd_id' => $request->id
+                    ]);
+                }
+                
         return redirect()->back();
 
     }

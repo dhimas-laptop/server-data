@@ -9,7 +9,7 @@
 <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css"/>
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" />
+
 
 
 @endsection
@@ -52,7 +52,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 ">
+            <div class="col-lg-12">
                 @if($active === 'tanggal')
                 <div class="card">
                     <div class="card-body">
@@ -190,7 +190,8 @@
 </div>
 
 <!-- /.modal -->
-      <div class="modal fade" id="modal-1">
+
+<div class="modal fade" id="modal-1">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -210,14 +211,14 @@
                         <label class="col-sm-2 col-form-label">Tanggal SPT</label>
                         <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                         <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D">
                     </div>
                     <div class="form-group row">
                           <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
                           <input type="date" class="col-sm-10 form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd">
-                    </div>  
+                    </div>   --}}
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tujuan</label>
                         <input type="text" class="col-sm-10 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
@@ -230,11 +231,11 @@
                         <label class="col-sm-2 col-form-label">Pulang</label>
                         <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
                         <input type="text" class="col-sm-10 form-control harga @error('uang_harian') is-invalid @enderror" name="uang_harian" placeholder="Masukkan Nominal">
-                    </div>
-                    <div class="form-group text-center">
+                    </div> --}}
+                    {{-- <div class="form-group text-center">
                         <label>TRANSPORTASI</label>
                     </div>
                     <div class="form-group row">
@@ -283,7 +284,7 @@
                       <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
                         <input type="number" class="col-sm-10 form-control  @error('total') is-invalid @enderror" name="total" placeholder="Masukkan Total SPJ">
-                      </div>
+                      </div> --}}
                     <div class="form-group row">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
@@ -292,13 +293,13 @@
                         @endforeach
                     </select>
                     </div>
-                    <div class="input-group">
+                    {{-- <div class="input-group">
                         <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="gambar[]" multiple>
                             <label class="custom-file-label">Choose file</label>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -309,7 +310,7 @@
         </div>
         <!-- /.modal-dialog -->
         </div>
-      </div>
+</div>
       
 
 @endsection 

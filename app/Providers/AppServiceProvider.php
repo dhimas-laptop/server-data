@@ -50,5 +50,13 @@ class AppServiceProvider extends ServiceProvider
        Gate::define('rhl', function (User $user) {
         return $user->role === 'rhl';
        });
+
+       Gate::define('arsip', function (User $user) {
+        return $user->role_opt === 'arsip';
+       });
+
+       Gate::define('opr_tu', function (User $user) {
+        return $user->role_opt === 'opr_tu';
+       });
     }
 }

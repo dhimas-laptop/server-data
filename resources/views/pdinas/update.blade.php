@@ -1,6 +1,7 @@
 @extends('../layout/master')
 @section('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/> 
+
 @endsection
 @section('content')
 <!-- Content Header (Page header) -->
@@ -164,28 +165,60 @@
           </div>
           
         {{-- isi data --}}
-        <form class="form-horizontal" action="/perjalanan-dinas/update-bukti" method="POST">
-          @csrf
+          
           <div class="card-body">
-                <a href="/perjalanan-dinas/download/bukti/{{ $spd->scan }}">Bukti.pdf</a>              
+            <div class="col-5"></div>
+            <div>
+            <a data-fancybox data-type="pdf" href="/perjalanan-dinas/download/bukti/{{ $spd->scan }}">Bukti PDF</a>            
+          </div>
           <div class="row">
+          
            @foreach ($spd->gambar as $key) 
+           
             <div class="col-sm-4 my-2">   
               <div class="position-relative">
                 <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$key->gambar) }}">
                   <img src="{{ asset('bukti/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
                 </button>
               </div>  
-            </div>  
+            </div>              
               @endforeach   
-            </div>                
+              
+            </div>
+            
+              
+                         
           </div>
-        </form>
+        
         {{-- selesai --}}
         </div>
       </div>
     </div>
   </div>    
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <form class="form-horizontal" method="POST" action="/perjalanan-dinas/update/{{$spd->id}}" enctype="multipart/form-data">
+        @csrf
+        <input type="text" class="form-control" value="{{ $spd->id }}" name="id" hidden>
+    <div class="card mx-5">
+      <div class="input-group">
+        <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="gambar[]" multiple>
+            <label class="custom-file-label">Choose file</label>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-5"></div>
+        <div class="col-5">
+          <button type="submit" class="btn btn-info center-block">Simpan</button>
+        </div>
+      </div>
+  </div>
+</form>
 </section>
 
 
@@ -195,10 +228,30 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>>
 <script>
   // Customization example
   Fancybox.bind('[data-fancybox="gallery"]', {
-    infinite: false
+    infinite: false,
+    buttons: [
+            "zoom",
+            "slideShow",
+            "thumbs",
+            "close",
+            "delete" //this is the name of my custom button
+        ],
+        btnTpl: {
+            //and this is where I defined it
+            delete:
+                '<a download data-fancybox-delete class="fancybox-button fancybox-button--delete" title="Delete" href="#">' +
+                '<i class="fas fa-trash-alt"></i>' +
+                "</a>"
+        }
+  });
+</script>
+ <script>
+  $(function () {
+    bsCustomFileInput.init();
   });
 </script>
 

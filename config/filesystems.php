@@ -58,10 +58,12 @@ return [
 
         'ftp' => [
             'driver' => 'ftp',
-            'host' => env('bpdashl-sjd.com'),
-            'username' => env('dhimascandra@bpdashl-sjd.com'),
+            'host' => env('ftp.bpdas-sjd.id'),
+            'username' => env('ftp.bpdas-sjd.id'),
             'password' => env('dhimas17'),
-            'root' => '/public_html/images' // for example: /var/www/html/dev/images
+            
+            'passive' => true,
+          
         ],
 
     ],

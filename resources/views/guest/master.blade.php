@@ -65,7 +65,7 @@
                               Pelayanan <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                              <li><a class="dropdown-item" href="#">Bibit Gratis</a></li>
+                              <li><a class="dropdown-item" href="bibit">Bibit Gratis</a></li>
                               <li><a class="dropdown-item" href="#">Konsultasi Penanaman</a></li>
                             </ul>
                           </li>

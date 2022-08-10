@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdinasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Tata_airController;
+use App\Http\Controllers\BibitController;
+use App\Http\Controllers\TelemetriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +51,7 @@ Route::get('/perjalanan-dinas/download/bukti/{id}', [PdinasController::class, 'd
 Route::post('/perjalanan-dinas/downloadfilter', [PdinasController::class, 'downloadfilter'])->middleware('auth')->name('download_filter');
 Route::post('/perjalanan-dinas/proses-tambah', [PdinasController::class, 'proses_tambah'])->middleware('auth');
 Route::get('/perjalanan-dinas/update/{id}', [PdinasController::class, 'update'])->middleware('auth');
+Route::post('/perjalanan-dinas/update/{id}', [PdinasController::class, 'tambah_gambar'])->middleware('auth');
 Route::post('/perjalanan-dinas/update-proses', [PdinasController::class, 'update_proses'])->middleware('auth');
 Route::get('/perjalanan-dinas/{id}', [PdinasController::class, 'detail'])->middleware('auth');
 Route::get('/perjalanan-dinas/hapus/{id}', [PdinasController::class, 'hapus'])->middleware('auth');
@@ -70,4 +74,16 @@ Route::get('/grafik', [Tata_airController::class, 'grafik'])->name('grafik');
 
 //------------------------------------Tata Air end---------------------------------------------//
 
-Route::get('/view', [PdinasController::class, 'view'])->name('view');
+// Route::get('/view', [PdinasController::class, 'view'])->name('view');
+
+//------------------------------------Bibit Start ---------------------------------------------//
+Route::get('/bibit', [BibitController::class, 'index']);
+Route::post('/order-bibit', [BibitController::class, 'orderselect']);
+Route::get('/order-bibit', [BibitController::class, 'order']);
+//------------------------------------Bibit end---------------------------------------------//
+
+
+//------------------------------------Bibit Start ---------------------------------------------//
+Route::get('/Api/bintan', [TelemetriController::class, 'bintan']);
+Route::get('/Api/batam', [TelemetriController::class, 'batam']);
+//------------------------------------Bibit end---------------------------------------------//

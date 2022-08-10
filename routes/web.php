@@ -84,6 +84,6 @@ Route::get('/order-bibit', [BibitController::class, 'order']);
 
 
 //------------------------------------Bibit Start ---------------------------------------------//
-Route::get('/Api/bintan', [TelemetriController::class, 'bintan']);
+Route::get('/Api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
 Route::get('/Api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------Bibit end---------------------------------------------//

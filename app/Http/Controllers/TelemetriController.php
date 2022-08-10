@@ -15,7 +15,7 @@ class TelemetriController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function bintan()
+    public function tanjungpinang()
     {
         
         $periode = date('d-m-Y', strtotime('-7 days'));

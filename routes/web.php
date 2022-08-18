@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Tata_airController;
 use App\Http\Controllers\BibitController;
+use App\Http\Controllers\MatriksController;
 use App\Http\Controllers\TelemetriController;
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +84,11 @@ Route::get('/order-bibit', [BibitController::class, 'order']);
 //------------------------------------Bibit end---------------------------------------------//
 
 
-//------------------------------------Bibit Start ---------------------------------------------//
+//------------------------------------API Start ---------------------------------------------//
 Route::get('/Api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
 Route::get('/Api/batam', [TelemetriController::class, 'batam']);
-//------------------------------------Bibit end---------------------------------------------//
+//------------------------------------API end---------------------------------------------//
+
+//------------------------------------API Start ---------------------------------------------//
+Route::get('/matriks', [MatriksController::class, 'index']);
+//------------------------------------API end---------------------------------------------//

@@ -1,70 +1,86 @@
 @extends('layout.master')
+@section('css')
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"   rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Tabel curah Hujan</h1>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-    <section class="content">
-        <div class="container-fluid">
+<section class="content-header">
+  <div class="container-fluid">
     <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
-          <table class="table table-hover text-nowrap">
-            <thead>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Data Curah Hujan</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="myTable" class="table table-bordered table-striped">
+              <thead>
               <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Reason</th>
+                <th>Rendering engine</th>
+                <th>Browser</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS grade</th>
               </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
               <tr>
-                <td>183</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-success">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                <td>Other browsers</td>
+                <td>All others</td>
+                <td>-</td>
+                <td>-</td>
+                <td>U</td>
               </tr>
+              </tbody>
+              <tfoot>
               <tr>
-                <td>219</td>
-                <td>Alexander Pierce</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-warning">Pending</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                <th>Rendering engine</th>
+                <th>Browser</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS grade</th>
               </tr>
-              <tr>
-                <td>657</td>
-                <td>Bob Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-primary">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>175</td>
-                <td>Mike Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-danger">Denied</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-            </tbody>
-          </table>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
       </div>
-      <!-- /.card -->
+      <!-- /.col -->
     </div>
-  </div> 
-</div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
 </section>
+</div>
 @endsection
+
+@section('script')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script>
+  $(function () {
+     //Initialize Select2 Elements
+     $('.select2').select2()
+ 
+     //Initialize Select2 Elements
+     $('.select2bs4').select2({
+       theme: 'bootstrap4'
+     })
+ })
+ </script>
+ <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+ <script>
+     $(document).ready( function () {
+     $('#myTable').DataTable();
+     } );
+ </script>
+
+ @endsection

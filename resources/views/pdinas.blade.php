@@ -166,10 +166,14 @@
                                 <td>{{ $spd->provinsi }}</td>-->
                                 <td>{{ $spd->total }}</td> 
                                 <td>
-                                    <p><a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-arrow-alt-circle-up"></i></a></p>
-                                    @can('admin')
-                                    <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
-                                    @endcan
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
+                                        @can('admin')
+                                        <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        @endcan 
+                                      </div>
+                                    </div>
                                 </td>
                                 </tr>
                                 @endforeach
@@ -211,14 +215,6 @@
                         <label class="col-sm-2 col-form-label">Tanggal SPT</label>
                         <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
                     </div>
-                    {{-- <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
-                        <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D">
-                    </div>
-                    <div class="form-group row">
-                          <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
-                          <input type="date" class="col-sm-10 form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd">
-                    </div>   --}}
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tujuan</label>
                         <input type="text" class="col-sm-10 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
@@ -231,60 +227,6 @@
                         <label class="col-sm-2 col-form-label">Pulang</label>
                         <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
-                    {{-- <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
-                        <input type="text" class="col-sm-10 form-control harga @error('uang_harian') is-invalid @enderror" name="uang_harian" placeholder="Masukkan Nominal">
-                    </div> --}}
-                    {{-- <div class="form-group text-center">
-                        <label>TRANSPORTASI</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
-                        <input type="text" class="col-sm-10 form-control  @error('pesawat') is-invalid @enderror" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan Nama Pesawat ">
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
-                        <input type="text" class="col-sm-10 form-control  @error('no_penerbangan') is-invalid @enderror" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan Nomor Penerbangan ">
-                      </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
-                        <input type="text" class="col-sm-10 form-control  @error('no_tiket') is-invalid @enderror" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan No. Tiket ">
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
-                        <input type="text" class="col-sm-10 form-control  @error('kode_booking') is-invalid @enderror" style="text-transform: uppercase" name="kode_booking" placeholder="Masukkan Kode Booking">
-                    </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
-                        <input type="number" class="col-sm-10 form-control  @error('harga_pesawat') is-invalid @enderror" style="text-transform: uppercase" name="harga_pesawat" placeholder="Masukkan Harga Total Pesawat ">
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
-                        <input type="number" class="col-sm-10 form-control  @error('taxi') is-invalid @enderror" name="taxi" placeholder="Masukkan Harga Taxi ">
-                      </div>
-                      <div class="form-group text-center">
-                        <label>HOTEL & PENGINAPAN</label>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
-                        <input type="text" class="col-sm-10 form-control  @error('hotel') is-invalid @enderror" style="text-transform: uppercase" name="hotel" placeholder="Masukkan Nama Hotel ">
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
-                        <input type="number" class="col-sm-10 form-control  @error('harga_hotel') is-invalid @enderror" name="harga_hotel" placeholder="Masukkan Total Harga Hotel ">
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
-                        <input type="text" class="col-sm-10 form-control  @error('no_telp') is-invalid @enderror" name="no_telp" placeholder="Masukkan No. Telepon Hotel ">
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
-                        <input type="text" class="col-sm-10 form-control  @error('provinsi') is-invalid @enderror" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan Provinsi">
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
-                        <input type="number" class="col-sm-10 form-control  @error('total') is-invalid @enderror" name="total" placeholder="Masukkan Total SPJ">
-                      </div> --}}
                     <div class="form-group row">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
@@ -293,13 +235,6 @@
                         @endforeach
                     </select>
                     </div>
-                    {{-- <div class="input-group">
-                        <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="gambar[]" multiple>
-                            <label class="custom-file-label">Choose file</label>
-                        </div>
-                    </div> --}}
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -319,7 +254,7 @@
 
 <!-- DataTables & Plugins -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
@@ -327,6 +262,8 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
@@ -334,14 +271,11 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#example').DataTable( {
-      "scrollX": false,
-    } );
-    $('#example1').DataTable( {
-       
-    } );
-    $('#example2').DataTable( {
-       
+    var table = $('#example').DataTable( {
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true
     } );
 } );
 </script>

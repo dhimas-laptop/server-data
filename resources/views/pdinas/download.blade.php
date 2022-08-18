@@ -105,10 +105,12 @@
 $(document).ready(function() {
     $('#example').DataTable( {
       "scrollX": true,
+      responsive: true,
       dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
+      
     } );
 } );
 </script>
@@ -122,7 +124,5 @@ $(document).ready(function() {
     })
 })
 </script>
-
-
 
 @endsection

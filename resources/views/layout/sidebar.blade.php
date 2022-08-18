@@ -48,8 +48,8 @@
             </li>
           @endcan
 
-          <li class="nav-item @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif ">
-            <a href="#" class="nav-link @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif ">
+          <li class="nav-item @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif">
+            <a href="#" class="nav-link @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif">
               <i class="nav-icon fas fa-plane-departure"></i>
               <p>
                 Perjalanan Dinas
@@ -77,10 +77,21 @@
               </li>
             </ul>
           </li>
-          
+
+          @can('admin')
+            <li class="nav-item">
+              <a href="/matriks" class="nav-link {{ ($active === 'matriks') ? 'active' : '' }}">
+                <i class="fa-solid fa-calendar-check"></i>
+                <p>
+                  Matriks Perjadin
+                </p>
+              </a>
+            </li>
+          @endcan
+
           @if(Gate::check('admin'))
-          <li class="nav-item @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif ">
-            <a href="#" class="nav-link @if ($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif ">
+          <li class="nav-item @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
+            <a href="#" class="nav-link @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif">
               <i class="nav-icon fas fa-droplet"></i>
               <p>
                 Tata Air

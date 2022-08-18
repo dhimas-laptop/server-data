@@ -204,16 +204,16 @@
         @csrf
         <input type="text" class="form-control" value="{{ $spd->id }}" name="id" hidden>
     <div class="card mx-5">
-      <div class="input-group">
+      <div class="input-group my-3">
         <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
         <div class="custom-file">
-            <input type="file" class="custom-file-input" name="gambar[]" multiple>
+            <input type="file" class="custom-file-input" name="gambar[]" style="70%" multiple>
             <label class="custom-file-label">Choose file</label>
         </div>
     </div>
     <div class="row">
     <div class="col-5"></div>
-        <div class="col-5">
+        <div class="col-5 my-2">
           <button type="submit" class="btn btn-info center-block">Simpan</button>
         </div>
       </div>

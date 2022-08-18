@@ -14,7 +14,7 @@
   <!-- google icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"   rel="stylesheet">
   <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+  
   @yield('css')
 </head>
 <body class="white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -78,6 +78,7 @@
   }
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
 <!-- optional script -->
 
 @yield('script')

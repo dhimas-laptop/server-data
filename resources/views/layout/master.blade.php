@@ -14,13 +14,10 @@
   <!-- google icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"   rel="stylesheet">
   <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
-  
+  <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet"/>
   @yield('css')
 </head>
 <body class="white-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-  @if (session()->has('sukses'))
-    <div id="flash" data-flash="{{ $message }}"></div>
-@endif
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -67,21 +64,11 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.js') }}"></script>
-<script>
-  var flash = $('#flash').data('flash');
-  if (flash) {
-  Swal.fire({
-    icon: 'success',
-    title: 'Data Berhasil di Input',
-    text: flash
-  })
-  }
-
-</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
 <!-- optional script -->
-
+<script src="{{ asset('js/added/sweetalert2.min.js')}}"></script>
 @yield('script')
+@include('layout/alert')
 
 </body>
 </html>

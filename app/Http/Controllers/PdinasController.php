@@ -32,7 +32,7 @@ class PdinasController extends Controller
         }
         
         
-        return view('pdinas', ['spd' => $spd , 'active' => "tanggal"], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal" , 'no' => 1], compact('user'));
         
     }
 
@@ -51,7 +51,7 @@ class PdinasController extends Controller
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
         }
        
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1, 'no' => 1], compact('user'));
         
     }
 
@@ -70,7 +70,7 @@ class PdinasController extends Controller
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         }
         
-        return view('pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1, 'no' => 1], compact('user'));
         
     }
 
@@ -93,7 +93,7 @@ class PdinasController extends Controller
         }
         
         
-        return view('pdinas', ['spd' => $spd , 'active' => "tanggal",], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "tanggal", 'no' => 1], compact('user'));
         
     }
 
@@ -121,7 +121,7 @@ class PdinasController extends Controller
                     ->get();
         }
         
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1, 'no' => 1], compact('user'));
         
     }
 
@@ -148,7 +148,7 @@ class PdinasController extends Controller
         }
        
         
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1], compact('user'));
+        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1, 'no' => 1], compact('user'));
         
     }
 
@@ -199,7 +199,7 @@ class PdinasController extends Controller
         //     }
         //     }
             
-        return back()->with('Sukses', 'Data Berhasil Di input');
+        return back()->with('success', 'Data Berhasil Di input');
 
     }
 
@@ -273,9 +273,12 @@ class PdinasController extends Controller
             }
         }
         
-        spd::select('*')->where('id', $id)->delete();
-                
-        return redirect()->back();
+        if(spd::select('*')->where('id', $id)->delete()) {
+            return redirect()->back()->with('success', 'Data Berhasil Dihapus'); 
+        } else {
+            return redirect()->back()->with('error', 'Data gagal Dihapus');
+        }
+       
     }
 
     public function detail($id)

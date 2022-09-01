@@ -27,7 +27,7 @@ class LoginController extends Controller
         return redirect()->intended('/dashboard');
     }
 
-    return back()->with('error','Data tidak Ada');
+    return back()->with('error','User atau Password Salah');
 
    }
 

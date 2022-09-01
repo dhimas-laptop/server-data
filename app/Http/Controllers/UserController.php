@@ -18,7 +18,7 @@ class UserController extends Controller
                 ->from('users')
                 ->get();
         
-        return view('users', ['user' => $user , 'active' => "pengguna"]);
+        return view('users', ['user' => $user , 'active' => "pengguna", 'no' => 1]);
     }
 
     public function tambah(Request $request)

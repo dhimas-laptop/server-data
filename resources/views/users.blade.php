@@ -34,6 +34,7 @@
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>NIP</th>
                                     <th>Nama</th>
                                     <th>Nomor Telepon</th>
@@ -41,9 +42,10 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+                           
                             @foreach ($user as $user)
-                                
                             <tbody>
+                                <td>{{ $no++ }}</td>
                                 <td>{{ $user->nip }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->no_telp }}</td>
@@ -139,7 +141,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example').DataTable( {
-        "scrollY": true,
+        "pagination" : true,
         
         dom: 'Bfrtip',
         buttons: [

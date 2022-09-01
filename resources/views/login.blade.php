@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+  <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet"/>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -81,5 +82,7 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
+<script src="{{ asset('js/added/sweetalert2.min.js')}}"></script>
+@include('layout/alert')
 </body>
 </html>

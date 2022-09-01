@@ -75,12 +75,12 @@ Route::get('/grafik', [Tata_airController::class, 'grafik'])->name('grafik');
 
 //------------------------------------Tata Air end---------------------------------------------//
 
-// Route::get('/view', [PdinasController::class, 'view'])->name('view');
-
 //------------------------------------Bibit Start ---------------------------------------------//
-Route::get('/bibit', [BibitController::class, 'index']);
+Route::get('/bibit', [BibitController::class, 'bibit']);
 Route::post('/order-bibit', [BibitController::class, 'orderselect']);
 Route::get('/order-bibit', [BibitController::class, 'order']);
+Route::post('/bibit/tambah-bibit', [BibitController::class, 'tambah']);
+Route::get('/bibit/hapus/{id}', [BibitController::class, 'hapus']);
 //------------------------------------Bibit end---------------------------------------------//
 
 
@@ -89,6 +89,6 @@ Route::get('/Api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang'])
 Route::get('/Api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
-//------------------------------------API Start ---------------------------------------------//
-Route::get('/matriks', [MatriksController::class, 'index']);
-//------------------------------------API end---------------------------------------------//
+//------------------------------------matriks Start ---------------------------------------------//
+Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');
+//------------------------------------matriks end---------------------------------------------//

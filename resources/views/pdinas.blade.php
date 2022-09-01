@@ -6,11 +6,6 @@
 <!-- Select2 -->
 <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
-<link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css"/>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
-
-
 
 @endsection
 
@@ -123,12 +118,14 @@
                     </div>
                 </div>
                 @endif
+                
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example" class="table table-bordered table-striped">
                             <thead>
                                  <tr>
+                                    <th class="align-middle text-center">No</th>
                                     <th class="align-middle text-center">Nama Pelaksana</th>
                                     <th class="align-middle text-center">NO SPT dan Tanggal</th>
                                     <th class="align-middle text-center">NO SP2D dan Tanggal</th>
@@ -139,9 +136,10 @@
                                     <th class="align-middle text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> 
                                 @foreach ($spd as $spd)
                                 <tr>
+                                <td>{{ $no++ }}</td>
                                 <td>{{ $spd->user->name }}</td>
                                 <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
@@ -170,7 +168,7 @@
                                       <div class="col-2">
                                         <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
                                         @can('admin')
-                                        <a class="btn btn-danger" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                         @endcan 
                                       </div>
                                     </div>

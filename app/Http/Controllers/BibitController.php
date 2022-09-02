@@ -31,20 +31,30 @@ class BibitController extends Controller
 
    public function tambah(Request $request)
    {
+      $validator = $request->validate([
+         'nama' => 'required',
+         'jenis' => 'required',
+         'jumlah' => 'required',
+         'file' => 'image|required'
+      ]);
+      
+      $file = $validator['nama'].'.'.$request->file->extension();
       
       $result = $this->client->request('POST', 'bibit', [
          'form_params' => [
-            'nama' => $request->nama,
-            'jenis' => $request->jenis,
-            'jumlah' => $request->jumlah,
+            'nama' => $validator['nama'],
+            'jenis' => $validator['jenis'],
+            'jumlah' => $validator['jumlah'],
+            'file' => $file,
          ]
      ]);
+         $validator['file']->move(public_path('bibit/img/'), $file);
+
          $responseresult = json_decode($result->getBody()->getContents(), true);
          if ($responseresult['status'] == true) {
-     
-            return redirect('/bibit')->with(['success' => 'Data Berhasil Di input']);
+            return redirect('/data-bibit')->with(['success' => 'Data Berhasil Di input']);
          } else {     
-            return redirect('/bibit')->with(['error' => 'Data Gagal Di input']);
+            return redirect('/data-bibit')->with(['error' => 'Data Gagal Di input']);
          }
          
 
@@ -60,9 +70,9 @@ class BibitController extends Controller
       ]);
          $responseresult = json_decode($result->getBody()->getContents(), true);
          if ($responseresult['status'] == true) {
-            return redirect('/bibit')->with(['success' => $responseresult['message']]);
+            return redirect('/data-bibit')->with(['success' => $responseresult['message']]);
          } else {     
-            return redirect('/bibit')->with(['error' => $responseresult['message']]);
+            return redirect('/data-bibit')->with(['error' => $responseresult['message']]);
          }
          
 

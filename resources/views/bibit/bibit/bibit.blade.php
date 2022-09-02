@@ -79,11 +79,11 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal" method="POST" action="/bibit/tambah-bibit">
+                        <form class="form-horizontal" method="POST" action="/bibit/tambah-bibit" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                               <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Bibit</label>
+                                <label>Nama Bibit</label>
                                 <input type="text" class="form-control" placeholder="Masukkan Nama Bibit" name="nama">
                               </div>
                               <div class="form-group">
@@ -95,10 +95,21 @@
                                 </select>
                               </div>
                               <div class="form-group">
-                                <label for="exampleInputPassword1">Jumlah</label>
+                                <label>Jumlah</label>
                                 <input type="number" class="form-control" placeholder="Jumlah Bibit" name="jumlah">
                               </div>
+                              <div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="file" id="img">
+                                    <label class="custom-file-label">Choose file</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <img id="preview" src="#" alt="your image" style="width: 400px;height: 400px;" hidden/>
                             </div>
+                                 
                     <div class="modal-footer justify-content-between">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       <button class="btn btn-primary" type="submit">Simpan</button>
@@ -109,10 +120,10 @@
                 </div>
                 <!-- /.modal-dialog -->
               </div>   
-              <div id="status"></div>
+            </div> 
         </section>
     </div>
-
+   
     
 @endsection
 {{-- content selesai --}}
@@ -121,12 +132,36 @@
 @section('script')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     
     <script>
         $(document).ready(function () {
             $('#table').DataTable();
         });
     </script>
+    <script>
+        $(function () {
+          bsCustomFileInput.init();
+        });
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                    $('#preview').removeAttr('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+              }
+              
+              $("#img").change(function() {
+                  readURL(this);
+              });
+    </script>
+    
    
 @endsection
 {{-- javascript tambahan selesai --}}

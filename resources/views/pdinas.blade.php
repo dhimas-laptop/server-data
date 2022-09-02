@@ -151,7 +151,7 @@
                                 <td>{{ $spd->tujuan }}</td>
                                 <td>{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
                                 <td>{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
-                                <!-- <td>{{ $spd->uang_harian }}</td>
+                                {{-- <td>{{ $spd->uang_harian }}</td>
                                 <td>{{ $spd->pesawat }}</td>
                                 <td>{{ $spd->no_pesawat }}</td>
                                 <td>{{ $spd->no_tiket }}</td>
@@ -161,7 +161,7 @@
                                 <td>{{ $spd->nama }}</td>
                                 <td>{{ $spd->harga_penginapan }}</td>
                                 <td>{{ $spd->no_telp }}</td>
-                                <td>{{ $spd->provinsi }}</td>-->
+                                <td>{{ $spd->provinsi }}</td> --}}
                                 <td>{{ $spd->total }}</td> 
                                 <td>
                                     <div class="row">

@@ -118,7 +118,7 @@
                     </li>
                     @endcan @can('admin')
                     <li class="nav-item">
-                        <a href="/bibit" class="nav-link {{ ($active === 'bibit') ? 'active' : '' }}">
+                        <a href="/data-bibit" class="nav-link {{ ($active === 'bibit') ? 'active' : '' }}">
                             <i class="fa-solid fa-seedling"></i>
                             <p>
                                 Bibit

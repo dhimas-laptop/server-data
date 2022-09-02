@@ -41,7 +41,24 @@
         )
     </script> 
  @endif
- 
+
+ @if (count($errors) > 0) 
+    <div id="alert" style="display: none">
+        @foreach ($errors->all() as $error)
+            {{$error}}<br/>
+        @endforeach
+    </div>
+         <script>
+         var div = document.getElementById("alert");
+         var myData = div.textContent;
+         Swal.fire(
+             'Gagal!',
+             myData,
+             'error'
+             )
+         </script> 
+ @endif
+
 <script>
     $(document).on('click', '#confirm' , function (e) {
     e.preventDefault();

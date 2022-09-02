@@ -76,7 +76,7 @@ Route::get('/grafik', [Tata_airController::class, 'grafik'])->name('grafik');
 //------------------------------------Tata Air end---------------------------------------------//
 
 //------------------------------------Bibit Start ---------------------------------------------//
-Route::get('/bibit', [BibitController::class, 'bibit']);
+Route::get('/data-bibit', [BibitController::class, 'bibit']);
 Route::post('/order-bibit', [BibitController::class, 'orderselect']);
 Route::get('/order-bibit', [BibitController::class, 'order']);
 Route::post('/bibit/tambah-bibit', [BibitController::class, 'tambah']);

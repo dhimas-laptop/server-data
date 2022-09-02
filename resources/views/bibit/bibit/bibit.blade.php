@@ -49,7 +49,7 @@
                                             <td>{{ $data['jumlah'] }}</td>
                                             <td>
                                               <button class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modal-lg"><i class="fa-solid fa-pencil-square"></i>Update</button>
-                                              <a href="/bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i>Delete</a>
+                                              <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i>Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -79,7 +79,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal" method="POST" action="/bibit/tambah-bibit" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/data-bibit/tambah-bibit" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                               <div class="form-group">

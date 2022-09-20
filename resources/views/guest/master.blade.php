@@ -72,15 +72,14 @@
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
-                              Kegiatan <i class="fas fa-chevron-down"></i>
+                              Layanan Lain <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                              <li><a class="dropdown-item" href="#">Kebun Bibit Rakyat</a></li>
-                              <li><a class="dropdown-item" href="#">Kebun Bibit Daerah</a></li>
-                              <li><a class="dropdown-item" href="#">Rehabilitasi Hutan dan Lahan</a></li>
-                              <li><a class="dropdown-item" href="#">Perencanaan dan Evaluasi Pengelolaan<br> 
-                                    Daerah Aliran Sungai </a></li>
-                              <li><a class="dropdown-item" href="#">Hari Menanam Pohon Indonesia (HMPI)</a></li>
+                              <li><a class="dropdown-item" href="https://pdashl.sikadirklhk.id/">SIKADIR PDASRH</a></li>
+                              <li><a class="dropdown-item" href="http://simpeg.menlhk.go.id/">SIMPEG KLHK</a></li>
+                              <li><a class="dropdown-item" href="https://lpse.menlhk.go.id/">LPSE KLHK</a></li>
+                              <li><a class="dropdown-item" href="https://jdih.menlhk.go.id/">JDIH KLHK</a></li>
+                              <li><a class="dropdown-item" href="https://djpb.kemenkeu.go.id/kppn/tanjungpinang/id/">KPPN Tanjungpinang</a></li>
 
                             </ul>
                           </li>

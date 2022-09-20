@@ -117,14 +117,37 @@
                         </a>
                     </li>
                     @endcan @can('admin')
-                    <li class="nav-item">
-                        <a href="/data-bibit" class="nav-link {{ ($active === 'bibit') ? 'active' : '' }}">
+                    <li
+                        class="nav-item @if($active === 'data-bibit' || $active === 'data-order' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
+                        <a
+                            href="/bibit"
+                            class="nav-link @if($active === 'data-bibit' || $active === 'data-order' || $active === 'debit_air' || $active === 'grafik') active @endif">
                             <i class="fa-solid fa-seedling"></i>
                             <p>
                                 Bibit
+                                <i class="right fas fa-angle-down"></i>
                             </p>
                         </a>
-
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a
+                                    href="/data-bibit"
+                                    class="nav-link {{ ($active === 'data-bibit') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'data-bibit') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Data Bibit</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="/data-order"
+                                    class="nav-link {{ ($active === 'data-order') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'data-order') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Data Pesanan</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     @endcan @can('admin')
                     <li

@@ -24,7 +24,7 @@ class BibitController extends Controller
          $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit');
          $detail = json_decode($response,true);
          
-         return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'bibit', 'no' => 1]);
+         return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'data-bibit', 'no' => 1]);
      }
      return redirect('/');
    }
@@ -74,8 +74,33 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-bibit')->with(['error' => $responseresult['message']]);
          }
-         
 
    }
 
+   // 
+   // 
+   // order start
+   // 
+   // 
+
+   public function order()
+   {
+      
+      if (Gate::check('admin')) {
+         $response = Http::get('https://bibit.bpdas-sjd.id/API/order');
+         $detail = json_decode($response,true);
+         
+         return view('/bibit/order/order', ['data' => $detail , 'active' => 'data-order', 'no' => 1]);
+         
+         }
+         
+         return redirect('/');
+         
+   }
+   
+   // 
+   // 
+   // Order End
+   // 
+   // 
 }

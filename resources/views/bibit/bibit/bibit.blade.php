@@ -48,7 +48,6 @@
                                             <td>{{ $data['jenis'] }}</td>
                                             <td>{{ $data['jumlah'] }}</td>
                                             <td>
-                                              <button class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modal-lg"><i class="fa-solid fa-pencil-square"></i>Update</button>
                                               <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i>Delete</a>
                                             </td>
                                         </tr>
@@ -161,6 +160,7 @@
                   readURL(this);
               });
     </script>
+  
     
    
 @endsection

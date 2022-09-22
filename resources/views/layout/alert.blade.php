@@ -87,7 +87,7 @@
     ) {
         swalWithBootstrapButtons.fire(
         'Dibatalkan',
-        'Data Tidak Dihapus',
+        'Data Tidak Proses',
         'error'
         )
     }

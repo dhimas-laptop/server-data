@@ -23,7 +23,7 @@ class BibitController extends Controller
       if (Gate::check('admin')) {
          $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit');
          $detail = json_decode($response,true);
-         
+        
          return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'data-bibit', 'no' => 1]);
      }
      return redirect('/');
@@ -97,7 +97,88 @@ class BibitController extends Controller
          return redirect('/');
          
    }
+
+   public function proses($id)
+   {
+      
+      if (Gate::check('admin')) {
+         $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
+               'id' => $id,
+               'status' => 'proses'
+         ]);
+
+         $responseresult = json_decode($response->getBody()->getContents(), true);
+
+         if ($responseresult['status'] == true) {
+            return redirect('/data-order')->with(['success' => $responseresult['message']]);
+         } else {     
+            return redirect('/data-order')->with(['error' => $responseresult['message']]);
+         }
+         }
+         
+         return redirect('/');
+         
+   }
    
+   public function selesai($id)
+   {
+      
+      if (Gate::check('admin')) {
+         $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
+               'id' => $id,
+               'status' => "selesai"
+         ]);
+         $responseresult = json_decode($response->getBody()->getContents(), true);
+
+         if ($responseresult['status'] == true) {
+            return redirect('/data-order')->with(['success' => $responseresult['message']]);
+         } else {     
+            return redirect('/data-order')->with(['error' => $responseresult['message']]);
+         }
+         }
+         
+         return redirect('/');
+         
+   }
+
+   public function tolak($id)
+   {
+      
+      if (Gate::check('admin')) {
+         $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
+               'id' => $id,
+               'status' => "ditolak"
+         ]);
+         $responseresult = json_decode($response->getBody()->getContents(), true);
+         if ($responseresult['status'] == true) {
+            return redirect('/data-order')->with(['success' => $responseresult['message']]);
+         } else {     
+            return redirect('/data-order')->with(['error' => $responseresult['message']]);
+         }
+         }
+         
+         return redirect('/');
+         
+   }
+
+   public function hapus_order($id)
+   {
+      
+      if (Gate::check('admin')) {
+         $response = Http::post('https://bibit.bpdas-sjd.id/API/order/hapus', [
+               'id' => $id,
+         ]);
+         $responseresult = json_decode($response->getBody()->getContents(), true);
+         if ($responseresult['status'] == true) {
+            return redirect('/data-order')->with(['success' => $responseresult['message']]);
+         } else {     
+            return redirect('/data-order')->with(['error' => $responseresult['message']]);
+         }
+         }
+         
+         return redirect('/');
+         
+   }
    // 
    // 
    // Order End

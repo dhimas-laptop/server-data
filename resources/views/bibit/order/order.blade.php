@@ -17,11 +17,7 @@
                     <div class="col-sm-6">
                       <h1>Data Bibit BPDAS Sei Jang Duriangkang</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-outline-primary float-sm-right" type="button" data-toggle="modal" data-target="#modal-lg">
-                            <i class="fa-solid fa-plus-circle"></i> Tambah Data Bibit
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -41,12 +37,12 @@
                                             <th>Jumlah Bibit</th>
                                             <th>Tanggal</th>
                                             <th>status</th>
-                                            <th style="width:20%">Aksi</th>
+                                            <th style="width:100%">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
-                                        @foreach ($data as $data)
+                                        @foreach ($data['data'] as $datas => $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data['kelompok'] }}</td>
@@ -65,12 +61,16 @@
                                             @endif">{{ $data['status'] }}</td>
                                             <td>
                                               @if ($data['status'] === "pending")
-                                              <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
-                                              <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
+                                              <a href="/data-order/proses/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
+                                              <a href="/data-order/tolak/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
+                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif @if ($data['status'] === "proses")
-                                              <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
+                                              <a href="/data-order/selesai/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
+                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif @if ($data['status'] === "ditolak")
-                                              <a href="/data-bibit/hapus/{{ $data['id']}}" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
+                                              <a href="/data-order/hapus/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
+                                              @endif @if ($data['status'] === "selesai")
+                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif 
                                               
                                             </td>
@@ -169,7 +169,8 @@
             rowReorder: {
               selector: 'td:nth-child(2)'
             },
-             responsive:true
+             responsive:true,
+             
             });
         });
     </script>

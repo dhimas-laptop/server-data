@@ -120,8 +120,8 @@
                     <li
                         class="nav-item @if($active === 'data-bibit' || $active === 'data-order' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
                         <a
-                            href="/bibit"
-                            class="nav-link @if($active === 'data-bibit' || $active === 'data-order' || $active === 'debit_air' || $active === 'grafik') active @endif">
+                            href=""
+                            class="nav-link @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif">
                             <i class="fa-solid fa-seedling"></i>
                             <p>
                                 Bibit

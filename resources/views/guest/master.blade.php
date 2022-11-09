@@ -72,7 +72,7 @@
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">
-                              Layanan Lain <i class="fas fa-chevron-down"></i>
+                              Website Terkait <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
                               <li><a class="dropdown-item" href="https://pdashl.sikadirklhk.id/">SIKADIR PDASRH</a></li>
@@ -80,8 +80,12 @@
                               <li><a class="dropdown-item" href="https://lpse.menlhk.go.id/">LPSE KLHK</a></li>
                               <li><a class="dropdown-item" href="https://jdih.menlhk.go.id/">JDIH KLHK</a></li>
                               <li><a class="dropdown-item" href="https://djpb.kemenkeu.go.id/kppn/tanjungpinang/id/">KPPN Tanjungpinang</a></li>
-
+                              <li><a class="dropdown-item" href="https://cloud.bpdas-sjd.id">BPDAS Drive</a></li>
+                              <li><a class="dropdown-item" href="https://mail.bpdas-sjd.id/">BPDAS MAIL</a></li>
                             </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link smoth-scroll" href="/api/list">API</a>
                           </li>
                         
                         <li class="nav-item">
@@ -131,7 +135,7 @@
             <div class="col-lg-3 col-sm-6 col-md-6">
                 <div class="footer-widget footer-text">
                     <h4>Kontak dan Lokasi</h4>
-                    <p class="mail"><span>Mail:</span> bpdas-sjd@gmail.com</p>
+                    <p class="mail"><span>Mail:</span> admin@bpdas-sjd.id</p>
                     <p><span>Phone :</span>+628117706030</p>
                     <p><span>Alamat:</span> Jl. Dieng Kamboja Km. 14 Kelurahan Air Raja, Tanjungpinang – Kepulauan Riau</p>
                 </div>

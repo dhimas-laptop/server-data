@@ -15,21 +15,38 @@ class TelemetriController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function tanjungpinang()
+    public function home()
     {
-        
+        return view('guest/api');
+    }
+    
+    public function tanjungpinang(Request $request)
+    {
+        if ($request->eop == null && $request->sop == null) {
         $periode = date('d-m-Y', strtotime('-7 days'));
+        $periode1 = today();
+        } else {
+        $periode = $request->sop;
+        $periode1 = $request->eop;
+        }
+        // range tanggal
         $date = explode('-',$periode);
         $tgl = $date[0];
         $bln = $date[1];
         $thn = $date[2];
+        
+        $date1 = explode('-',$periode1);
+        $tgl1 = $date1[0];
+        $bln1 = $date1[1];
+        $thn1 = $date1[2];
+        // 
 
         $con = Http::withBasicAuth('bintan', 'bintan')->get('http://telemetri.online/reportx.htm' , [
             'auth' => ['bintan','bintan'],
             'locid' => 501,
             'itemid' => 653,
             'sop' =>$thn.$bln.$tgl.'000000',
-            'eop' =>$thn.$bln.$tgl.'235959',
+            'eop' =>$thn1.$bln1.$tgl1.'235959',
             'groupBy' => 1,
         ]);
 
@@ -44,9 +61,7 @@ class TelemetriController extends Controller
             $Data[] = trim($data->textContent); 
         }
 
-        for($i = 0 ; $i < 8 ; $i++) {
-            $header[] = $Data[$i];
-        }
+        $header = ['Timestamp','WindSpeed','WindDirection','Temperature','Humidity','Rain','BarometicPressurembar','BatteryVolt'];
         $countdetail = count($Data) - 51;
         for($i = 8;$i < $countdetail ;$i++) {
             $detailx[] = $Data[$i];
@@ -77,66 +92,76 @@ class TelemetriController extends Controller
 
     }
 
-    public function batam()
+    public function batam(Request $request)
     {
-        $periode = date('d-m-Y', strtotime('-7 days'));
-        $date = explode('-',$periode);
-        $tgl = $date[0];
-        $bln = $date[1];
-        $thn = $date[2];    
-
-        $con = Http::withBasicAuth('bintan', 'bintan')->get('http://telemetri.online/reportx.htm' , [
-            'auth' => ['bintan','bintan'],
-            'locid' => 502,
-            'itemid' => 655,
-            'sop' => $thn.$bln.$tgl.'000000',
-            'eop' => $thn.$bln.$tgl.'235959',
-            'groupBy' => 1,
-        ]);
-
-        $response = $con->body();
-        
-        $doc = new DOMDocument();
-        $doc->loadHTML($response);
-        $rawdata = $doc->getElementsByTagName('td');
-
-        //Data Api Array
-        foreach($rawdata as $data) {
-            $Data[] = trim($data->textContent); 
-        }
-
-        for($i = 0 ; $i < 6 ; $i++) {
-            $header[] = $Data[$i];
-        }
-        
-        $countdetail = count($Data) - 51;
-        for($i = 6;$i < $countdetail ;$i++) {
-            $detailx[] = $Data[$i];
-        }
-
-        //perhitungan total data detail
-        $i = 0;
-        $j = 0;
-        foreach($detailx as $detaily) {
-            $detailcount[$j][] = $detaily;
-            $i = $i + 1;
-            $j = $i % count($header) == 0 ? $j + 1 : $j ;
-        }
-       
-        //penggabungan data detail dan header
-        for ($i = 0; $i < count($detailcount); $i++) {
-            for ($j = 0 ; $j < count($header) ; $j++) {
-                $datafix[$i][$header[$j]] = $detailcount[$i][$j];
+        if ($request->eop == null && $request->sop == null) {
+            $periode = date('d-m-Y', strtotime('-7 days'));
+            $periode1 = today();
+            } else {
+            $periode = $request->sop;
+            $periode1 = $request->eop;
             }
-        }
-        
-        
-        return response([
-            'success' => true,
-            'message' => "list data",
-            'data' => $datafix
-        ], 200);
-        // return $response;
+            // range tanggal
+            $date = explode('-',$periode);
+            $tgl = $date[0];
+            $bln = $date[1];
+            $thn = $date[2];
+            
+            $date1 = explode('-',$periode1);
+            $tgl1 = $date1[0];
+            $bln1 = $date1[1];
+            $thn1 = $date1[2];
+            // 
+    
+            $con = Http::withBasicAuth('bintan', 'bintan')->get('http://telemetri.online/reportx.htm' , [
+                'auth' => ['bintan','bintan'],
+                'locid' => 502,
+                'itemid' => 655,
+                'sop' =>$thn.$bln.$tgl.'000000',
+                'eop' =>$thn1.$bln1.$tgl1.'235959',
+                'groupBy' => 1,
+            ]);
+    
+            $response = $con->body();
+            
+            $doc = new DOMDocument();
+            $doc->loadHTML($response);
+            $rawdata = $doc->getElementsByTagName('td');
+    
+            //Data Api Array
+            foreach($rawdata as $data) {
+                $Data[] = trim($data->textContent); 
+            }
+          
+            $header = ['Timestamp','WindSpeed','WindDirection','Temperature','Humidity','Rain'];
+            
+            $countdetail = count($Data) - 51;
+            for($i = 6;$i < $countdetail ;$i++) {
+                $detailx[] = $Data[$i];
+            }
+            //perhitungan total data detail
+            $i = 0;
+            $j = 0;
+            foreach($detailx as $detaily) {
+                $detailcount[$j][] = $detaily;
+                $i = $i + 1;
+                $j = $i % count($header) == 0 ? $j + 1 : $j ;
+            }
+    
+            //penggabungan data detail dan header
+            for ($i = 0; $i < count($detailcount); $i++) {
+                for ($j = 0 ; $j < count($header) ; $j++) {
+                    $datafix[$i][$header[$j]] = $detailcount[$i][$j];
+                }
+            }
+            
+            
+            return response([
+                'success' => true,
+                'message' => "list data",
+                'data' => $datafix
+            ], 200);
+            // return $response;
 
     }
     /**

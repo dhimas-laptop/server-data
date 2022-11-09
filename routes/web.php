@@ -29,6 +29,8 @@ Route::get('/profil', function() {return view('guest/tentang');});
 Route::get('/visi-misi', function() {return view('guest/visimisi');});
 Route::get('/tugas-pokok-dan-fungsi', function() {return view('guest/tugaspokok');});
 Route::get('/struktur-organisasi', function() {return view('guest/struktur');});
+Route::get('/struktur-organisasi', function() {return view('guest/api-batam');});
+Route::get('/struktur-organisasi', function() {return view('guest/api-bintan');});
 
 
 
@@ -86,16 +88,19 @@ Route::get('/data-order', [BibitController::class, 'order']);
 Route::get('/data-order/proses/{id}', [BibitController::class, 'proses']);
 Route::get('/data-order/selesai/{id}', [BibitController::class, 'selesai']);
 Route::get('/data-order/tolak/{id}', [BibitController::class, 'tolak']);
-Route::get('/data-order/download/{id}', [BibitController::class, 'download']);
+Route::get('/data-order/download/{id}', [BibitController::class, 'download_order']);
 Route::get('/data-order/hapus/{id}', [BibitController::class, 'hapus_order']);
 //------------------------------------Bibit end---------------------------------------------//
 
 
 //------------------------------------API Start ---------------------------------------------//
-Route::get('/Api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
-Route::get('/Api/batam', [TelemetriController::class, 'batam']);
+Route::get('/api/list', [TelemetriController::class, 'home']);
+Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
+Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//
 Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');
 //------------------------------------matriks end---------------------------------------------//
+
+Route::get('/test', [BibitController::class, 'test']);

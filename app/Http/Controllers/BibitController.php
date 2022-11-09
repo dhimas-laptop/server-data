@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BibitController extends Controller
 {
@@ -178,6 +179,28 @@ class BibitController extends Controller
          
          return redirect('/');
          
+   }
+
+   public function download_order($id)
+   {
+      if (Gate::check('admin')) {
+         $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit', [
+            'id' => $id
+         ]);
+         
+         $detail = json_decode($response,true);
+
+         $pdf = Pdf::loadView('bibit/order/download', ['data' => $detail]);
+         return $pdf->download('order-'.$detail['data']['nama'].'.pdf');
+      }
+      
+      return redirect('/');
+         
+   }
+
+   public function test()
+   {
+      return view('bibit/order/download');
    }
    // 
    // 

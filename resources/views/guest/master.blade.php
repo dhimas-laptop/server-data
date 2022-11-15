@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="{{ asset('tdash/plugins/icofont/icofont.css') }}">
     <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
     <!-- Main Stylesheet -->
-   <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('tdash/css/style.css') }}">
     <!--Favicon-->
-     <link rel="icon" href="{{ asset('tdash/images/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('tdash/images/favicon.png') }}" type="image/x-icon">
 
 </head>
 
@@ -53,10 +53,10 @@
                               Profil <i class="fas fa-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                              <li><a class="dropdown-item" href="profil">Profil Organisasi</a></li>
-                              <li><a class="dropdown-item" href="visi-misi">Visi dan Misi Organisasi</a></li>
-                              <li><a class="dropdown-item" href="tugas-pokok-dan-fungsi">Tugas Pokok Dan Fungsi</a></li>
-                              <li><a class="dropdown-item" href="struktur-organisasi">Struktur Organisasi</a></li>
+                              <li><a class="dropdown-item" href="/profil">Profil Organisasi</a></li>
+                              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi Organisasi</a></li>
+                              <li><a class="dropdown-item" href="/tugas-pokok-dan-fungsi">Tugas Pokok Dan Fungsi</a></li>
+                              <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
                             </ul>
                           </li>
                           <li class="nav-item dropdown">
@@ -89,7 +89,7 @@
                           </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link smoth-scroll rounded-pill" href="login">Login</a>
+                            <a class="nav-link smoth-scroll rounded-pill" href="/login">Login</a>
                         </li>
                     </ul>
                 </div>

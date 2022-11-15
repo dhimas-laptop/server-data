@@ -16,64 +16,23 @@
               <p>Untuk mendapatkan data telemetri di Batam, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/batam</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <blockquote class="quote-secondary">
+                <textarea style="width: 100%;height: 500px;">
                 {
                   "success":true,
                   "message":"list data",
                   "data":
                   [
-                    {
+                   {
                       "Timestamp":"12-Oct-2022 00:00",
                       "WindSpeed":"1.1",
                       "WindDirection":"166",
                       "Temperature":"25.0",
                       "Humidity":"97.0",
                       "Rain":"0.0"
-                    },
-                    {
-                      "Timestamp":"12-Oct-2022 00:10",
-                      "WindSpeed":"1.1",
-                      "WindDirection":"166",
-                      "Temperature":"25.0",
-                      "Humidity":"97.0",
-                      "Rain":"0.0"
-                    },
-                    {
-                      "Timestamp":"12-Oct-2022 00:20",
-                      "WindSpeed":"1.1",
-                      "WindDirection":"166",
-                      "Temperature":"25.0",
-                      "Humidity":"97.0",
-                      "Rain":"0.0"
-                    },
-                    {
-                      "Timestamp":"12-Oct-2022 00:30",
-                      "WindSpeed":"1.1",
-                      "WindDirection":"166",
-                      "Temperature":"25.0",
-                      "Humidity":"97.0",
-                      "Rain":"0.0"
-                    },
-                    {
-                      "Timestamp":"12-Oct-2022 00:40",
-                      "WindSpeed":"0.0",
-                      "WindDirection":"298",
-                      "Temperature":"23.2",
-                      "Humidity":"100.0",
-                      "Rain":"16.4"
-                    },
-                    {
-                      "Timestamp":"12-Oct-2022 23:50",
-                      "WindSpeeds":"0.0",
-                      "WindDirection":"166",
-                      "Temperature":"25.4",
-                      "Humidity":"93.0",
-                      "Rain":"19.4"
                     }
                   ]
                 }
-              </blockquote>
-              
+                </textarea>
             </div>
           </div>
         </div>
@@ -88,7 +47,7 @@
               <p>Untuk mendapatkan data telemetri di Tanjungpinang, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/tanjung-pinang</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <blockquote class="quote-secondary">
+                <textarea style="width: 100%;height: 500px;">
                 {
                   "success":true,
                   "message":"list data",
@@ -103,61 +62,10 @@
                       "Rain":"0.0",
                       "BarometicPressurembar":"1008.9",
                       "BatteryVolt":"12.2"
-                    },
-                    {
-                      "Timestamp":"02-Nov-2022 00:10",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"77",
-                      "Temperature":"24.6",
-                      "Humidity":"91",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.7",
-                      "BatteryVolt":"12.2"
-                    },
-                    {
-                      "Timestamp":"02-Nov-2022 00:20",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"77",
-                      "Temperature":"24.6",
-                      "Humidity":"91",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.5",
-                      "BatteryVolt":"12.2"
-                    },
-                    {
-                      "Timestamp":"02-Nov-2022 00:30",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"77",
-                      "Temperature":"24.6",
-                      "Humidity":"91",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.5",
-                      "BatteryVolt":"12.2"
-                    },
-                    {
-                      "Timestamp":"02-Nov-2022 00:40",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"77",
-                      "Temperature":"24.6",
-                      "Humidity":"90",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.1",
-                      "BatteryVolt":"12.3"
-                    },
-                    {
-                      "Timestamp":"02-Nov-2022 00:50",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"115",
-                      "Temperature":"24.7",
-                      "Humidity":"90",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.0",
-                      "BatteryVolt":"12.2"
                     }
                   ]
                 }
-              </blockquote>
-              
+                </textarea>
             </div>
           </div>
         </div>

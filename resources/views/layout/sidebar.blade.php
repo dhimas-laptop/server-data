@@ -118,10 +118,10 @@
                     </li>
                     @endcan @can('admin')
                     <li
-                        class="nav-item @if($active === 'data-bibit' || $active === 'data-order' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
+                        class="nav-item @if($active === 'data-bibit' || $active === 'data-order') menu-open @endif">
                         <a
                             href=""
-                            class="nav-link @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif">
+                            class="nav-link @if($active === 'data-bibit' || $active === 'data-order') active @endif">
                             <i class="fa-solid fa-seedling"></i>
                             <p>
                                 Bibit
@@ -153,7 +153,7 @@
                     <li
                         class="nav-item @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
                         <a
-                            href="/bibit"
+                            href=""
                             class="nav-link @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') active @endif">
                             <i class="fa-solid fa-droplet"></i>
                             <p>

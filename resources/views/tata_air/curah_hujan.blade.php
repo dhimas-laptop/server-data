@@ -13,38 +13,25 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Data Curah Hujan</h3>
+            <h3 class="card-title"><strong>Data Curah Hujan Batam</strong></h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
             <table id="myTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>Timestamp</th>
+                <th>Curah Hujan</th>
               </tr>
               </thead>
               <tbody>
+              @foreach ($data['data'] as $datas => $data)
               <tr>
-                <td>Other browsers</td>
-                <td>All others</td>
-                <td>-</td>
-                <td>-</td>
-                <td>U</td>
-              </tr>
+                <td>{{ $data['Timestamp'] }}</td>
+                <td>{{ $data['Rainmm']}}</td>
+              </tr>    
+              @endforeach
               </tbody>
-              <tfoot>
-              <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-              </tr>
-              </tfoot>
             </table>
           </div>
           <!-- /.card-body -->
@@ -52,6 +39,34 @@
         <!-- /.card -->
       </div>
       <!-- /.col -->
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><strong>Data Curah Hujan Tanjungpinang</strong></h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="myTable1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Curah Hujan</th>
+              </tr>
+              </thead>
+              <tbody>
+              @foreach ($data1['data'] as $datas => $data)
+              <tr>
+                <td>{{ $data['Timestamp'] }}</td>
+                <td>{{ $data['Rainmm']}}</td>
+              </tr>    
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
     </div>
     <!-- /.row -->
   </div>
@@ -80,6 +95,7 @@
  <script>
      $(document).ready( function () {
      $('#myTable').DataTable();
+     $('#myTable1').DataTable();
      } );
  </script>
 

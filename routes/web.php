@@ -29,9 +29,6 @@ Route::get('/profil', function() {return view('guest/tentang');});
 Route::get('/visi-misi', function() {return view('guest/visimisi');});
 Route::get('/tugas-pokok-dan-fungsi', function() {return view('guest/tugaspokok');});
 Route::get('/struktur-organisasi', function() {return view('guest/struktur');});
-Route::get('/struktur-organisasi', function() {return view('guest/api-batam');});
-Route::get('/struktur-organisasi', function() {return view('guest/api-bintan');});
-
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

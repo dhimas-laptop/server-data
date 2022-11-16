@@ -16,21 +16,19 @@
               <p>Untuk mendapatkan data telemetri di Batam, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/batam</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <textarea style="width: 100%;height: 500px;">
+                <textarea style="width: 100%;height: 450px;" disabled>
                 {
                   "success":true,
                   "message":"list data",
                   "data":
-                  [
-                   {
-                      "Timestamp":"12-Oct-2022 00:00",
-                      "WindSpeed":"1.1",
-                      "WindDirection":"166",
-                      "Temperature":"25.0",
-                      "Humidity":"97.0",
-                      "Rain":"0.0"
-                    }
-                  ]
+                  [{
+                    "Timestamp":"12-Oct-2022 00:00",
+                    "WindSpeed":"1.1",
+                    "WindDirection":"166",
+                    "Temperature":"25.0",
+                    "Humidity":"97.0",
+                    "Rain":"0.0"
+                  }]
                 }
                 </textarea>
             </div>
@@ -47,23 +45,21 @@
               <p>Untuk mendapatkan data telemetri di Tanjungpinang, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/tanjung-pinang</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <textarea style="width: 100%;height: 500px;">
+                <textarea style="width: 100%;height: 500px;" disabled>
                 {
                   "success":true,
                   "message":"list data",
                   "data":
-                  [
-                    {
-                      "Timestamp":"02-Nov-2022 00:00",
-                      "WindSpeed":"0.3",
-                      "WindDirection":"101",
-                      "Temperature":"24.6",
-                      "Humidity":"91",
-                      "Rain":"0.0",
-                      "BarometicPressurembar":"1008.9",
-                      "BatteryVolt":"12.2"
-                    }
-                  ]
+                  [{
+                    "Timestamp":"02-Nov-2022 00:00",
+                    "WindSpeed":"0.3",
+                    "WindDirection":"101",
+                    "Temperature":"24.6",
+                    "Humidity":"91",
+                    "Rain":"0.0",
+                    "BarometicPressurembar":"1008.9",
+                    "BatteryVolt":"12.2"
+                  }]
                 }
                 </textarea>
             </div>

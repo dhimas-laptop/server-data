@@ -27,6 +27,7 @@ class Tata_airController extends Controller
             'group' => $request->group
         ]);
         $detail1 = json_decode($response1,true);
+
         return view('/tata_air/curah_hujan_view', ['data' => $detail,'data1' => $detail1, 'active' => 'curah_hujan', 'no' => 1]);
     }
     

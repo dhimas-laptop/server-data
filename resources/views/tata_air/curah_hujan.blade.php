@@ -16,78 +16,19 @@
             <h3>Pilih Rentang Waktu</h3>
           </div>
           <div class="card-body">
-            <form id=""></form>
+            <form action="/curah-hujan/filter-curah-hujan" method="POST">
+              @csrf
+            <input type="date" name="sop">
+            <input type="date" name="eop">
+            <input type="number" name="group">
+            <button type="submit">Filter</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>  
-<section class="content-header invisible">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><strong>Data Curah Hujan Batam</strong></h3>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <table id="myTable" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>Timestamp</th>
-                <th>Curah Hujan</th>
-              </tr>
-              </thead>
-              <tbody>
-              @foreach ($data['data'] as $datas => $data)
-              <tr>
-                <td>{{ $data['Timestamp'] }}</td>
-                <td>{{ $data['Rain']}}</td>
-              </tr>    
-              @endforeach
-              </tbody>
-            </table>
-          </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-      </div>
-      <!-- /.col -->
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><strong>Data Curah Hujan Tanjungpinang</strong></h3>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <table id="myTable1" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>Timestamp</th>
-                <th>Curah Hujan</th>
-              </tr>
-              </thead>
-              <tbody>
-              @foreach ($data1['data'] as $datas => $data)
-              <tr>
-                <td>{{ $data['Timestamp'] }}</td>
-                <td>{{ $data['Rain']}}</td>
-              </tr>    
-              @endforeach
-              </tbody>
-            </table>
-          </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-      </div>
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container-fluid -->
-</section>
 </div>
 @endsection
 
@@ -113,9 +54,6 @@
      $('#myTable').DataTable();
      $('#myTable1').DataTable();
      } );
- </script>
- <script>
-  $(#data).
  </script>
 
  @endsection

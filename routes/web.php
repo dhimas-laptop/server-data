@@ -67,6 +67,7 @@ Route::get('/Pengguna/hapus/{id}', [UserController::class, 'hapus'])->middleware
 
 //------------------------------------Tata Air---------------------------------------------//
 Route::get('/curah-hujan', [Tata_airController::class, 'curah_hujan'])->name('curah_hujan');
+Route::post('/curah-hujan/filter-curah-hujan', [Tata_airController::class, 'filter_ch'])->name('filterch');
 Route::get('/tinggi-muka-air', [Tata_airController::class, 'tma'])->name('tma');
 Route::get('/debit-air', [Tata_airController::class, 'debit_air'])->name('debit_air');
 Route::get('/grafik', [Tata_airController::class, 'grafik'])->name('grafik');
@@ -92,8 +93,8 @@ Route::get('/data-order/hapus/{id}', [BibitController::class, 'hapus_order']);
 
 //------------------------------------API Start ---------------------------------------------//
 Route::get('/api/list', [TelemetriController::class, 'home']);
-Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
-Route::get('/api/batam', [TelemetriController::class, 'batam']);
+Route::post('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
+Route::post('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//

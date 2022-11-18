@@ -9,14 +9,27 @@ class Tata_airController extends Controller
 {
     public function curah_hujan()
     {
-        $response = Http::get('https://bpdas-sjd.id/api/batam');
-        $detail = json_decode($response,true);
-        
-        $response = Http::get('https://bpdas-sjd.id/api/tanjung-pinang');
-        $detail1 = json_decode($response,true);
-        return view('/tata_air/curah_hujan', ['data' => $detail,'data1' => $detail1, 'active' => 'curah_hujan', 'no' => 1]);
+        return view('/tata_air/curah_hujan', ['active' => 'curah_hujan', 'no' => 1]);
     }
 
+    public function filter_ch(Request $request)
+    {
+        $response = Http::post('https://bpdas-sjd.id/api/batam', [
+            'sop' => $request->sop,
+            'eop' => $request->eop,
+            'group' => $request->group
+        ]);
+        $detail = json_decode($response,true);
+        
+        $response1 = Http::post('https://bpdas-sjd.id/api/tanjung-pinang', [
+            'sop' => $request->sop,
+            'eop' => $request->eop,
+            'group' => $request->group
+        ]);
+        $detail1 = json_decode($response1,true);
+        return view('/tata_air/curah_hujan_view', ['data' => $detail,'data1' => $detail1, 'active' => 'curah_hujan', 'no' => 1]);
+    }
+    
     public function tma()
     {
         if (Gate::check('admin')) {

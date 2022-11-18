@@ -93,8 +93,8 @@ Route::get('/data-order/hapus/{id}', [BibitController::class, 'hapus_order']);
 
 //------------------------------------API Start ---------------------------------------------//
 Route::get('/api/list', [TelemetriController::class, 'home']);
-Route::post('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
-Route::post('/api/batam', [TelemetriController::class, 'batam']);
+Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
+Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//

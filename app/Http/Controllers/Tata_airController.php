@@ -14,14 +14,14 @@ class Tata_airController extends Controller
 
     public function filter_ch(Request $request)
     {
-        $response = Http::post('https://bpdas-sjd.id/api/batam', [
+        $response = Http::get('https://bpdas-sjd.id/api/batam', [
             'sop' => $request->sop,
             'eop' => $request->eop,
             'group' => $request->group
         ]);
         $detail = json_decode($response,true);
         
-        $response1 = Http::post('https://bpdas-sjd.id/api/tanjung-pinang', [
+        $response1 = Http::get('https://bpdas-sjd.id/api/tanjung-pinang', [
             'sop' => $request->sop,
             'eop' => $request->eop,
             'group' => $request->group

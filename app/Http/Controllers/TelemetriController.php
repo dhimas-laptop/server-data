@@ -23,7 +23,7 @@ class TelemetriController extends Controller
     public function tanjungpinang(Request $request)
     {
         if ($request->eop == null || $request->sop == null) {
-        $periode = date('d-m-Y', strtotime('-7 days'));
+        $periode = date('d/m/Y', strtotime('-7 days'));
         $periode1 = today();
         $group = $request->group;
         } else {
@@ -32,12 +32,12 @@ class TelemetriController extends Controller
         $group = $request->group;
         }
         // range tanggal
-        $date = explode('-',$periode);
+        $date = explode('/',$periode);
         $tgl = $date[0];
         $bln = $date[1];
         $thn = $date[2];
         
-        $date1 = explode('-',$periode1);
+        $date1 = explode('/',$periode1);
         $tgl1 = $date1[0];
         $bln1 = $date1[1];
         $thn1 = $date1[2];
@@ -97,7 +97,7 @@ class TelemetriController extends Controller
     public function batam(Request $request)
     {
         if ($request->eop == null || $request->sop == null) {
-            $periode = date('d-m-Y', strtotime('-7 days'));
+            $periode = date('d/m/Y', strtotime('-7 days'));
             $periode1 = today();
             $group = $request->group;
             } else {
@@ -106,12 +106,12 @@ class TelemetriController extends Controller
             $group = $request->group;
             }
             // range tanggal
-            $date = explode('-',$periode);
+            $date = explode('/',$periode);
             $tgl = $date[0];
             $bln = $date[1];
             $thn = $date[2];
             
-            $date1 = explode('-',$periode1);
+            $date1 = explode('/',$periode1);
             $tgl1 = $date1[0];
             $bln1 = $date1[1];
             $thn1 = $date1[2];

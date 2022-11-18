@@ -22,12 +22,14 @@ class TelemetriController extends Controller
     
     public function tanjungpinang(Request $request)
     {
-        if ($request->eop == null && $request->sop == null) {
+        if ($request->eop == null || $request->sop == null) {
         $periode = date('d-m-Y', strtotime('-7 days'));
         $periode1 = today();
+        $group = $request->group;
         } else {
         $periode = $request->sop;
         $periode1 = $request->eop;
+        $group = $request->group;
         }
         // range tanggal
         $date = explode('-',$periode);
@@ -47,7 +49,7 @@ class TelemetriController extends Controller
             'itemid' => 653,
             'sop' =>$thn.$bln.$tgl.'000000',
             'eop' =>$thn1.$bln1.$tgl1.'235959',
-            'groupBy' => 1,
+            'groupBy' => $group,
         ]);
 
         $response = $con->body();
@@ -94,12 +96,14 @@ class TelemetriController extends Controller
 
     public function batam(Request $request)
     {
-        if ($request->eop == null && $request->sop == null) {
+        if ($request->eop == null || $request->sop == null) {
             $periode = date('d-m-Y', strtotime('-7 days'));
             $periode1 = today();
+            $group = $request->group;
             } else {
             $periode = $request->sop;
             $periode1 = $request->eop;
+            $group = $request->group;
             }
             // range tanggal
             $date = explode('-',$periode);
@@ -119,7 +123,7 @@ class TelemetriController extends Controller
                 'itemid' => 655,
                 'sop' =>$thn.$bln.$tgl.'000000',
                 'eop' =>$thn1.$bln1.$tgl1.'235959',
-                'groupBy' => 1,
+                'groupBy' => $group,
             ]);
     
             $response = $con->body();

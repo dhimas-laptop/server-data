@@ -13,6 +13,22 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
+            <h3>Pilih Rentang Waktu</h3>
+          </div>
+          <div class="card-body">
+            <form id=""></form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+<section class="content-header invisible">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
             <h3 class="card-title"><strong>Data Curah Hujan Batam</strong></h3>
           </div>
           <!-- /.card-header -->
@@ -28,7 +44,7 @@
               @foreach ($data['data'] as $datas => $data)
               <tr>
                 <td>{{ $data['Timestamp'] }}</td>
-                <td>{{ $data['Rainmm']}}</td>
+                <td>{{ $data['Rain']}}</td>
               </tr>    
               @endforeach
               </tbody>
@@ -57,7 +73,7 @@
               @foreach ($data1['data'] as $datas => $data)
               <tr>
                 <td>{{ $data['Timestamp'] }}</td>
-                <td>{{ $data['Rainmm']}}</td>
+                <td>{{ $data['Rain']}}</td>
               </tr>    
               @endforeach
               </tbody>
@@ -97,6 +113,9 @@
      $('#myTable').DataTable();
      $('#myTable1').DataTable();
      } );
+ </script>
+ <script>
+  $(#data).
  </script>
 
  @endsection

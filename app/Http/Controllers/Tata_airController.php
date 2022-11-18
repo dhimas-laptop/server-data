@@ -9,10 +9,10 @@ class Tata_airController extends Controller
 {
     public function curah_hujan()
     {
-        $response = Http::get('https://bpdas-sjd.id/Api/batam');
+        $response = Http::get('https://bpdas-sjd.id/api/batam');
         $detail = json_decode($response,true);
         
-        $response = Http::get('https://bpdas-sjd.id/Api/tanjung-pinang');
+        $response = Http::get('https://bpdas-sjd.id/api/tanjung-pinang');
         $detail1 = json_decode($response,true);
         return view('/tata_air/curah_hujan', ['data' => $detail,'data1' => $detail1, 'active' => 'curah_hujan', 'no' => 1]);
     }

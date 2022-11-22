@@ -23,7 +23,7 @@ class TelemetriController extends Controller
     public function tanjungpinang(Request $request)
     {
         if ($request->eop == null || $request->sop == null) {
-        $periode = date('d-m-Y', strtotime('-7 days'));
+        $periode = date('Y-m-d', strtotime('-7 days'));
         $periode1 = today();
         $group = $request->group;
         } else {
@@ -33,14 +33,14 @@ class TelemetriController extends Controller
         }
         // range tanggal
         $date = explode('-',$periode);
-        $tgl = $date[0];
+        $tgl = $date[2];
         $bln = $date[1];
-        $thn = $date[2];
+        $thn = $date[0];
         
         $date1 = explode('-',$periode1);
-        $tgl1 = $date1[0];
+        $tgl1 = $date1[2];
         $bln1 = $date1[1];
-        $thn1 = $date1[2];
+        $thn1 = $date1[0];
         // 
 
         $con = Http::withBasicAuth('bintan', 'bintan')->get('http://telemetri.online/reportx.htm' , [
@@ -97,7 +97,7 @@ class TelemetriController extends Controller
     public function batam(Request $request)
     {
         if ($request->eop == null || $request->sop == null) {
-            $periode = date('d-m-Y', strtotime('-7 days'));
+            $periode = date('Y-m-d', strtotime('-7 days'));
             $periode1 = today();
             $group = $request->group;
             } else {
@@ -107,14 +107,14 @@ class TelemetriController extends Controller
             }
             // range tanggal
             $date = explode('-',$periode);
-            $tgl = $date[0];
+            $tgl = $date[2];
             $bln = $date[1];
-            $thn = $date[2];
+            $thn = $date[0];
             
             $date1 = explode('-',$periode1);
-            $tgl1 = $date1[0];
+            $tgl1 = $date1[2];
             $bln1 = $date1[1];
-            $thn1 = $date1[2];
+            $thn1 = $date1[0];
             // 
     
             $con = Http::withBasicAuth('bintan', 'bintan')->get('http://telemetri.online/reportx.htm' , [

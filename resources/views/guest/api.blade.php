@@ -16,7 +16,7 @@
               <p>Untuk mendapatkan data telemetri di Batam, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/batam</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <textarea style="width: 100%;height: 450px;" disabled>
+                <textarea style="width: 100%;height: 350px;" disabled>
                 {
                   "success":true,
                   "message":"list data",
@@ -31,6 +31,13 @@
                   }]
                 }
                 </textarea>
+                <p>Pengguna dapat melakukan filter dengan menambahkan <strong>query</strong> sebagai berikut:<br>
+                  1. sop = start of periode / tanggal awal data (yyyy-mm-dd)<br>
+                  2. eop = end of periode / tanggal akhir data (yyyy-mm-dd)<br>
+                  3. group = data ditampilkan per berapa menit (menit)<br><br>
+                  contoh : <br>
+                  <div style="color: blue">bpdas-sjd.id/api/batam?sop=2022-11-01&eop=2022-11-21&group=1440</div>
+                  </p>
             </div>
           </div>
         </div>
@@ -45,7 +52,7 @@
               <p>Untuk mendapatkan data telemetri di Tanjungpinang, dapat mengakses url dengan method <b style="color: black;background-color: lightgray">Get : Https://bpdas-sjd.id/api/tanjung-pinang</b><br>
                 link tersebut hanya menampilkan data 7 hari terakhir dari hari ini, data yang ditampilkan yaitu per 10 menit.<br>
                 contoh data yang ditampilkan: <br></p>
-                <textarea style="width: 100%;height: 500px;" disabled>
+                <textarea style="width: 100%;height: 400px;" disabled>
                 {
                   "success":true,
                   "message":"list data",
@@ -62,6 +69,13 @@
                   }]
                 }
                 </textarea>
+                <p>Pengguna dapat melakukan filter dengan menambahkan <strong>query</strong> sebagai berikut:<br>
+                1. sop = start of periode / tanggal awal data (yyyy-mm-dd)<br>
+                2. eop = end of periode / tanggal akhir data (yyyy-mm-dd)<br>
+                3. group = data ditampilkan per berapa menit (menit)<br><br>
+                contoh : <br>
+                <div style="color: blue">bpdas-sjd.id/api/tanjung-pinang?sop=2022-11-01&eop=2022-11-21&group=1440</div>
+                </p>
             </div>
           </div>
         </div>

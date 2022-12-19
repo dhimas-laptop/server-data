@@ -10,6 +10,9 @@ use App\Http\Controllers\Tata_airController;
 use App\Http\Controllers\BibitController;
 use App\Http\Controllers\MatriksController;
 use App\Http\Controllers\TelemetriController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +25,18 @@ use App\Http\Controllers\TelemetriController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+        $xml_file = new SimpleXMLElement('https://data.bmkg.go.id/DataMKG/MEWS/DigitalForecast/DigitalForecast-KepulauanRiau.xml',0,true);
+        $json = json_encode($xml_file);
+        $array = json_decode($json,TRUE);
+        $batam = $array['forecast']['area'][0]['parameter'][6]['timerange'];
+        $bintan = $array['forecast']['area'][1]['parameter'][6]['timerange'];  
+        $daik = $array['forecast']['area'][2]['parameter'][6]['timerange'];          
+        $ranai = $array['forecast']['area'][3]['parameter'][6]['timerange'];  
+        $karimun = $array['forecast']['area'][4]['parameter'][6]['timerange'];  
+        $tp = $array['forecast']['area'][5]['parameter'][6]['timerange'];
+        $anambas = $array['forecast']['area'][6]['parameter'][6]['timerange'];
+        $data = $array['forecast']['issue']['timestamp'];
+    return view('welcome', ['batam' => $batam , 'bintan' => $bintan, 'daik' => $daik, 'ranai' => $ranai, 'karimun' => $karimun, 'tp' => $tp, 'anambas' => $anambas, 'data' => $data ]);
 });
 
 Route::get('/profil', function() {return view('guest/tentang');});

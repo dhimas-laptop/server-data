@@ -322,10 +322,10 @@
                 <div class="col-lg-4 col-sm-6 col-md-6">
                     <div class="service-box">
                         <div>
-                            <img src="{{ asset('tdash/images/daik.png') }}" alt="service-icon" class="img-fluid">
+                            <img src="{{ asset('tdash/images/lingga.png') }}" alt="service-icon" class="img-fluid">
                         </div>
                         <div class="service-inner">
-                            <h4>Pulau daik</h4>
+                            <h4>Pulau Lingga</h4>
                         </div>
                     </div>
                 </div>

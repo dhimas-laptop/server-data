@@ -238,7 +238,6 @@
       </tbody>
   </table>
 </div>
-  <div style="page-break-after:always;">
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
     <table class="header" cellpadding="0" border="1">
         <tbody>
@@ -253,15 +252,15 @@
             <td colspan="9" align="center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date('m')}}/{{date('Y')}}</td>
            </tr>
            <tr>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
+            <td style="width: 5%"><br></td>
             <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td><br></td>
-            <td width="50"><br></td>
            </tr>
            <tr>
             <td colspan="9">Pada hari ini Tanggal {{date('d')}} bulan {{date('F')}} tahun {{date('Y')}}, yang bertandatangan dibawah ini:</td>
@@ -409,9 +408,7 @@
             <td colspan="4" align="center">Aswan Basri</td>
            </tr>
         </tbody>
-    </table>
-  </div>
-  
+    </table>  
 </body>    
   <script>
       var lt = {{ $lt }};

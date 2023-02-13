@@ -196,7 +196,7 @@
             : {{ $data['data']['pemohon'][0]['no_telp'] }}
           </td>
          </tr>
-         <tr><td><br></td></tr>
+         <tr><td>&nbsp;</td></tr>
         <tr>
           <td colspan="4" valign="top" align="justify">
               <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tahun {{date("Y")}} sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>

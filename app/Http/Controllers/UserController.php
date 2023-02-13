@@ -59,17 +59,22 @@ class UserController extends Controller
 
         $validate['password'] = bcrypt($validate['password']);
 
-        user::where('id' , $request->id)->update($validate);
-            
-        return redirect()->action([UserController::class, 'index']);
+        if(user::where('id' , $request->id)->update($validate)) {
+            return redirect()->action([UserController::class, 'index'])->with('success', 'Data Berhasil Diupdate'); 
+        } else {
+            return redirect()->action([UserController::class, 'index'])->with('error', 'Data gagal Diupdate');
+        }
 
     }
 
     public function hapus($id)
     {
-        user::select('*')->where('id', $id)->delete();
-                
-        return redirect()->action([UserController::class, 'index']);
+        
+        if(user::select('*')->where('id', $id)->delete()) {
+            return redirect()->action([UserController::class, 'index'])->with('success', 'Data Berhasil Dihapus'); 
+        } else {
+            return redirect()->action([UserController::class, 'index'])->with('error', 'Data gagal Dihapus');
+        }
     }
 
 }

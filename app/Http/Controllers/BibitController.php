@@ -35,7 +35,7 @@ class BibitController extends Controller
       $validator = $request->validate([
          'nama' => 'required',
          'jenis' => 'required',
-         'jumlah' => 'required',
+         'total' => 'required',
          'file' => 'image|required'
       ]);
       
@@ -45,7 +45,7 @@ class BibitController extends Controller
          'form_params' => [
             'nama' => $validator['nama'],
             'jenis' => $validator['jenis'],
-            'jumlah' => $validator['jumlah'],
+            'total' => $validator['total'],
             'file' => $file,
          ]
      ]);
@@ -184,24 +184,21 @@ class BibitController extends Controller
    public function download_order($id)
    {
       if (Gate::check('admin')) {
-         $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit', [
+         $response = Http::get('https://bibit.bpdas-sjd.id/API/order-filter', [
             'id' => $id
          ]);
          
          $detail = json_decode($response,true);
-
-         $pdf = Pdf::loadView('bibit/order/download', ['data' => $detail]);
-         return $pdf->download('order-'.$detail['data']['nama'].'.pdf');
+         $data = ['data' => $detail];
+         $pdf = PDF::loadView('bibit/order/download', $data);
+         
+         return $pdf->download('order-'.'.pdf');
       }
       
       return redirect('/');
          
    }
-
-   public function test()
-   {
-      return view('bibit/order/download');
-   }
+         
    // 
    // 
    // Order End

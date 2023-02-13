@@ -46,7 +46,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data['nama'] }}</td>
                                             <td>{{ $data['jenis'] }}</td>
-                                            <td>{{ $data['jumlah'] }}</td>
+                                            <td>{{ $data['total'] }}</td>
                                             <td>
                                               <a href="/data-bibit/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i>Delete</a>
                                             </td>
@@ -94,8 +94,8 @@
                                 </select>
                               </div>
                               <div class="form-group">
-                                <label>Jumlah</label>
-                                <input type="number" class="form-control" placeholder="Jumlah Bibit" name="jumlah">
+                                <label>Total</label>
+                                <input type="number" class="form-control" placeholder="Total Bibit" name="total">
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputFile">File input</label>

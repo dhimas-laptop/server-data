@@ -320,4 +320,11 @@ class PdinasController extends Controller
         $spd = spd::get();
         return view('/report/spd',['spd' => $spd, 'data' => '02']);
     }
+
+    public function test()
+    {
+        $spd = spd::findOrFail(68);
+        
+        dd($spd);
+    }
 }

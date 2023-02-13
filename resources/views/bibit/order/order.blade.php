@@ -48,29 +48,29 @@
                                             <td>{{ $data['kelompok'] }}</td>
                                             <td>{{ $data['nama_pemohon'] }}</td>
                                             <td>{{ $data['kegiatan'] }}</td>
-                                            <td>{{ $data['total'] }}</td>
+                                            <td>{{ $data['order'][0]['total'] }}</td>
                                             <td>{{ $data['created_at'] }}</td>
-                                            <td style="background-color: @if ($data['status'] === "pending")
+                                            <td style="background-color: @if ($data['order'][0]['status'] === "pending")
                                                 yellow
-                                            @endif @if ($data['status'] === "selesai")
+                                            @endif @if ($data['order'][0]['status'] === "selesai")
                                                 green
-                                            @endif @if ($data['status'] === "proses")
+                                            @endif @if ($data['order'][0]['status'] === "proses")
                                                 blue
-                                            @endif @if ($data['status'] === "ditolak")
+                                            @endif @if ($data['order'][0]['status'] === "ditolak")
                                                 red
-                                            @endif">{{ $data['status'] }}</td>
+                                            @endif">{{ $data['order'][0]['status'] }}</td>
                                             <td>
-                                              @if ($data['status'] === "pending")
-                                              <a href="/data-order/proses/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
-                                              <a href="/data-order/tolak/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
-                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif @if ($data['status'] === "proses")
-                                              <a href="/data-order/selesai/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
-                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif @if ($data['status'] === "ditolak")
-                                              <a href="/data-order/hapus/{{ $data['order_id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
-                                              @endif @if ($data['status'] === "selesai")
-                                              <a href="/data-order/download/{{ $data['order_id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              @if ($data['order'][0]['status'] === "pending")
+                                              <a href="/data-order/proses/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
+                                              <a href="/data-order/tolak/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
+                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              @endif @if ($data['order'][0]['status'] === "proses")
+                                              <a href="/data-order/selesai/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
+                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              @endif @if ($data['order'][0]['status'] === "ditolak")
+                                              <a href="/data-order/hapus/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
+                                              @endif @if ($data['order'][0]['status'] === "selesai")
+                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif 
                                               
                                             </td>

@@ -269,28 +269,28 @@
            <tr>
             <td width="10%">1.</td>
             <td colspan="2">Nama</td>
-            <td colspan="7">
+            <td colspan="6">
               : 
             </td>
            </tr>
            <tr>
             <td><br></td>
             <td colspan="2">NIP</td>
-            <td colspan="7">
+            <td colspan="6">
               : 
             </td>
            </tr>
            <tr>
             <td><br></td>
             <td colspan="2">Jabatan</td>
-            <td colspan="7">
+            <td colspan="6">
               : Penanggung Jawab Posko Bibit
             </td>
            </tr>
            <tr>
             <td><br></td>
             <td colspan="2">Alamat</td>
-            <td colspan="7" width="100%">
+            <td colspan="6" width="100%">
               : 
             </td>
            </tr>
@@ -374,14 +374,14 @@
           <tr>
             <td>1.</td>
             <td colspan="2">Nama pemohon</td>
-            <td colspan="7"> 
+            <td colspan="6"> 
               : {{ $data['data']['pemohon'][0]['nama_pemohon'] }}
             </td>
            </tr>
           <tr>
             <td><br></td>
             <td colspan="2">Alamat</td>
-            <td colspan="7">
+            <td colspan="6">
               : {{ $data['data']['pemohon'][0]['alamat'] }}
             </td>
            </tr>

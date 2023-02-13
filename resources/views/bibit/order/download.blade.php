@@ -5,7 +5,6 @@
 <style>
     .header{
         width: 100%;
-        height: 100%; 
         align: center;
         line-height: 1.5;
     }
@@ -28,8 +27,7 @@
     }
 
     .img {
-      height: 4cm;
-      width: 20cm;
+      width: 100%;
     }
 
 </style>
@@ -121,7 +119,7 @@
         <td colspan="3">Kepala desa/lurah/ka instansi/DSB</td>
       </tr>
       <tr>
-        <td><br><br></td>
+        <td><br></td>
       </tr>
       <tr>
         <td colspan="3">Aswan Basri</td>

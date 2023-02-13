@@ -267,7 +267,7 @@
             <td colspan="9">Pada hari ini Tanggal {{date('d')}} bulan {{date('F')}} tahun {{date('Y')}}, yang bertandatangan dibawah ini:</td>
            </tr>
            <tr>
-            <td>1.</td>
+            <td width="10%">1.</td>
             <td colspan="2">Nama</td>
             <td colspan="7">
               : 
@@ -389,8 +389,8 @@
             <td colspan="9">Demikian berita acara ini dibuat dengan sebenarnya dan untuk dipergunakan sebagaimana mestinya.</td>
            </tr>
            <tr>
-            <td colspan="8" align="center">Yang Menerima/Pemohon</td>
-            <td align="center">Yang Menyerahkan</td>
+            <td colspan="4" align="center">Yang Menerima/Pemohon</td>
+            <td colspan="4" align="center">Yang Menyerahkan</td>
            </tr>
            <tr>
             <td colspan="8"><br></td>

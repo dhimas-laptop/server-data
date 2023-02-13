@@ -302,17 +302,17 @@
            </tr>
            <tr>
             <td colspan="9" align="center" >
-              <div hidden>{{$h = count($data['data']['order'][0]['detail'])}}</div>
-                <div hidden>{{$i=0}}</div>
-                <div hidden>@if ($h % 2 == 0)
+              <div style="display: none;">{{$h = count($data['data']['order'][0]['detail'])}}</div>
+                <div style="display: none;">{{$i=0}}</div>
+                <div style="display: none;">@if ($h % 2 == 0)
                     {{$j = $h/2}}
                 @else
                     {{$j = ($h + 1)/2}}
                 @endif
                 </div>
-                <div hidden>{{$g = $j}}</div>
-                <div hidden>{{$k=1}}</div>
-                <div hidden>{{$l = $h}}</div>
+                <div style="display: none;">{{$g = $j}}</div>
+                <div style="display: none;">{{$k=1}}</div>
+                <div style="display: none;">{{$l = $h + 1}}</div>
               <table width="100%" height="100%" style="border-bottom: 1px solid;">
                 @if ($h < 6)
                   @while ($k < $h)

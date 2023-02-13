@@ -32,7 +32,7 @@
 
 </style>
 </head>
-<body>
+
 <div style="page-break-after:always;">
 <table class="header" cellpadding="0" border="1">
     <tbody>
@@ -117,6 +117,9 @@
       </tr>
       <tr>
         <td colspan="3">Kepala desa/lurah/ka instansi/DSB</td>
+      </tr>
+      <tr>
+        <td><br></td>
       </tr>
       <tr>
         <td><br></td>
@@ -409,7 +412,7 @@
            </tr>
         </tbody>
     </table>  
-</body>    
+    
   <script>
       var lt = {{ $lt }};
       var lg = {{ $lg }};

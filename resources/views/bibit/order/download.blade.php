@@ -34,7 +34,7 @@
 </head>
 <body>
 <div style="page-break-after:always;">
-<table class="header" cellpadding="0">
+<table class="header" cellpadding="0" border="1">
     <tbody>
       <tr>
         <td colspan="4">
@@ -129,7 +129,7 @@
 </table>
 </div>
 <div style="page-break-after:always;">
-  <table class="header" cellpadding="0">
+  <table class="header" cellpadding="0" border="1">
       <tbody>
         <tr>
           <td colspan="4">
@@ -240,7 +240,7 @@
 </div>
   <div style="page-break-after:always;">
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
-    <table class="header" cellpadding="0">
+    <table class="header" cellpadding="0" border="1">
         <tbody>
           <tr>
             <td colspan="9">

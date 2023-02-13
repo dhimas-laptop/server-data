@@ -203,7 +203,7 @@
           </td>
         </tr>
         <tr>
-          <td><br></td>
+          <td width="50%"></td>
         </tr>
         <tr align="justify">
           <td colspan="4">Demikian Surat Pernyataan ini kami buat dengan penuh rasa tanggung jawab, untuk dapat dipergunakan sebagaimana mestinya.</td>
@@ -405,8 +405,8 @@
             <td></td>
            </tr>
            <tr>
-            <td colspan="8" align="center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
-            <td align="center">Aswan Basri</td>
+            <td colspan="4" align="center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
+            <td colspan="4" align="center">Aswan Basri</td>
            </tr>
         </tbody>
     </table>

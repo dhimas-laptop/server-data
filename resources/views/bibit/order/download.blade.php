@@ -4,8 +4,8 @@
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <style>
     .header{
-        width: auto;
-        height: auto; 
+        width: 100%;
+        height: 100%; 
         align: center;
         margin: 1cm;
         margin-top: 1cm;
@@ -31,14 +31,14 @@
 
     .img {
       height: 4cm;
-      width: 22cm;
+      width: 20cm;
     }
 
 </style>
 </head>
 <body>
 <div style="page-break-after:always;">
-<table class="header" cellpadding="0">
+<table class="header" cellpadding="0" border="1">
     <tbody>
       <tr>
         <td colspan="4">
@@ -133,7 +133,7 @@
 </table>
 </div>
 <div style="page-break-after:always;">
-  <table class="header" cellpadding="0">
+  <table class="header" cellpadding="0" border="1">
       <tbody>
         <tr>
           <td colspan="4">

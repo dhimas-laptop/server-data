@@ -255,21 +255,21 @@
             <td colspan="9" align="center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date('m')}}/{{date('Y')}}</td>
            </tr>
            <tr>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td style="width: 5%"><br></td>
-            <td><br></td>
+            <td style="width: 5mm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td style="width: 2cm;"><br></td>
+            <td ><br></td>
            </tr>
            <tr>
             <td colspan="9">Pada hari ini Tanggal {{date('d')}} bulan {{date('F')}} tahun {{date('Y')}}, yang bertandatangan dibawah ini:</td>
            </tr>
            <tr>
-            <td width="10%">1.</td>
+            <td>1.</td>
             <td colspan="2">Nama</td>
             <td colspan="6">
               : 
@@ -407,7 +407,7 @@
             <td></td>
            </tr>
            <tr>
-            <td colspan="4" align="center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
+            <td colspan="5" align="center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
             <td colspan="4" align="center">Aswan Basri</td>
            </tr>
         </tbody>

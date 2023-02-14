@@ -34,7 +34,7 @@
 </head>
 
 <div style="page-break-after:always;">
-  <table class="header" cellpadding="0">
+  <table class="header" cellpadding="0" border="1">
     <tbody>
       <tr>
         <td colspan="4">
@@ -72,7 +72,7 @@
       <tr>
         <td style="width: 25mm"><br></td>
         <td style="width: 35mm"><br></td>
-        <td style="width: 30mm"><br></td>
+        <td style="width: 50mm"><br></td>
         <td><br></td>
       </tr>
       <tr>
@@ -311,7 +311,8 @@
            </tr>
            <tr>
             <td colspan="9" align="center" >
-              <div style="display: none;">{{$h = count($data['data']['order'][0]['detail'])}}</div>
+              <table width="100%" height="100%" style="border-bottom: 1px solid;">
+                <div style="display: none;">{{$h = count($data['data']['order'][0]['detail'])}}</div>
                 <div style="display: none;">{{$i=0}}</div>
                 <div style="display: none;">@if ($h % 2 == 0)
                     {{$j = $h/2}}
@@ -322,7 +323,6 @@
                 <div style="display: none;">{{$g = $j}}</div>
                 <div style="display: none;">{{$k=1}}</div>
                 <div style="display: none;">{{$l = $h + 1}}</div>
-              <table width="100%" height="100%" style="border-bottom: 1px solid;">
                 @if ($h < 6)
                   @while ($k < $h)
                   <tr>
@@ -358,16 +358,16 @@
                     <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $k++ }}</td>
                     <td style="border-right: 1px solid;border-left: 1px solid;">{{$data['data']['order'][0]['detail'][$i]['bibit']['nama']}}</td>
                     <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{$data['data']['order'][0]['detail'][$i]['jumlah']}}</td>
-                    <div hidden>{{$i++}}</div> 
+                      <div style="display: none;">{{$i++}}</div> 
                     @if ($g >= $h && $g % 2 !== 0 )
                     <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $g + 1 }}</td>
                     <td style="border-right: 1px solid;border-left: 1px solid;" align="center">-</td>
                     <td style="border-right: 1px solid;border-left: 1px solid;" align="center">-</td>
                     @else
-                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $g + 1 }}</td>
+                      <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $g + 1 }}</td>
                       <td style="border-right: 1px solid;border-left: 1px solid;">{{$data['data']['order'][0]['detail'][$g]['bibit']['nama']}}</td>
                       <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{$data['data']['order'][0]['detail'][$g]['jumlah']}}</td>
-                      <div hidden>{{$g++}}</div> 
+                      <div style="display: none;">{{$g++}}</div> 
                     @endif
                     
                   <tr>

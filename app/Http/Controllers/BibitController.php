@@ -193,7 +193,7 @@ class BibitController extends Controller
          // return view('bibit/order/download',$data);
          $pdf = PDF::loadView('bibit/order/download', $data);
          
-         return $pdf->stream();
+         return $pdf->download('Order-'.$data['data']['order'][0]['nama_pemohon'].'-'.$data['data']['order'][0]['id'].'.pdf');
       }
       
       return redirect('/');

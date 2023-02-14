@@ -34,7 +34,7 @@
 </head>
 
 <div style="page-break-after:always;">
-<table class="header" cellpadding="0" border="1">
+<table class="header" cellpadding="0">
     <tbody>
       <tr>
         <td colspan="4">
@@ -132,7 +132,7 @@
 </table>
 </div>
 <div style="page-break-after:always;">
-  <table class="header" cellpadding="0" border="1">
+  <table class="header" cellpadding="0">
       <tbody>
         <tr>
           <td colspan="4">
@@ -242,7 +242,7 @@
   </table>
 </div>
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
-    <table class="header" cellpadding="0" border="1">
+    <table class="header" cellpadding="0">
         <tbody>
           <tr>
             <td colspan="9">
@@ -391,7 +391,7 @@
             <td colspan="9">Demikian berita acara ini dibuat dengan sebenarnya dan untuk dipergunakan sebagaimana mestinya.</td>
            </tr>
            <tr>
-            <td colspan="4" align="center">Yang Menerima/Pemohon</td>
+            <td colspan="5" align="center">Yang Menerima/Pemohon</td>
             <td colspan="4" align="center">Yang Menyerahkan</td>
            </tr>
            <tr>

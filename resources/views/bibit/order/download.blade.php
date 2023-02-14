@@ -2,6 +2,16 @@
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <script>
+    var lt = {{ $lt }};
+    var lg = {{ $lg }};
+    var map = L.map('map').setView([ lt , lg], 14);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  }).addTo(map);
+   var marker = L.marker([lt, lg]).addTo(map);
+</script>
 <style>
     .header{
         width: 100%;
@@ -29,12 +39,11 @@
     .img {
       width: 100%;
     }
-
 </style>
 </head>
 
 <div style="page-break-after:always;">
-  <table class="header" cellpadding="0" border="1">
+  <table class="header" cellpadding="0">
     <tbody>
       <tr>
         <td colspan="4">
@@ -420,14 +429,5 @@
         </tbody>
     </table>  
     
-  <script>
-      var lt = {{ $lt }};
-      var lg = {{ $lg }};
-    	var map = L.map('map').setView([ lt , lg], 14);
-
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    }).addTo(map);
-     var marker = L.marker([lt, lg]).addTo(map);
-  </script>
+  
   

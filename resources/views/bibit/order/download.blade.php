@@ -34,7 +34,7 @@
 </head>
 
 <div style="page-break-after:always;">
-<table class="header" cellpadding="0">
+  <table class="header" cellpadding="0">
     <tbody>
       <tr>
         <td colspan="4">
@@ -69,14 +69,19 @@
       <tr>
         <td colspan="4">Di- Tanjungpinang</td>    
       </tr>
-      <tr><td><br></td></tr>
+      <tr>
+        <td style="width: 25mm"><br></td>
+        <td style="width: 35mm"><br></td>
+        <td style="width: 30mm"><br></td>
+        <td><br></td>
+      </tr>
       <tr>
         <td colspan="4" valign="top" align="justify">
             <p>Sehubungan dengan adanya bibit gratis bagi masyarakat berupa bibit Berkualitas dan bibit Produktif pada Balai Pengelolaan Daerah Aliran Sungai (BPDAS) Sei Jang Duriangkang Provinsi Kepulauan Riau, dengan hormat kami atas nama :</p>
         </td>
       </tr>
       <tr>
-        <td colspan="2" width="15%">
+        <td colspan="2" style="width: 6cm">
           Nama (kelompok/perorangan)
         </td>
         <td colspan="2">
@@ -129,7 +134,7 @@
         <td width="30%">{{$data['data']['pemohon'][0]['nama_pemohon']}}</td>
       </tr>
     </tbody>
-</table>
+  </table>
 </div>
 <div style="page-break-after:always;">
   <table class="header" cellpadding="0">
@@ -148,10 +153,10 @@
           <td colspan="4">Kami yang bertanda tangan di bawah ini:</td>
          </tr>
          <tr>
-          <td width="10%"><br></td>
-          <td width="15%"><br></td>
+          <td style="width: 5cm"><br></td>
+          <td style="width: 3cm"><br></td>
+          <td style="width: 2cm"><br></td>
           <td><br></td>
-          <td width="50%"><br></td>
          </tr>
          <tr>
           <td>Nama</td>
@@ -184,7 +189,6 @@
           <td>
             : {{ $data['data']['order'][0]['total'] }}
           </td>
-          <td><br></td>
           <td>Batang</td>
          </tr>
          <tr>
@@ -215,11 +219,11 @@
           <td colspan="4"><br></td>
         </tr>
         <tr>
-          <td colspan="3" width="35%"></td>
+          <td colspan="3" ></td>
           <td>Tanjungpinang, {{date("d F Y")}}</td>
         </tr>
         <tr>
-          <td colspan="3" width="35%"><br></td>
+          <td colspan="3"><br></td>
           <td>Pemohon,</td>
         </tr>
         <tr>

@@ -45,7 +45,7 @@
       </tr>
       <tr>
         <td colspan="4" align="right">
-           Tanjungpinang, {{ date('d F Y') }}
+           Tanjungpinang, {{ date("d F Y", strtotime($data['data']['order'][0]['created_at'])) }}
         </td>
       </tr>
       <tr>
@@ -114,14 +114,17 @@
         <td colspan="4">Demikian, atas bantuan dan kerja samanya diucapkan terimakasih.</td>
       </tr>
       <tr>
-        <td><br><br></td>
+        <td><br></td>
       </tr>
       <tr>
-        <td colspan="3" width="35%">Mengetahui,</td>
-        <td>Pemohon,</td>
+        <td colspan="4" align="center">Mengetahui,</td>
       </tr>
       <tr>
         <td colspan="3">Kepala desa/lurah/ka instansi/DSB</td>
+        <td>Pemohon,</td>
+      </tr>
+      <tr>
+        <td><br></td>
       </tr>
       <tr>
         <td><br></td>
@@ -206,7 +209,7 @@
          <tr><td>&nbsp;</td></tr>
         <tr>
           <td colspan="4" valign="top" align="justify">
-              <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tahun {{date("Y")}} sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>
+              <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tahun {{ date("d M Y", strtotime($data['data']['order'][0]['created_at'])) }} sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>
           </td>
         </tr>
         <tr>
@@ -220,7 +223,7 @@
         </tr>
         <tr>
           <td colspan="3" ></td>
-          <td>Tanjungpinang, {{date("d F Y")}}</td>
+          <td>Tanjungpinang, {{ date("d F Y", strtotime($data['data']['order'][0]['created_at'])) }}</td>
         </tr>
         <tr>
           <td colspan="3"><br></td>
@@ -256,7 +259,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="9" align="center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date('m')}}/{{date('Y')}}</td>
+            <td colspan="9" align="center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date("m", strtotime($data['data']['order'][0]['created_at']))}}/{{date("Y", strtotime($data['data']['order'][0]['created_at']))}}</td>
            </tr>
            <tr>
             <td style="width: 5mm;"><br></td>
@@ -270,7 +273,7 @@
             <td ><br></td>
            </tr>
            <tr>
-            <td colspan="9">Pada hari ini Tanggal {{date('d')}} bulan {{date('F')}} tahun {{date('Y')}}, yang bertandatangan dibawah ini:</td>
+            <td colspan="9">Pada hari ini Tanggal {{date("d", strtotime($data['data']['order'][0]['created_at']))}} bulan {{date("F", strtotime($data['data']['order'][0]['created_at']))}} tahun {{date("Y", strtotime($data['data']['order'][0]['created_at']))}}, yang bertandatangan dibawah ini:</td>
            </tr>
            <tr>
             <td>1.</td>

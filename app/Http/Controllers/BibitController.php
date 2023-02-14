@@ -190,7 +190,7 @@ class BibitController extends Controller
          
          $detail = json_decode($response,true);
          $data = ['data' => $detail];
-         // return view('bibit/order/download', $data);
+         return view('bibit/order/download', $data);
          $pdf = PDF::loadView('bibit/order/download', $data);
          
          return $pdf->download('Order-'.$detail['data']['pemohon'][0]['nama_pemohon'].'-'.$detail['data']['order'][0]['id'].'.pdf');

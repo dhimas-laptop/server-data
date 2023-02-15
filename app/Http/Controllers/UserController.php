@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required',
-            'nip' => 'required|min:18|unique:users,nip',
+            'nip' => 'required|unique:users,nip',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|alpha_num',
             'no_telp' => 'required',
@@ -50,7 +50,7 @@ class UserController extends Controller
         
         $validate = $request->validate([
             'name' => 'required',
-            'nip' => 'required|min:18',
+            'nip' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6|alpha_num',
             'no_telp' => 'required',

@@ -8,7 +8,7 @@
 
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
-@can('admin')
+
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -151,7 +151,7 @@
      </div>
    </div>
 </section>
-@endcan
+
 
 <section class="content">
   <div class="container-fluid">

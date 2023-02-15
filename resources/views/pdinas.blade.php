@@ -214,12 +214,7 @@
                         <label class="col-sm-2 col-form-label">Pulang</label>
                         <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tanggal Kembali</label>
-                        
-                          <input class="col-sm-10 form-control" type="date" class="form-control" name="pulang" >
-                        
-                      </div>
+                    
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Uang Harian</label>
                         

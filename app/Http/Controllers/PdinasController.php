@@ -25,10 +25,10 @@ class PdinasController extends Controller
         $today = today(); 
         $auth = auth::user()->id;
         
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::where('tgl_spt' , $today)->where('user_id', $auth)->get();
         } 
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::where('tgl_spt' , $today)->get();
         }
         
@@ -45,10 +45,10 @@ class PdinasController extends Controller
         $tahun = date('Y', strtotime($today));
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
         }
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
         }
        
@@ -64,10 +64,10 @@ class PdinasController extends Controller
         $auth = auth::user()->id;
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
          
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
         }
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         }
         
@@ -84,12 +84,12 @@ class PdinasController extends Controller
         $user = user::get();
         $auth = auth::user()->id;
         
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::where('tgl_spt', $request->filter)
             ->where('user_id', $auth)
             ->get();
         }
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::where('tgl_spt', $request->filter)->get();
         }
         
@@ -108,15 +108,15 @@ class PdinasController extends Controller
         $user = user::get();
         $bulan = $request->filter1;
         $tahun = date('Y', strtotime($request->filter2));
-        $tahun1 = spd::select('tgl_spt')->get();
+        $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
                     ->where('user_id', $auth)
                     ->get();
         }
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
                     ->get();
@@ -134,16 +134,16 @@ class PdinasController extends Controller
 
         $user = user::get();
         $tahun = date('Y', strtotime($request->filter2));
-        $tahun1 = spd::select('tgl_spt')->get();
+        $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
         
-        if (auth::user()->role !== 'admin' || auth::user()->role !== 'tu') {
+        if (auth::user()->role !== 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->where('user_id', $auth)
             ->get();
             
         }
-        if (auth::user()->role === 'admin' || auth::user()->role === 'tu') {
+        if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->get();
         }

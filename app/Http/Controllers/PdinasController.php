@@ -308,12 +308,11 @@ class PdinasController extends Controller
     public function downloadfilter(Request $request)
     {
         $request->validate([
-            'filter1' => 'required',
             'filter2' => 'required'
         ]);
         $auth = auth::user()->id;
         $role = auth::user()->role;
-        return (new SpdExport)->forMonth($request->filter1)->forYear($request->filter2)->forRole($role)->forUser($auth)->download('Perjalanan-Dinas'.'-'.$request->filter1.'-'.$request->filter2.'.xlsx');
+        return (new SpdExport)->forYear($request->filter2)->forRole($role)->forUser($auth)->download('Perjalanan-Dinas'.'-'.$request->filter1.'-'.$request->filter2.'.xlsx');
         
     }
 

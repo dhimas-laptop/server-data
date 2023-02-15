@@ -214,6 +214,84 @@
                         <label class="col-sm-2 col-form-label">Pulang</label>
                         <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tanggal Kembali</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control" value="{{ $spd->pulang }}" name="pulang" >
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Uang Harian</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" value="{{ $spd->uang_harian }}" name="uang_harian">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->pesawat }}" style="text-transform: uppercase" name="pesawat">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nomor Penerbangan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->no_penerbangan }}" style="text-transform: uppercase" name="no_penerbangan">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nomor Tiket</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->no_tiket }}" style="text-transform: uppercase" name="no_tiket">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kode Booking</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->kode_booking }}" style="text-transform: uppercase" name="kode_booking">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Harga Pesawat</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" style="text-transform: uppercase" name="harga_pesawat">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Taxi</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" value="{{ $spd->taxi }}" name="taxi">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nama Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->hotel }}" style="text-transform: uppercase" name="hotel">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Harga Hotel</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" value="{{ $spd->harga_hotel }}" name="harga_hotel">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nomor Telepon</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->no_telp }}" name="no_telp">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Provinsi</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="{{ $spd->provinsi }}" style="text-transform: uppercase" name="provinsi">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Total SPJ</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
+                        </div>
+                      </div>
                     <div class="form-group row">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">

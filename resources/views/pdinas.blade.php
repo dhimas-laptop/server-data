@@ -19,11 +19,11 @@
                 <h1>Data Perjalanan Dinas</h1>
             </div>
             <div class="col-sm-6">
-                @can ('admin')
+                
                 <div class="float-right mx-2">
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1"><i class="nav-icon fa-solid fa-plus"></i></button>
                 </div>
-                @endcan
+                
                 <div class="float-right">
                     <a class="btn btn-secondary" value="
                     @if ($active === 'tanggal')

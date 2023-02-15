@@ -36,7 +36,7 @@
                   <input type="date" class="form-control" value="{{ $spd->tgl_spt }}" name="tgl_spt" >
               </div>
              </div>
-             {{-- <div class="form-group row">
+             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                 <div class="col-sm-10">
                  <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
@@ -47,7 +47,7 @@
                 <div class="col-sm-10">
                   <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
                 </div>
-              </div> --}}
+              </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
                 <div class="col-sm-10">
@@ -66,7 +66,7 @@
                   <input type="date" class="form-control" value="{{ $spd->pulang }}" name="pulang" >
                 </div>
               </div>
-              {{-- <div class="form-group row">
+              <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
                 <div class="col-sm-10">
                   <input type="number" class="form-control" value="{{ $spd->uang_harian }}" name="uang_harian">
@@ -137,7 +137,7 @@
                 <div class="col-sm-10">
                   <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
                 </div>
-              </div> --}}
+              </div>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">

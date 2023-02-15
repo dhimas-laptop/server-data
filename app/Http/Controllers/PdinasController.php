@@ -9,7 +9,8 @@ use App\Models\gambar_spd;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
 use App\Exports\SpdExport;
-
+use App\Imports\PdinasImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PdinasController extends Controller
 {
@@ -321,10 +322,21 @@ class PdinasController extends Controller
         return view('/report/spd',['spd' => $spd, 'data' => '02']);
     }
 
+    public function export()
+    {
+        return view('/pdinas/export',['active' => 'perjalanan-dinas']);
+    }
+    public function exportpost()
+    {
+        Excel::import(new PdinasImport, request()->file('file'));
+    }
+
     public function test()
     {
         $spd = spd::findOrFail(68);
         
         dd($spd);
     }
+
+
 }

@@ -199,6 +199,13 @@ class BibitController extends Controller
       return redirect('/');
          
    }
+
+   public function map($ltlg)
+   {
+         
+      
+         
+   }
          
    // 
    // 

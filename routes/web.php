@@ -69,6 +69,8 @@ Route::post('/perjalanan-dinas/update/{id}', [PdinasController::class, 'tambah_g
 Route::post('/perjalanan-dinas/update-proses', [PdinasController::class, 'update_proses'])->middleware('auth');
 Route::get('/perjalanan-dinas/{id}', [PdinasController::class, 'detail'])->middleware('auth');
 Route::get('/perjalanan-dinas/hapus/{id}', [PdinasController::class, 'hapus'])->middleware('auth');
+Route::get('/export',[PdinasController::class, 'export']);
+Route::post('/export',[PdinasController::class, 'exportpost']);
 //------------------------------------perjalanan dinas end---------------------------------------------//
 
 //------------------------------------Pengguna---------------------------------------------//
@@ -102,6 +104,7 @@ Route::get('/data-order/selesai/{id}', [BibitController::class, 'selesai']);
 Route::get('/data-order/tolak/{id}', [BibitController::class, 'tolak']);
 Route::get('/data-order/download/{id}', [BibitController::class, 'download_order']);
 Route::get('/data-order/hapus/{id}', [BibitController::class, 'hapus_order']);
+Route::get('/map', [BibitController::class, 'map']);
 //------------------------------------Bibit end---------------------------------------------//
 
 

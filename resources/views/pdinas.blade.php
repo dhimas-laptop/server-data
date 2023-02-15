@@ -195,28 +195,28 @@
                 <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor SPT</label>
+                        <label class="col-sm-2 col-form-label">Nomor SPT*</label>
                         <input type="text" class="col-sm-10 form-control  @error('nomor_spt') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spt" placeholder="Masukkan data ">
                     </div>  
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tanggal SPT</label>
+                        <label class="col-sm-2 col-form-label">Tanggal SPT*</label>
                         <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tujuan</label>
+                        <label class="col-sm-2 col-form-label">Tujuan*</label>
                         <input type="text" class="col-sm-10 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
                     </div>  
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Berangkat</label>
+                        <label class="col-sm-2 col-form-label">Berangkat*</label>
                         <input type="date" class="col-sm-3 form-control  @error('berangkat') is-invalid @enderror" name="berangkat">
                     </div>  
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pulang</label>
+                        <label class="col-sm-2 col-form-label">Pulang*</label>
                         <input type="date" class="col-sm-3 form-control  @error('pulang') is-invalid @enderror" name="pulang">
                     </div>
                     
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Uang Harian</label>
+                        <label class="col-sm-2 col-form-label">Uang Harian*</label>
                         
                           <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian">
                         
@@ -288,7 +288,7 @@
                         
                       </div>
                     <div class="form-group row">    
-                        <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
+                        <label class="col-sm-2 col-form-label">Pegawai Pelaksana*</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>

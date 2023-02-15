@@ -216,81 +216,81 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tanggal Kembali</label>
-                        <div class="col-sm-10">
-                          <input type="date" class="form-control" name="pulang" >
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="date" class="form-control" name="pulang" >
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Uang Harian</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="uang_harian">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pesawat</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="pesawat">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="pesawat">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Penerbangan</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="no_penerbangan">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_penerbangan">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Tiket</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="no_tiket">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_tiket">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode Booking</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="kode_booking">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="kode_booking">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Harga Pesawat</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" style="text-transform: uppercase" name="harga_pesawat">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="number" class="form-control" style="text-transform: uppercase" name="harga_pesawat">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Taxi</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="taxi">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="taxi">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama Hotel</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="hotel">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="hotel">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Harga Hotel</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="harga_hotel">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="harga_hotel">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Telepon</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="no_telp">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="no_telp">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Provinsi</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" style="text-transform: uppercase" name="provinsi">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="provinsi">
+                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
-                        <div class="col-sm-10">
-                          <input type="number" class="form-control" name="total">
-                        </div>
+                        
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="total">
+                        
                       </div>
                     <div class="form-group row">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>

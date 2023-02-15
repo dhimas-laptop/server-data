@@ -14,6 +14,7 @@ class spd extends Model
             'tgl_spt',
             'nomor_spd',
             'tgl_spd',
+            'no_spm',
             'tujuan',
             'berangkat',
             'pulang', 

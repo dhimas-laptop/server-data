@@ -259,8 +259,9 @@
       </tbody>
   </table>
 </div>
-<div style="margin: 2cm">
+
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
+    <div style="margin: 2cm">
     <table class="header" cellpadding="0">
         <tbody>
           <tr>

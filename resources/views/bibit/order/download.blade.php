@@ -44,7 +44,7 @@
 </style>
 </head>
 
-<div style="page-break-after:always;margin: 2cm;">
+<div style="page-break-after:always;margin: 1cm;">
   <table class="header" cellpadding="0">
     <tbody>
       <tr>
@@ -150,7 +150,7 @@
     </tbody>
   </table>
 </div>
-<div style="page-break-after:always;margin: 2cm;">
+<div style="page-break-after:always;margin: 1cm;">
   <table class="header" cellpadding="0">
       <tbody>
         <tr>

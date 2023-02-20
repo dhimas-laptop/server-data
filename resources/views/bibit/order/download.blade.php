@@ -16,7 +16,7 @@
 </script>
 <style>
     .header{
-        width: 100%;
+        width: 16cm;
         align: center;
         line-height: 1.5;
     }

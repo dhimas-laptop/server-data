@@ -218,7 +218,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Uang Harian</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian">
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian"  id="dengan-rupiah">
                         
                       </div>
                       <div class="form-group row">
@@ -354,5 +354,31 @@ $(document).ready(function() {
     $(function () {
       bsCustomFileInput.init();
     });
+</script>
+<script>
+    /* Dengan Rupiah */
+    var dengan_rupiah = document.getElementById('dengan-rupiah');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
 </script>
 @endsection

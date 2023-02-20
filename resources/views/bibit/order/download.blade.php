@@ -2,8 +2,8 @@
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-  {{ $lt = $data['data']['order'][0]['latitude'] }}
-  {{ $lg = $data['data']['order'][0]['longitude'] }}
+  <div>{{ $lg = $data['data']['order'][0]['longitude'] }}</div>
+  <div>{{ $lt = $data['data']['order'][0]['latitude'] }}</div>  
   <script>
     var lt = {{ $lt }};
     var lg = {{ $lg }};
@@ -16,7 +16,7 @@
 </script>
 <style>
     .header{
-        width: 16cm;
+        width: 100%;
         align: center;
         line-height: 1.5;
     }
@@ -44,7 +44,7 @@
 </style>
 </head>
 
-<div style="page-break-after:always;">
+<div style="page-break-after:always;margin: 2cm;">
   <table class="header" cellpadding="0">
     <tbody>
       <tr>
@@ -150,7 +150,7 @@
     </tbody>
   </table>
 </div>
-<div style="page-break-after:always;">
+<div style="page-break-after:always;margin: 2cm;">
   <table class="header" cellpadding="0">
       <tbody>
         <tr>
@@ -259,6 +259,7 @@
       </tbody>
   </table>
 </div>
+<div style="margin: 2cm">
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
     <table class="header" cellpadding="0">
         <tbody>
@@ -430,6 +431,6 @@
            </tr>
         </tbody>
     </table>  
-    
+  </div>
   
   

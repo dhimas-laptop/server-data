@@ -18,12 +18,6 @@ class SpdExport implements FromView, ShouldAutoSize
         return $this;
     }
 
-    public function forMonth(int $month)
-    {
-        $this->month = $month;
-        return $this;
-    }
-
     public function forUser(int $user)
     {
         $this->user = $user;
@@ -39,13 +33,13 @@ class SpdExport implements FromView, ShouldAutoSize
     public function view(): View
     {
         if ($this->role === 'admin' || $this->role === 'tu') {
-            $query = spd::whereYear('tgl_spt', $this->year)->whereMonth('tgl_spt',$this->month)->orderBy('tgl_spt', 'ASC')->get();
+            $query = spd::whereYear('tgl_spt', $this->year)->orderBy('tgl_spt', 'ASC')->get();
         } else {
-            $query = spd::whereYear('tgl_spt', $this->year)->whereMonth('tgl_spt',$this->month)->orderBy('tgl_spt', 'ASC')->where('user_id', $this->user)->get();
+            $query = spd::whereYear('tgl_spt', $this->year)->orderBy('tgl_spt', 'ASC')->where('user_id', $this->user)->get();
         }
         
         return view('report.spd', [
-            'spd' => $query , 'month'=> $this->month , 'year' => $this->year 
+            'spd' => $query , 'year' => $this->year 
          ]);
     }
 

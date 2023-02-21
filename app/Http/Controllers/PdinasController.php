@@ -26,7 +26,7 @@ class PdinasController extends Controller
         $auth = auth::user()->id;
         
         if (auth::user()->role !== 'admin') {
-            $spd = spd::where('tgl_spt' , $today)->where('user_id', $auth)->get();
+            $spd = spd::where('tgl_spt' , $today)->get();
         } 
         if (auth::user()->role === 'admin') {
             $spd = spd::where('tgl_spt' , $today)->get();
@@ -46,7 +46,7 @@ class PdinasController extends Controller
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
         if (auth::user()->role !== 'admin') {
-            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
         }
         if (auth::user()->role === 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
@@ -65,7 +65,7 @@ class PdinasController extends Controller
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
          
         if (auth::user()->role !== 'admin') {
-            $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+            $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         }
         if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();
@@ -86,7 +86,7 @@ class PdinasController extends Controller
         
         if (auth::user()->role !== 'admin') {
             $spd = spd::where('tgl_spt', $request->filter)
-            ->where('user_id', $auth)
+            
             ->get();
         }
         if (auth::user()->role === 'admin') {
@@ -113,7 +113,7 @@ class PdinasController extends Controller
         if (auth::user()->role !== 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
-                    ->where('user_id', $auth)
+                    
                     ->get();
         }
         if (auth::user()->role === 'admin') {
@@ -139,7 +139,7 @@ class PdinasController extends Controller
         
         if (auth::user()->role !== 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)
-            ->where('user_id', $auth)
+            
             ->get();
             
         }

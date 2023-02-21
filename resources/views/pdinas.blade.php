@@ -222,7 +222,7 @@
                         
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pesawat</label>
+                        <label class="col-sm-2 col-form-label">Pesawat/Kapal</label>
                         
                           <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="pesawat">
                         
@@ -246,13 +246,13 @@
                         
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Harga Pesawat</label>
+                        <label class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
                         
                           <input class="col-sm-10 form-control" type="number" class="form-control" style="text-transform: uppercase" name="harga_pesawat">
                         
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Taxi</label>
+                        <label class="col-sm-2 col-form-label">Transportasi Darat</label>
                         
                           <input class="col-sm-10 form-control" type="number" class="form-control" name="taxi">
                         

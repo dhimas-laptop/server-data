@@ -218,7 +218,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Uang Harian</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian"  id="dengan-rupiah">
+                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian">
                         
                       </div>
                       <div class="form-group row">

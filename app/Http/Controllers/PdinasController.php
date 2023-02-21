@@ -61,11 +61,11 @@ class PdinasController extends Controller
         $user = user::get();
         $today = today(); 
         $tahun = date('Y', strtotime($today));
-        $auth = auth::user()->id;
+        $auth = auth::user()->role;
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
          
         if (auth::user()->role !== 'admin') {
-            $spd = spd::whereYear('tgl_spt' , $tahun)->where('user_id', $auth)->get();
+            $spd = spd::whereYear('tgl_spt' , $tahun)->where('role', $auth)->get();
         }
         if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();

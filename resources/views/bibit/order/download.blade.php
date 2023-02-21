@@ -261,7 +261,7 @@
 </div>
 
     <img class="img" src="{{Asset('img/kop.png')}}" alt="" >
-    <div style="margin: 2cm">
+    <div style="margin-left: 2cm;margin-right: 2cm;">
     <table class="header" cellpadding="0">
         <tbody>
           <tr>

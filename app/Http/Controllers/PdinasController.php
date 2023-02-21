@@ -238,7 +238,7 @@ class PdinasController extends Controller
                 'total' => $request->total,
             ]);
             
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Data Berhasil Di update');
 
     }
 

@@ -30,21 +30,12 @@
                   <div class="card-body">
                     <form class="form-horizontal" method="post" action="/perjalanan-dinas/downloadfilter">
                         @csrf
-                        @error('bulan')
-                        <div class="alert-default-danger">
-                        {{ $message }}
-                        </div> 
-                        @enderror
-                        @error('tahun')
-                        <div class="alert-default-danger">
-                        {{ $message }}
-                        </div> 
-                        @enderror
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih Tahun</label>
-                        <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
-                        @foreach ($tahun as $tahun)
-                        <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
+                        
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pilih SPT</label>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih SPT">
+                        @foreach ($spd as $spd)
+                        <option value="{{ $spd->nomor_spt }}">{{ $spd->nomor_spt }}</option>
                         @endforeach
                         </select>
                     </div>

@@ -73,7 +73,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat/Kapal</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" value="{{ $spd->pesawat }}" style="text-transform: uppercase" name="pesawat">
                 </div>
@@ -97,13 +97,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
                 <div class="col-sm-10">
                   <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" style="text-transform: uppercase" name="harga_pesawat">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Transportasi Darat</label>
                 <div class="col-sm-10">
                   <input type="number" class="form-control" value="{{ $spd->taxi }}" name="taxi">
                 </div>

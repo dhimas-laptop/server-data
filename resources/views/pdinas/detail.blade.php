@@ -72,7 +72,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat/Kapal</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control @if($spd->pesawat===null) is-invalid @endif" value="{{ $spd->pesawat }}"name="pesawat" disabled>
                 </div>
@@ -96,13 +96,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
                 <div class="col-sm-10">
                   <input type="number" class="form-control @if($spd->harga_pesawat===null) is-invalid @endif" value="{{ $spd->harga_pesawat }}" name="harga_pesawat" disabled>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Taxi</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Transportasi Darat</label>
                 <div class="col-sm-10">
                   <input type="number" class="form-control @if($spd->taxi===null) is-invalid @endif" value="{{ $spd->taxi }}" name="taxi" disabled>
                 </div>

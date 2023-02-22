@@ -3,7 +3,7 @@
   <tr></tr>
   <tr></tr>
   <tr>
-      <th align="center" colspan="19"><b>REKAPITULASI PERJALANAN DINAS BULAN</b></th>
+      <th align="center" colspan="19"><b>REKAPITULASI PERJALANAN DINAS</b></th>
   </tr>
   <tr></tr>
   <tr>
@@ -67,7 +67,7 @@
           @for ($i = 0;$i<15;$i++)
           <th></th> 
           @endfor
-      <th colspan="2">Tanjungpinang, {{ $year }}</th>
+      <th colspan="2">Tanjungpinang, </th>
     </tr>
 
     <tr>

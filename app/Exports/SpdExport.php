@@ -12,34 +12,27 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 class SpdExport implements FromView, ShouldAutoSize
 {
     use Exportable;
-    public function forYear(int $year)
+    public function forYear($no)
     {
-        $this->year = $year;
+        $this->no = $no;
         return $this;
     }
-
-    public function forUser(int $user)
-    {
-        $this->user = $user;
-        return $this;
-    }
-
     public function forRole($role)
     {
-        $this->role= $role;
+        $this->role = $role;
         return $this;
     }
 
     public function view(): View
     {
-        if ($this->role === 'admin' || $this->role === 'tu') {
-            $query = spd::whereYear('tgl_spt', $this->year)->orderBy('tgl_spt', 'ASC')->get();
+        if ($this->role === 'admin') {
+            $query = spd::get();
         } else {
-            $query = spd::whereYear('tgl_spt', $this->year)->orderBy('tgl_spt', 'ASC')->where('user_id', $this->user)->get();
+            $query = spd::where('nomor_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
         }
         
         return view('report.spd', [
-            'spd' => $query , 'year' => $this->year 
+            'spd' => $query  
          ]);
     }
 

@@ -292,10 +292,9 @@ class PdinasController extends Controller
 
     public function download()
     {
-        $spd = spd::get();
-        $tahun = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+        $spd = spd::select('nomor_spt')->distinct()->get();
         
-        return view('/pdinas/download',['spd' => $spd,'tahun' => $tahun, 'active' => 'perjalanan-dinas']);
+        return view('/pdinas/download',['spd' => $spd, 'active' => 'perjalanan-dinas']);
     }
 
     public function downloadget($id)
@@ -310,9 +309,11 @@ class PdinasController extends Controller
         $request->validate([
             'filter2' => 'required'
         ]);
-        $auth = auth::user()->id;
+        $spt = explode('.', $request->filter2);
+        $spt1= explode('/', $spt[1]);
+        $spt2= $spt1[0];
         $role = auth::user()->role;
-        return (new SpdExport)->forYear($request->filter2)->forRole($role)->forUser($auth)->download('Perjalanan-Dinas'.'-'.'-'.$request->filter2.'.xlsx');
+        return (new SpdExport)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.$spt2.'.xlsx');
         
     }
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Exports\SpdExport;
 use App\Imports\PdinasImport;
 use Maatwebsite\Excel\Facades\Excel;
+use PhpParser\Node\Stmt\Foreach_;
 
 class PdinasController extends Controller
 {
@@ -292,9 +293,27 @@ class PdinasController extends Controller
 
     public function download()
     {
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "PKDAS";
+        } elseif ($role === 'prog') {
+            $role = "PEVDAS";
+        } elseif ($role === 'rhl') {
+            $role = "RHL";
+        } elseif ($role === 'tu') {
+            $role = "TU";
+        }
+        
         $spd = spd::select('nomor_spt')->distinct()->get();
         
-        return view('/pdinas/download',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+        foreach ($spd as $key) {
+            $data = explode('/',$key->nomor_spt);
+            $data1 = $data[2];
+            if ($data1 == $role) {
+                $data2[] = $key->nomor_spt; 
+            }
+        }
+        return view('/pdinas/download',['spd' => $data2, 'active' => 'perjalanan-dinas']);
     }
 
     public function downloadget($id)
@@ -313,7 +332,7 @@ class PdinasController extends Controller
         $spt1= explode('/', $spt[1]);
         $spt2= $spt1[0];
         $role = auth::user()->role;
-        return (new SpdExport)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.$spt2.'.xlsx');
+        return (new SpdExport)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
         
     }
 

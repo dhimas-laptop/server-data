@@ -54,7 +54,7 @@
                         <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tanggal">
                             @csrf
                         <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih Tanggal</label>
+                        <label class="col-sm-2 col-form-label">Pilih Tanggal Surat Tugas</label>
                         <input type="date" class="col-sm-3 form-control" name="filter"> 
                         <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
                         </form>    
@@ -68,7 +68,7 @@
                         <form class="form-horizontal" method="POST" action="/perjalanan-dinas/bulan">
                             @csrf
                         <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih Bulan</label>
+                        <label class="col-sm-2 col-form-label">Pilih Bulan Surat Tugas</label>
                         <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih karyawan">
                             <option value="01">Januari</option>
                             <option value="02">Februari</option>

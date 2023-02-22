@@ -35,7 +35,7 @@
                         <label class="col-sm-2 col-form-label">Pilih SPT</label>
                         <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih SPT">
                         @foreach ($spd as $spd)
-                        <option value="{{ $spd->nomor_spt }}">{{ $spd->nomor_spt }}</option>
+                        <option value="{{ $spd }}">{{ $spd }}</option>
                         @endforeach
                         </select>
                     </div>

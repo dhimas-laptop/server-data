@@ -41,7 +41,7 @@ class PdinasController extends Controller
                 ->where('nomor_spt','LIKE','%'.$role.'%')
                 ->get();
         } 
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin' || auth::user()->id === 16) {
             $spd = spd::where('tgl_spt' , $today)->get();
         }
         

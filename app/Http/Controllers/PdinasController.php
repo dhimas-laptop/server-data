@@ -376,9 +376,7 @@ class PdinasController extends Controller
             }
         }
         if ($role === 'admin') {
-            foreach ($spd as $key) {
-                $data2 = $key->nomor_spt;
-            }
+            $data2 = $key->nomor_spt;
             
         }
         return view('/pdinas/download',['spd' => $data2, 'active' => 'perjalanan-dinas']);

@@ -288,13 +288,25 @@
                         
                       </div>
                     <div class="form-group row">    
-                        <label class="col-sm-2 col-form-label">Pegawai Pelaksana*</label>
+                        <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
                         <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach
                     </select>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nama</label>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="nama_lain">
+                        
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nomor HP</label>
+                        
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_lain">
+                        
+                      </div>
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>

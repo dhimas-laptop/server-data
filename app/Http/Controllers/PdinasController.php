@@ -302,7 +302,7 @@ class PdinasController extends Controller
             ]);
             
         return redirect()->back()->with('success', 'Data Berhasil Di update');
-
+            
     }
 
     public function tambah_gambar(Request $request)
@@ -374,6 +374,9 @@ class PdinasController extends Controller
             if ($data1 == $role) {
                 $data2[] = $key->nomor_spt; 
             }
+        }
+        if ($role === 'admin') {
+            $data2 = $spd;
         }
         return view('/pdinas/download',['spd' => $data2, 'active' => 'perjalanan-dinas']);
     }

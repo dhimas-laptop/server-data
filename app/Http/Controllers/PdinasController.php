@@ -25,14 +25,25 @@ class PdinasController extends Controller
         $user = user::get();
         $today = today(); 
         $auth = auth::user()->id;
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        }
         
         if (auth::user()->role !== 'admin') {
-            $spd = spd::where('tgl_spt' , $today)->get();
+            $spd = spd::where('tgl_spt' , $today)
+                ->where('nomor_spt','LIKE','%'.$role.'%')
+                ->get();
         } 
         if (auth::user()->role === 'admin') {
             $spd = spd::where('tgl_spt' , $today)->get();
         }
-        
         
         return view('pdinas', ['spd' => $spd , 'active' => "tanggal" , 'no' => 1], compact('user'));
         
@@ -46,8 +57,18 @@ class PdinasController extends Controller
         $tahun = date('Y', strtotime($today));
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        }
         if (auth::user()->role !== 'admin') {
-            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
+            $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->get();
         }
         if (auth::user()->role === 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
@@ -64,9 +85,19 @@ class PdinasController extends Controller
         $tahun = date('Y', strtotime($today));
         $auth = auth::user()->id;
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
-         
+        $role = auth::user()->role;
+        
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        } 
         if (auth::user()->role !== 'admin') {
-            $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+            $spd = spd::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->get();
         }
         if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();
@@ -84,10 +115,19 @@ class PdinasController extends Controller
 
         $user = user::get();
         $auth = auth::user()->id;
-        
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        } 
         if (auth::user()->role !== 'admin') {
             $spd = spd::where('tgl_spt', $request->filter)
-            
+            ->where('nomor_spt','LIKE','%'.$role.'%')
             ->get();
         }
         if (auth::user()->role === 'admin') {
@@ -111,10 +151,20 @@ class PdinasController extends Controller
         $tahun = date('Y', strtotime($request->filter2));
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        } 
         if (auth::user()->role !== 'admin') {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
-                    
+                    ->where('nomor_spt','LIKE','%'.$role.'%')
                     ->get();
         }
         if (auth::user()->role === 'admin') {
@@ -137,13 +187,25 @@ class PdinasController extends Controller
         $tahun = date('Y', strtotime($request->filter2));
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $auth = auth::user()->id;
+        $role = auth::user()->role;
+        if ($role === 'ev') {
+            $role = "pkdas";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+        } 
         
         if (auth::user()->role !== 'admin') {
+    
             $spd = spd::whereYear('tgl_spt' , $tahun)
-            
+            ->where('nomor_spt','LIKE','%'.$role.'%')
             ->get();
             
         }
+
         if (auth::user()->role === 'admin') {
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->get();

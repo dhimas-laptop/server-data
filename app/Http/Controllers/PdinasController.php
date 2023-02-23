@@ -377,7 +377,7 @@ class PdinasController extends Controller
         }
         if ($role === 'admin') {
             foreach ($spd as $key) {
-                $data2 = $spd->nomor_spt;
+                $data2 = $key->nomor_spt;
             }
             
         }

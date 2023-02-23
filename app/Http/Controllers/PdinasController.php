@@ -67,10 +67,10 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         }
-        if (auth::user()->role !== 'admin') {
+        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->get();
         }
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin' || auth::user()->nip === "198105052010122002") {
             $spd = spd::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
         }
        
@@ -96,10 +96,10 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         } 
-        if (auth::user()->role !== 'admin') {
+        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
             $spd = spd::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->get();
         }
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
             $spd = spd::whereYear('tgl_spt' , $tahun)->get();
         }
         
@@ -125,12 +125,12 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         } 
-        if (auth::user()->role !== 'admin') {
+        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
             $spd = spd::where('tgl_spt', $request->filter)
             ->where('nomor_spt','LIKE','%'.$role.'%')
             ->get();
         }
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin' || auth::user()->nip === "198105052010122002") {
             $spd = spd::where('tgl_spt', $request->filter)->get();
         }
         
@@ -161,13 +161,13 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         } 
-        if (auth::user()->role !== 'admin') {
+        if (auth::user()->role !== 'admin'|| auth::user()->nip !== "198105052010122002") {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
                     ->where('nomor_spt','LIKE','%'.$role.'%')
                     ->get();
         }
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
             $spd = spd::whereMonth('tgl_spt' , $request->filter1)
                     ->whereYear('tgl_spt' , $tahun)
                     ->get();
@@ -198,7 +198,7 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         
-        if (auth::user()->role !== 'admin') {
+        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
     
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->where('nomor_spt','LIKE','%'.$role.'%')
@@ -206,7 +206,7 @@ class PdinasController extends Controller
             
         }
 
-        if (auth::user()->role === 'admin') {
+        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->get();
         }

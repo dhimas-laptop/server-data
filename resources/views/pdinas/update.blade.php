@@ -43,6 +43,12 @@
                 </div>
              </div>
              <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
+                <div class="col-sm-10">
+                 <input type="text" class="form-control" value="{{ $spd->nomor_spm }}" style="text-transform: uppercase" name="no_spm">
+                </div>
+             </div>
+             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
                 <div class="col-sm-10">
                   <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
@@ -152,7 +158,7 @@
    </div>
 </section>
 
-
+@can('admin')
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -196,6 +202,7 @@
     </div>
   </div>    
 </section>
+
 <section class="content">
   <div class="container-fluid">
     <div class="col-md-12">
@@ -220,7 +227,7 @@
   </div>
 </form>
 </section>
-
+@endcan
 
 </div>
 @endsection 

@@ -140,7 +140,12 @@
                                 @foreach ($spd as $spd)
                                 <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $spd->user->name }}</td>
+                                <td>@if ($spd->nama_lain != null)
+                                    {{ $spd->nama_lain}} 
+                                @else
+                                    {{ $spd->user->name }}
+                                @endif
+                                    </td>
                                 <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
@@ -287,26 +292,58 @@
                           <input class="col-sm-10 form-control" type="number" class="form-control" name="total">
                         
                       </div>
-                    <div class="form-group row">    
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
+                        <select class="col-sm-10 custom-select">
+                            <option value="KLHK">KLHK</option>
+                            <option value="Non KLHK">Non KLHK</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nomor SP2D</label>
+                        <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan data ">
+                      </div>  
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tanggal SP2D</label>
+                        <input type="date" class="col-sm-3 form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd" placeholder="Masukkan Nomor SP2D">
+                      </div>
+
+                    <div class="form-group row" id="pegawai">    
                         <label class="col-sm-2 col-form-label">Pegawai Pelaksana</label>
-                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" name="user_id[]">
+                        <select class="form-control select2bs4" multiple="multiple" style="width:83%;" id="value" name="user_id[]">
                         @foreach ($user as $spd)
                         <option value="{{ $spd->id }}">{{$spd->name}}</option>
                         @endforeach
-                    </select>
+                        </select>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cek">
+                        <label class="form-check-label">Pegawai Selain BPDAS ?</label>
+                    </div>
+
+                    <div style="display: none" id="lain">
+                    <div align="center"><b>Bagi pegawai/personil Selain BPDAS</b><br></div>
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
-                        
                           <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="nama_lain">
-                        
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor HP</label>
-                        
                           <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_lain">
-                        
                       </div>
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">KLHK(contoh: BPKH)/Non KLHK(contoh: KPH)</label>
+                        
+                        <select class="col-sm-8 custom-select" style="width:50%;" name="status_lain">
+                            <option value="">-</option>
+                            <option value="KLHK">KLHK</option>
+                            <option value="Non KLHK">Non KLHK</option>
+                        </select>
+                      </div>
+                    </div>
                     <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
@@ -365,6 +402,17 @@ $(document).ready(function() {
 <script>
     $(function () {
       bsCustomFileInput.init();
+    });
+</script>
+<script>
+    $('#cek').change(function () { 
+    if('#cek:checked') {
+        $('#value').attr('value', '');
+        $('#lain').show();
+        $('#pegawai').hide();
+        $('#cek').attr('disabled', 'disabled');
+        $('#value').attr('value', ''); 
+    }
     });
 </script>
 @endsection

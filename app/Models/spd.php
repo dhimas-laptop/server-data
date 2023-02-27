@@ -32,6 +32,9 @@ class spd extends Model
             'total',
             'scan_spd',
             'scan_spt',
+            'nama_lain',
+            'no_lain',
+            'status_lain',
     ];
     public function user()
     {

@@ -240,15 +240,25 @@ class PdinasController extends Controller
             'no_telp' => 'nullable',
             'provinsi' => 'nullable',
             'total' => 'nullable',
-            'user_id' => 'required'
+            'user_id' => 'nullable',
+            'nama_lain' => 'nullable',
+            'no_lain' => 'nullable',
+            'status_lain' => 'nullable',
+
         ]);    
         // $request->validate(['gambar.*' => 'file']);
        
+     if ($validate['nama_lain'] == null) {
         $total = count($validate['user_id']);
         for($i=0; $i<$total; $i++){
             $validate['user_id'] = $request->user_id[$i];
             spd::insert($validate);  
         }  
+     } else {
+        spd::insert($validate);
+     }
+        
+        
 
         // foreach ($request->file('gambar') as $gambar) {
         //     $nama_gambar = time() . '.' . $gambar->extension();
@@ -301,7 +311,7 @@ class PdinasController extends Controller
                 'total' => $request->total,
             ]);
             
-        return redirect()->back()->with('success', 'Data Berhasil Di update');
+        return redirect()->action([PdinasController::class , 'index3'])->with('success', 'Data Berhasil Di update');
             
     }
 
@@ -318,7 +328,7 @@ class PdinasController extends Controller
                     ]);
                 }
                 
-        return redirect()->back();
+        return redirect()->action([PdinasController::class , 'index3'])->with('success', 'Data Berhasil Di update');
 
     }
 

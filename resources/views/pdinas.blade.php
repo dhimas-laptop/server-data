@@ -293,13 +293,13 @@
                         
                       </div>
 
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
                         <select class="col-sm-10 custom-select">
-                            <option value="KLHK">KLHK</option>
+                            <option value="KLHK">6738</option>
                             <option value="Non KLHK">Non KLHK</option>
                         </select>
-                      </div>
+                      </div> --}}
 
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SP2D</label>

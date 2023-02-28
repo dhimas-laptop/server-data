@@ -52,7 +52,7 @@ class UserController extends Controller
             'name' => 'required',
             'nip' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6|alpha_num',
+            'password' => 'nullable',
             'no_telp' => 'required',
             'role' => 'required'
         ]);

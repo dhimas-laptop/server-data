@@ -351,7 +351,7 @@
 
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SP2D</label>
-                        <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan data ">
+                        <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D ">
                       </div>  
                         <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tanggal SP2D</label>
@@ -359,7 +359,7 @@
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SPM</label>
-                        <input type="text" class="col-sm-10 form-control  @error('nomor_spm') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spm" placeholder="Masukkan data ">
+                        <input type="text" class="col-sm-10 form-control  @error('nomor_spm') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spm" placeholder="Masukkan nomor SPM ">
                       </div> 
                     
                       <div align="center">-----------Tambahan Selesai---------</div>

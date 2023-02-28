@@ -12,18 +12,18 @@
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan Tanggal</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tujuan</b></th>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal Berangkat</b></th>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal Kembali</b></th>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Uang Harian</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Berangkat</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Kembali</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Uang<br>Harian</b></th>
     <th align="center" valign="center" colspan="6" style="border: 3px solid black;background: yellow;"><b>Transportasi</b></th>
-    <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total SPJ</b></th>
+    <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/<br>Penginapan</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total<br>SPJ</b></th>
 </tr>
 <tr>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/Kapal</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/<br>Kapal</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No Penerbangan</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No Tiket</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Kode Booking</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Kode<br>Booking</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Harga</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Taxi</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Nama</b></th>
@@ -46,10 +46,10 @@
         {{ $spd->user->no_telp }}
     @endif</td>
     <td style="border: 1px solid black;">@if($spd->nomor_spt!==null)
-        {{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}
+        {{ $spd->nomor_spt }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}
         @endif</td>
     <td style="border: 1px solid black;">@if($spd->nomor_spd!==null)
-        {{ $spd->nomor_spd }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
+        {{ $spd->nomor_spd }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
         @endif
     </td>
     <td style="border: 1px solid black;">{{ $spd->tujuan }}</td>

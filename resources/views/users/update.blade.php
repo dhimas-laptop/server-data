@@ -47,7 +47,7 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Isi Password Baru" name="password" value="">
+              <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Isi Password Baru" name="password">
             </div>
           </div>  
           <div class="form-group row">
@@ -55,8 +55,8 @@
             <div class="col-sm-10">
               <select type="text" class="form-control" name="role">
                 <option value="user" @if ($user->role == "user") selected @endif>User</option>
-                <option value="ev" @if ($user->role == "ev") selected @endif>Evaluasi</option>
-                <option value="prog" @if ($user->role == "prog") selected @endif>Seksi Program</option>
+                <option value="ev" @if ($user->role == "ev") selected @endif>Penguatan Kelembagaan</option>
+                <option value="prog" @if ($user->role == "prog") selected @endif>Seksi Program dan Evaluasi</option>
                 <option value="rhl" @if ($user->role == "rhl") selected @endif>RHL</option>
                 <option value="tu" @if ($user->role == "tu") selected @endif>Tata Usaha</option>
               </select>

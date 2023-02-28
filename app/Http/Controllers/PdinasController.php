@@ -225,6 +225,7 @@ class PdinasController extends Controller
             'tgl_spt' => 'required',
             'nomor_spd' => 'nullable',
             'tgl_spd' => 'nullable',
+            'no_spm' => 'nullable',
             'tujuan' => 'required',
             'berangkat' => 'required',
             'pulang' => 'required',
@@ -244,6 +245,7 @@ class PdinasController extends Controller
             'nama_lain' => 'nullable',
             'no_lain' => 'nullable',
             'status_lain' => 'nullable',
+            'kode' => 'required'
 
         ]);    
         // $request->validate(['gambar.*' => 'file']);
@@ -309,6 +311,7 @@ class PdinasController extends Controller
                 'no_telp' => $request->no_telp,
                 'provinsi' => $request->provinsi,
                 'total' => $request->total,
+                'kode' => $request->kode
             ]);
             
         return redirect()->action([PdinasController::class , 'index3'])->with('success', 'Data Berhasil Di update');
@@ -414,7 +417,7 @@ class PdinasController extends Controller
     public function view()
     {
         $spd = spd::get();
-        return view('/report/spd',['spd' => $spd, 'data' => '02']);
+        return $spd;
     }
 
     public function export()

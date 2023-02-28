@@ -118,3 +118,4 @@ Route::get('/api/batam', [TelemetriController::class, 'batam']);
 Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');
 Route::get('/event', [MatriksController::class, 'event'])->middleware('admin');
 //------------------------------------matriks end---------------------------------------------//
+Route::get('/test', [PdinasController::class, 'view']);

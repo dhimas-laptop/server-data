@@ -22,6 +22,7 @@
          
          <form class="form-horizontal" action="/perjalanan-dinas/update-proses" method="POST"> 
             @csrf
+
           <div class="card-body">
             <input type="text" class="form-control" value="{{ $spd->id }}" name="id" hidden>
             <div class="form-group row">
@@ -37,41 +38,39 @@
               </div>
              </div>
              <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
-                <div class="col-sm-10">
-                 <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
-                </div>
-             </div>
-             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
-                <div class="col-sm-10">
-                 <input type="text" class="form-control" value="{{ $spd->nomor_spm }}" style="text-transform: uppercase" name="no_spm">
-                </div>
-             </div>
-             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
-                </div>
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" value="{{ $spd->tujuan }}" style="text-transform: uppercase" name="tujuan" >
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->tujuan }}" style="text-transform: uppercase" name="tujuan" >
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Berangkat</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" value="{{ $spd->berangkat }}" name="berangkat" >
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Berangkat</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" value="{{ $spd->berangkat }}" name="berangkat" >
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Kembali</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" value="{{ $spd->pulang }}" name="pulang" >
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Kembali</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" value="{{ $spd->pulang }}" name="pulang" >
-                </div>
-              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
+              <select class="col-sm-10 custom-select" name="kode">
+                  <option>---Pilih kode---</option>
+                  <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.RAG") selected @endif>FD.6738.RAG</option>
+                  <option value="FF.5407.RBK" @if ($spd->kode === "FF.5407.RBK") selected @endif >FF.5407.RBK</option>
+                  <option value="FF.6734.REA" @if ($spd->kode === "FF.6734.REA") selected @endif >FF.6734.REA</option>
+                  <option value="FF.6735.QDB" @if ($spd->kode === "FF.6735.QDB") selected @endif >FF.6735.QDB</option>
+                  <option value="FF.6735.UAB" @if ($spd->kode === "FF.6735.UAB") selected @endif >FF.6735.UAB</option>
+                  <option value="FF.6736.REA" @if ($spd->kode === "FF.6736.REA") selected @endif >FF.6736.REA</option>
+                  <option value="FF.6737.QDB" @if ($spd->kode === "FF.6737.QDB") selected @endif >FF.6737.QDB</option>
+                  <option value="FF.6737.REA" @if ($spd->kode === "FF.6737.REA") selected @endif >FF.6737.REA</option>
+                  <option value="WA.5403.EBA" @if ($spd->kode === "WA.5403.EBA") selected @endif >WA.5403.EBA</option>
+              </select>
+            </div>        
+
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
                 <div class="col-sm-10">
@@ -85,7 +84,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan/Pelayaran</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" value="{{ $spd->no_penerbangan }}" style="text-transform: uppercase" name="no_penerbangan">
                 </div>
@@ -144,7 +143,28 @@
                   <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
                 </div>
               </div>
+
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
+                  <div class="col-sm-10">
+                   <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
+                    <div class="col-sm-10">
+                     <input type="text" class="form-control" value="{{ $spd->nomor_spm }}" style="text-transform: uppercase" name="no_spm">
+                    </div>
+                 </div>
           </div>
+
+          
           <!-- /.card-body -->
           <div class="card-footer">
             <button type="button" onclick="history.back();" class="btn btn-default">Kembali</button>

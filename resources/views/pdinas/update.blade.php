@@ -159,7 +159,7 @@
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
                     <div class="col-sm-10">
-                     <input type="text" class="form-control" value="{{ $spd->nomor_spm }}" style="text-transform: uppercase" name="no_spm">
+                     <input type="text" class="form-control" value="{{ $spd->no_spm }}" style="text-transform: uppercase" name="no_spm">
                     </div>
                  </div>
           </div>

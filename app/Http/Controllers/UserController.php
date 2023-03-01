@@ -58,7 +58,6 @@ class UserController extends Controller
         if ($request->password != null) {
             $validate['password'] = bcrypt($request->password);
         }
-        return $validate;
         if(user::where('id' , $request->id)->update($validate)) {
             return redirect()->action([UserController::class, 'index'])->with('success', 'Data Berhasil Diupdate'); 
         } else {

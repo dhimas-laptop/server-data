@@ -76,4 +76,13 @@ class UserController extends Controller
         }
     }
 
+    public function reset()
+    {
+        $password = ['password' => bcrypt('admin123')];
+        for ($i=0; $i < 45; $i++) { 
+            user::where('id', $i)->update($password);
+        }
+        
+        
+    }
 }

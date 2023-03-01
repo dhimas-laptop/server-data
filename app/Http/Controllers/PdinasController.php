@@ -246,7 +246,6 @@ class PdinasController extends Controller
             'no_lain' => 'nullable',
             'status_lain' => 'nullable',
             'kode' => 'required'
-
         ]);    
         // $request->validate(['gambar.*' => 'file']);
        

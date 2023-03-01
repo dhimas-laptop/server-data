@@ -295,7 +295,7 @@ class PdinasController extends Controller
                 'tgl_spt' => $request->tgl_spt,
                 'nomor_spd' => $request->no_spd,
                 'tgl_spd' => $request->tgl_spd,
-                'no_spm'=> $request->spm,
+                'no_spm'=> $request->no_spm,
                 'tujuan'=> $request->tujuan,
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,

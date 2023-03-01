@@ -285,19 +285,19 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pesawat/Kapal</label>
                         
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan penyedia penerbangan atau Penyedia kapal">
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan penyedia penerbangan atau Penyedia kapal bila tidak ada disi (-)">
                         
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Penerbangan/pelayaran</label>
                         
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan nomor penerbangan sesuai yang ada di tiket">
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan nomor penerbangan sesuai yang ada di tiket bila tidak ada disi (-)">
                         
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor Tiket</label>
                         
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan nomor tiket">
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan nomor tiket bila tidak ada disi (-)">
                         
                       </div>
                       <div class="form-group row">

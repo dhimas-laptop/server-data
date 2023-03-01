@@ -52,13 +52,13 @@ class UserController extends Controller
             'name' => 'required',
             'nip' => 'required',
             'email' => 'required|email',
-            'password' => 'nullable',
             'no_telp' => 'required',
             'role' => 'required'
         ]);
-
-        $validate['password'] = bcrypt($validate['password']);
-
+        if ($request->password != null) {
+            $validate['password'] = bcrypt($request->password);
+        }
+        return $validate;
         if(user::where('id' , $request->id)->update($validate)) {
             return redirect()->action([UserController::class, 'index'])->with('success', 'Data Berhasil Diupdate'); 
         } else {

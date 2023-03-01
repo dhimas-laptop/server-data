@@ -42,9 +42,10 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                           
-                            @foreach ($user as $user)
                             <tbody>
+                            @foreach ($user as $user)
+                            
+                            <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $user->nip }}</td>
                                 <td>{{ $user->name }}</td>
@@ -54,9 +55,9 @@
                                     <a class="btn btn-success" href="/Pengguna/update/{{ $user->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
                                     <a class="btn btn-danger" href="/Pengguna/hapus/{{ $user->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                 </td>
-                            </tbody>
-                            
+                            </tr>
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -137,17 +138,16 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "pagination" : true,
-        
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf',
-        ]
-       
+    var table = $('#example').DataTable( {
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true
     } );
 } );
 </script>

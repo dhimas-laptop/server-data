@@ -7,29 +7,29 @@
   </tr>
   <tr></tr>
   <tr>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Nama Pelaksana</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Nama<br>Pelaksana</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>No.Telp</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
-    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan Tanggal</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan<br>Tanggal</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tujuan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Berangkat</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Kembali</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Uang<br>Harian</b></th>
     <th align="center" valign="center" colspan="6" style="border: 3px solid black;background: yellow;"><b>Transportasi</b></th>
-    <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/<br>Penginapan</b></th>
+    <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total<br>SPJ</b></th>
 </tr>
 <tr>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/<br>Kapal</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No Penerbangan</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/Kapal</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No<br>Penerbangan</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No Tiket</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Kode<br>Booking</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Harga</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Taxi</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Transportasi<br>Darat</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Nama</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Harga</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No. Telp</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Provinsi</b></th>
+    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Provinsi/<br>Kabupaten</b></th>
 </tr> 
 </thead>
 <tbody>
@@ -64,7 +64,7 @@
     <td style="border: 1px solid black;">{{ $spd->taxi }}</td>
     <td style="border: 1px solid black;">{{ $spd->hotel }}</td>
     <td style="border: 1px solid black;">{{ $spd->harga_hotel }}</td>
-    <td style="border: 1px solid black;">{{ $spd->no_telp }}</td>
+    <td style="border: 1px solid black;">'{{ $spd->no_telp }}</td>
     <td style="border: 1px solid black;">{{ $spd->provinsi }}</td>
     <td style="border: 1px solid black;">{{ $spd->total }}</td>
     </tr>

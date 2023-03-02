@@ -83,6 +83,11 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
 
     public function styles(Worksheet $sheet)
     {
+        $sheet->getPageMargins()->setTop(1);
+        $sheet->getPageMargins()->setRight(0);
+        $sheet->getPageMargins()->setLeft(0);
+        $sheet->getPageMargins()->setBottom(1);
+        
         return [
             'A' => ['alignment' => ['wrapText' => true]],
             'B' => ['alignment' => ['wrapText' => true]],
@@ -111,7 +116,11 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
         return [
             BeforeSheet::class => function (BeforeSheet $event) {
                 $event->sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+                $event->sheet->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
+                $event->sheet->getPageSetup()->setFitToWidth(1);
+                $event->sheet->getPageSetup()->setFitToHeight(0);
             },
+            
         ];
     }
 

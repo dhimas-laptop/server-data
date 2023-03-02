@@ -34,25 +34,26 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
     public function columnWidths(): array
     {
         return [
-            'A' => 11,
-            'B' => 16,
-            'C' => 35,
-            'D' => 20,
-            'E' => 13,
-            'F' => 11,
+            'A' => 5,
+            'B' => 11,
+            'C' => 16,
+            'D' => 35,
+            'E' => 20,
+            'F' => 13,
             'G' => 11,
             'H' => 11,
-            'I' => 20,
-            'J' => 13,
-            'K' => 20,
-            'L' => 10,
-            'M' => 11,
+            'I' => 11,
+            'J' => 20,
+            'K' => 13,
+            'L' => 20,
+            'M' => 10,
             'N' => 11,
-            'O' => 20,
-            'P' => 11,
-            'Q' => 16,
+            'O' => 11,
+            'P' => 20,
+            'Q' => 11,
             'R' => 16,
-            'S' => 11,           
+            'S' => 16,
+            'T' => 11,           
         ];
     }
 
@@ -60,24 +61,25 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
     {
         return [
             'A' => NumberFormat::FORMAT_TEXT,
-            'B' => NumberFormat::FORMAT_NUMBER,
+            'B' => NumberFormat::FORMAT_TEXT,
             'C' => NumberFormat::FORMAT_TEXT,
             'D' => NumberFormat::FORMAT_TEXT,
             'E' => NumberFormat::FORMAT_TEXT,
-            'F' => NumberFormat::FORMAT_NUMBER,
-            'G' => NumberFormat::FORMAT_NUMBER,
+            'F' => NumberFormat::FORMAT_TEXT,
+            'G' => NumberFormat::FORMAT_TEXT,
             'H' => NumberFormat::FORMAT_TEXT,
-            'I' => NumberFormat::FORMAT_TEXT,
-            'J' => NumberFormat::FORMAT_NUMBER,
-            'K' => NumberFormat::FORMAT_NUMBER,
-            'L' => NumberFormat::FORMAT_NUMBER,
+            'I' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'J' => NumberFormat::FORMAT_TEXT,
+            'K' => NumberFormat::FORMAT_TEXT,
+            'L' => NumberFormat::FORMAT_TEXT,
             'M' => NumberFormat::FORMAT_TEXT,
-            'N' => NumberFormat::FORMAT_TEXT,
-            'O' => NumberFormat::FORMAT_TEXT,
+            'N' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'O' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'P' => NumberFormat::FORMAT_TEXT,
-            'Q' => NumberFormat::FORMAT_NUMBER,
+            'Q' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'R' => NumberFormat::FORMAT_TEXT,
             'S' => NumberFormat::FORMAT_TEXT,
+            'T' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
         ];
     }
 
@@ -107,7 +109,8 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'P' => ['alignment' => ['wrapText' => true]],
             'Q' => ['alignment' => ['wrapText' => true]],
             'R' => ['alignment' => ['wrapText' => true]],
-            'S' => ['alignment' => ['wrapText' => true]],        
+            'S' => ['alignment' => ['wrapText' => true]], 
+            'T' => ['alignment' => ['wrapText' => true]],        
         ];
     }
 

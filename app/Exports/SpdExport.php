@@ -133,7 +133,7 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
         }
         
         return view('report.spd', [
-            'spd' => $query  
+            'spd' => $query , 'no' => 1 
          ]);
     }
 

@@ -8,13 +8,15 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Events\BeforeSheet;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, WithColumnWidths
+class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, WithColumnWidths, WithColumnFormatting
 {
     use Exportable;
     public function forYear($no)
@@ -22,6 +24,7 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
         $this->no = $no;
         return $this;
     }
+    
     public function forRole($role)
     {
         $this->role = $role;
@@ -50,6 +53,31 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'Q' => 16,
             'R' => 16,
             'S' => 11,           
+        ];
+    }
+
+    public function columnFormats(): array
+    {
+        return [
+            'A' => NumberFormat::FORMAT_TEXT,
+            'B' => NumberFormat::FORMAT_NUMBER,
+            'C' => NumberFormat::FORMAT_TEXT,
+            'D' => NumberFormat::FORMAT_TEXT,
+            'E' => NumberFormat::FORMAT_TEXT,
+            'F' => NumberFormat::FORMAT_NUMBER,
+            'G' => NumberFormat::FORMAT_NUMBER,
+            'H' => NumberFormat::FORMAT_TEXT,
+            'I' => NumberFormat::FORMAT_TEXT,
+            'J' => NumberFormat::FORMAT_NUMBER,
+            'K' => NumberFormat::FORMAT_NUMBER,
+            'L' => NumberFormat::FORMAT_NUMBER,
+            'M' => NumberFormat::FORMAT_TEXT,
+            'N' => NumberFormat::FORMAT_TEXT,
+            'O' => NumberFormat::FORMAT_TEXT,
+            'P' => NumberFormat::FORMAT_TEXT,
+            'Q' => NumberFormat::FORMAT_NUMBER,
+            'R' => NumberFormat::FORMAT_TEXT,
+            'S' => NumberFormat::FORMAT_TEXT,
         ];
     }
 

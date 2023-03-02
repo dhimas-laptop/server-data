@@ -37,7 +37,7 @@
     @foreach ($spd as $spd)
     <tr>
     <td style="border: 1px solid black;" align="center" valign="top">{{ $no++ }}</td>
-    <td style="border: 1px solid black;" valign="top">@if ($spd->nama_lain != null)
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">@if ($spd->nama_lain != null)
         {{ $spd->nama_lain}} 
     @else
         {{ $spd->user->name }}
@@ -47,27 +47,27 @@
     @else
         {{ $spd->user->no_telp }}
     @endif</td>
-    <td style="border: 1px solid black;" valign="top">@if($spd->nomor_spt!==null)
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">@if($spd->nomor_spt!==null)
         {{ $spd->nomor_spt }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}
         @endif</td>
     <td style="border: 1px solid black;" valign="top">@if($spd->nomor_spd!==null)
         {{ $spd->nomor_spd }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
         @endif
     </td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->tujuan }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->tujuan }}</td>
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->uang_harian }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->pesawat }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->no_penerbangan }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->no_tiket }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->kode_booking }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->pesawat }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->no_penerbangan }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->no_tiket }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->kode_booking }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->harga_pesawat }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->taxi }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->hotel }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->harga_hotel }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->no_telp }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->provinsi }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->provinsi }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->total }}</td>
     </tr>
       @endforeach

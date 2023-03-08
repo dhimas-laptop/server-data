@@ -9,7 +9,7 @@
             <center>
           <h3 class="mb-3">Struktur Organisasi BPDAS Sei Jang Duriangkang</h3>
           
-          <span class="h5 mb-4">Struktur Organisasi BPDAS Kepulauan Riau mengacu pada P.15/Menhut-II/2007 yakni :</span>
+          <span class="h5 mb-4">Struktur Organisasi BPDAS Kepulauan Riau mengacu pada PERMEN LHK. 14 TAHUN 2022 yakni :</span>
           <img src="{{asset('tdash/images/about/about-1.png')}}" alt="" class="img-fluid">
         </center>
         </div>

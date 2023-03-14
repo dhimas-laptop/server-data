@@ -515,8 +515,14 @@ class PdinasController extends Controller
             if ($role === 'admin') {
                 $data2[] = $key->nomor_spt; 
             }
+
+            if (isset($data2)) {
+               return view('/pdinas/download1',['spd' => $data2, 'active' => 'perjalanan-dinas']);
+            } else {
+               redirect()->back()->with('error', 'data masih kosong');
+            }
         }
-        return view('/pdinas/download1',['spd' => $data2, 'active' => 'perjalanan-dinas']);
+        
     }
 
     public function downloadfilter524114(Request $request)

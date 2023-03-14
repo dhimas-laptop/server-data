@@ -518,8 +518,6 @@ class PdinasController extends Controller
 
             if (isset($data2)) {
                return view('/pdinas/download1',['spd' => $data2, 'active' => 'perjalanan-dinas']);
-            } else {
-               redirect('/perjalanan-dinas/524114')->with('error', 'data belum ada');
             }
         }
         

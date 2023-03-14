@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Data Perjalanan Dinas</h1>
+                <h1>Data Perjalanan Dinas </h1>
             </div>
             <div class="col-sm-6">
                 
@@ -35,7 +35,7 @@
                     @if ($active === 'tahun')
                     tahun
                     @endif
-                    " href="/perjalanan-dinas/download"><i class="nav-icon fa-solid fa-download"></i> Download</a>
+                    " href="/perjalanan-dinas/download-524114"><i class="nav-icon fa-solid fa-download"></i> Download</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tahun">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/filter-524114">
                             @csrf
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Pilih Tahun</label>
@@ -78,7 +78,7 @@
                                     <th class="align-middle text-center">Tujuan</th>
                                     <th class="align-middle text-center">Tanggal Berangkat</th>
                                     <th class="align-middle text-center">Tanggal Kembali</th>
-                                    <th class="align-middle text-center">Nilai yang Dibayarkan</th>
+                                    <th class="align-middle text-center">Total yang diterima</th>
                                     <th class="align-middle text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -107,7 +107,9 @@
                                     <div class="row">
                                       <div class="col-2">
                                         <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
+                                        
                                         <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        
                                       </div>
                                     </div>
                                 </td>
@@ -141,7 +143,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/proses-tambah" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tambah-524114" enctype="multipart/form-data">
                     @csrf
                     <div align="center">-----------WAJIB Di ISI---------</div>
                     <div class="form-group row">
@@ -167,7 +169,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode Kegiatan*</label>
                         <select class="col-sm-10 custom-select" name="kode">
-                            <option value=>---Pilih kode---</option>
+                            <option>---Pilih kode---</option>
                             <option value="FD.6738.RAG">FD.6738.RAG</option>
                             <option value="FF.5407.RBK">FF.5407.RBK</option>
                             <option value="FF.6734.REA">FF.6734.REA</option>
@@ -196,96 +198,32 @@
                         <label class="form-check-label">Pegawai Selain BPDAS ?</label>
                     </div>
 
-                    <div style="display: none" id="lain">
+                  <div style="display: none" id="lain">
                     <div align="center"><b>Bagi pegawai/personil Selain BPDAS</b><br></div>
-                    
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama</label>
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="nama_lain" placeholder="Masukkan Nama Pelaksana">
+                      <div class="after">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Nama</label>
+                            <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="nama_lain" placeholder="Masukkan Nama Pelaksana">
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Nomor HP</label>
+                            <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_lain" placeholder="Masukkan nomor Telepon Pelaksana">
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-4 col-form-label">KLHK(contoh: BPKH)/Non KLHK(contoh: KPH)</label>
+                          
+                          <select class="col-sm-8 custom-select" style="width:50%;" name="status_lain">
+                              <option value="">-</option>
+                              <option value="KLHK">KLHK</option>
+                              <option value="Non KLHK">Non KLHK</option>
+                          </select>
+                        </div>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor HP</label>
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_lain" placeholder="Masukkan nomor Telepon Pelaksana">
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">KLHK(contoh: BPKH)/Non KLHK(contoh: KPH)</label>
-                        
-                        <select class="col-sm-8 custom-select" style="width:50%;" name="status_lain">
-                            <option value="">-</option>
-                            <option value="KLHK">KLHK</option>
-                            <option value="Non KLHK">Non KLHK</option>
-                        </select>
-                      </div>
-                    </div>
+                  </div>
+
                     <div align="center">-----------NAMA PELAKSANA selesai---------</div>
                     <div align="center"><br></div>
                     <div align="center">-----------Tambahan(bisa diupdate setelah diinput)---------</div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Uang Harian</label>
-                        
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian" placeholder="Masukkan Total uang harian(uang harian dikali jumlah hari)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pesawat/Kapal</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="pesawat" placeholder="Masukkan penyedia penerbangan atau Penyedia kapal bila tidak ada disi (-)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor Penerbangan/pelayaran</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_penerbangan" placeholder="Masukkan nomor penerbangan sesuai yang ada di tiket bila tidak ada disi (-)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor Tiket</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="no_tiket" placeholder="Masukkan nomor tiket bila tidak ada disi (-)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Kode Booking</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="kode_booking" placeholder="Masukkan kode booking bila tidak ada disi (-)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
-                        
-                          <input class="col-sm-10 form-control" type="number" class="form-control" style="text-transform: uppercase" name="harga_pesawat">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Transportasi Darat</label>
-                        
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="taxi">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama Hotel</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="hotel" placeholder="Masukkan nama Hotel">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Harga Hotel</label>
-                        
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="harga_hotel">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nomor Telepon</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" name="no_telp" placeholder="Masukkan nomor telepon hotel bila tidak ada disi (-)">
-                        
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provinsi</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan provinsi tempat tugas">
-                        
-                      </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
@@ -297,7 +235,7 @@
                         <label class="col-sm-2 col-form-label">Nomor SP2D</label>
                         <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D ">
                       </div>  
-                        <div class="form-group row">
+                      <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tanggal SP2D</label>
                         <input type="date" class="col-sm-3 form-control  @error('tgl_spd') is-invalid @enderror" name="tgl_spd" placeholder="Masukkan Nomor SP2D">
                       </div>
@@ -307,11 +245,12 @@
                       </div> 
                     
                       <div align="center">-----------Tambahan Selesai---------</div>
-                    <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </form>                 
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                </form> 
+            </div>               
           </div>
           <!-- /.modal-content -->
         </div>
@@ -376,4 +315,5 @@ $(document).ready(function() {
     }
     });
 </script>
+
 @endsection

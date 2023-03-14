@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spd', function (Blueprint $table) {
+        Schema::create('spd1', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_spt')->nullable();
             $table->date('tgl_spt')->nullable();
@@ -21,21 +21,8 @@ return new class extends Migration
             $table->date('tgl_spd')->nullable();
             $table->string('tujuan')->nullable();
             $table->date('berangkat')->nullable();
-            $table->date('pulang')->nullable(); 
-            $table->integer('uang_harian')->nullable();
-            $table->text('pesawat')->nullable();
-            $table->text('no_penerbangan')->nullable();
-            $table->text('no_tiket')->nullable();
-            $table->text('kode_booking')->nullable();
-            $table->integer('harga_pesawat')->nullable();
-            $table->integer('taxi')->nullable();
-            $table->text('hotel')->nullable();
-            $table->integer('harga_hotel')->nullable();
-            $table->text('no_telp')->nullable();
-            $table->text('provinsi')->nullable();
+            $table->date('pulang')->nullable();
             $table->integer('total')->nullable();
-            $table->string('scan_spd')->nullable();
-            $table->string('scan_spt')->nullable();
             $table->foreignId('user_id')->constrained('users')->nullable();
             $table->string('nama_lain')->nullable();
             $table->string('no_lain')->nullable();
@@ -52,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spd');
+        Schema::dropIfExists('spd1');
     }
 };

@@ -64,10 +64,10 @@
                     </li>
                     @endcan
                     <li
-                        class="nav-item @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif">
+                        class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif">
                         <a
                             href="/bibit"
-                            class="nav-link @if ($active === 'tanggal' || $active === 'bulan' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif">
+                            class="nav-link @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif">
                             <i class="fa-solid fa-plane-departure"></i>
                             <p>
                                 Perjalanan Dinas
@@ -77,31 +77,33 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a
-                                    href="{{ route('tanggal') }}"
-                                    class="nav-link {{ ($active === 'tanggal') ? 'active' : '' }}">
-                                    <i
-                                        class="far {{ ($active === 'tanggal') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>Per Tanggal</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    href="{{ route('bulan') }}"
-                                    class="nav-link {{ ($active === 'bulan') ? 'active' : '' }}">
-                                    <i
-                                        class="far {{ ($active === 'bulan') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>Per Bulan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a
                                     href="{{ route('tahun') }}"
                                     class="nav-link {{ ($active === 'tahun') ? 'active' : '' }}">
                                     <i
                                         class="far {{ ($active === 'tahun') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>Per Tahun</p>
+                                    <p>524111</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a
+                                    href="{{ route('524114') }}"
+                                    class="nav-link {{ ($active === '524114') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === '524114') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>524114</p>
+                                </a>
+                            </li>
+                            @can('admin')
+                            <li class="nav-item">
+                                <a 
+                                    href="{{ route('524119') }}"
+                                    class="nav-link {{ ($active === '524119') ? 'active' : '' }}" style="pointer-events: none">
+                                    {{-- <i class="far {{ ($active === '524119') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i> --}}
+                                    <i class="fa-solid fa-xmark-circle nav-icon"></i>
+                                    <p>524119</p>
+                                </a>
+                            </li>
+                            @endcan
                         </ul>
                     </li>
 

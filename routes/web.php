@@ -53,17 +53,20 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('home');
 
 //------------------------------------perjalanan dinas---------------------------------------------//
-Route::get('/perjalanan-dinas/tanggal', [PdinasController::class, 'index1'])->middleware('auth')->name('tanggal');
-Route::post('/perjalanan-dinas/tanggal', [PdinasController::class, 'filter1'])->middleware('auth')->name('filter_tanggal');
-Route::get('/perjalanan-dinas/bulan', [PdinasController::class, 'index2'])->middleware('auth')->name('bulan');
+Route::get('/perjalanan-dinas/524114', [PdinasController::class, 'index1'])->middleware('auth')->name('524114');
+Route::post('/perjalanan-dinas/filter-524114', [PdinasController::class, 'filter1'])->middleware('auth')->name('filter_tanggal');
+Route::get('/perjalanan-dinas/524119', [PdinasController::class, 'index2'])->middleware('admin')->name('524119');
 Route::post('/perjalanan-dinas/bulan', [PdinasController::class, 'filter2'])->middleware('auth')->name('filter_bulan');
-Route::get('/perjalanan-dinas/tahun', [PdinasController::class, 'index3'])->middleware('auth')->name('tahun');
+Route::get('/perjalanan-dinas/524111', [PdinasController::class, 'index3'])->middleware('auth')->name('tahun');
 Route::post('/perjalanan-dinas/tahun', [PdinasController::class, 'index3'])->middleware('auth')->name('filter_tahun');
 
 Route::get('/perjalanan-dinas/download', [PdinasController::class, 'download'])->middleware('auth')->name('download');
+Route::get('/perjalanan-dinas/download-524114', [PdinasController::class, 'download_524114'])->middleware('auth')->name('download_524114');
 Route::get('/perjalanan-dinas/download/bukti/{id}', [PdinasController::class, 'downloadget'])->middleware('auth');
 Route::post('/perjalanan-dinas/downloadfilter', [PdinasController::class, 'downloadfilter'])->middleware('auth')->name('download_filter');
+Route::post('/perjalanan-dinas/downloadfilter524114', [PdinasController::class, 'downloadfilter524114'])->middleware('auth')->name('downloadfilter524114');
 Route::post('/perjalanan-dinas/proses-tambah', [PdinasController::class, 'proses_tambah'])->middleware('auth');
+Route::post('/perjalanan-dinas/tambah-524114', [PdinasController::class, 'tambah_524114'])->middleware('auth');
 Route::get('/perjalanan-dinas/update/{id}', [PdinasController::class, 'update'])->middleware('auth');
 Route::post('/perjalanan-dinas/update/{id}', [PdinasController::class, 'tambah_gambar'])->middleware('auth');
 Route::post('/perjalanan-dinas/update-proses', [PdinasController::class, 'update_proses'])->middleware('auth');

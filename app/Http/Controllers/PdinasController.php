@@ -259,7 +259,7 @@ class PdinasController extends Controller
                 'kode' => $request->kode
             ]);
             
-        return redirect()->action([PdinasController::class , 'index3'])->with('success', 'Data Berhasil Di update');
+        return redirect('/perjalanan-dinas/524111')->with('success', 'Data Berhasil Di update');
             
     }
 
@@ -276,7 +276,7 @@ class PdinasController extends Controller
                     ]);
                 }
                 
-        return redirect()->action([PdinasController::class , 'index3'])->with('success', 'Data Berhasil Di update');
+        return redirect('/perjalanan-dinas/524111')->with('success', 'Data Berhasil Di update');
 
     }
 

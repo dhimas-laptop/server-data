@@ -87,9 +87,9 @@
                             <li class="nav-item">
                                 <a
                                     href="{{ route('524114') }}"
-                                    class="nav-link {{ ($active === '524114') ? 'active' : '' }}">
+                                    class="nav-link {{ ($active === '524114') ? 'active' : '' }}" style="pointer-events: none">
                                     <i
-                                        class="far {{ ($active === '524114') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                        class="far {{ ($active === '524114') ? 'fa-xmark-circle' : 'fa-xmark-circle' }} nav-icon"></i>
                                     <p>524114</p>
                                 </a>
                             </li>
@@ -98,8 +98,7 @@
                                 <a 
                                     href="{{ route('524119') }}"
                                     class="nav-link {{ ($active === '524119') ? 'active' : '' }}" style="pointer-events: none">
-                                    {{-- <i class="far {{ ($active === '524119') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i> --}}
-                                    <i class="fa-solid fa-xmark-circle nav-icon"></i>
+                                    <i class="far fa-xmark-circle nav-icon"></i>
                                     <p>524119</p>
                                 </a>
                             </li>

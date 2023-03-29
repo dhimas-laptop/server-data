@@ -3,7 +3,7 @@
   <tr></tr>
   <tr></tr>
   <tr>
-      <th align="center" colspan="19"><b>REKAPITULASI PERJALANAN DINAS</b></th>
+      <th align="center" colspan="20"><b>REKAPITULASI PERJALANAN DINAS</b></th>
   </tr>
   <tr></tr>
   <tr>
@@ -12,6 +12,7 @@
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>No.Telp</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan<br>Tanggal</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>NO SPM</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tujuan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Berangkat</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Kembali</b></th>
@@ -19,6 +20,7 @@
     <th align="center" valign="center" colspan="6" style="border: 3px solid black;background: yellow;"><b>Transportasi</b></th>
     <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total<br>SPJ</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Kode<br>Kegiatan</b></th>
 </tr>
 <tr>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/Kapal</b></th>
@@ -54,6 +56,10 @@
         {{ $spd->nomor_spd }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
         @endif
     </td>
+    <td style="border: 1px solid black;" valign="top">@if($spd->no_spm!==null)
+        {{ $spd->no_spm }}
+        @endif
+    </td>
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->tujuan }}</td>
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
@@ -69,6 +75,7 @@
     <td style="border: 1px solid black;" valign="top">{{ $spd->no_telp }}</td>
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->provinsi }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->total }}</td>
+    <td style="border: 1px solid black;" valign="top">{{ $spd->kode }}</td>
     </tr>
       @endforeach
 

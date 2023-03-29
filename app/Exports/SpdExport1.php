@@ -37,23 +37,14 @@ class SpdExport1 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
             'A' => 5,
             'B' => 11,
             'C' => 16,
-            'D' => 35,
+            'D' => 50,
             'E' => 20,
-            'F' => 13,
-            'G' => 12,
+            'F' => 22,
+            'G' => 13,
             'H' => 12,
-            'I' => 15,
-            'J' => 20,
-            'K' => 13,
-            'L' => 20,
-            'M' => 10,
-            'N' => 15,
-            'O' => 15,
-            'P' => 20,
-            'Q' => 15,
-            'R' => 16,
-            'S' => 16,
-            'T' => 15,           
+            'I' => 12,
+            'J' => 15,
+            'K' => 11,        
         ];
     }
 
@@ -68,18 +59,9 @@ class SpdExport1 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
             'F' => NumberFormat::FORMAT_TEXT,
             'G' => NumberFormat::FORMAT_TEXT,
             'H' => NumberFormat::FORMAT_TEXT,
-            'I' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
-            'J' => NumberFormat::FORMAT_TEXT,
+            'I' => NumberFormat::FORMAT_TEXT,
+            'J' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'K' => NumberFormat::FORMAT_TEXT,
-            'L' => NumberFormat::FORMAT_TEXT,
-            'M' => NumberFormat::FORMAT_TEXT,
-            'N' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
-            'O' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
-            'P' => NumberFormat::FORMAT_TEXT,
-            'Q' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
-            'R' => NumberFormat::FORMAT_TEXT,
-            'S' => NumberFormat::FORMAT_TEXT,
-            'T' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
         ];
     }
 
@@ -102,15 +84,7 @@ class SpdExport1 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
             'I' => ['alignment' => ['wrapText' => true]],
             'J' => ['alignment' => ['wrapText' => true]],
             'K' => ['alignment' => ['wrapText' => true]],
-            'L' => ['alignment' => ['wrapText' => true]],
-            'M' => ['alignment' => ['wrapText' => true]],
-            'N' => ['alignment' => ['wrapText' => true]],
-            'O' => ['alignment' => ['wrapText' => true]],
-            'P' => ['alignment' => ['wrapText' => true]],
-            'Q' => ['alignment' => ['wrapText' => true]],
-            'R' => ['alignment' => ['wrapText' => true]],
-            'S' => ['alignment' => ['wrapText' => true]], 
-            'T' => ['alignment' => ['wrapText' => true]],        
+                    
         ];
     }
 
@@ -135,7 +109,7 @@ class SpdExport1 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
             $query = spd1::where('nomor_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
         }
         
-        return view('report.spd', [
+        return view('report.spd1', [
             'spd' => $query , 'no' => 1 
          ]);
     }

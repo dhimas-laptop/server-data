@@ -92,7 +92,7 @@
                                     {{ $spd->user->name }}
                                 @endif
                                     </td>
-                                <td><a href="/perjalanan-dinas/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
+                                <td><a href="/perjalanan-dinas/524114/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
                                      @else
@@ -106,9 +106,9 @@
                                 <td>
                                     <div class="row">
                                       <div class="col-2">
-                                        <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
+                                        <a class="btn btn-success" href="/perjalanan-dinas/update-524114/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
                                         
-                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus-524114/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                         
                                       </div>
                                     </div>
@@ -241,7 +241,7 @@
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SPM</label>
-                        <input type="text" class="col-sm-10 form-control  @error('nomor_spm') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spm" placeholder="Masukkan nomor SPM ">
+                        <input type="text" class="col-sm-10 form-control  @error('no_spm') is-invalid @enderror" style="text-transform: uppercase" name="no_spm" placeholder="Masukkan nomor SPM ">
                       </div> 
                     
                       <div align="center">-----------Tambahan Selesai---------</div>

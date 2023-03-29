@@ -69,99 +69,31 @@
                   <option value="FF.6737.REA" @if ($spd->kode === "FF.6737.REA") selected @endif >FF.6737.REA</option>
                   <option value="WA.5403.EBA" @if ($spd->kode === "WA.5403.EBA") selected @endif >WA.5403.EBA</option>
               </select>
-            </div>        
-
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->uang_harian }}" name="uang_harian">
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Pesawat/Kapal</label>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->pesawat }}" style="text-transform: uppercase" name="pesawat">
+                  <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
                 </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Penerbangan/Pelayaran</label>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->no_penerbangan }}" style="text-transform: uppercase" name="no_penerbangan">
+                  <input type="text" class="form-control" value="{{ $spd->no_spm }}" style="text-transform: uppercase" name="no_spm">
                 </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Tiket</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->no_tiket }}" style="text-transform: uppercase" name="no_tiket">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Booking</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->kode_booking }}" style="text-transform: uppercase" name="kode_booking">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" style="text-transform: uppercase" name="harga_pesawat">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Transportasi Darat</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->taxi }}" name="taxi">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Hotel</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->hotel }}" style="text-transform: uppercase" name="hotel">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->harga_hotel }}" name="harga_hotel">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor Telepon</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->no_telp }}" name="no_telp">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->provinsi }}" style="text-transform: uppercase" name="provinsi">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
-                  <div class="col-sm-10">
-                   <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal SP2D</label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" value="{{ $spd->tgl_spd }}" name="tgl_spd">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
-                    <div class="col-sm-10">
-                     <input type="text" class="form-control" value="{{ $spd->no_spm }}" style="text-transform: uppercase" name="no_spm">
-                    </div>
-                 </div>
+            </div>
           </div>
 
           
@@ -177,77 +109,6 @@
      </div>
    </div>
 </section>
-
-@can('admin')
-<section class="content">
-  <div class="container-fluid">
-    <div class="row">
-            <!-- left column -->
-      <div class="col-md-12 my-5">
-                <!-- general form elements -->
-        <div class="card card-primary mx-5">
-          <div class="card-header">
-            <h5 class="text-center">UPLOAD BUKTI SPJ</h5>
-          </div>
-          
-        {{-- isi data --}}
-          
-          <div class="card-body">
-            <div class="col-5"></div>
-            <div>
-            <a data-fancybox data-type="pdf" href="/perjalanan-dinas/download/bukti/{{ $spd->scan }}">Bukti PDF</a>            
-          </div>
-          <div class="row">
-          
-           @foreach ($spd->gambar as $key) 
-           
-            <div class="col-sm-4 my-2">   
-              <div class="position-relative">
-                <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$key->gambar) }}">
-                  <img src="{{ asset('bukti/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
-                </button>
-              </div>  
-            </div>              
-              @endforeach   
-              
-            </div>
-            
-              
-                         
-          </div>
-        
-        {{-- selesai --}}
-        </div>
-      </div>
-    </div>
-  </div>    
-</section>
-
-<section class="content">
-  <div class="container-fluid">
-    <div class="col-md-12">
-      <!-- general form elements -->
-      <form class="form-horizontal" method="POST" action="/perjalanan-dinas/update/{{$spd->id}}" enctype="multipart/form-data">
-        @csrf
-        <input type="text" class="form-control" value="{{ $spd->id }}" name="id" hidden>
-    <div class="card mx-5">
-      <div class="input-group my-3">
-        <label class="col-sm-2 col-form-label">Bukti Perjalanan</label>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" name="gambar[]" style="70%" multiple>
-            <label class="custom-file-label">Choose file</label>
-        </div>
-    </div>
-    <div class="row">
-    <div class="col-5"></div>
-        <div class="col-5 my-2">
-          <button type="submit" class="btn btn-info center-block">Simpan</button>
-        </div>
-      </div>
-  </div>
-</form>
-</section>
-@endcan
 
 </div>
 @endsection 

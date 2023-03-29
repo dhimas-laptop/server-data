@@ -87,9 +87,9 @@
                             <li class="nav-item">
                                 <a
                                     href="{{ route('524114') }}"
-                                    class="nav-link {{ ($active === '524114') ? 'active' : '' }}" style="pointer-events: none">
+                                    class="nav-link {{ ($active === '524114') ? 'active' : '' }}">
                                     <i
-                                        class="far {{ ($active === '524114') ? 'fa-xmark-circle' : 'fa-xmark-circle' }} nav-icon"></i>
+                                        class="far {{ ($active === '524114') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
                                     <p>524114</p>
                                 </a>
                             </li>
@@ -117,7 +117,8 @@
                             </p>
                         </a>
                     </li>
-                    @endcan @can('admin')
+                    @endcan 
+                    @can('admin')
                     <li
                         class="nav-item @if($active === 'data-bibit' || $active === 'data-order') menu-open @endif">
                         <a

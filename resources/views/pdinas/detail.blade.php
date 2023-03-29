@@ -48,6 +48,12 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SPM</label>
+                  <div class="col-sm-10">
+                   <input type="text" class="form-control @if($spd->no_spm===null) is-invalid @endif" value="{{ $spd->no_spm }}" style="text-transform: uppercase" name="no_spm" disabled>
+                  </div>
+               </div>
+              <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control @if($spd->tujuan===null) is-invalid @endif" value="{{ $spd->tujuan }}" name="tujuan"  disabled>
@@ -65,6 +71,21 @@
                   <input type="date" class="form-control @if($spd->pulang===null) is-invalid @endif" value="{{ $spd->pulang }}" name="pulang"  disabled>
                 </div>
               </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
+                <select class="col-sm-10 custom-select" name="kode" disabled>
+                    <option>---Pilih kode---</option>
+                    <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.RAG") selected @endif>FD.6738.RAG</option>
+                    <option value="FF.5407.RBK" @if ($spd->kode === "FF.5407.RBK") selected @endif >FF.5407.RBK</option>
+                    <option value="FF.6734.REA" @if ($spd->kode === "FF.6734.REA") selected @endif >FF.6734.REA</option>
+                    <option value="FF.6735.QDB" @if ($spd->kode === "FF.6735.QDB") selected @endif >FF.6735.QDB</option>
+                    <option value="FF.6735.UAB" @if ($spd->kode === "FF.6735.UAB") selected @endif >FF.6735.UAB</option>
+                    <option value="FF.6736.REA" @if ($spd->kode === "FF.6736.REA") selected @endif >FF.6736.REA</option>
+                    <option value="FF.6737.QDB" @if ($spd->kode === "FF.6737.QDB") selected @endif >FF.6737.QDB</option>
+                    <option value="FF.6737.REA" @if ($spd->kode === "FF.6737.REA") selected @endif >FF.6737.REA</option>
+                    <option value="WA.5403.EBA" @if ($spd->kode === "WA.5403.EBA") selected @endif >WA.5403.EBA</option>
+                </select>
+              </div> 
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
                 <div class="col-sm-10">
@@ -149,42 +170,6 @@
    </div>
   </div>
  </section>
- <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Bukti Perjalanan Dinas</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <div class="row mt-4">
-                @foreach ($spd->gambar as $key)
-                <div class="col-sm-4 my-2">
-                  @if (substr($key->gambar,-3) === 'pdf')
-                    <a href="/bukti/{{ $key->gambar }}">Bukti.pdf</a>  
-                  @else
-                  <div class="position-relative">
-                    <button data-fancybox="gallery" data-src="{{ asset('bukti/'.$key->gambar) }}">
-                      <img src="{{ asset('bukti/'.$key->gambar) }}" alt="Photo 1" class="img-fluid">
-                    </button>
-                  </div>
-                  @endif                  
-                </div>
-                @endforeach
-            </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
 </div>
 @endsection 
                             

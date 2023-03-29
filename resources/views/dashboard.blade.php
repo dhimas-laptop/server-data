@@ -22,14 +22,12 @@
 
                     <div class="card-body">
                     Pembaharuan:<br>
-                    <strong>1. Dashboard =<br></strong>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Pemberitahuan akan muncul di dashboard<br><br>
-                    <strong> 2. Perjalanan Dinas = <br></strong>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tampilan per tahun,perbulan, dan pertanggal di hapus<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sekarang tampilan di bagi per akun 524111, 524114, dan 524119(blokir)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Input data disesuaikan akun perjalanan dinas<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tombol hapus disediakan untuk semua user<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tampilan Perseksi dan atau pernama user yang aktif <br>
+                    <strong> 1. Perjalanan Dinas = <br></strong>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Pembukaan blokir 524114<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Penyesuaian penambahan 524114<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Perbaikan download 524114<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- perbaikan format 524114<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Finalisasi modul 524114 pada perjalanan dinas<br>
                     <br><br>
 
                     </div>

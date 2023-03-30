@@ -93,6 +93,50 @@ class PdinasController extends Controller
         
     }
 
+    public function proses_tambah(Request $request)
+    {
+        
+        $validate = $request->validate([
+            'nomor_spt' => 'required',
+            'tgl_spt' => 'required',
+            'nomor_spd' => 'nullable',
+            'tgl_spd' => 'nullable',
+            'no_spm' => 'nullable',
+            'tujuan' => 'required',
+            'berangkat' => 'required',
+            'pulang' => 'required',
+            'uang_harian' => 'nullable',
+            'pesawat' => 'nullable',
+            'no_penerbangan' => 'nullable',
+            'no_tiket' => 'nullable',
+            'kode_booking' => 'nullable',
+            'harga_pesawat' => 'nullable',
+            'taxi' => 'nullable',
+            'hotel' => 'nullable',
+            'harga_hotel' => 'nullable',
+            'no_telp' => 'nullable',
+            'provinsi' => 'nullable',
+            'total' => 'nullable',
+            'user_id' => 'nullable',
+            'nama_lain' => 'nullable',
+            'no_lain' => 'nullable',
+            'status_lain' => 'nullable',
+            'kode' => 'required'
+        ]);    
+        // $request->validate(['gambar.*' => 'file']);
+        if ($validate['nama_lain'] == null) {
+            $total = count($validate['user_id']);
+            for($i=0; $i<$total; $i++){
+                $validate['user_id'] = $request->user_id[$i];
+                spd::insert($validate);  
+            }  
+        } else {
+            $validate['user_id']= null;
+            spd::insert($validate);
+        }
+        return redirect('/perjalanan-dinas/524111')->with('success', 'Data Berhasil Di tambah');
+    }
+
     public function update($id)
     {
         $spd = spd::findOrFail($id);

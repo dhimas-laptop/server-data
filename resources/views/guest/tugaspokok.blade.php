@@ -15,7 +15,7 @@
           <span class="h7 my-4">Dalam melaksanakan tugas pokok tersebut, BPDAS Kepulauan Riau berfungsi sebagai berikut :</span>
           
           <ul class="about-list2 my-4">
-            <li class="mb-2"><i class="far fa-check-circle"></i>Penyusunan rencana pengelolaan daerah aliran sungai dan rancangan kegiatan rehabilitasi hutan,lahan, perairan darat, dan mangrove, serta konservasi tanah dan air</li>
+            <li class="mb-2"><i class="far fa-check-circle"></i>Penyusunan rencana pengelolaan daerah aliran sungai dan rancangan kegiatan rehabilitasi hutan, lahan, perairan darat, dan mangrove, serta konservasi tanah dan air</li>
             <li class="mb-2"><i class="far fa-check-circle"></i>Pembangunan model pengelolaan daerah aliran sungai</li>
             <li class="mb-2"><i class="far fa-check-circle"></i>Pelaksanaan rehabilitasi hutan, lahan, perairan darat, dan mangrove serta konservasi tanah dan air</li>
             <li class="mb-2"><i class="far fa-check-circle"></i>Pemantauan dan evaluasi pengelolaan daerah aliran sungai, rehabilitasi hutan, lahan, perairan darat, dan mangrove serta konservasi tanah dan air</li>

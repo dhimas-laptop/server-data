@@ -22,7 +22,6 @@
             <li class="mb-2"><i class="far fa-check-circle"></i>Departemen Kehutanan dan Perkebunan (1998)</li>
             <li class="mb-2"><i class="far fa-check-circle"></i>Departemen Kehutanan (1998-2005)</li>
             <li class="mb-2"><i class="far fa-check-circle"></i>Kementerian Kehutanan (2005-2014)</li>
-            <li class="mb-2"><i class="far fa-check-circle"></i> Best Analytics Audits to your site in specific niche</li>
           </ul>
         </div>
   

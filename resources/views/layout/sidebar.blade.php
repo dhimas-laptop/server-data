@@ -91,6 +91,14 @@
                                     <p>524114</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a 
+                                    href="{{ route('524119') }}"
+                                    class="nav-link {{ ($active === '524119') ? 'active' : '' }}">
+                                    <i class="far {{ ($active === '524119') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>524119</p>
+                                </a>
+                            </li>                            
                             @can('admin')
                             <li class="nav-item">
                                 <a 

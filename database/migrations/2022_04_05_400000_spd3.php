@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spd1', function (Blueprint $table) {
+        Schema::create('spd3', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_spt')->nullable();
             $table->date('tgl_spt')->nullable();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spd1');
+        Schema::dropIfExists('spd3');
     }
 };

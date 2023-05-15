@@ -13,11 +13,13 @@
             <div class="col-sm-6">
                 <h1>Data Pengguna</h1>
             </div>
+            @can('admin')
             <div class="col-sm-6">
                 <div class="float-right mx-2">
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg"><i class="nav-icon fa-solid fa-plus"></i></button>
                 </div>
             </div>
+            @endcan
         </div>
     </div>
     <!-- /.container-fluid -->
@@ -53,7 +55,9 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <a class="btn btn-success" href="/Pengguna/update/{{ $user->id }}"><i class="nav-icon fa-regular fa-pen-to-square"></i></a>
+                                    @can('admin')
                                     <a class="btn btn-danger" href="/Pengguna/hapus/{{ $user->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                    @endcan 
                                 </td>
                             </tr>
                             @endforeach
@@ -107,7 +111,6 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Bagian</label>
                     <select class="col-sm-10 form-control" name="role" placeholder="Pilih Bagian">
-                    <option value="user">User</option>
                     <option value="ev">Evaluasi</option>
                     <option value="prog">Seksi Program</option>
                     <option value="rhl">RHL</option>

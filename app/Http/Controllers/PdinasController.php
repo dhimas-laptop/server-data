@@ -12,6 +12,7 @@ use App\Exports\SpdExport;
 use App\Exports\SpdExport1;
 use App\Imports\PdinasImport;
 use App\Models\spd1;
+use App\Models\spd2;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpParser\Node\Stmt\Foreach_;
 
@@ -43,10 +44,10 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         } 
-        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
+        if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
             $spd = spd::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
         }
-        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
+        if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
             $spd = spd::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
         }
         
@@ -75,7 +76,7 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         
-        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
+        if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
     
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->where('nomor_spt','LIKE','%'.$role.'%')
@@ -83,7 +84,7 @@ class PdinasController extends Controller
             
         }
 
-        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
+        if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
             $spd = spd::whereYear('tgl_spt' , $tahun)
             ->get();
         }
@@ -280,11 +281,11 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
         } 
-        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
+        if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
             $spd = spd1::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
         }
 
-        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
+        if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
             $spd = spd1::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
         }
         
@@ -313,7 +314,7 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         
-        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
+        if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
     
             $spd = spd1::whereYear('tgl_spt' , $tahun)
             ->where('nomor_spt','LIKE','%'.$role.'%')
@@ -321,7 +322,7 @@ class PdinasController extends Controller
             
         }
 
-        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
+        if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
             $spd = spd1::whereYear('tgl_spt' , $tahun)
             ->get();
         }
@@ -461,73 +462,206 @@ class PdinasController extends Controller
     }
 // 524114 END------------------------------------------------------------------------------------------------------------------
     
+// 524119------------------------------------------------------------------------------------------------------------------
 
- public function index2()
-    {
-        $user = user::get();
-        $today = today(); 
-        $bulan = date('m', strtotime($today));
-        $tahun = date('Y', strtotime($today));
-        $tahun1 = spd1::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
-        $auth = auth::user()->id;
-        $role = auth::user()->role;
-        if ($role === 'ev') {
-            $role = "pkdas";
-        } elseif ($role === 'prog') {
-            $role = "pevdas";
-        } elseif ($role === 'rhl') {
-            $role = "rhl";
-        } elseif ($role === 'tu') {
-            $role = "tu";
-        }
-        if (auth::user()->role !== 'admin' || auth::user()->nip !== "198105052010122002") {
-            $spd = spd1::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->get();
-        }
-        if (auth::user()->role === 'admin' || auth::user()->nip === "198105052010122002") {
-            $spd = spd1::whereMonth('tgl_spt' , $bulan)->whereYear('tgl_spt' , $tahun)->get();
-        }
-       
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1, 'no' => 1], compact('user'));
+public function index2()
+{
+    $user = user::get();
+    $today = today(); 
+    $tahun = date('Y', strtotime($today));
+    $auth = auth::user()->id;
+    $tahun1 = spd2::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+    $role = auth::user()->role;
+    
+    if ($role === 'ev') {
+        $role = "pkdas";
+    } elseif ($role === 'prog') {
+        $role = "pevdas";
+    } elseif ($role === 'rhl') {
+        $role = "rhl";
+    } elseif ($role === 'tu') {
+        $role = "tu";
+    } 
+    if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
+        $spd = spd2::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
+    }
+
+    if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
+        $spd = spd2::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
+    }
+    
+    return view('pdinas/pdinas2', ['spd' => $spd , 'active' => "524119" ,'tahun' => $tahun1, 'no' => 1], compact('user'));
+    
+}
+
+public function filter2(Request $request)
+{
+    $request->validate([
+        'filter2' => 'required'
+    ]);
+
+    $user = user::get();
+    $tahun = date('Y', strtotime($request->filter2));
+    $tahun1 = spd2::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+    $auth = auth::user()->id;
+    $role = auth::user()->role;
+    if ($role === 'ev') {
+        $role = "pkdas";
+    } elseif ($role === 'prog') {
+        $role = "pevdas";
+    } elseif ($role === 'rhl') {
+        $role = "rhl";
+    } elseif ($role === 'tu') {
+        $role = "tu";
+    } 
+    
+    if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
+
+        $spd = spd2::whereYear('tgl_spt' , $tahun)
+        ->where('nomor_spt','LIKE','%'.$role.'%')
+        ->get();
         
     }
 
-    public function filter2(Request $request)
-    {
-        $request->validate([
-            'filter1' => 'required',
-            'filter2' => 'required'
+    if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
+        $spd = spd2::whereYear('tgl_spt' , $tahun)
+        ->get();
+    }
+   
+    
+    return view('pdinas/pdinas2', ['spd' => $spd , 'active' => "524119", 'tahun' => $tahun1, 'no' => 1], compact('user'));
+    
+}
+
+public function tambah_524119(Request $request)
+{
+    
+    $validate = $request->validate([
+        'nomor_spt' => 'required',
+        'tgl_spt' => 'required',
+        'nomor_spd' => 'nullable',
+        'tgl_spd' => 'nullable',
+        'no_spm' => 'nullable',
+        'tujuan' => 'required',
+        'berangkat' => 'required',
+        'pulang' => 'required',
+        'uang_harian' => 'nullable',
+        'total' => 'nullable',
+        'user_id' => 'nullable',
+        'nama_lain' => 'nullable',
+        'no_lain' => 'nullable',
+        'status_lain' => 'nullable',
+        'kode' => 'required'
+    ]);    
+    if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
+        if ($validate['nama_lain'] == null) {
+            $total = count($validate['user_id']);
+            for($i=0; $i<$total; $i++){
+                $validate['user_id'] = $request->user_id[$i];
+                spd2::insertGetId($validate);  
+            }  
+        } else {
+            $validate['user_id']= null;
+            spd2::insertGetId($validate);
+        }
+                
+            return back()->with('success', 'Data Berhasil Di input');
+    } else {
+        return back()->with('error', 'Pelaksana belum diisi');
+    }
+    
+}
+
+public function detail2($id)
+{
+    $spd = spd2::findOrFail($id);
+    
+    return view('pdinas/detail2',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+}
+
+public function download_524119()
+{
+    $role = auth::user()->role;
+    if ($role === 'ev') {
+        $role = "PKDAS";
+    } elseif ($role === 'prog') {
+        $role = "PEVDAS";
+    } elseif ($role === 'rhl') {
+        $role = "RHL";
+    } elseif ($role === 'tu') {
+        $role = "TU";
+    }
+    
+    $spd = spd2::select('nomor_spt')->distinct()->get();
+    
+    foreach ($spd as $key) {
+        $data = explode('/',$key->nomor_spt);
+        $data1 = $data[2];
+        if ($data1 == $role) {
+            $data2[] = $key->nomor_spt; 
+        }
+        if ($role === 'admin') {
+            $data2[] = $key->nomor_spt; 
+        }
+
+        if (isset($data2)) {
+           return view('/pdinas/download2',['spd' => $data2, 'active' => 'perjalanan-dinas']);
+        }
+    }
+    
+}
+
+public function downloadfilter524119(Request $request)
+{
+    $request->validate([
+        'filter2' => 'required'
+    ]);
+    $spt = explode('.', $request->filter2);
+    $spt1= explode('/', $spt[1]);
+    $spt2= $spt1[0];
+    $role = auth::user()->role;
+    return (new SpdExport1)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+}
+
+
+public function update2($id)
+{
+    $spd = spd2::findOrFail($id);
+    
+    return view('/pdinas/update2',['spd' => $spd, 'active' => 'perjalanan-dinas']);
+
+}
+public function update_proses2(Request $request)
+{
+    
+   spd2::where('id', $request->id)
+        ->update([
+            'nomor_spt' => $request->no_spt,
+            'tgl_spt' => $request->tgl_spt,
+            'nomor_spd' => $request->no_spd,
+            'tgl_spd' => $request->tgl_spd,
+            'no_spm'=> $request->no_spm,
+            'tujuan'=> $request->tujuan,
+            'berangkat' => $request->berangkat,
+            'pulang' => $request->pulang,
+            'total' => $request->total,
+            'kode' => $request->kode
         ]);
+        
+    return redirect('/perjalanan-dinas/524119')->with('success', 'Data Berhasil Di update');
+        
+} 
 
-        $user = user::get();
-        $bulan = $request->filter1;
-        $tahun = date('Y', strtotime($request->filter2));
-        $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
-        $auth = auth::user()->id;
-        $role = auth::user()->role;
-        if ($role === 'ev') {
-            $role = "pkdas";
-        } elseif ($role === 'prog') {
-            $role = "pevdas";
-        } elseif ($role === 'rhl') {
-            $role = "rhl";
-        } elseif ($role === 'tu') {
-            $role = "tu";
-        } 
-        if (auth::user()->role !== 'admin'|| auth::user()->nip !== "198105052010122002") {
-            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
-                    ->whereYear('tgl_spt' , $tahun)
-                    ->where('nomor_spt','LIKE','%'.$role.'%')
-                    ->get();
-        }
-        if (auth::user()->role === 'admin'|| auth::user()->nip === "198105052010122002") {
-            $spd = spd::whereMonth('tgl_spt' , $request->filter1)
-                    ->whereYear('tgl_spt' , $tahun)
-                    ->get();
-        }
-        
-        return view('pdinas', ['spd' => $spd , 'active' => "bulan", 'tahun' => $tahun1, 'no' => 1], compact('user'));
-        
+public function hapus2($id)
+{       
+    if(spd2::select('*')->where('id', $id)->delete()) {
+        return redirect()->back()->with('success', 'Data Berhasil Dihapus'); 
+    } else {
+        return redirect()->back()->with('error', 'Data gagal Dihapus');
     }
+   
+}
+// 524119 END------------------------------------------------------------------------------------------------------------------
 
     public function downloadget($id)
     {

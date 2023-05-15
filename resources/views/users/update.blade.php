@@ -54,7 +54,6 @@
             <label for="inputEmail3" class="col-sm-2 col-form-label">Bagian</label>
             <div class="col-sm-10">
               <select type="text" class="form-control" name="role">
-                <option value="user" @if ($user->role == "user") selected @endif>User</option>
                 <option value="ev" @if ($user->role == "ev") selected @endif>Penguatan Kelembagaan</option>
                 <option value="prog" @if ($user->role == "prog") selected @endif>Seksi Program dan Evaluasi</option>
                 <option value="rhl" @if ($user->role == "rhl") selected @endif>RHL</option>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use App\models\User;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
@@ -14,9 +14,18 @@ class UserController extends Controller
         if (!auth()->check()) {
            return redirect()->action('login');
         }
-        $user = user::select('*')
-                ->from('users')
-                ->get();
+        if (Auth::user()->role === "admin") {
+            $user = user::select('*')
+            ->from('users')
+            ->get();
+        }
+        if (Auth::user()->role !== "admin") {
+            $user = user::select('*')
+            ->from('users')
+            ->where('nip', Auth::user()->nip)
+            ->get();
+        }
+        
         
         return view('users', ['user' => $user , 'active' => "pengguna", 'no' => 1]);
     }

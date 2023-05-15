@@ -51,7 +51,6 @@
                         </a>
                     </li>
 
-                    @can('admin')
                     <li class="nav-item">
                         <a
                             href="/Pengguna"
@@ -62,7 +61,6 @@
                             </p>
                         </a>
                     </li>
-                    @endcan
                     <li
                         class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif">
                         <a
@@ -97,8 +95,8 @@
                             <li class="nav-item">
                                 <a 
                                     href="{{ route('524119') }}"
-                                    class="nav-link {{ ($active === '524119') ? 'active' : '' }}" style="pointer-events: none">
-                                    <i class="far fa-xmark-circle nav-icon"></i>
+                                    class="nav-link {{ ($active === '524119') ? 'active' : '' }}">
+                                    <i class="far {{ ($active === '524119') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
                                     <p>524119</p>
                                 </a>
                             </li>

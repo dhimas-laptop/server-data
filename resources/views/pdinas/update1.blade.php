@@ -20,7 +20,7 @@
             <h5 class="text-center">UPDATE DATA SPJ</h5>
          </div>
          
-         <form class="form-horizontal" action="/perjalanan-dinas/update-524114" method="POST"> 
+         <form class="form-horizontal" action="/perjalanan-dinas/update-proses/524114" method="POST"> 
             @csrf
 
           <div class="card-body">

@@ -58,7 +58,8 @@ Route::get('/perjalanan-dinas/524119', [PdinasController::class, 'index2'])->mid
 Route::post('/perjalanan-dinas/filter-524119', [PdinasController::class, 'filter2'])->middleware('auth');
 Route::get('/perjalanan-dinas/524114', [PdinasController::class, 'index1'])->middleware('auth')->name('524114');
 Route::post('/perjalanan-dinas/filter-524114', [PdinasController::class, 'filter1'])->middleware('auth');
-Route::get('/perjalanan-dinas/524111', [PdinasController::class, 'index3'])->middleware('auth')->name('tahun');
+Route::post('/perjalanan-dinas/tahun', [PdinasController::class, 'filter'])->middleware('auth');
+Route::get('/perjalanan-dinas/524111', [PdinasController::class, 'index'])->middleware('auth')->name('tahun');
 
 Route::get('/perjalanan-dinas/download', [PdinasController::class, 'download'])->middleware('auth')->name('download');
 Route::get('/perjalanan-dinas/download/bukti/{id}', [PdinasController::class, 'downloadget'])->middleware('auth');

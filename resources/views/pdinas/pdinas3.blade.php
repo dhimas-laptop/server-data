@@ -25,7 +25,7 @@
                 </div>
                 
                 <div class="float-right">
-                    <a class="btn btn-secondary" href="/perjalanan-dinas/download-524119"><i class="nav-icon fa-solid fa-download"></i> Download</a>
+                    <a class="btn btn-secondary" href="/perjalanan-dinas/download-524113"><i class="nav-icon fa-solid fa-download"></i> Download</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/filter-524119">
+                        <form class="form-horizontal" method="POST" action="/perjalanan-dinas/filter-524113">
                             @csrf
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Pilih Tahun</label>
@@ -82,7 +82,7 @@
                                     {{ $spd->user->name }}
                                 @endif
                                     </td>
-                                <td><a href="/perjalanan-dinas/524119/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
+                                <td><a href="/perjalanan-dinas/524113/{{ $spd->id }}">{{ $spd->nomor_spt }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}</a></td>
                                 <td>@if ($spd->nomor_spd == null)
                                     
                                      @else
@@ -96,9 +96,9 @@
                                 <td>
                                     <div class="row">
                                       <div class="col-2">
-                                        <a class="btn btn-success" href="/perjalanan-dinas/update-524119/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
+                                        <a class="btn btn-success" href="/perjalanan-dinas/update-524113/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
                                         
-                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus-524119/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus-524113/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
                                         
                                       </div>
                                     </div>
@@ -133,7 +133,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tambah-524119" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="/perjalanan-dinas/tambah-524113" enctype="multipart/form-data">
                     @csrf
                     <div align="center">-----------WAJIB Di ISI---------</div>
                     <div class="form-group row">

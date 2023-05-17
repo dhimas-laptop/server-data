@@ -62,10 +62,10 @@
                         </a>
                     </li>
                     <li
-                        class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === 'perjalanan-dinas') menu-open @endif">
+                        class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas') menu-open @endif">
                         <a
                             href="/bibit"
-                            class="nav-link @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === 'perjalanan-dinas' ) active @endif">
+                            class="nav-link @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas' ) active @endif">
                             <i class="fa-solid fa-plane-departure"></i>
                             <p>
                                 Perjalanan Dinas
@@ -80,6 +80,14 @@
                                     <i
                                         class="far {{ ($active === 'tahun') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
                                     <p>524111</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a 
+                                    href="{{ route('524113') }}"
+                                    class="nav-link {{ ($active === '524113') ? 'active' : '' }}">
+                                    <i class="far {{ ($active === '524113') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>524113</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -99,16 +107,7 @@
                                     <p>524119</p>
                                 </a>
                             </li>                            
-                            @can('admin')
-                            <li class="nav-item">
-                                <a 
-                                    href="{{ route('524119') }}"
-                                    class="nav-link {{ ($active === '524119') ? 'active' : '' }}">
-                                    <i class="far {{ ($active === '524119') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>524119</p>
-                                </a>
-                            </li>
-                            @endcan
+                            
                         </ul>
                     </li>
 

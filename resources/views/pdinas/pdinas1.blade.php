@@ -25,17 +25,7 @@
                 </div>
                 
                 <div class="float-right">
-                    <a class="btn btn-secondary" value="
-                    @if ($active === 'tanggal')
-                    tanggal
-                    @endif
-                    @if ($active === 'bulan')
-                    bulan
-                    @endif
-                    @if ($active === 'tahun')
-                    tahun
-                    @endif
-                    " href="/perjalanan-dinas/download-524114"><i class="nav-icon fa-solid fa-download"></i> Download</a>
+                    <a class="btn btn-secondary" href="/perjalanan-dinas/download-524114"><i class="nav-icon fa-solid fa-download"></i> Download</a>
                 </div>
             </div>
         </div>

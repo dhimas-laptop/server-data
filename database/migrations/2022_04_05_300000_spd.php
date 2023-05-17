@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_spt')->nullable();
             $table->date('tgl_spt')->nullable();
+            $table->string('no_spm')->nullable();
             $table->string('nomor_spd')->nullable();
             $table->date('tgl_spd')->nullable();
             $table->string('tujuan')->nullable();

@@ -14,6 +14,28 @@
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
+                        <h3 class="card-title">Update Patch 17 Mei 2023</h3>
+                        <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                    Pembaharuan:<br>
+                                        
+                    <strong> 1. Perjalanan Dinas = <br></strong>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Penambahan perjadin 524113<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Finalisasi modul 524113 pada perjalanan dinas<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- perbaikan bug pada modul perjalanan dinas<br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary collapsed-card">
+                    <div class="card-header">
                         <h3 class="card-title">Update Patch 12 Mei 2023</h3>
                         <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>

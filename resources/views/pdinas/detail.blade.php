@@ -20,7 +20,7 @@
             <h5 class="text-center">Rincian Data SPJ</h5>
          </div>
          
-         <form class="form-horizontal" action="/perjalanan-dinas/update-proses" method="POST"> 
+         <form class="form-horizontal" action="#" method="POST"> 
             @csrf
           <div class="card-body">
             <div class="form-group row">

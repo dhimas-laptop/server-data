@@ -64,7 +64,7 @@
                     <li
                         class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas') menu-open @endif">
                         <a
-                            href="/bibit"
+                            href="#"
                             class="nav-link @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas' ) active @endif">
                             <i class="fa-solid fa-plane-departure"></i>
                             <p>

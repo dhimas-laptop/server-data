@@ -217,7 +217,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="total" >
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="rupiah">
                         
                       </div>
 
@@ -265,7 +265,7 @@
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-
+<script src="{{asset('js/added/rupiah.js')}}"></script>
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>

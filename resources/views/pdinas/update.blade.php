@@ -74,7 +74,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Uang Harian</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->uang_harian }}" name="uang_harian">
+                  <input type="text" id="rupiah" class="form-control" value="{{ $spd->uang_harian }}" name="uang_harian">
                 </div>
               </div>
               <div class="form-group row">
@@ -104,13 +104,13 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->harga_pesawat }}" style="text-transform: uppercase" name="harga_pesawat">
+                  <input type="text" id="rupiah1" class="form-control" value="{{ $spd->harga_pesawat }}" name="harga_pesawat">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Transportasi Darat</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->taxi }}" name="taxi">
+                  <input type="text" id="rupiah2" class="form-control" value="{{ $spd->taxi }}" name="taxi">
                 </div>
               </div>
               <div class="form-group row">
@@ -122,7 +122,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Harga Hotel</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->harga_hotel }}" name="harga_hotel">
+                  <input type="text" id="rupiah3" class="form-control" value="{{ $spd->harga_hotel }}" name="harga_hotel">
                 </div>
               </div>
               <div class="form-group row">
@@ -140,7 +140,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
+                  <input type="text" id="rupiah4" class="form-control" value="{{ $spd->total }}" name="total">
                 </div>
               </div>
               <div class="form-group row">
@@ -254,7 +254,8 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script src="{{asset('js/added/rupiah.js')}}"></script>
 <script>
   // Customization example
   Fancybox.bind('[data-fancybox="gallery"]', {

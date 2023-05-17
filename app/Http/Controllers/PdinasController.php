@@ -97,7 +97,28 @@ class PdinasController extends Controller
 
     public function proses_tambah(Request $request)
     {
+        // convert data masking
+        $request['uang_harian'] = str_replace("Rp. ","",$request['uang_harian']);
+        $request['uang_harian'] = str_replace(".","",$request['uang_harian']);
+        $request['uang_harian'] = (int) $request['uang_harian'];
+
+        $request['harga_pesawat'] = str_replace("Rp. ","",$request['harga_pesawat']);
+        $request['harga_pesawat'] = str_replace(".","",$request['harga_pesawat']);
+        $request['harga_pesawat'] = (int) $request['harga_pesawat'];
+
+        $request['taxi'] = str_replace("Rp. ","",$request['taxi']);
+        $request['taxi'] = str_replace(".","",$request['taxi']);
+        $request['taxi'] = (int) $request['taxi'];
         
+        $request['harga_hotel'] = str_replace("Rp. ","",$request['harga_hotel']);
+        $request['harga_hotel'] = str_replace(".","",$request['harga_hotel']);
+        $request['harga_hotel'] = (int) $request['harga_hotel'];
+
+        $request['total'] = str_replace("Rp. ","",$request['total']);
+        $request['total'] = str_replace(".","",$request['total']);
+        $request['total'] = (int) $request['total'];
+        // convert data masking end
+
         $validate = $request->validate([
             'nomor_spt' => 'required',
             'tgl_spt' => 'required',
@@ -125,6 +146,7 @@ class PdinasController extends Controller
             'status_lain' => 'nullable',
             'kode' => 'required'
         ]);    
+        
         // $request->validate(['gambar.*' => 'file']);
         if ($validate['nama_lain'] == null) {
             $total = count($validate['user_id']);
@@ -148,7 +170,28 @@ class PdinasController extends Controller
     }
     public function update_proses(Request $request)
     {
+        // convert data masking
+        $request['uang_harian'] = str_replace("Rp. ","",$request['uang_harian']);
+        $request['uang_harian'] = str_replace(".","",$request['uang_harian']);
+        $request['uang_harian'] = (int) $request['uang_harian'];
+
+        $request['harga_pesawat'] = str_replace("Rp. ","",$request['harga_pesawat']);
+        $request['harga_pesawat'] = str_replace(".","",$request['harga_pesawat']);
+        $request['harga_pesawat'] = (int) $request['harga_pesawat'];
+
+        $request['taxi'] = str_replace("Rp. ","",$request['taxi']);
+        $request['taxi'] = str_replace(".","",$request['taxi']);
+        $request['taxi'] = (int) $request['taxi'];
         
+        $request['harga_hotel'] = str_replace("Rp. ","",$request['harga_hotel']);
+        $request['harga_hotel'] = str_replace(".","",$request['harga_hotel']);
+        $request['harga_hotel'] = (int) $request['harga_hotel'];
+
+        $request['total'] = str_replace("Rp. ","",$request['total']);
+        $request['total'] = str_replace(".","",$request['total']);
+        $request['total'] = (int) $request['total'];
+        // convert data masking end
+
        spd::where('id', $request->id)
             ->update([
                 'nomor_spt' => $request->no_spt,
@@ -337,7 +380,12 @@ class PdinasController extends Controller
 
     public function tambah_524114(Request $request)
     {
-        
+        // convert data masking
+        $request['total'] = str_replace("Rp. ","",$request['total']);
+        $request['total'] = str_replace(".","",$request['total']);
+        $request['total'] = (int) $request['total'];
+        // convert data masking end
+
         $validate = $request->validate([
             'nomor_spt' => 'required',
             'tgl_spt' => 'required',
@@ -347,7 +395,6 @@ class PdinasController extends Controller
             'tujuan' => 'required',
             'berangkat' => 'required',
             'pulang' => 'required',
-            'uang_harian' => 'nullable',
             'total' => 'nullable',
             'user_id' => 'nullable',
             'nama_lain' => 'nullable',
@@ -435,7 +482,12 @@ class PdinasController extends Controller
     }
     public function update_proses1(Request $request)
     {
-        
+        // convert data masking
+        $request['total'] = str_replace("Rp. ","",$request['total']);
+        $request['total'] = str_replace(".","",$request['total']);
+        $request['total'] = (int) $request['total'];
+        // convert data masking end
+
        spd1::where('id', $request->id)
             ->update([
                 'nomor_spt' => $request->no_spt,
@@ -545,7 +597,12 @@ public function filter2(Request $request)
 
 public function tambah_524119(Request $request)
 {
-    
+    // convert data masking
+    $request['total'] = str_replace("Rp. ","",$request['total']);
+    $request['total'] = str_replace(".","",$request['total']);
+    $request['total'] = (int) $request['total'];
+    // convert data masking end
+
     $validate = $request->validate([
         'nomor_spt' => 'required',
         'tgl_spt' => 'required',
@@ -643,7 +700,11 @@ public function update2($id)
 }
 public function update_proses2(Request $request)
 {
-    
+    // convert data masking
+        $request['total'] = str_replace("Rp. ","",$request['total']);
+        $request['total'] = str_replace(".","",$request['total']);
+        $request['total'] = (int) $request['total'];
+        // convert data masking end
    spd2::where('id', $request->id)
         ->update([
             'nomor_spt' => $request->no_spt,
@@ -748,6 +809,11 @@ public function filter3(Request $request)
 
 public function tambah_524113(Request $request)
 {
+    // convert data masking
+    $request['total'] = str_replace("Rp. ","",$request['total']);
+    $request['total'] = str_replace(".","",$request['total']);
+    $request['total'] = (int) $request['total'];
+    // convert data masking end
     
     $validate = $request->validate([
         'nomor_spt' => 'required',
@@ -846,7 +912,11 @@ public function update3($id)
 }
 public function update_proses3(Request $request)
 {
-    
+    // convert data masking
+    $request['total'] = str_replace("Rp. ","",$request['total']);
+    $request['total'] = str_replace(".","",$request['total']);
+    $request['total'] = (int) $request['total'];
+    // convert data masking end
    spd3::where('id', $request->id)
         ->update([
             'nomor_spt' => $request->no_spt,

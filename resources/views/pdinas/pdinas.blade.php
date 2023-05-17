@@ -6,7 +6,6 @@
 <!-- Select2 -->
 <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-
 @endsection
 
 @section('content') <div class = "content-wrapper">
@@ -222,8 +221,8 @@
                     <div align="center">-----------Tambahan(bisa diupdate setelah diinput)---------</div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Uang Harian</label>
-                        
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="uang_harian" placeholder="Masukkan Total uang harian(uang harian dikali jumlah hari)">
+                         
+                          <input class="col-sm-10 form-control" type="text" id="rupiah" class="form-control" name="uang_harian" placeholder="Masukkan Total uang harian(uang harian dikali jumlah hari)">
                         
                       </div>
                       <div class="form-group row">
@@ -253,13 +252,13 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Harga Pesawat/Kapal</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" style="text-transform: uppercase" name="harga_pesawat">
+                          <input class="col-sm-10 form-control" type="text" id="rupiah1" class="form-control" name="harga_pesawat">
                         
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Transportasi Darat</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="taxi">
+                          <input class="col-sm-10 form-control" type="text" id="rupiah2" class="form-control" name="taxi">
                         
                       </div>
                       <div class="form-group row">
@@ -271,7 +270,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Harga Hotel</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="harga_hotel">
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="harga_hotel" id="rupiah3">
                         
                       </div>
                       <div class="form-group row">
@@ -289,7 +288,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
-                          <input class="col-sm-10 form-control" type="number" class="form-control" name="total" >
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="rupiah4">
                         
                       </div>
 
@@ -334,8 +333,11 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script src="{{ asset('plugins/inputmask/jquery.inputmask.min.js')}}"></script>
 <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+<script src="{{asset('js/added/rupiah.js')}}"></script>
 
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
@@ -358,6 +360,8 @@ $(document).ready(function() {
      $('.select2bs4').select2({
        theme: 'bootstrap4'
      })
+
+    $('[data-mask]').inputmask()
  })
 </script>
 <script>
@@ -376,4 +380,5 @@ $(document).ready(function() {
     }
     });
 </script>
+
 @endsection

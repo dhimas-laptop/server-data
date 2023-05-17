@@ -73,7 +73,7 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" value="{{ $spd->total }}" name="total">
+                <input type="text" id="rupiah" class="form-control" value="{{ $spd->total }}" name="total">
               </div>
             </div>
             <div class="form-group row">
@@ -116,7 +116,8 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script src="{{asset('js/added/rupiah.js')}}"></script>
 <script>
   // Customization example
   Fancybox.bind('[data-fancybox="gallery"]', {

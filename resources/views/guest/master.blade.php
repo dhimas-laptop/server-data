@@ -10,6 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="author" content="Themefisher">
   <meta name="generator" content="Themefisher Promodise Template v1.0">
+  
+  <meta name="facebook-domain-verification" content="7d6zpqwpptyo9sro8uque0e3ddlzpj" />
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('tdash/plugins/bootstrap/bootstrap.min.css') }}">
     

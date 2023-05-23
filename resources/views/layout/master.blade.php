@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="facebook-domain-verification" content="7d6zpqwpptyo9sro8uque0e3ddlzpj" />
   <title>BPDAS SEIJANG DURIANGKANG</title>
 
   <!-- Google Font: Source Sans Pro -->

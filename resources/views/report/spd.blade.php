@@ -47,11 +47,11 @@
     <td style="border: 1px solid black;" valign="top">@if ($spd->no_lain != null)
         {{ $spd->no_lain}}       
     @endif 
-    @if ($spd->user->no_telp != null)
+    @if ($spd->user != null)
         {{ $spd->user->no_telp }}
     @endif
-    @if ($spd->user->no_telp == null && $spd->no_lain == null )
-        "-"
+    @if ($spd->user == null && $spd->no_lain == null )
+        -
     @endif    
     </td>
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">@if($spd->nomor_spt!==null)

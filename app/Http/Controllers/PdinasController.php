@@ -270,7 +270,7 @@ class PdinasController extends Controller
         foreach ($spd as $key) {
             $data = explode('/',$key->nomor_spt);
             $data1 = $data[2];
-            if ($data1 == $role) {
+            if ($data1 = $role) {
                 $data2[] = $key->nomor_spt; 
             }
             if ($role === 'admin') {

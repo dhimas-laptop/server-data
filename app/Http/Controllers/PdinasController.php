@@ -256,13 +256,13 @@ class PdinasController extends Controller
     {
         $role = auth::user()->role;
         if ($role === 'ev') {
-            $role = "PKDAS";
+            $role = "pkdas";
         } elseif ($role === 'prog') {
-            $role = "PEVDAS";
+            $role = "pevdas";
         } elseif ($role === 'rhl') {
-            $role = "RHL";
+            $role = "rhl";
         } elseif ($role === 'tu') {
-            $role = "TU";
+            $role = "tu";
         }
         
         $spd = spd::select('nomor_spt')->distinct()->get();

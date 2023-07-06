@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Tata_airController;
 use App\Http\Controllers\BibitController;
 use App\Http\Controllers\MatriksController;
+use App\Http\Controllers\SpjController;
 use App\Http\Controllers\TelemetriController;
 
 
@@ -140,4 +141,8 @@ Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------matriks Start ---------------------------------------------//
 Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');
 //------------------------------------matriks end---------------------------------------------//
+
+//------------------------------------SPJ Start ---------------------------------------------//
+Route::get('/DRPP', [SpjController::class, 'drpp_index'])->middleware('admin');
+//------------------------------------SPJ end---------------------------------------------//
 Route::get('/reset', [UserController::class, 'reset'])->middleware('admin');

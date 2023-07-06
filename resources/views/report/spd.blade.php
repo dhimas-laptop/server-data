@@ -45,10 +45,15 @@
         {{ $spd->user->name }}
     @endif</td>
     <td style="border: 1px solid black;" valign="top">@if ($spd->no_lain != null)
-        {{ $spd->no_lain}} 
-    @else
+        {{ $spd->no_lain}}       
+    @endif 
+    @if ($spd->user->no_telp != null)
         {{ $spd->user->no_telp }}
-    @endif</td>
+    @endif
+    @if ($spd->user->no_telp == null && $spd->no_lain == null )
+        "-"
+    @endif    
+    </td>
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">@if($spd->nomor_spt!==null)
         {{ $spd->nomor_spt }} <br>tanggal {{ date('d/m/Y', strtotime($spd->tgl_spt)); }}
         @endif</td>

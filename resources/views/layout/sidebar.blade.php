@@ -110,7 +110,31 @@
                             
                         </ul>
                     </li>
-
+                    @can('admin')
+                    <li
+                        class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas') menu-open @endif">
+                        <a
+                            href="#"
+                            class="nav-link @if ($active === 'drpp' || $active === 'spby' || $active === 'kwt' || $active === 'rincian' || $active === 'pernyataan' || $active === 'pernyataan') active @endif">
+                            <i class="fa-solid fa-plane-departure"></i>
+                            <p>
+                                SPJ Online
+                                <i class="right fas fa-angle-down"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a
+                                    href="{{ route('tahun') }}"
+                                    class="nav-link {{ ($active === 'tahun') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'tahun') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>524111</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endcan 
                     @can('admin')
                     <li class="nav-item">
                         <a

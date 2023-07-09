@@ -257,12 +257,16 @@ class PdinasController extends Controller
         $role = auth::user()->role;
         if ($role === 'ev') {
             $role = "pkdas";
+            $role1 = "PKDAS";
         } elseif ($role === 'prog') {
             $role = "pevdas";
+            $role1 = "PEVDAS";
         } elseif ($role === 'rhl') {
             $role = "rhl";
+            $role1 = "RHL";
         } elseif ($role === 'tu') {
             $role = "tu";
+            $role1 = "TU";
         }
         
         $spd = spd::select('nomor_spt')->distinct()->get();
@@ -270,7 +274,7 @@ class PdinasController extends Controller
         foreach ($spd as $key) {
             $data = explode('/',$key->nomor_spt);
             $data1 = $data[2];
-            if ($data1 = $role) {
+            if ($data1 == $role || $data1 == $role1) {
                 $data2[] = $key->nomor_spt; 
             }
             if ($role === 'admin') {
@@ -432,13 +436,17 @@ class PdinasController extends Controller
     {
         $role = auth::user()->role;
         if ($role === 'ev') {
-            $role = "PKDAS";
+            $role = "pkdas";
+            $role1 = "PKDAS";
         } elseif ($role === 'prog') {
-            $role = "PEVDAS";
+            $role = "pevdas";
+            $role1 = "PEVDAS";
         } elseif ($role === 'rhl') {
-            $role = "RHL";
+            $role = "rhl";
+            $role1 = "RHL";
         } elseif ($role === 'tu') {
-            $role = "TU";
+            $role = "tu";
+            $role1 = "TU";
         }
         
         $spd = spd1::select('nomor_spt')->distinct()->get();
@@ -446,7 +454,7 @@ class PdinasController extends Controller
         foreach ($spd as $key) {
             $data = explode('/',$key->nomor_spt);
             $data1 = $data[2];
-            if ($data1 == $role) {
+            if ($data1 == $role || $data1 == $role1) {
                 $data2[] = $key->nomor_spt; 
             }
             if ($role === 'admin') {
@@ -649,22 +657,26 @@ public function detail2($id)
 public function download_524119()
 {
     $role = auth::user()->role;
-    if ($role === 'ev') {
-        $role = "PKDAS";
-    } elseif ($role === 'prog') {
-        $role = "PEVDAS";
-    } elseif ($role === 'rhl') {
-        $role = "RHL";
-    } elseif ($role === 'tu') {
-        $role = "TU";
-    }
+        if ($role === 'ev') {
+            $role = "pkdas";
+            $role1 = "PKDAS";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+            $role1 = "PEVDAS";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+            $role1 = "RHL";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+            $role1 = "TU";
+        }
     
     $spd = spd2::select('nomor_spt')->distinct()->get();
     
     foreach ($spd as $key) {
         $data = explode('/',$key->nomor_spt);
         $data1 = $data[2];
-        if ($data1 == $role) {
+        if ($data1 == $role || $data1 == $role1) {
             $data2[] = $key->nomor_spt; 
         }
         if ($role === 'admin') {
@@ -861,22 +873,26 @@ public function detail3($id)
 public function download_524113()
 {
     $role = auth::user()->role;
-    if ($role === 'ev') {
-        $role = "PKDAS";
-    } elseif ($role === 'prog') {
-        $role = "PEVDAS";
-    } elseif ($role === 'rhl') {
-        $role = "RHL";
-    } elseif ($role === 'tu') {
-        $role = "TU";
-    }
+        if ($role === 'ev') {
+            $role = "pkdas";
+            $role1 = "PKDAS";
+        } elseif ($role === 'prog') {
+            $role = "pevdas";
+            $role1 = "PEVDAS";
+        } elseif ($role === 'rhl') {
+            $role = "rhl";
+            $role1 = "RHL";
+        } elseif ($role === 'tu') {
+            $role = "tu";
+            $role1 = "TU";
+        }
     
     $spd = spd3::select('nomor_spt')->distinct()->get();
     
     foreach ($spd as $key) {
         $data = explode('/',$key->nomor_spt);
         $data1 = $data[2];
-        if ($data1 == $role) {
+        if ($data1 == $role || $data1 == $role1) {
             $data2[] = $key->nomor_spt; 
         }
         if ($role === 'admin') {

@@ -75,6 +75,12 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Kriteria uang yang diterima</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control @if($spd->jenis===null) is-invalid @endif" value="{{ $spd->jenis }}" name="jenis" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                   <div class="col-sm-10">
                    <input type="text" class="form-control @if($spd->nomor_spd===null) is-invalid @endif" value="{{ $spd->nomor_spd }}" name="no_spd" disabled>

@@ -89,6 +89,9 @@
                           <li class="nav-item">
                             <a class="nav-link smoth-scroll" href="/api/list">API</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link smoth-scroll" href="/absensi-PL">Absensi PL</a>
+                          </li>
                         
                         <li class="nav-item">
                             <a class="nav-link smoth-scroll rounded-pill" href="/login">Login</a>

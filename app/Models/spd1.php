@@ -23,6 +23,7 @@ class spd1 extends Model
             'no_lain',
             'status_lain',
             'kode',
+            'jenis'
     ];
     public function user()
     {

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('no_lain')->nullable();
             $table->string('status_lain')->nullable();
             $table->string('kode')->nullable();
+            $table->string('jenis')->nullable();
             $table->timestamps();
         });
     }

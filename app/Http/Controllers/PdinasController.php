@@ -404,8 +404,11 @@ class PdinasController extends Controller
             'nama_lain' => 'nullable',
             'no_lain' => 'nullable',
             'status_lain' => 'nullable',
-            'kode' => 'required'
-        ]);    
+            'kode' => 'required',
+            'jenis' => 'nullable'
+        ]);
+        $validate['jenis'] = implode(",",$request->jenis);
+        
         if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
             if ($validate['nama_lain'] == null) {
                 $total = count($validate['user_id']);
@@ -496,7 +499,11 @@ class PdinasController extends Controller
         $request['total'] = (int) $request['total'];
         // convert data masking end
 
-       spd1::where('id', $request->id)
+        
+
+        if (isset($request->jenis)) {
+            $request['jenis'] = implode(",",$request->jenis);
+            spd1::where('id', $request->id)
             ->update([
                 'nomor_spt' => $request->no_spt,
                 'tgl_spt' => $request->tgl_spt,
@@ -507,8 +514,25 @@ class PdinasController extends Controller
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,
                 'total' => $request->total,
-                'kode' => $request->kode
+                'kode' => $request->kode,
+                'jenis' =>$request->jenis
             ]);
+        } else {
+            spd1::where('id', $request->id)
+            ->update([
+                'nomor_spt' => $request->no_spt,
+                'tgl_spt' => $request->tgl_spt,
+                'nomor_spd' => $request->no_spd,
+                'tgl_spd' => $request->tgl_spd,
+                'no_spm'=> $request->no_spm,
+                'tujuan'=> $request->tujuan,
+                'berangkat' => $request->berangkat,
+                'pulang' => $request->pulang,
+                'total' => $request->total,
+                'kode' => $request->kode,
+            ]);
+        }
+      
             
         return redirect('/perjalanan-dinas/524114')->with('success', 'Data Berhasil Di update');
             

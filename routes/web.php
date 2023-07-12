@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdinasController;
@@ -136,6 +137,10 @@ Route::get('/map', [BibitController::class, 'map']);
 Route::get('/api/list', [TelemetriController::class, 'home']);
 Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang']);
 Route::get('/api/batam', [TelemetriController::class, 'batam']);
+//------------------------------------API end---------------------------------------------//
+
+//------------------------------------API Start ---------------------------------------------//
+Route::get('/absensi-PL', [AbsensiController::class, 'index']);
 //------------------------------------API end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//

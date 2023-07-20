@@ -267,6 +267,8 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
             $role1 = "TU";
+        } elseif ($role ==='admin') {
+            $role1 = "admin";
         }
         
         $spd = spd::select('nomor_spt')->distinct()->get();
@@ -274,10 +276,10 @@ class PdinasController extends Controller
         foreach ($spd as $key) {
             $data = explode('/',$key->nomor_spt);
             $data1 = $data[2];
-            if ($data1 == $role || $data1 == $role1) {
+            if ($role === 'admin') {
                 $data2[] = $key->nomor_spt; 
             }
-            if ($role === 'admin') {
+            if ($data1 == $role || $data1 == $role1) {
                 $data2[] = $key->nomor_spt; 
             }
         }

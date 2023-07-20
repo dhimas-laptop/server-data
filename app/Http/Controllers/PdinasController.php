@@ -650,8 +650,12 @@ public function tambah_524119(Request $request)
         'nama_lain' => 'nullable',
         'no_lain' => 'nullable',
         'status_lain' => 'nullable',
-        'kode' => 'required'
+        'kode' => 'required',
+        'jenis' => 'nullable'
     ]);    
+    
+    $validate['jenis'] = implode(",",$request->jenis);
+    
     if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
         if ($validate['nama_lain'] == null) {
             $total = count($validate['user_id']);
@@ -741,19 +745,38 @@ public function update_proses2(Request $request)
         $request['total'] = str_replace(".","",$request['total']);
         $request['total'] = (int) $request['total'];
         // convert data masking end
-   spd2::where('id', $request->id)
-        ->update([
-            'nomor_spt' => $request->no_spt,
-            'tgl_spt' => $request->tgl_spt,
-            'nomor_spd' => $request->no_spd,
-            'tgl_spd' => $request->tgl_spd,
-            'no_spm'=> $request->no_spm,
-            'tujuan'=> $request->tujuan,
-            'berangkat' => $request->berangkat,
-            'pulang' => $request->pulang,
-            'total' => $request->total,
-            'kode' => $request->kode
-        ]);
+
+        if (isset($request->jenis)) {
+            $request['jenis'] = implode(",",$request->jenis);
+            spd2::where('id', $request->id)
+            ->update([
+                'nomor_spt' => $request->no_spt,
+                'tgl_spt' => $request->tgl_spt,
+                'nomor_spd' => $request->no_spd,
+                'tgl_spd' => $request->tgl_spd,
+                'no_spm'=> $request->no_spm,
+                'tujuan'=> $request->tujuan,
+                'berangkat' => $request->berangkat,
+                'pulang' => $request->pulang,
+                'total' => $request->total,
+                'kode' => $request->kode,
+                'jenis' =>$request->jenis
+            ]);
+        } else {
+            spd2::where('id', $request->id)
+            ->update([
+                'nomor_spt' => $request->no_spt,
+                'tgl_spt' => $request->tgl_spt,
+                'nomor_spd' => $request->no_spd,
+                'tgl_spd' => $request->tgl_spd,
+                'no_spm'=> $request->no_spm,
+                'tujuan'=> $request->tujuan,
+                'berangkat' => $request->berangkat,
+                'pulang' => $request->pulang,
+                'total' => $request->total,
+                'kode' => $request->kode
+            ]);
+        }
         
     return redirect('/perjalanan-dinas/524119')->with('success', 'Data Berhasil Di update');
         

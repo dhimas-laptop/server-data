@@ -220,7 +220,27 @@
                           <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="rupiah">
                         
                       </div>
-
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kriteria uang yang diterima</label>
+                        
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang saku">
+                          <label class="form-check-label">Uang Saku</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang Transport">
+                          <label class="form-check-label">Uang Transport</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang Konsumsi">
+                          <label class="form-check-label">Uang Konsumsi</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="jenis[]" value="Paket Rapat/Meeting">
+                          <label class="form-check-label">Paket Rapat/Meeting</label>
+                        </div>
+                        
+                      </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SP2D</label>
                         <input type="text" class="col-sm-10 form-control  @error('nomor_spd') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spd" placeholder="Masukkan Nomor SP2D ">

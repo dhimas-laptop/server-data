@@ -77,6 +77,25 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Kriteria uang yang diterima</label>
+              
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang saku">
+                <label class="form-check-label">Uang Saku</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang Transport">
+                <label class="form-check-label">Uang Transport</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="jenis[]" value="Uang Konsumsi">
+                <label class="form-check-label">Uang Konsumsi</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="jenis[]" value="Paket Rapat/Meeting">
+                <label class="form-check-label">Paket Rapat/Meeting</label>
+              </div>
+            <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" value="{{ $spd->nomor_spd }}" style="text-transform: uppercase" name="no_spd">

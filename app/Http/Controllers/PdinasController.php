@@ -452,6 +452,8 @@ class PdinasController extends Controller
         } elseif ($role === 'tu') {
             $role = "tu";
             $role1 = "TU";
+        } elseif ($role ==='admin') {
+            $role1 = "admin";
         }
         
         $spd = spd1::select('nomor_spt')->distinct()->get();
@@ -699,6 +701,8 @@ public function download_524119()
         } elseif ($role === 'tu') {
             $role = "tu";
             $role1 = "TU";
+        } elseif ($role ==='admin') {
+            $role1 = "admin";
         }
     
     $spd = spd2::select('nomor_spt')->distinct()->get();
@@ -934,6 +938,8 @@ public function download_524113()
         } elseif ($role === 'tu') {
             $role = "tu";
             $role1 = "TU";
+        } elseif ($role ==='admin') {
+            $role1 = "admin";
         }
     
     $spd = spd3::select('nomor_spt')->distinct()->get();

@@ -55,7 +55,8 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'S' => 16,
             'T' => 16,
             'U' => 15,
-            'V' => 15,          
+            'V' => 15, 
+            'W' => 15,         
         ];
     }
 
@@ -84,6 +85,7 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'T' => NumberFormat::FORMAT_TEXT,
             'U' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
             'V' => NumberFormat::FORMAT_TEXT,
+            'W' => NumberFormat::FORMAT_TEXT,
         ];
     }
 
@@ -116,7 +118,8 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'S' => ['alignment' => ['wrapText' => true]],
             'T' => ['alignment' => ['wrapText' => true]], 
             'U' => ['alignment' => ['wrapText' => true]], 
-            'V' => ['alignment' => ['wrapText' => true]],        
+            'V' => ['alignment' => ['wrapText' => true]], 
+            'W' => ['alignment' => ['wrapText' => true]],        
         ];
     }
 

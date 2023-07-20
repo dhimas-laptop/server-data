@@ -21,6 +21,7 @@
     <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total<br>SPJ</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Kode<br>Kegiatan</b></th>
+    <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>status</b></th>
 </tr>
 <tr>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Pesawat/Kapal</b></th>
@@ -81,6 +82,7 @@
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->provinsi }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->total }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->kode }}</td>
+    <td style="border: 1px solid black;" valign="top">{{ $spd->status_lain }}</td>
     </tr>
       @endforeach
 

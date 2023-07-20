@@ -95,6 +95,7 @@
                 <input class="form-check-input" type="checkbox" name="jenis[]" value="Paket Rapat/Meeting">
                 <label class="form-check-label">Paket Rapat/Meeting</label>
               </div>
+            </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Nomor SP2D</label>
                 <div class="col-sm-10">

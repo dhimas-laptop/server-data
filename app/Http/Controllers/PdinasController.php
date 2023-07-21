@@ -333,7 +333,7 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
-            $spd = spd1::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
+            $spd = spd1::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
         }
 
         if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {

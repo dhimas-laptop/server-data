@@ -17,6 +17,7 @@ use App\Models\spd1;
 use App\Models\spd2;
 use App\Models\spd3;
 use Maatwebsite\Excel\Facades\Excel;
+use PhpParser\Node\Expr\Isset_;
 use PhpParser\Node\Stmt\Foreach_;
 
 class PdinasController extends Controller
@@ -48,10 +49,10 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
-            $spd = spd::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
+            $spd = spd::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
         }
         if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
-            $spd = spd::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
+            $spd = spd::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
         }
         
         return view('pdinas/pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1, 'no' => 1], compact('user'));
@@ -332,11 +333,11 @@ class PdinasController extends Controller
             $role = "tu";
         } 
         if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
-            $spd = spd1::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
+            $spd = spd1::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
         }
 
         if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
-            $spd = spd1::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
+            $spd = spd1::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
         }
         
         return view('pdinas/pdinas1', ['spd' => $spd , 'active' => "524114" ,'tahun' => $tahun1, 'no' => 1], compact('user'));
@@ -409,7 +410,10 @@ class PdinasController extends Controller
             'kode' => 'required',
             'jenis' => 'nullable'
         ]);
-        $validate['jenis'] = implode(",",$request->jenis);
+
+        if (isset($request->jenis)) {
+            $validate['jenis'] = implode(",",$request->jenis);
+        }
         
         if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
             if ($validate['nama_lain'] == null) {
@@ -577,12 +581,14 @@ public function index2()
         $spd = spd2::whereYear('tgl_spt' , $tahun)
         ->where('nomor_spt','LIKE','%'.$role.'%')
         ->orWhere('user_id', $auth)
+        ->orderBy("id", "desc")
         ->get();
     }
 
     if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
         $spd = spd2::whereYear('tgl_spt' , $tahun)
         ->orWhere('user_id', $auth)
+        ->orderBy("id", "desc")
         ->get();
     }
     
@@ -657,8 +663,9 @@ public function tambah_524119(Request $request)
         'kode' => 'required',
         'jenis' => 'nullable'
     ]);    
-    
-    $validate['jenis'] = implode(",",$request->jenis);
+    if (isset($request->jenis)) {
+        $validate['jenis'] = implode(",",$request->jenis);
+    }
     
     if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
         if ($validate['nama_lain'] == null) {
@@ -820,11 +827,11 @@ public function index3()
         $role = "tu";
     } 
     if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
-        $spd = spd3::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->get();
+        $spd = spd3::whereYear('tgl_spt' , $tahun)->where('nomor_spt','LIKE','%'.$role.'%')->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
     }
 
     if (auth::user()->role === 'admin'|| auth::user()->role === "tu") {
-        $spd = spd3::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->get();
+        $spd = spd3::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
     }
     
     return view('pdinas/pdinas3', ['spd' => $spd , 'active' => "524113" ,'tahun' => $tahun1, 'no' => 1], compact('user'));

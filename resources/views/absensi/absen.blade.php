@@ -5,26 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bibit Gratis</title>
+    <title>Absensi PL</title>
 
-    <link rel="stylesheet" href="https://bibit.bpdas-sjd.id/vendor/adminlte/css/adminlte.min.css">
-    <link href="https://bibit.bpdas-sjd.id/vendor/fontawesome/css/all.min.css" rel="stylesheet">
-    <link href="https://bibit.bpdas-sjd.id/added/sweetalert2.min.css" rel="stylesheet"/>
-    
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-    }
-    .leaflet-container {
-        height: 400px;
-        width: 750px;
-        max-width: 100%;
-        max-height: 100%;
-    }
-</style>
+    <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+  <!-- font awesome-->
+  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- google icon -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons"   rel="stylesheet">
+  <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
+  <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet"/>
+  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -49,8 +42,8 @@
             <div class="col-lg-10 mx-auto my-auto">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST" action="/order-bibit">
-                            <input type="hidden" name="_token" value="l3lSzsiu314auCfBSa8NBA3LhQQLRFpYSzNMwPSJ">
+                        <form class="form-horizontal" method="POST" action="/absenproses" enctype="multipart/form-data">
+                            @csrf
                             
                             <div class="text-center"><strong>LAPORAN HARIAN PENDAMPING DAN PENGAWAS LAPANGAN</strong></div>
                             <div class="text-center mb-4">Rehabilitasi Hutan dan Lahan Tahun 2023</div>
@@ -70,16 +63,22 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Lokasi Penugasan</label>
                                 <input type="text" class="col-sm-10 form-control"  name="lokasi" >
-                            </div>  
-                            <div class="form-group row">
-                              <label class="col-sm-2 col-form-label">Lokasi Kunjungan</label>
-                              <input type="text" class="col-sm-10 form-control"  name="lokasi" >
-                          </div>    
+                            </div> 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Informasi/ Permasalahan di Lapangan</label>
-                                <textarea class="col-sm-10 form-control" rows="3"></textarea>
+                                <textarea class="col-sm-10 form-control" rows="3" name="informasi"></textarea>
                             </div>  
-                            
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Tanggal</label>
+                                <input type="date" class="col-sm-10 form-control"  name="tanggal" >
+                            </div>  
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Upload Foto (Geotagging)</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="gambar[]" style="70%" multiple>
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div> 
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" onclick="window.history.back()">kembali</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -91,12 +90,26 @@
         </div>
     </section>
     
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
-    <script src="https://bibit.bpdas-sjd.id/vendor/fontawesome/js/all.min.js"></script>
-    <script src="https://bibit.bpdas-sjd.id/vendor/adminlte/js/adminlte.min.js"></script>
-    <script src="https://bibit.bpdas-sjd.id/added/sweetalert2.min.js"></script>
+    <!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('js/adminlte.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+<!-- optional script -->
+<script src="{{ asset('js/added/sweetalert2.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script>
+        $(function () {
+          bsCustomFileInput.init();
+        });
+    </script>
     
-    
+    @include('layout/alert')
     </body>
 </html>
 

@@ -243,8 +243,10 @@
           <button type="submit" class="btn btn-info center-block">Simpan</button>
         </div>
       </div>
+    </div>
+      </form>
+    </div>
   </div>
-</form>
 </section>
 @endcan
 

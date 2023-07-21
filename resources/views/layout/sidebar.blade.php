@@ -148,6 +148,18 @@
                     </li>
                     @endcan 
                     @can('admin')
+                    <li class="nav-item">
+                        <a
+                            href="/absensiPL"
+                            class="nav-link {{ ($active === 'absensiPL') ? 'active' : '' }}">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p>
+                                Absensi PL
+                            </p>
+                        </a>
+                    </li>
+                    @endcan 
+                    @can('admin')
                     <li
                         class="nav-item @if($active === 'data-bibit' || $active === 'data-order') menu-open @endif">
                         <a

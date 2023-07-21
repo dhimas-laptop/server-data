@@ -55,9 +55,9 @@
                             <div class="form-group row">
                               <label class="col-sm-2 col-form-label">Jenis Pendamping</label>
                               <select class="col-sm-10 form-control" name="jenis">
-                                  <option value="perorangan">PL RHL</option>
-                                  <option value="kelompok">PL KBR</option>
-                                  <option value="kelompok">Pengawas lapangan</option>
+                                  <option value="PL RHL">PL RHL</option>
+                                  <option value="PL KBR">PL KBR</option>
+                                  <option value="Pengawas Lapangan">Pengawas lapangan</option>
                               </select>
                           </div>
                             <div class="form-group row">

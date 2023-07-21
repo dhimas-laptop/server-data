@@ -151,7 +151,7 @@
                     <li class="nav-item">
                         <a
                             href="/absensiPL"
-                            class="nav-link {{ ($active === 'absensiPL') ? 'active' : '' }}">
+                            class="nav-link {{ ($active === 'absensipl') ? 'active' : '' }}">
                             <i class="fa-solid fa-calendar-check"></i>
                             <p>
                                 Absensi PL

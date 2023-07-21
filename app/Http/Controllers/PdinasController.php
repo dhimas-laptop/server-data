@@ -579,7 +579,6 @@ public function index2()
     } 
     if (auth::user()->role !== 'admin' || auth::user()->role !== "tu") {
         $spd = spd2::whereYear('tgl_spt' , $tahun)
-        ->where('nomor_spt','LIKE','%'.$role.'%')
         ->orWhere('user_id', $auth)
         ->orderBy("id", "desc")
         ->get();

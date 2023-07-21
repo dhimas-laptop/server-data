@@ -27,13 +27,12 @@ class AbsensiController extends Controller
         $request->validate([
             'gambar' => 'required',
         ]);
-
             absensi::insertGetId($validate);
             
             $id = absensi::max('id');
 
             foreach ($request->file('gambar') as $gambar) {
-            $nama_gambar = time() . '.' . $gambar->extension();
+            $nama_gambar = time() . '.' . $gambar->getClientOriginalName();
             $gambar->move(public_path('gambarpl/'), $nama_gambar);                  
             gambarpl::insert([
                 'gambar' => $nama_gambar,
@@ -47,6 +46,7 @@ class AbsensiController extends Controller
 
     public function absensipl()
     {
-        return view('absensi/absencontroller');
+        $absensi = absensi::get();
+        return view('absensi/absencontroller', ['absensi' => $absensi,'active' => "absensipl", 'no' => 1]);
     }
 }

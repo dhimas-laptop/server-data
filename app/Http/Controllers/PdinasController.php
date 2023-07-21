@@ -147,6 +147,18 @@ class PdinasController extends Controller
             'status_lain' => 'nullable',
             'kode' => 'required'
         ]);    
+
+        $validate['nomor_spt'] = strtoupper($request->nomor_spt);
+        $validate['nomor_spd'] = strtoupper($request->nomor_spd);
+        $validate['no_spm'] = strtoupper($request->no_spm);
+        $validate['tujuan'] = strtoupper($request->tujuan);
+        $validate['pesawat'] = strtoupper($request->pesawat);
+        $validate['no_penerbangan'] = strtoupper($request->no_penerbangan);
+        $validate['no_tiket'] = strtoupper($request->no_tiket);
+        $validate['kode_booking'] = strtoupper($request->kode_booking);
+        $validate['hotel'] = strtoupper($request->hotel);
+        $validate['provinsi'] = strtoupper($request->provinsi);
+        $validate['nama_lain'] = strtoupper($request->nama_lain);
         
         // $request->validate(['gambar.*' => 'file']);
         if ($validate['nama_lain'] == null) {
@@ -195,25 +207,25 @@ class PdinasController extends Controller
 
        spd::where('id', $request->id)
             ->update([
-                'nomor_spt' => $request->no_spt,
+                'nomor_spt' => strtoupper($request->no_spt),
                 'tgl_spt' => $request->tgl_spt,
-                'nomor_spd' => $request->no_spd,
+                'nomor_spd' => strtoupper($request->no_spd),
                 'tgl_spd' => $request->tgl_spd,
-                'no_spm'=> $request->no_spm,
-                'tujuan'=> $request->tujuan,
+                'no_spm'=> strtoupper($request->no_spm),
+                'tujuan'=> strtoupper($request->tujuan),
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,
                 'uang_harian' => $request->uang_harian,
-                'pesawat' => $request->pesawat,
-                'no_penerbangan' => $request->no_penerbangan,
-                'no_tiket' => $request->no_tiket,
-                'kode_booking' => $request->kode_booking,
+                'pesawat' => strtoupper($request->pesawat),
+                'no_penerbangan' => strtoupper($request->no_penerbangan),
+                'no_tiket' => strtoupper($request->no_tiket),
+                'kode_booking' => strtoupper($request->kode_booking),
                 'harga_pesawat' => $request->harga_pesawat,
                 'taxi' => $request->taxi,
-                'hotel' => $request->hotel,
+                'hotel' => strtoupper($request->hotel),
                 'harga_hotel' => $request->harga_hotel,
                 'no_telp' => $request->no_telp,
-                'provinsi' => $request->provinsi,
+                'provinsi' => strtoupper($request->provinsi),
                 'total' => $request->total,
                 'kode' => $request->kode
             ]);
@@ -411,6 +423,12 @@ class PdinasController extends Controller
             'jenis' => 'nullable'
         ]);
 
+        $validate['nomor_spt'] = strtoupper($request->nomor_spt);
+        $validate['nomor_spd'] = strtoupper($request->nomor_spd);
+        $validate['no_spm'] = strtoupper($request->no_spm);
+        $validate['tujuan'] = strtoupper($request->tujuan);
+        $validate['nama_lain'] = strtoupper($request->nama_lain);
+
         if (isset($request->jenis)) {
             $validate['jenis'] = implode(",",$request->jenis);
         }
@@ -513,12 +531,12 @@ class PdinasController extends Controller
             $request['jenis'] = implode(",",$request->jenis);
             spd1::where('id', $request->id)
             ->update([
-                'nomor_spt' => $request->no_spt,
+                'nomor_spt' => strtoupper($request->no_spt),
                 'tgl_spt' => $request->tgl_spt,
-                'nomor_spd' => $request->no_spd,
+                'nomor_spd' => strtoupper($request->no_spd),
                 'tgl_spd' => $request->tgl_spd,
-                'no_spm'=> $request->no_spm,
-                'tujuan'=> $request->tujuan,
+                'no_spm'=> strtoupper($request->no_spm),
+                'tujuan'=> strtoupper($request->tujuan),
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,
                 'total' => $request->total,
@@ -528,12 +546,12 @@ class PdinasController extends Controller
         } else {
             spd1::where('id', $request->id)
             ->update([
-                'nomor_spt' => $request->no_spt,
+                'nomor_spt' => strtoupper($request->no_spt),
                 'tgl_spt' => $request->tgl_spt,
-                'nomor_spd' => $request->no_spd,
+                'nomor_spd' => strtoupper($request->no_spd),
                 'tgl_spd' => $request->tgl_spd,
-                'no_spm'=> $request->no_spm,
-                'tujuan'=> $request->tujuan,
+                'no_spm'=> strtoupper($request->no_spm),
+                'tujuan'=> strtoupper($request->tujuan),
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,
                 'total' => $request->total,
@@ -662,6 +680,13 @@ public function tambah_524119(Request $request)
         'kode' => 'required',
         'jenis' => 'nullable'
     ]);    
+
+        $validate['nomor_spt'] = strtoupper($request->nomor_spt);
+        $validate['nomor_spd'] = strtoupper($request->nomor_spd);
+        $validate['no_spm'] = strtoupper($request->no_spm);
+        $validate['tujuan'] = strtoupper($request->tujuan);
+        $validate['nama_lain'] = strtoupper($request->nama_lain);
+
     if (isset($request->jenis)) {
         $validate['jenis'] = implode(",",$request->jenis);
     }
@@ -762,12 +787,12 @@ public function update_proses2(Request $request)
             $request['jenis'] = implode(",",$request->jenis);
             spd2::where('id', $request->id)
             ->update([
-                'nomor_spt' => $request->no_spt,
+                'nomor_spt' => strtoupper($request->no_spt),
                 'tgl_spt' => $request->tgl_spt,
-                'nomor_spd' => $request->no_spd,
+                'nomor_spd' => strtoupper($request->no_spd),
                 'tgl_spd' => $request->tgl_spd,
-                'no_spm'=> $request->no_spm,
-                'tujuan'=> $request->tujuan,
+                'no_spm'=> strtoupper($request->no_spm),
+                'tujuan'=> strtoupper($request->tujuan),
                 'berangkat' => $request->berangkat,
                 'pulang' => $request->pulang,
                 'total' => $request->total,
@@ -902,7 +927,15 @@ public function tambah_524113(Request $request)
         'no_lain' => 'nullable',
         'status_lain' => 'nullable',
         'kode' => 'required'
-    ]);    
+    ]);
+    
+        $validate['nomor_spt'] = strtoupper($request->nomor_spt);
+        $validate['nomor_spd'] = strtoupper($request->nomor_spd);
+        $validate['no_spm'] = strtoupper($request->no_spm);
+        $validate['tujuan'] = strtoupper($request->tujuan);
+        $validate['nama_lain'] = strtoupper($request->nama_lain);
+        $validate['status_lain'] = strtoupper($request->status_lain);
+    
     if (isset($validate['user_id']) || $validate['nama_lain'] !== null) {
         if ($validate['nama_lain'] == null) {
             $total = count($validate['user_id']);
@@ -996,12 +1029,12 @@ public function update_proses3(Request $request)
     // convert data masking end
    spd3::where('id', $request->id)
         ->update([
-            'nomor_spt' => $request->no_spt,
+            'nomor_spt' => strtoupper($request->no_spt),
             'tgl_spt' => $request->tgl_spt,
-            'nomor_spd' => $request->no_spd,
+            'nomor_spd' => strtoupper($request->no_spd),
             'tgl_spd' => $request->tgl_spd,
-            'no_spm'=> $request->no_spm,
-            'tujuan'=> $request->tujuan,
+            'no_spm'=> strtoupper($request->no_spm),
+            'tujuan'=> strtoupper($request->tujuan),
             'berangkat' => $request->berangkat,
             'pulang' => $request->pulang,
             'total' => $request->total,

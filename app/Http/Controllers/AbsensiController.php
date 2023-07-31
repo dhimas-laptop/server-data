@@ -6,6 +6,7 @@ use App\Models\absensi;
 use App\Models\gambar;
 use App\Models\gambarpl;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AbsensiController extends Controller
 {
@@ -32,8 +33,9 @@ class AbsensiController extends Controller
             $id = absensi::max('id');
 
             foreach ($request->file('gambar') as $gambar) {
-            $nama_gambar = time() . '.' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambarpl/'), $nama_gambar);                  
+            $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
+            $gambar->storeAs('public/gambarpl/', $nama_gambar);
+
             gambarpl::insert([
                 'gambar' => $nama_gambar,
                 'absensi_id' =>$id

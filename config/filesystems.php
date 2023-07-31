@@ -38,7 +38,7 @@ return [
 
         'hosting' => [
             'driver' => 'local',
-            'root' => storage_path().'../../../public_html/',
+            'root' => '../../../public_html/',
             'url' => env('APP_URL'),
             'visibility' => 'public',
             'throw' => false,

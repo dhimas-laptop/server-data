@@ -96,7 +96,7 @@ class AbsensiController extends Controller
         'hidrogel3'=> 'required',
         'sulam1'=> 'required',
         'sulam2'=> 'required',
-        'sulam13'=> 'required',
+        'sulam3'=> 'required',
         'dolomit1'=> 'required',
         'dolomit2'=> 'required',
         'dolomit3'=> 'required',

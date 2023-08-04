@@ -40,7 +40,7 @@ class laporan extends Model
         'hidrogel3',
         'sulam1',
         'sulam2',
-        'sulam13',
+        'sulam3',
         'dolomit1',
         'dolomit2',
         'dolomit3',

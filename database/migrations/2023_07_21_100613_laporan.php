@@ -44,7 +44,7 @@ return new class extends Migration
             $table->integer('hidrogel3')->nullable();
             $table->integer('sulam1')->nullable();
             $table->integer('sulam2')->nullable();
-            $table->integer('sulam13')->nullable();
+            $table->integer('sulam3')->nullable();
             $table->integer('dolomit1')->nullable();
             $table->integer('dolomit2')->nullable();
             $table->integer('dolomit3')->nullable();

@@ -138,6 +138,6 @@ class AbsensiController extends Controller
             ]);
             }
 
-            return redirect('/laporanpl')->with('success', 'Data Berhasil Di tambahkan');
+            return redirect('/laporan-bulanan')->with('success', 'Data Berhasil Di tambahkan');
     }
 }

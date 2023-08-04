@@ -126,17 +126,6 @@
                                 </div>
                             </div> 
                             <div class="form-group">
-                                <label class="col-form-label">Lokasi penanaman sesuai dengan peta perencanaan? <span style="color: red">*</span></label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="question3" value="Ada/sesuai">
-                                    <label class="form-check-label">Ada/sesuai</label>
-                                </div>    
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="question3" value="Tidak ada/tidak Sesuai">
-                                    <label class="form-check-label">Tidak ada/tidak Sesuai</label>
-                                </div>
-                            </div> 
-                            <div class="form-group">
                                 <label class="col-form-label">Tersedianya batas lokasi penanaman? <span style="color: red">*</span></label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="question4" value="Ada/sesuai">

@@ -30,7 +30,7 @@
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                 <p>
-                    <a href="/absensiPL" class="btn btn-secondary my-2">Absensi PL dan Pengawas</a>
+                    <a href="/absensi-PL" class="btn btn-secondary my-2">Absensi PL dan Pengawas</a>
                     <a href="/laporan-bulanan" class="btn btn-success my-2">Laporan Bulanan Pengawas</a>
                 </p>
                 </div>

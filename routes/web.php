@@ -139,11 +139,13 @@ Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang'])
 Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
-//------------------------------------API Start ---------------------------------------------//
+//------------------------------------Absensipl Start ---------------------------------------------//
 Route::get('/absensi-PL', [AbsensiController::class, 'index']);
 Route::post('/absenproses', [AbsensiController::class, 'proses']);
 Route::get('/absensiPL', [AbsensiController::class, 'absensipl']);
-//------------------------------------API end---------------------------------------------//
+Route::get('/laporanpl', [AbsensiController::class, 'laporanpl']);
+Route::post('/laporanproses', [AbsensiController::class, 'laporanproses']);
+//------------------------------------absensipl end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//
 Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');

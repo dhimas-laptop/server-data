@@ -134,7 +134,7 @@ class AbsensiController extends Controller
 
             gambarlaporan::insert([
                 'gambar' => $nama_gambar,
-                'absensi_id' =>$id
+                'laporan_id' =>$id
             ]);
             }
 

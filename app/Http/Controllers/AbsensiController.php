@@ -14,7 +14,11 @@ class AbsensiController extends Controller
 {
     public function index()
     {
-        return view('absensi/absen');
+        return view('absensi/index');
+    }
+    public function absensipl()
+    {
+        return view('absensi/index');
     }
 
     public function proses(Request $request)
@@ -48,7 +52,7 @@ class AbsensiController extends Controller
 
     }
 
-    public function absensipl()
+    public function absensicontroller()
     {
         $absensi = absensi::get();
         return view('absensi/absencontroller', ['absensi' => $absensi,'active' => "absensipl", 'no' => 1]);

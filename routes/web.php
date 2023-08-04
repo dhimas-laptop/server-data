@@ -141,6 +141,7 @@ Route::get('/api/batam', [TelemetriController::class, 'batam']);
 
 //------------------------------------Absensipl Start ---------------------------------------------//
 Route::get('/PL', [AbsensiController::class, 'index']);
+Route::get('/absensi-PL', [AbsensiController::class, 'absensipl']);
 Route::post('/absenproses', [AbsensiController::class, 'proses']);
 Route::get('/absensiPL', [AbsensiController::class, 'absensicontroller']);
 Route::get('/laporan-bulanan', [AbsensiController::class, 'laporanpl']);

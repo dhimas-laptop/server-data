@@ -18,7 +18,7 @@ class AbsensiController extends Controller
     }
     public function absensipl()
     {
-        return view('absensi/index');
+        return view('absensi/absen');
     }
 
     public function proses(Request $request)

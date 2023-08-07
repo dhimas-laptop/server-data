@@ -50,7 +50,7 @@
                                             <th>{{ $data->tanggal }}</th>
                                             <th>
                                             @foreach ($data->gambarpl as $gambar)
-                                            <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" height="100px" width="200px">
+                                            <img src="{{ public_path('gambarpl/'.$gambar->gambar) }}" height="100px" width="200px">
                                             @endforeach
                                             </th>
                                           </tr>

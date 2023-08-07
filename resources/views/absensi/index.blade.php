@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bibit Gratis</title>
+    <title>Absensi PL BPDAS SJD</title>
 
     <link rel="stylesheet" href="https://bibit.bpdas-sjd.id/vendor/adminlte/css/adminlte.min.css">
     <link href="https://bibit.bpdas-sjd.id/vendor/fontawesome/css/all.min.css" rel="stylesheet">

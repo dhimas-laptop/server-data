@@ -143,7 +143,7 @@ class AbsensiController extends Controller
 
     public function test()
     {
-        $test = base_path('gambarpl');
+        $test = public_path('../../public_html/gambarpl');
         return view($test);
     }
 }

@@ -130,7 +130,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(base_path('public/gambarpl'), $nama_gambar);
+            $gambar->move(public_path('public/gambarpl'), $nama_gambar);
 
             gambarlaporan::insert([
                 'gambar' => $nama_gambar,
@@ -139,5 +139,11 @@ class AbsensiController extends Controller
             }
 
             return redirect('/laporan-bulanan')->with('success', 'Data Berhasil Di tambahkan');
+    }
+
+    public function test()
+    {
+        $test = public_path();
+        return view($test);
     }
 }

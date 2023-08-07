@@ -130,7 +130,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('public/gambarpl'), $nama_gambar);
+            $gambar->move(asset('public/gambarpl'), $nama_gambar);
 
             gambarlaporan::insert([
                 'gambar' => $nama_gambar,

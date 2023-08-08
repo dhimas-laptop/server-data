@@ -139,14 +139,18 @@ Route::get('/api/tanjung-pinang', [TelemetriController::class, 'tanjungpinang'])
 Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------API end---------------------------------------------//
 
-//------------------------------------Absensipl Start ---------------------------------------------//
+//------------------------------------PL pengawas Start ---------------------------------------------//
 Route::get('/PL', [AbsensiController::class, 'index']);
-Route::get('/absensi-PL', [AbsensiController::class, 'absensipl']);
-Route::post('/absenproses', [AbsensiController::class, 'proses']);
-Route::get('/absensiPL', [AbsensiController::class, 'absensicontroller']);
-Route::get('/laporan-bulanan', [AbsensiController::class, 'laporanpl']);
-Route::post('/laporanproses', [AbsensiController::class, 'laporanproses']);
-//------------------------------------absensipl end---------------------------------------------//
+Route::get('/absensi-PL', [AbsensiController::class, 'absensipl']); //Guest Form
+Route::post('/absenproses', [AbsensiController::class, 'proses']); //Form Process
+Route::get('/absensiPL', [AbsensiController::class, 'absensicontrol']); //SIPUDA Controller
+// Route::get('/laporan-bulanan', [AbsensiController::class, 'laporanpl']); //Guest Form
+// Route::post('/laporanproses', [AbsensiController::class, 'laporanproses']); //Form Process
+// Route::get('/bulananPL', [AbsensiController::class, 'absensicontroller']); //SIPUDA Controller
+Route::get('/laporan-bulanan', [AbsensiController::class, 'bulananpl']); //Guest Form
+Route::post('/laporanproses', [AbsensiController::class, 'bulananproses']); //Form Process
+Route::get('/bulananPL', [AbsensiController::class, 'bulanancontrol']); //SIPUDA Control
+//------------------------------------PL pengawas end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//
 Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin');

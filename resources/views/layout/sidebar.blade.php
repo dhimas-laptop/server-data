@@ -147,18 +147,42 @@
                         </a>
                     </li>
                     @endcan 
-                    @can('admin')
-                    <li class="nav-item">
+
+                    
+                    <li
+                        class="nav-item @if ($active === 'absensiPL' || $active === 'bulananPL' || $active === "mingguanPL") menu-open @endif">
                         <a
-                            href="/absensiPL"
-                            class="nav-link {{ ($active === 'absensipl') ? 'active' : '' }}">
-                            <i class="fa-solid fa-calendar-check"></i>
+                            href="#"
+                            class="nav-link @if ($active === 'absensiPL' || $active === 'bulananPL' || $active === "mingguanPL") active @endif">
+                            <i class="fa-solid fa-people-arrows"></i>
                             <p>
-                                Absensi PL
+                                Pengawas dan PL
+                                <i class="right fas fa-angle-down"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a
+                                    href="/absensiPL"
+                                    class="nav-link {{ ($active === 'absensiPL') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'absensiPL') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Absensi Pengawas & PL</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="/bulananPL"
+                                    class="nav-link {{ ($active === 'bulananPL') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'bulananPL') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Laporan Mingguan Pengawas & PL</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    @endcan 
+
+                    
                     @can('admin')
                     <li
                         class="nav-item @if($active === 'data-bibit' || $active === 'data-order') menu-open @endif">
@@ -192,7 +216,8 @@
                             </li>
                         </ul>
                     </li>
-                    @endcan @can('admin')
+                    @endcan 
+                    @can('admin')
                     <li
                         class="nav-item @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">
                         <a

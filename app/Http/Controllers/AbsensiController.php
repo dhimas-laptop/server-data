@@ -52,18 +52,18 @@ class AbsensiController extends Controller
 
     }
 
-    public function absensicontroller()
+    public function absensicontrol()
     {
         $absensi = absensi::get();
-        return view('absensi/absencontroller', ['absensi' => $absensi,'active' => "absensipl", 'no' => 1]);
+        return view('absensi/absencontrol', ['absensi' => $absensi,'active' => "absensiPL", 'no' => 1]);
     }
 
-    public function laporanpl()
+    public function bulananpl()
     {
         return view('absensi/laporanpl');
     }
 
-    public function laporanproses(Request $request)
+    public function bulananproses(Request $request)
     {
         $validate = $request->validate([
         'nama'=> 'required',
@@ -139,6 +139,12 @@ class AbsensiController extends Controller
             }
 
             return redirect('/laporan-bulanan')->with('success', 'Data Berhasil Di tambahkan');
+    }
+
+    public function bulanancontrol()
+    {
+        $bulanan = laporan::get();
+        return view('absensi/bulanancontrol', ['bulanan' => $bulanan,'active' => "bulananPL", 'no' => 1]);
     }
 
     public function test()

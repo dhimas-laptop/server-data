@@ -50,10 +50,9 @@
                                             <th>{{ $data->tanggal }}</th>
                                             <th>
                                             @foreach ($data->gambarpl as $gambar)
-                                            <img src="{{asset('gambarpl/'.$gambar->gambar)}}" height="100px" width="200px">
+                                            <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" height="100px" width="200px">
                                             @endforeach
                                             </th>
-                                            
                                           </tr>
                                       @endforeach
                                     </tbody>
@@ -73,61 +72,9 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-            <div class="modal fade" id="modal-lg">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Tambah Daftar Bibit</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" method="POST" action="/data-bibit/tambah-bibit" enctype="multipart/form-data">
-                            @csrf
-                            <div class="card-body">
-                              <div class="form-group">
-                                <label>Nama Bibit</label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama Bibit" name="nama">
-                              </div>
-                              <div class="form-group">
-                                <label>Pilih Jenis</label>
-                                <select class="form-control select2" style="width: 100%;" name="jenis">
-                                    <option selected="selected">Pilih Jenis</option>
-                                    <option value="Bibit Produktif">Bibit Produktif</option>
-                                    <option value="Bibit Berkualitas">Bibit Berkualitas</option>
-                                </select>
-                              </div>
-                              <div class="form-group">
-                                <label>Jumlah</label>
-                                <input type="number" class="form-control" placeholder="Jumlah Bibit" name="jumlah">
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <div class="input-group">
-                                  <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="file" id="img">
-                                    <label class="custom-file-label">Choose file</label>
-                                  </div>
-                                </div>
-                              </div>
-                              <img id="preview" src="#" alt="your image" style="width: 400px;height: 400px;" hidden/>
-                            </div>
-                                 
-                    <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button class="btn btn-primary" type="submit">Simpan</button>
-                    </div>
-                    </form>
-                  </div>          
-                  <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-              </div>   
-            </div> 
-        </section>
-    </div>
+            </div>                                      
+          </section>
+      </div>
    
     
 @endsection

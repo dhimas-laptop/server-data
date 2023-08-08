@@ -32,39 +32,40 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Jenis</th>
                                             <th>Lokasi</th>
-                                            <th>Informasi</th>
-                                            <th>Tanggal</th>
+                                            <th>Kelurahan</th>
+                                            <th>Kecamatan</th>
+                                            <th>total</th>
                                             <th>Gambar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach ($absensi as $data)
+                                      @foreach ($bulanan as $data)
                                           <tr>
                                             <th>{{ $no++ }}</th>
                                             <th>{{ $data->nama }}</th>
-                                            <th>{{ $data->jenis }}</th>
                                             <th>{{ $data->lokasi }}</th>
-                                            <th>{{ $data->informasi }}</th>
-                                            <th>{{ $data->tanggal }}</th>
+                                            <th>{{ $data->kelurahan }}</th>
+                                            <th>{{ $data->kecamatan }}</th>
+                                            <th>{{ $data->total }}</th>
                                             <th>
                                             @foreach ($data->gambarpl as $gambar)
-                                            <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" height="100px" width="200px">
+                                            <img src="{{asset('gambarpl/'.$gambar->gambar)}}" height="100px" width="200px">
                                             @endforeach
                                             </th>
+                                            
                                           </tr>
                                       @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                           <th>No</th>
-                                          <th>Nama</th>
-                                          <th>Jenis</th>
-                                          <th>Lokasi</th>
-                                          <th>Informasi</th>
-                                          <th>Tanggal</th>
-                                          <th>Gambar</th>
+                                            <th>Nama</th>
+                                            <th>Lokasi</th>
+                                            <th>Kelurahan</th>
+                                            <th>Kecamatan</th>
+                                            <th>total</th>
+                                            <th>Gambar</th>
                                         </tr>
                                     </tfoot>
                                 </table>

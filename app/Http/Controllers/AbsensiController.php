@@ -143,7 +143,7 @@ class AbsensiController extends Controller
 
     public function test()
     {
-        $test = __DIR__;
+        $test = __DIR__. '../../';
         return view($test);
     }
 }

@@ -142,14 +142,14 @@ Route::get('/api/batam', [TelemetriController::class, 'batam']);
 //------------------------------------PL pengawas Start ---------------------------------------------//
 Route::get('/PL', [AbsensiController::class, 'index']);
 Route::get('/absensi-PL', [AbsensiController::class, 'absensipl']); //Guest Form
-Route::post('/absenproses', [AbsensiController::class, 'proses']); //Form Process
-Route::get('/absensiPL', [AbsensiController::class, 'absensicontrol']); //SIPUDA Controller
+Route::post('/absenproses', [AbsensiController::class, 'proses'])->middleware('auth'); //Form Process
+Route::get('/absensiPL', [AbsensiController::class, 'absensicontrol'])->middleware('auth'); //SIPUDA Controller
 // Route::get('/laporan-bulanan', [AbsensiController::class, 'laporanpl']); //Guest Form
 // Route::post('/laporanproses', [AbsensiController::class, 'laporanproses']); //Form Process
 // Route::get('/bulananPL', [AbsensiController::class, 'absensicontroller']); //SIPUDA Controller
 Route::get('/laporan-bulanan', [AbsensiController::class, 'bulananpl']); //Guest Form
-Route::post('/laporanproses', [AbsensiController::class, 'bulananproses']); //Form Process
-Route::get('/bulananPL', [AbsensiController::class, 'bulanancontrol']); //SIPUDA Control
+Route::post('/laporanproses', [AbsensiController::class, 'bulananproses'])->middleware('auth'); //Form Process
+Route::get('/bulananPL', [AbsensiController::class, 'bulanancontrol'])->middleware('auth'); //SIPUDA Control
 //------------------------------------PL pengawas end---------------------------------------------//
 
 //------------------------------------matriks Start ---------------------------------------------//

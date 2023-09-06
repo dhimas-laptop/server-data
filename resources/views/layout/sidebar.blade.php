@@ -172,11 +172,20 @@
                             </li>
                             <li class="nav-item">
                                 <a
+                                    href="/mingguanPL"
+                                    class="nav-link {{ ($active === 'mingguanPL') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'mingguanPL') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Laporan Mingguan Pengawas & PL</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
                                     href="/bulananPL"
                                     class="nav-link {{ ($active === 'bulananPL') ? 'active' : '' }}">
                                     <i
                                         class="far {{ ($active === 'bulananPL') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>Laporan Mingguan Pengawas & PL</p>
+                                    <p>Laporan Bulanan Pengawas & PL</p>
                                 </a>
                             </li>
                         </ul>

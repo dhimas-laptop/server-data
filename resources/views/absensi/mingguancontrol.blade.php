@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col">
-                      <h1>Data Laporan Bulanan Pengawas Lapangan</h1>
+                      <h1>Data Laporan Mingguan Pengawas Lapangan</h1>
                     </div>
                     <div class="float-right">
                       <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
@@ -42,7 +42,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach ($bulanan as $data)
+                                      @foreach ($mingguan as $data)
                                           <tr>
                                             <th>{{ $no++ }}</th>
                                             <th>{{ $data->nama }}</th>

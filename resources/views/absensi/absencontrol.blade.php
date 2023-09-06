@@ -14,10 +14,18 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col">
                       <h1>Data ABSENSI Pengawas Lapangan</h1>
                     </div>
-                    
+                    <button type="button" class="btn btn-info" data-toggle="dropdown">
+                        <i class="nav-icon fa-solid fa-download"></i> Download
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" href="#">Bulan Ini</a>
+                        <a class="dropdown-item" href="#">Bulan Lalu</a>
+                        <a class="dropdown-item" href="#">Tahun Ini</a>
+                    </div>
                 </div>
             </div>
         </section>

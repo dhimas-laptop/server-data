@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class mingguan extends Model
+{
+    use HasFactory;
+    protected $table = "mingguan";
+    protected $fillable = [
+        'nama',
+        'lokasi',
+        'koordinat',
+        'luas',
+        'das',
+        'kelurahan',
+        'kecamatan',
+        'kota',
+        'total',
+        'jenis',
+        'lokasi',
+        'question1',
+        'question2',
+        'question3',
+        'question4',
+        'question5',
+        'question6',
+        'question7',
+        'question8',
+        'question9',
+        'question10',
+        'question11',
+        'question12' ,
+        'kemajuan1' ,
+        'kemajuan2' ,
+        'kemajuan3' ,
+        'kemajuan4' ,
+        'kemajuan5' ,
+        'kemajuan6' ,
+        'kemajuan7' ,
+        'kemajuan8' ,
+        'kemajuan9' ,
+        'kemajuan10' ,
+        'pupuk1' ,
+        'pupuk2' ,
+        'pupuk3' ,
+        'pupuk4' ,
+        'pupuk5' ,
+        'pupuk6' ,
+        'pupuk7' ,
+        'pupuk8' ,
+        'pupuk9' ,
+        'pupuk10' ,
+        'npk1' ,
+        'npk2' ,
+        'npk3' ,
+        'npk4' ,
+        'npk5' ,
+        'npk6' ,
+        'npk7' ,
+        'npk8' ,
+        'npk9' ,
+        'npk10' ,
+        'hidrogel1' ,
+        'hidrogel2' ,
+        'hidrogel3' ,
+        'hidrogel4' ,
+        'hidrogel5' ,
+        'hidrogel6' ,
+        'hidrogel7' ,
+        'hidrogel8' ,
+        'hidrogel9' ,
+        'hidrogel10' ,
+        'sulam1' ,
+        'sulam2' ,
+        'sulam3' ,
+        'sulam4' ,
+        'sulam5' ,
+        'sulam6' ,
+        'sulam7' ,
+        'sulam8' ,
+        'sulam9' ,
+        'sulam10' ,
+        'problem1',
+        'problem2',
+        'problem3',
+    ];
+    public function gambarmingguan(){
+    	return $this->hasMany(gambarmingguan::class);
+    }
+}

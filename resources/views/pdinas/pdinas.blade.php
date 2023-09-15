@@ -302,7 +302,7 @@
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nomor SPM</label>
-                        <input type="text" class="col-sm-10 form-control  @error('nomor_spm') is-invalid @enderror" style="text-transform: uppercase" name="nomor_spm" placeholder="Masukkan nomor SPM ">
+                        <input type="text" class="col-sm-10 form-control  @error('nomor_spm') is-invalid @enderror" style="text-transform: uppercase" name="no_spm" placeholder="Masukkan nomor SPM ">
                       </div> 
                     
                       <div align="center">-----------Tambahan Selesai---------</div>

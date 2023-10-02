@@ -67,6 +67,7 @@ class PdinasController extends Controller
 
     public function proses_tambah(Request $request)
     {
+        return $request;
         // convert data masking
         $request['uang_harian'] = str_replace("Rp. ","",$request['uang_harian']);
         $request['uang_harian'] = str_replace(".","",$request['uang_harian']);

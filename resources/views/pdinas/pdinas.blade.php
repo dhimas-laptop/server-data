@@ -288,7 +288,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
-                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="rupiah4">
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="total" readonly>
                         
                       </div>
 
@@ -379,6 +379,41 @@ $(document).ready(function() {
         $('#value').attr('value', ''); 
     }
     });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#rupiah1, #rupiah2, #rupiah3").keyup(function() {
+          var rupiah = $("#rupiah").val();
+          var rupiah1  = $("#rupiah1").val();
+          var rupiah2 = $("#rupiah2").val();
+          var rupiah3 = $("#rupiah3").val();
+          var rupiah02 = rupiah.replace("Rp. ","");
+          var rupiah12 = rupiah1.replace("Rp. ","");
+          var rupiah22 = rupiah2.replace("Rp. ","");
+          var rupiah32 = rupiah3.replace("Rp. ","");
+          
+          var total = parseInt(rupiah02.replace(/\./g,"")) + parseInt(rupiah12.replace(/\./g,"")) + parseInt(rupiah22.replace(/\./g,"")) + parseInt(rupiah32.replace(/\./g,""));
+          var hasil = formatRupiah(total, "Rp. ");
+          $("#total").val(hasil);
+      });
+          
+          function formatRupiah(angka, prefix){
+            var number_string = angka.toString().replace(/[^,\d]/g, ''),
+            split   		= number_string.split(','),
+            sisa     		= split[0].length % 3,
+            total     		= split[0].substr(0, sisa),
+            ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+              separator = sisa ? '.' : '';
+              total += separator + ribuan.join('.');
+            }
+
+            total = split[1] != undefined ? total + ',' + split[1] : total;
+            return prefix == undefined ? total : (total ? 'Rp. ' + total : '');
+          }
+  });
 </script>
 
 @endsection

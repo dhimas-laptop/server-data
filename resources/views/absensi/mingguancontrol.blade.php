@@ -51,7 +51,7 @@
                                             <th>{{ $data->kecamatan }}</th>
                                             <th>{{ $data->total }}</th>
                                             <th>
-                                            @if (!is_null($data))
+                                            @if (!is_null($data->gambarpl))
                                                 @foreach ($data->gambarpl as $gambar)
                                                 <img src="{{asset('gambarpl/'.$gambar->gambar)}}" height="100px" width="200px">
                                                 @endforeach

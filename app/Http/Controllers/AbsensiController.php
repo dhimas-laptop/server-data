@@ -139,7 +139,7 @@ class AbsensiController extends Controller
                 'laporan_id' =>$id
             ]);
             }
-
+            
             return redirect('/laporan-bulanan')->with('success', 'Data Berhasil Di tambahkan');
     }
 

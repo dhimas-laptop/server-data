@@ -288,7 +288,7 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
-                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="total" readonly>
+                          <input class="col-sm-10 form-control" type="text" class="form-control" name="total" id="rupiah4">
                         
                       </div>
 

@@ -140,7 +140,7 @@
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
                 <div class="col-sm-10">
-                  <input type="text" id="rupiah4" class="form-control" value="{{ $spd->total }}" name="total" readonly>
+                  <input type="text" id="rupiah4" class="form-control" value="{{ $spd->total }}" name="total">
                 </div>
               </div>
               <div class="form-group row">

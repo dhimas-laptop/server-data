@@ -124,8 +124,8 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'U' => ['alignment' => ['wrapText' => true]], 
             'V' => ['alignment' => ['wrapText' => true]], 
             'W' => ['alignment' => ['wrapText' => true]],
-            'W' => ['alignment' => ['wrapText' => true]],  
-            'W' => ['alignment' => ['wrapText' => true]],          
+            'X' => ['alignment' => ['wrapText' => true]],  
+            'Y' => ['alignment' => ['wrapText' => true]],          
         ];
     }
 

@@ -948,8 +948,8 @@ public function hapus3($id)
 
     public function test()
     {
-        $spd = spd1::get();
-        return view('report/spd1', ['spd' => $spd, 'no' => 1]);
+        $spd = spd::get();
+        return view('report/spd', ['spd' => $spd, 'no' => 1]);
     }
 
     public function view()

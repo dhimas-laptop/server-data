@@ -79,15 +79,15 @@
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
     <td style="border: 1px solid black;" valign="top">{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->uang_harian }}</td>
-    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->pesawat }}</td>
-    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->no_penerbangan }}</td>
-    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->no_tiket }}</td>
-    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->kode_booking }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ strtr($spd->pesawat, "&" , "dan") }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ strtr($spd->no_penerbangan, "&" , "dan") }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ strtr($spd->no_tiket, "&" , "dan") }}</td>
+    <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ strtr($spd->kode_booking, "&" , "dan") }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->harga_pesawat }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->taxi }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->hotel }}</td>
+    <td style="border: 1px solid black;" valign="top">{{ strtr($spd->hotel, "&" , "dan") }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->harga_hotel }}</td>
-    <td style="border: 1px solid black;" valign="top">{{ $spd->no_telp }}</td>
+    <td style="border: 1px solid black;" valign="top">{{ strtr($spd->no_telp, "&" , "dan") }}</td>
     <td style="border: 1px solid black;text-transform: uppercase;" valign="top">{{ $spd->provinsi }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->total }}</td>
     <td style="border: 1px solid black;" valign="top">{{ $spd->kode }}</td>

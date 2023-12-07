@@ -38,6 +38,7 @@ class SpdExport1 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
             'B' => 11,
             'C' => 16,
             'D' => 50,
+            'D' => 20,
             'E' => 20,
             'F' => 22,
             'G' => 13,

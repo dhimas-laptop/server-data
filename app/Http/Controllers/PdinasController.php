@@ -948,34 +948,10 @@ public function hapus3($id)
 
     public function test()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         $spd = spd::get();
         return view('report/spd', ['spd' => $spd, 'no' => 1]);
-=======
-        $spd = spd::findOrFail(68);
-        
-        dd($spd);
->>>>>>> parent of c123800 (update download format)
-=======
-        $spd = spd::findOrFail(68);
-        
-        dd($spd);
->>>>>>> parent of c123800 (update download format)
-=======
-        $spd = spd::findOrFail(68);
-        
-        dd($spd);
->>>>>>> parent of c123800 (update download format)
-=======
-        $spd = spd::findOrFail(68);
-        
-        dd($spd);
->>>>>>> parent of c123800 (update download format)
     }
-
     public function view()
     {
         $spd = spd::get();

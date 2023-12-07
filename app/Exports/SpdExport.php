@@ -119,25 +119,6 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
             'T' => ['alignment' => ['wrapText' => true]], 
             'U' => ['alignment' => ['wrapText' => true]], 
             'V' => ['alignment' => ['wrapText' => true]], 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'W' => ['alignment' => ['wrapText' => true]],
-            'X' => ['alignment' => ['wrapText' => true]],  
-            'Y' => ['alignment' => ['wrapText' => true]],          
-=======
-            'W' => ['alignment' => ['wrapText' => true]],        
->>>>>>> parent of c123800 (update download format)
-=======
-            'W' => ['alignment' => ['wrapText' => true]],        
->>>>>>> parent of c123800 (update download format)
-=======
-            'W' => ['alignment' => ['wrapText' => true]],        
->>>>>>> parent of c123800 (update download format)
-=======
-            'W' => ['alignment' => ['wrapText' => true]],        
->>>>>>> parent of c123800 (update download format)
         ];
     }
 

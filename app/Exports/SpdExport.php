@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Events\BeforeSheet;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class SpdExport implements FromView, ShouldAutoSize, WithEvents
+class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, WithColumnWidths, WithColumnFormatting
 {
     use Exportable;
     public function forYear($no)
@@ -30,7 +30,105 @@ class SpdExport implements FromView, ShouldAutoSize, WithEvents
         $this->role = $role;
         return $this;
     }
-    
+
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 5,
+            'B' => 11,
+            'C' => 16,
+            'D' => 50,
+            'E' => 20,
+            'F' => 20,
+            'G' => 20,
+            'H' => 22,
+            'I' => 13,
+            'J' => 12,
+            'K' => 12,
+            'L' => 15,
+            'M' => 20,
+            'N' => 13,
+            'O' => 20,
+            'P' => 10,
+            'Q' => 15,
+            'R' => 15,
+            'S' => 20,
+            'T' => 15,
+            'U' => 16,
+            'V' => 16,
+            'W' => 15,
+            'X' => 15, 
+            'Y' => 15,         
+        ];
+    }
+
+    public function columnFormats(): array
+    {
+        return [
+            'A' => NumberFormat::FORMAT_TEXT,
+            'B' => NumberFormat::FORMAT_TEXT,
+            'C' => NumberFormat::FORMAT_TEXT,
+            'D' => NumberFormat::FORMAT_TEXT,
+            'E' => NumberFormat::FORMAT_TEXT,
+            'F' => NumberFormat::FORMAT_TEXT,
+            'G' => NumberFormat::FORMAT_TEXT,
+            'H' => NumberFormat::FORMAT_TEXT,
+            'I' => NumberFormat::FORMAT_TEXT,
+            'J' => NumberFormat::FORMAT_TEXT,
+            'K' => NumberFormat::FORMAT_TEXT,
+            'L' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'M' => NumberFormat::FORMAT_TEXT,
+            'N' => NumberFormat::FORMAT_TEXT,
+            'O' => NumberFormat::FORMAT_TEXT,
+            'P' => NumberFormat::FORMAT_TEXT,
+            'Q' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'R' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'S' => NumberFormat::FORMAT_TEXT,
+            'T' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'U' => NumberFormat::FORMAT_TEXT,
+            'V' => NumberFormat::FORMAT_TEXT,
+            'W' => NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1,
+            'X' => NumberFormat::FORMAT_TEXT,
+            'Y' => NumberFormat::FORMAT_TEXT,
+        ];
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        $sheet->getPageMargins()->setTop(1);
+        $sheet->getPageMargins()->setRight(0);
+        $sheet->getPageMargins()->setLeft(0);
+        $sheet->getPageMargins()->setBottom(1);
+        
+        return [
+            'A' => ['alignment' => ['wrapText' => true]],
+            'B' => ['alignment' => ['wrapText' => true]],
+            'C' => ['alignment' => ['wrapText' => true]],
+            'D' => ['alignment' => ['wrapText' => true]],
+            'E' => ['alignment' => ['wrapText' => true]],
+            'F' => ['alignment' => ['wrapText' => true]],
+            'G' => ['alignment' => ['wrapText' => true]],
+            'H' => ['alignment' => ['wrapText' => true]],
+            'I' => ['alignment' => ['wrapText' => true]],
+            'J' => ['alignment' => ['wrapText' => true]],
+            'K' => ['alignment' => ['wrapText' => true]],
+            'L' => ['alignment' => ['wrapText' => true]],
+            'M' => ['alignment' => ['wrapText' => true]],
+            'N' => ['alignment' => ['wrapText' => true]],
+            'O' => ['alignment' => ['wrapText' => true]],
+            'P' => ['alignment' => ['wrapText' => true]],
+            'Q' => ['alignment' => ['wrapText' => true]],
+            'R' => ['alignment' => ['wrapText' => true]],
+            'S' => ['alignment' => ['wrapText' => true]],
+            'T' => ['alignment' => ['wrapText' => true]], 
+            'U' => ['alignment' => ['wrapText' => true]], 
+            'V' => ['alignment' => ['wrapText' => true]], 
+            'W' => ['alignment' => ['wrapText' => true]],
+            'X' => ['alignment' => ['wrapText' => true]],  
+            'Y' => ['alignment' => ['wrapText' => true]],          
+        ];
+    }
+
     public function registerEvents(): array
     {
         return [

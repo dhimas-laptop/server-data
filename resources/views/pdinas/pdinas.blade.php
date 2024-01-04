@@ -54,9 +54,10 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Pilih Tahun</label>
                             <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
-                            @foreach ($tahun as $tahun)
-                            <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
-                            @endforeach
+                              <option value="{{ date('Y', strtotime(today())) }}">{{ date('Y', strtotime(today())) }}</option>
+                              @foreach ($tahun as $tahun)
+                              <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
+                              @endforeach
                             </select>
                             <button type="submit" class="btn btn-info"><i class="nav-icon fas fa-search"></i> Cari</button>
                         </div>
@@ -74,6 +75,7 @@
                                     <th class="align-middle text-center">Nama Pelaksana</th>
                                     <th class="align-middle text-center">NO SPT dan Tanggal</th>
                                     <th class="align-middle text-center">NO SP2D dan Tanggal</th>
+                                    <th class="align-middle text-center">NO SPM</th>
                                     <th class="align-middle text-center">Tujuan</th>
                                     <th class="align-middle text-center">Tanggal Berangkat</th>
                                     <th class="align-middle text-center">Tanggal Kembali</th>
@@ -98,6 +100,7 @@
                                      {{ $spd->nomor_spd }} tanggal {{ date('d/m/Y', strtotime($spd->tgl_spd)); }}
                                      @endif
                                 </td>
+                                <td>{{ $spd->no_spm }}</td>
                                 <td>{{ $spd->tujuan }}</td>
                                 <td>{{ date('d/m/Y', strtotime($spd->berangkat)) }}</td>
                                 <td>{{ date('d/m/Y', strtotime($spd->pulang)) }}</td>
@@ -346,7 +349,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
     var table = $('#example').DataTable( {
-        responsive: true,
         "scrollX": true,
     } );
 } );

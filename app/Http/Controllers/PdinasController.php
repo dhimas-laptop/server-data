@@ -39,7 +39,7 @@ class PdinasController extends Controller
         $tahun1 = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $role = auth::user()->role;
         
-        $spd = spd::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();    
+        $spd = spd::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();    
             
         return view('pdinas/pdinas', ['spd' => $spd , 'active' => "tahun", 'tahun' => $tahun1, 'no' => 1], compact('user'));
         
@@ -57,7 +57,7 @@ class PdinasController extends Controller
         $role = auth::user()->role;
        
      
-        $spd = spd::whereYear('tgl_spt' , $tahun)->get();
+        $spd = spd::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();
         
        
         
@@ -303,7 +303,7 @@ class PdinasController extends Controller
         $auth = auth::user()->id;
         $tahun1 = spd1::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
         $role = auth::user()->role;
-        $spd = spd1::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
+        $spd = spd1::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();
         
         return view('pdinas/pdinas1', ['spd' => $spd , 'active' => "524114" ,'tahun' => $tahun1, 'no' => 1], compact('user'));
         
@@ -323,7 +323,7 @@ class PdinasController extends Controller
 
        
             $spd = spd1::whereYear('tgl_spt' , $tahun)
-            ->orWhere('user_id', $auth)
+            ->orderBy("id", "desc")
             ->get();
        
         
@@ -522,7 +522,6 @@ public function index2()
     
     
         $spd = spd2::whereYear('tgl_spt' , $tahun)
-        ->orWhere('user_id', $auth)
         ->orderBy("id", "desc")
         ->get();
 
@@ -543,9 +542,7 @@ public function filter2(Request $request)
     $auth = auth::user()->id;
     $role = auth::user()->role;
    
-        $spd = spd2::whereYear('tgl_spt' , $tahun)
-        ->orWhere('user_id', $auth)
-        ->get();
+        $spd = spd2::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();
     
    
     
@@ -741,7 +738,7 @@ public function index3()
     $role = auth::user()->role;
     
    
-        $spd = spd3::whereYear('tgl_spt' , $tahun)->orWhere('user_id', $auth)->orderBy("id", "desc")->get();
+        $spd = spd3::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();
     
     
     return view('pdinas/pdinas3', ['spd' => $spd , 'active' => "524113" ,'tahun' => $tahun1, 'no' => 1], compact('user'));
@@ -760,9 +757,7 @@ public function filter3(Request $request)
     $auth = auth::user()->id;
     $role = auth::user()->role;
    
-        $spd = spd3::whereYear('tgl_spt' , $tahun)
-        ->orWhere('user_id', $auth)
-        ->get();
+        $spd = spd3::whereYear('tgl_spt' , $tahun)->orderBy("id", "desc")->get();
    
     
     return view('pdinas/pdinas3', ['spd' => $spd , 'active' => "524113", 'tahun' => $tahun1, 'no' => 1], compact('user'));

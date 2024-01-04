@@ -45,6 +45,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Pilih Tahun</label>
                             <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih karyawan">
+                              <option value="{{ date('Y', strtotime(today())) }}">{{ date('Y', strtotime(today())) }}</option>
                             @foreach ($tahun as $tahun)
                             <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
                             @endforeach

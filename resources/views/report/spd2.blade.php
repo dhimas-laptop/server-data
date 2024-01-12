@@ -10,22 +10,6 @@
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No.</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Nama<br>Pelaksana</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>No.Telp</b></th>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>SPT</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Tanggal SPT</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>NO SP2D</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Tanggal SP2D</b></th>
-=======
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan<br>Tanggal</b></th>
->>>>>>> parent of c123800 (update download format)
-=======
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
-    <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan<br>Tanggal</b></th>
->>>>>>> parent of c123800 (update download format)
-=======
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>SPT dan Tanggal</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>Tanggal SPT</b></th>
     <th align="center" valign="center" style="border: 3px solid black;background: yellow;"><b>NO SP2D dan<br>Tanggal</b></th>

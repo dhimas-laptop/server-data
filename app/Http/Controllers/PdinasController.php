@@ -250,11 +250,16 @@ class PdinasController extends Controller
         $request->validate([
             'filter2' => 'required'
         ]);
+
+        if ($request->filter2 === "all") {
+            return (new SpdExport)->forYear($request->filter2)->download('rekapitulasi.xlsx');
+        }else {       
+
         $spt = explode('.', $request->filter2);
         $spt1= explode('/', $spt[1]);
         $spt2= $spt1[0];
-        $role = auth::user()->role;
-        return (new SpdExport)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+        return (new SpdExport)->forYear($request->filter2)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+        }
     }
 
     public function export()

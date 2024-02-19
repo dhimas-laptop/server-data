@@ -24,12 +24,6 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
         $this->no = $no;
         return $this;
     }
-    
-    public function forRole($role)
-    {
-        $this->role = $role;
-        return $this;
-    }
 
     public function columnWidths(): array
     {
@@ -109,15 +103,17 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
 
     public function view(): View
     {
-        if ($this->role === 'admin') {
-            $query = spd::get();
-        } else {
+        if ($this->no === "all") {
+            $query = spd::orderBy('tgl_spt', 'ASC')->get();
+            return view('report.spdadmin', [
+                'spd' => $query , 'no' => 1 
+            ]);
+        }else {
             $query = spd::where('nomor_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
+            return view('report.spd', [
+                'spd' => $query , 'no' => 1 
+            ]);
         }
-        
-        return view('report.spd', [
-            'spd' => $query , 'no' => 1 
-         ]);
     }
 
 }

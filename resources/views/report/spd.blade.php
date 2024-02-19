@@ -3,7 +3,7 @@
   <tr></tr>
   <tr></tr>
   <tr>
-      <th align="center" colspan="20"><b>REKAPITULASI PERJALANAN DINAS</b></th>
+      <th align="center" colspan="13"><b>REKAPITULASI PERJALANAN DINAS</b></th>
   </tr>
   <tr></tr>
   <tr>

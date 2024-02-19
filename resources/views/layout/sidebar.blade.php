@@ -192,7 +192,7 @@
                     </li>
 
                     
-                    @can('admin')
+                    
                     <li
                         class="nav-item @if($active === 'data-bibit' || $active === 'data-order') menu-open @endif">
                         <a
@@ -225,7 +225,7 @@
                             </li>
                         </ul>
                     </li>
-                    @endcan 
+                    
                     @can('admin')
                     <li
                         class="nav-item @if($active === 'curah_hujan' || $active === 'tma' || $active === 'debit_air' || $active === 'grafik') menu-open @endif">

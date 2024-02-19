@@ -235,37 +235,14 @@ class PdinasController extends Controller
     }
 
     public function download()
-    {
-        $role = auth::user()->role;
-        if ($role === 'ev') {
-            $role = "pkdas";
-            $role1 = "PKDAS";
-        } elseif ($role === 'prog') {
-            $role = "pevdas";
-            $role1 = "PEVDAS";
-        } elseif ($role === 'rhl') {
-            $role = "rhl";
-            $role1 = "RHL";
-        } elseif ($role === 'tu') {
-            $role = "tu";
-            $role1 = "TU";
-        } elseif ($role ==='admin') {
-            $role1 = "admin";
-        }
+    {       
         
-        $spd = spd::select('nomor_spt')->distinct()->get();
+        $spd = spd::select('nomor_spt')->distinct()->orderBy('id', 'DESC')->get();
         
         foreach ($spd as $key) {
-            $data = explode('/',$key->nomor_spt);
-            $data1 = $data[2];
-            if ($role === 'admin') {
-                $data2[] = $key->nomor_spt; 
-            }
-            if ($data1 == $role || $data1 == $role1) {
-                $data2[] = $key->nomor_spt; 
-            }
+            $data[] = $key->nomor_spt; 
         }
-        return view('/pdinas/download',['spd' => $data2, 'active' => "tahun"]);
+        return view('/pdinas/download',['spd' => $data, 'active' => "tahun"]);
     }
 
     public function downloadfilter(Request $request)

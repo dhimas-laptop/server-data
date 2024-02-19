@@ -144,7 +144,7 @@
         <td><br></td>
       </tr>
       <tr>
-        <td colspan="3">Aswan Basri</td>
+        <td colspan="3">(...........................................)</td>
         <td width="30%">{{$data['data']['pemohon'][0]['nama_pemohon']}}</td>
       </tr>
     </tbody>
@@ -292,14 +292,14 @@
             <td>1.</td>
             <td colspan="2">Nama</td>
             <td colspan="6">
-              : 
+              : Aswan Basri
             </td>
            </tr>
            <tr>
             <td><br></td>
             <td colspan="2">NIP</td>
             <td colspan="6">
-              : 
+              : 198310202007101001
             </td>
            </tr>
            <tr>
@@ -434,4 +434,15 @@
     </table>  
   </div>
   
-  
+    <script>
+      
+      var a = {{ $lt = $data['data']['order'][0]['latitude'] }};
+      var b = {{ $lg = $data['data']['order'][0]['longitude'] }};
+      var map = L.map('map').setView([a, b], 13);
+      
+      L.marker([a, b]).addTo(map);
+      
+      var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(map);
+    </script>

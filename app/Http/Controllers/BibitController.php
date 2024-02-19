@@ -200,11 +200,9 @@ class BibitController extends Controller
          
    }
 
-   public function map($ltlg)
+   public function test()
    {
-         
-      
-         
+     return view('bibit/order/download');           
    }
          
    // 

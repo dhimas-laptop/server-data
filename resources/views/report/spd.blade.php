@@ -60,14 +60,14 @@
 
       <tr></tr>
       <tr>
-          @for ($i = 0;$i<15;$i++)
+          @for ($i = 0;$i<9;$i++)
           <th></th> 
           @endfor
       <th colspan="2">Tanjungpinang, </th>
     </tr>
 
     <tr>
-        @for ($i = 0;$i<15;$i++)
+        @for ($i = 0;$i<9;$i++)
         <th></th> 
         @endfor
     <th colspan="2">Pejabat Pembuat Komitmen </th>
@@ -78,13 +78,13 @@
     @endfor
     
     <tr>
-        @for ($i = 0;$i<15;$i++)
+        @for ($i = 0;$i<9;$i++)
         <th></th> 
         @endfor
     <th colspan="2"></th>
     </tr>
     <tr>
-        @for ($i = 0;$i<15;$i++)
+        @for ($i = 0;$i<9;$i++)
         <th></th> 
         @endfor
     <th colspan="2">NIP.</th>

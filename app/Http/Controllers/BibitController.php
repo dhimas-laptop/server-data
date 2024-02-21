@@ -21,13 +21,13 @@ class BibitController extends Controller
    }
    public function bibit()
    {
-      if (Gate::check('admin')) {
+      
          $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit');
          $detail = json_decode($response,true);
         
          return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'data-bibit', 'no' => 1]);
-     }
-     return redirect('/');
+     
+     
    }
 
    public function tambah(Request $request)
@@ -87,22 +87,22 @@ class BibitController extends Controller
    public function order()
    {
       
-      if (Gate::check('admin')) {
+      
          $response = Http::get('https://bibit.bpdas-sjd.id/API/order');
          $detail = json_decode($response,true);
          
          return view('/bibit/order/order', ['data' => $detail , 'active' => 'data-order', 'no' => 1]);
          
-         }
          
-         return redirect('/');
+         
+         
          
    }
 
    public function proses($id)
    {
       
-      if (Gate::check('admin')) {
+      
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
                'status' => 'proses'
@@ -115,16 +115,16 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
-         }
          
-         return redirect('/');
+         
+         
          
    }
    
    public function selesai($id)
    {
       
-      if (Gate::check('admin')) {
+      
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
                'status' => "selesai"
@@ -136,16 +136,16 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
-         }
          
-         return redirect('/');
+         
+         
          
    }
 
    public function tolak($id)
    {
       
-      if (Gate::check('admin')) {
+      
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
                'status' => "ditolak"
@@ -156,16 +156,16 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
-         }
          
-         return redirect('/');
+         
+         
          
    }
 
    public function hapus_order($id)
    {
       
-      if (Gate::check('admin')) {
+      
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order/hapus', [
                'id' => $id,
          ]);
@@ -175,26 +175,26 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
-         }
          
-         return redirect('/');
+         
+         
          
    }
 
    public function download_order($id)
    {
-      if (Gate::check('admin')) {
+      
          $response = Http::get('https://bibit.bpdas-sjd.id/API/order-filter', [
             'id' => $id
          ]);
          
          $detail = json_decode($response,true);
          $data = ['data' => $detail];
-         // return view('bibit/order/download', $data);
+         return view('bibit/order/download', $data);
          $pdf = PDF::loadView('bibit/order/download', $data);
          
          return $pdf->download('Order-'.$detail['data']['pemohon'][0]['nama_pemohon'].'-'.$detail['data']['order'][0]['id'].'.pdf');
-      }
+      
       
       return redirect('/');
          
@@ -202,7 +202,7 @@ class BibitController extends Controller
 
    public function test()
    {
-     return view('bibit/order/download');           
+     return view('bibit/order/download', ['data' => 'oke']);           
    }
          
    // 

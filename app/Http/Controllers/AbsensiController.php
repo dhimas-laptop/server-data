@@ -10,6 +10,7 @@ use App\Models\gambarpl;
 use App\Models\laporan;
 use App\Models\mingguan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AbsensiController extends Controller
@@ -56,8 +57,10 @@ class AbsensiController extends Controller
 
     public function absensicontrol()
     {
+        if (Auth::check()) {
         $absensi = absensi::get();
         return view('absensi/absencontrol', ['absensi' => $absensi,'active' => "absensiPL", 'no' => 1]);
+        }
     }
 
     public function bulananpl()
@@ -145,8 +148,12 @@ class AbsensiController extends Controller
 
     public function bulanancontrol()
     {
+        if (Auth::check()) {
         $bulanan = laporan::get();
         return view('absensi/bulanancontrol', ['bulanan' => $bulanan,'active' => "bulananPL", 'no' => 1]);
+        }else {
+            redirect('/login');
+        }
     }
     
     public function mingguanpl()
@@ -257,8 +264,12 @@ class AbsensiController extends Controller
 
     public function mingguancontrol()
     {
+        if (Auth::check()) {
         $mingguan = laporan::get();
         return view('absensi/mingguancontrol', ['mingguan' => $mingguan,'active' => "mingguanPL", 'no' => 1]);
+        }else {
+            redirect('/login');
+        }
     }
     
     

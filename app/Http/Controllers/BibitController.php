@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class BibitController extends Controller
 {
@@ -21,17 +22,21 @@ class BibitController extends Controller
    }
    public function bibit()
    {
-      
+      if (Auth::check()) {
          $response = Http::get('https://bibit.bpdas-sjd.id/API/bibit');
          $detail = json_decode($response,true);
         
          return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'data-bibit', 'no' => 1]);
+      }else {
+         redirect('/login');
+     }
+         
      
    }
 
    public function tambah(Request $request)
    {
-
+      if (Auth::check()) {
       $validator = $request->validate([
          'nama' => 'required',
          'jenis' => 'required',
@@ -59,12 +64,16 @@ class BibitController extends Controller
             return redirect('/data-bibit')->with(['error' => 'Data Gagal Di input']);
          }
          
+         }else {
+            redirect('/login');
+        }
 
    }
 
    public function hapus($id)
    {
-      
+      if (Auth::check()) {
+
       $result = $this->client->request('POST', 'bibit/delete', [
          'form_params' => [
             'id' => $id
@@ -76,7 +85,9 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-bibit')->with(['error' => $responseresult['message']]);
          }
-
+         }else {
+            redirect('/login');
+        }
    }
 
    // 
@@ -87,22 +98,22 @@ class BibitController extends Controller
 
    public function order()
    {
-      
+      if (Auth::check()) {
       
          $response = Http::get('https://bibit.bpdas-sjd.id/API/order');
          $detail = json_decode($response,true);
          
          return view('/bibit/order/order', ['data' => $detail , 'active' => 'data-order', 'no' => 1]);
-         
-         
-         
-         
-         
+      
+      }else {
+         redirect('/login');
+      }
+           
    }
 
    public function proses($id)
    {
-      
+      if (Auth::check()) { //checking authorization
       
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
@@ -117,14 +128,15 @@ class BibitController extends Controller
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
          
-         
-         
+      }else {
+         redirect('/login');
+      }
          
    }
    
    public function selesai($id)
    {
-      
+      if (Auth::check()) { //checking authorization
       
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
@@ -137,15 +149,16 @@ class BibitController extends Controller
          } else {     
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
-         
-         
-         
-         
+   
+      }else {
+         redirect('/login');
+      }
+   
    }
 
    public function tolak($id)
    {
-      
+      if (Auth::check()) { //checking authorization
       
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order', [
                'id' => $id,
@@ -158,15 +171,16 @@ class BibitController extends Controller
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
          
-         
-         
+         }else {
+            redirect('/login');
+        }
          
    }
 
    public function hapus_order($id)
    {
-      
-      
+      if (Auth::check()) { //checking authorization
+
          $response = Http::post('https://bibit.bpdas-sjd.id/API/order/hapus', [
                'id' => $id,
          ]);
@@ -177,14 +191,16 @@ class BibitController extends Controller
             return redirect('/data-order')->with(['error' => $responseresult['message']]);
          }
          
-         
-         
+      }else {
+         redirect('/login');
+      }  
          
    }
 
    public function download_order($id)
    {
-      
+      if (Auth::check()) { //checking authorization
+
          $response = Http::get('https://bibit.bpdas-sjd.id/API/order-filter', [
             'id' => $id
          ]);
@@ -196,8 +212,9 @@ class BibitController extends Controller
          
          // return $pdf->set_option('isRemoteEnabled',true)->download('Order-'.$detail['data']['pemohon'][0]['nama_pemohon'].'-'.$detail['data']['order'][0]['id'].'.pdf');
       
-      
-      return redirect('/');
+      }else {
+         redirect('/login');
+     }
          
    }
 

@@ -27,11 +27,11 @@ class BibitController extends Controller
         
          return view('/bibit/bibit/bibit', ['data' => $detail , 'active' => 'data-bibit', 'no' => 1]);
      
-     
    }
 
    public function tambah(Request $request)
    {
+
       $validator = $request->validate([
          'nama' => 'required',
          'jenis' => 'required',
@@ -49,6 +49,7 @@ class BibitController extends Controller
             'file' => $file,
          ]
      ]);
+
          $validator['file']->move(public_path('bibit/img/'), $file);
 
          $responseresult = json_decode($result->getBody()->getContents(), true);
@@ -193,7 +194,7 @@ class BibitController extends Controller
          // return view('bibit/order/download', $data);
          $pdf = PDF::loadView('bibit/order/download', $data);
          
-         return $pdf->download('Order-'.$detail['data']['pemohon'][0]['nama_pemohon'].'-'.$detail['data']['order'][0]['id'].'.pdf');
+         return $pdf->set_option('isRemoteEnabled',true)->download('Order-'.$detail['data']['pemohon'][0]['nama_pemohon'].'-'.$detail['data']['order'][0]['id'].'.pdf');
       
       
       return redirect('/');

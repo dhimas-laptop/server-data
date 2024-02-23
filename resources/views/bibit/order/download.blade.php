@@ -41,10 +41,16 @@
     .img {
       width: 100%;
     }
+
+    barcode { position: fixed; top: 0px; left: 0px; right: 0px;}
+    footer { position: fixed; bottom: 0px; left: 0px; right: 0px; background-color: lightblue; height: 50px; }
+    .div { page-break-after: always; }
+    footer:last-child { page-break-after: never; }
 </style>
 </head>
 
-<div style="page-break-after:always;margin: 1cm;">
+<div class="div">
+  <barcode></barcode>
   <table class="header" cellpadding="0">
     <tbody>
       <tr>
@@ -131,7 +137,7 @@
         <td colspan="4" align="center">Mengetahui,</td>
       </tr>
       <tr>
-        <td colspan="3">Kepala desa/lurah/ka instansi/DSB</td>
+        <td colspan="3"></td>
         <td>Pemohon,</td>
       </tr>
       <tr>
@@ -144,12 +150,16 @@
         <td><br></td>
       </tr>
       <tr>
-        <td colspan="3">(...........................................)</td>
+        <td colspan="3"></td>
         <td width="30%">{{$data['data']['pemohon'][0]['nama_pemohon']}}</td>
       </tr>
     </tbody>
   </table>
+  <footer>
+    <p><i>Dokumen ini dibuat dengan Sistem aplikasi Smart-Bibit</i></p>
+  </footer>
 </div>
+
 <div style="page-break-after:always;margin: 1cm;">
   <table class="header" cellpadding="0">
       <tbody>
@@ -313,7 +323,7 @@
             <td><br></td>
             <td colspan="2">Alamat</td>
             <td colspan="6" width="100%">
-              : 
+              : Jl. Daeng Kamboja KM 14, Kel. Air Raja, Kec. Tanjungpinang Timur
             </td>
            </tr>
            <tr>
@@ -431,7 +441,7 @@
             <td colspan="4" align="center">Aswan Basri</td>
            </tr>
         </tbody>
-    </table>  
+    </table> 
   </div>
   
     <script>

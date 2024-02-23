@@ -18,6 +18,20 @@
   <link rel="icon" href="{{ asset('/tdash/images/logo.png') }}">
   <link href="{{ asset('css/sweetalert2.min.css') }}" rel="stylesheet"/>
   <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    .leaflet-container {
+        height: 400px;
+        width: 750px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
 
 </head>
 <body>
@@ -79,6 +93,7 @@
                                     <label class="custom-file-label">Choose file</label>
                                 </div>
                             </div> 
+                            <div id="map"></div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" onclick="window.history.back()">kembali</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -108,6 +123,8 @@
           bsCustomFileInput.init();
         });
     </script>
+
+<script src="{{ asset('added/map.js')}}"></script>
     
     @include('layout/alert')
     </body>

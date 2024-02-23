@@ -424,7 +424,16 @@
            </tr>
            <tr>
             <td colspan="5" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=70x70" alt="" title=""/></td>
-            <td colspan="4" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=70x70" alt="" title=""/></td>
+            <td colspan="4" align="center">
+              @if ($data['data']['order'][0]['status'] === "selesai")
+              <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/> 
+              @else
+              <span class="material-symbols-outlined">
+                cancel
+                </span>
+                <p style="color: red">dokumen belum di setujui oleh petugas</p>
+              @endif
+            </td>
            </tr>
            <tr>
             <td colspan="5" style="align:center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>

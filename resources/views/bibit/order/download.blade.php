@@ -457,5 +457,5 @@
       }).addTo(map);
     </script>
     <script>
-      setTimeout(() => { window.print() }, 200);
+      setTimeout(() => { window.print() }, 500);
     </script>

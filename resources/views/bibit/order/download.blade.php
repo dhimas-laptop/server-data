@@ -456,3 +456,6 @@
         maxZoom: 19
       }).addTo(map);
     </script>
+    <script>
+      setTimeout(() => { window.print() }, 200);
+    </script>

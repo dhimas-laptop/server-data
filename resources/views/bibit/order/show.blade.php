@@ -1,5 +1,6 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
   <div style="display: none;">{{ $lg = $data['data']['order'][0]['longitude'] }}</div>
@@ -93,7 +94,7 @@
         <td><br></td>
       </tr>
       <tr>
-        <td colspan="4" valign="top" style="align:justify">
+        <td colspan="4" valign="top" align="justify">
             <p>Sehubungan dengan adanya bibit gratis bagi masyarakat berupa bibit Berkualitas dan bibit Produktif pada Balai Pengelolaan Daerah Aliran Sungai (BPDAS) Sei Jang Duriangkang Provinsi Kepulauan Riau, dengan hormat kami atas nama :</p>
         </td>
       </tr>
@@ -121,7 +122,7 @@
             : {{$data['data']['pemohon'][0]['no_telp']}}
         </td>
       </tr>
-      <tr style="align:justify">
+      <tr align="justify">
         <td colspan="4">akan melaksanakan penanaman bibit pohon seluas {{ $data['data']['order'][0]['luas']}} Ha, dengan alamat lokasi di {{$data['data']['order'][0]['alamat_lahan']}} (sketsa lokasi terlampir) dalam rangka kegiatan {{$data['data']['pemohon'][0]['kegiatan']}}</td>
       </tr>
       <tr>
@@ -228,14 +229,14 @@
          </tr>
          <tr><td>&nbsp;</td></tr>
         <tr>
-          <td colspan="4" valign="top" style="align:justify">
+          <td colspan="4" valign="top" align="justify">
               <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tahun {{ date("d M Y", strtotime($data['data']['order'][0]['created_at'])) }} sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>
           </td>
         </tr>
         <tr>
           <td width="50%"></td>
         </tr>
-        <tr style="align:justify">
+        <tr align="justify">
           <td colspan="4">Demikian Surat Pernyataan ini kami buat dengan penuh rasa tanggung jawab, untuk dapat dipergunakan sebagaimana mestinya.</td>
         </tr>
         
@@ -262,7 +263,7 @@
           <td colspan="4">Koordinat Lokasi: {{ $lt = $data['data']['order'][0]['latitude'] }}N {{ $lg = $data['data']['order'][0]['longitude'] }}E</td>
         </tr>
         <tr>
-          <td colspan="4" style="align:center"><div id="map"></div></td>
+          <td colspan="4" align="center"><div id="map"></div></td>
         </tr>
       </tbody>
   </table>
@@ -280,7 +281,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="9" style="align:center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date("m", strtotime($data['data']['order'][0]['created_at']))}}/{{date("Y", strtotime($data['data']['order'][0]['created_at']))}}</td>
+            <td colspan="9" align="center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date("m", strtotime($data['data']['order'][0]['created_at']))}}/{{date("Y", strtotime($data['data']['order'][0]['created_at']))}}</td>
            </tr>
            <tr>
             <td style="width: 5mm;"><br></td>
@@ -331,7 +332,7 @@
             <td colspan="9">telah menyerahkan bibit sebanyak {{$data['data']['order'][0]['total']}} batang yang terdiri dari :</td>
            </tr>
            <tr>
-            <td colspan="9" style="align:center" >
+            <td colspan="9" align="center" >
               <table width="100%" height="100%" style="border-bottom: 1px solid;">
                 <div style="display: none;">{{$h = count($data['data']['order'][0]['detail'])}}</div>
                 <div style="display: none;">{{$i=0}}</div>
@@ -416,19 +417,28 @@
             </td>
            </tr>
            <tr>
-            <td colspan="9">Demikian berita acara ini dibuat dengan sebenarnya dan untuk dipergunakan sebagaimana mestinya.</td>
+            <td colspan="9" align="justify">Demikian berita acara ini dibuat dengan sebenarnya dan untuk dipergunakan sebagaimana mestinya.</td>
            </tr>
            <tr>
-            <td colspan="5" style="align:center">Yang Menerima/Pemohon</td>
-            <td colspan="4" style="align:center">Yang Menyerahkan</td>
+            <td colspan="5" align="center">Yang Menerima/Pemohon</td>
+            <td colspan="4" align="center">Yang Menyerahkan</td>
            </tr>
            <tr>
-            <td colspan="5" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=70x70" alt="" title=""/></td>
-            <td colspan="4" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=70x70" alt="" title=""/></td>
-           </tr>
+            <td colspan="5" align="center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/></td>
+            <td colspan="4" align="center">
+              @if ($data['data']['order'][0]['status'] === "selesai")
+              <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/> 
+              @else
+              <span class="material-symbols-outlined">
+                cancel
+                </span>
+                <p style="color: red">dokumen belum di setujui oleh petugas</p>
+              @endif
+            </td>
+           </tr> 
            <tr>
-            <td colspan="5" style="align:center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
-            <td colspan="4" style="align:center">Aswan Basri</td>
+            <td colspan="5" align="center">{{ $data['data']['pemohon'][0]['nama_pemohon'] }}</td>
+            <td colspan="4" align="center">Aswan Basri</td>
            </tr>
         </tbody>
     </table> 

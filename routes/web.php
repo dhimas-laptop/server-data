@@ -131,6 +131,7 @@ Route::get('/data-order/tolak/{id}', [BibitController::class, 'tolak']);
 Route::get('/data-order/download/{id}', [BibitController::class, 'download_order']);
 Route::get('/data-order/hapus/{id}', [BibitController::class, 'hapus_order']);
 Route::get('/map', [BibitController::class, 'map']);
+Route::get('/view/{id}', [BibitController::class, 'view']);
 //------------------------------------Bibit end---------------------------------------------//
 
 //------------------------------------API Start ---------------------------------------------//

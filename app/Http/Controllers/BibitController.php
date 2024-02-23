@@ -218,9 +218,16 @@ class BibitController extends Controller
          
    }
 
-   public function test()
+   public function view($id)
    {
-     return view('bibit/order/download', ['data' => 'oke']);           
+      $response = Http::get('https://bibit.bpdas-sjd.id/API/order-filter', [
+         'id' => $id
+      ]);
+      
+      $detail = json_decode($response,true);
+      $data = ['data' => $detail];
+
+     return view('bibit/order/show', $data);           
    }
          
    // 

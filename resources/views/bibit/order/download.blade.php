@@ -376,18 +376,18 @@
                 </tr>
                 @while ($k <= $j)
                   <tr>
-                    <td style="border-right: 1px solid;border-left: 1px solid;align:center">{{ $k++ }}</td>
+                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $k++ }}</td>
                     <td style="border-right: 1px solid;border-left: 1px solid;">{{$data['data']['order'][0]['detail'][$i]['bibit']['nama']}}</td>
-                    <td style="border-right: 1px solid;border-left: 1px solid;align:center">{{$data['data']['order'][0]['detail'][$i]['jumlah']}}</td>
+                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{$data['data']['order'][0]['detail'][$i]['jumlah']}}</td>
                       <div style="display: none;">{{$i++}}</div> 
                     @if ($g >= $h && $g % 2 !== 0 )
-                    <td style="border-right: 1px solid;border-left: 1px solid;align:center">{{ $g + 1 }}</td>
-                    <td style="border-right: 1px solid;border-left: 1px solid;align:center">-</td>
-                    <td style="border-right: 1px solid;border-left: 1px solid;align:center">-</td>
+                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $g + 1 }}</td>
+                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">-</td>
+                    <td style="border-right: 1px solid;border-left: 1px solid;" align="center">-</td>
                     @else
-                      <td style="border-right: 1px solid;border-left: 1px solid;align:center">{{ $g + 1 }}</td>
-                      <td style="border-right: 1px solid;border-left: 1px solid;">{{$data['data']['order'][0]['detail'][$g]['bibit']['nama']}}</td>
-                      <td style="border-right: 1px solid;border-left: 1px solid;align:center">{{$data['data']['order'][0]['detail'][$g]['jumlah']}}</td>
+                      <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{ $g + 1 }}</td>
+                      <td style="border-right: 1px solid;border-left: 1px solid;">{{ $data['data']['order'][0]['detail'][$g]['bibit']['nama']}}</td>
+                      <td style="border-right: 1px solid;border-left: 1px solid;" align="center">{{$data['data']['order'][0]['detail'][$g]['jumlah']}}</td>
                       <div style="display: none;">{{$g++}}</div> 
                     @endif
                     
@@ -423,9 +423,9 @@
             <td colspan="4" style="align:center">Yang Menyerahkan</td>
            </tr>
            <tr>
-            <td colspan="5" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=70x70" alt="" title=""/></td>
-            <td colspan="4" align="center">
-              @if ($data['data']['order'][0]['status'] === "selesai")
+            <td colspan="5" style="align:center"><img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/></td>
+            <td colspan="4">
+              @if ($data['data']['order'][0]['status'] === "proses")
               <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/> 
               @else
               <span class="material-symbols-outlined">

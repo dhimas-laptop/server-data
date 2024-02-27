@@ -90,7 +90,7 @@
                             </div> 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Kondisi Bibit di Persemaian<span style="color: red">*</span></label>
-                                <input type="text" class="col-sm-10 form-control"  name="lokasi" >
+                                <input type="text" class="col-sm-10 form-control"  name="kondisi" >
                             </div> 
                             <div class="form-group">
                                 <label class="col-form-label">Jumlah dan jenis bibit Sesuai Rancangan ?<span style="color: red">*</span></label>

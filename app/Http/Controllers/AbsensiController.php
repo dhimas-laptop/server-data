@@ -59,9 +59,11 @@ class AbsensiController extends Controller
     {
         if (Auth::check()) {
         $absensi = absensi::get();
-        return view('absensi/absencontrol', ['absensi' => $absensi,'active' => "absensiPL", 'no' => 1]);
+        return view('absensi/controller/absencontrol', ['absensi' => $absensi,'active' => "absensiPL", 'no' => 1]);
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function bulananpl()
     {
@@ -82,6 +84,7 @@ class AbsensiController extends Controller
         'total'=> 'required',
         'jenis'=> 'required',
         'lokasi'=> 'required',
+        'kondisi' => 'required',
         'question1'=> 'required',
         'question2'=> 'required',
         'question3'=> 'required',
@@ -135,7 +138,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambarpl'), $nama_gambar);
+            $gambar->move(public_path('gambarlaporan'), $nama_gambar);
 
             gambarlaporan::insert([
                 'gambar' => $nama_gambar,
@@ -150,11 +153,20 @@ class AbsensiController extends Controller
     {
         if (Auth::check()) {
         $bulanan = laporan::get();
-        return view('absensi/bulanancontrol', ['bulanan' => $bulanan,'active' => "bulananPL", 'no' => 1]);
+        return view('absensi/controller/bulanancontrol', ['bulanan' => $bulanan,'active' => "bulananPL", 'no' => 1]);
         }else {
             redirect('/login');
         }
     }
+
+    function bulanandetail($id) {
+        if (Auth::check()) {
+            $data = laporan::findOrFail($id);
+            return view('absensi/detail/bulanan', ['data' => $data, 'active' => 'bulananPL']);
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     public function mingguanpl()
     {
@@ -251,7 +263,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambarpl'), $nama_gambar);
+            $gambar->move(public_path('gambarmingguan'), $nama_gambar);
 
             gambarmingguan::insert([
                 'gambar' => $nama_gambar,
@@ -265,8 +277,8 @@ class AbsensiController extends Controller
     public function mingguancontrol()
     {
         if (Auth::check()) {
-        $mingguan = laporan::get();
-        return view('absensi/mingguancontrol', ['mingguan' => $mingguan,'active' => "mingguanPL", 'no' => 1]);
+        $mingguan = mingguan::get();
+        return view('absensi/controller/mingguancontrol', ['mingguan' => $mingguan,'active' => "mingguanPL", 'no' => 1]);
         }else {
             redirect('/login');
         }

@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col">
-                      <h1>Data Laporan Bulanan Pengawas Lapangan</h1>
+                      <h1>Data Laporan Mingguan Pengawas Lapangan</h1>
                     </div>
                     <div class="float-right">
                       <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
@@ -42,7 +42,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach ($bulanan as $data)
+                                      @foreach ($mingguan as $data)
                                           <tr>
                                             <th>{{ $no++ }}</th>
                                             <th>{{ $data->nama }}</th>
@@ -51,11 +51,12 @@
                                             <th>{{ $data->kecamatan }}</th>
                                             <th>{{ $data->total }}</th>
                                             <th>
-                                            @if (!is_null($data->gambarpl))
-                                                @foreach ($data->gambarpl as $gambar)
-                                                <img src="{{asset('gambarpl/'.$gambar->gambar)}}" height="100px" width="200px">
+                                            @if (!is_null($data->gambarmingguan))
+                                                @foreach ($data->gambarmingguan as $gambar)
+                                                <img src="{{asset('gambarmingguan/'.$gambar->gambar)}}" height="100px" width="200px">
                                                 @endforeach
                                             @endif
+                                        
                                             </th>
                                             
                                           </tr>

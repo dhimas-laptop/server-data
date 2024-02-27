@@ -15,11 +15,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col">
-                      <h1>Data Laporan Mingguan Pengawas Lapangan</h1>
+                      <h1>Data Laporan Bulanan Pengawas Lapangan</h1>
                     </div>
+                    @can('admin')
                     <div class="float-right">
-                      <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
-                  </div>
+                        <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
+                    </div> 
+                    @endcan
                 </div>
             </div>
         </section>
@@ -38,11 +40,12 @@
                                             <th>Kelurahan</th>
                                             <th>Kecamatan</th>
                                             <th>total</th>
-                                            <th>Gambar</th>
+                                            <th>Jenis</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach ($mingguan as $data)
+                                      @foreach ($bulanan as $data)
                                           <tr>
                                             <th>{{ $no++ }}</th>
                                             <th>{{ $data->nama }}</th>
@@ -50,15 +53,18 @@
                                             <th>{{ $data->kelurahan }}</th>
                                             <th>{{ $data->kecamatan }}</th>
                                             <th>{{ $data->total }}</th>
-                                            <th>
-                                            @if (!is_null($data->gambarpl))
-                                                @foreach ($data->gambarpl as $gambar)
-                                                <img src="{{asset('gambarpl/'.$gambar->gambar)}}" height="100px" width="200px">
+                                            {{-- <th>
+                                            @if (!is_null($data->gambarlaporan))
+                                                @foreach ($data->gambarlaporan as $gambar)
+                                                <img src="{{asset('gambarlaporan/'.$gambar->gambar)}}" height="100px" width="200px">
                                                 @endforeach
                                             @endif
-                                        
+                                            </th> --}}
+                                            <th>{{ $data->jenis }}</th>
+                                            <th>
+                                                <a type="button" class="btn btn-block btn-info btn-flat" href="/bulananPL/detail/{{$data->id}}"><i class="fa-solid fa-circle-info"></i>Detail</a>
+                                                <button class="btn btn-block btn-default btn-flat" href="#"><i class="fa-regular fa-circle-down"></i>Download</button>
                                             </th>
-                                            
                                           </tr>
                                       @endforeach
                                     </tbody>
@@ -70,7 +76,8 @@
                                             <th>Kelurahan</th>
                                             <th>Kecamatan</th>
                                             <th>total</th>
-                                            <th>Gambar</th>
+                                            <th>Jenis</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>

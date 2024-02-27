@@ -58,7 +58,7 @@ class AbsensiController extends Controller
     public function absensicontrol()
     {
         if (Auth::check()) {
-        $absensi = absensi::get();
+        $absensi = absensi::orderBy('id', 'DESC')->get();
         return view('absensi/controller/absencontrol', ['absensi' => $absensi,'active' => "absensiPL", 'no' => 1]);
         }
     }
@@ -152,7 +152,7 @@ class AbsensiController extends Controller
     public function bulanancontrol()
     {
         if (Auth::check()) {
-        $bulanan = laporan::get();
+        $bulanan = laporan::orderBy('id', 'DESC')->get();
         return view('absensi/controller/bulanancontrol', ['bulanan' => $bulanan,'active' => "bulananPL", 'no' => 1]);
         }else {
             redirect('/login');
@@ -277,7 +277,7 @@ class AbsensiController extends Controller
     public function mingguancontrol()
     {
         if (Auth::check()) {
-        $mingguan = mingguan::get();
+        $mingguan = mingguan::orderBy('id', 'DESC')->get();
         return view('absensi/controller/mingguancontrol', ['mingguan' => $mingguan,'active' => "mingguanPL", 'no' => 1]);
         }else {
             redirect('/login');

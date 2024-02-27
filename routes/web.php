@@ -151,6 +151,7 @@ Route::get('/laporan-bulanan', [AbsensiController::class, 'bulananpl']); //Guest
 Route::post('/laporanproses', [AbsensiController::class, 'bulananproses']); //Form Process
 Route::get('/bulananPL', [AbsensiController::class, 'bulanancontrol'])->middleware('auth'); //SIPUDA Control
 Route::post('/bulananPL/download', [AbsensiController::class, 'bulanandownload']); //Form Process
+Route::get('/bulananPL/detail/{id}', [AbsensiController::class, 'bulanandetail']); //Form Process
 
 Route::get('/laporan-mingguan', [AbsensiController::class, 'mingguanpl']); //Guest Form
 Route::post('/laporan-proses-mingguan', [AbsensiController::class, 'mingguanproses']); //Form Process

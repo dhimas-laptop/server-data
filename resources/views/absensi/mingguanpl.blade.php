@@ -42,11 +42,11 @@
             <div class="col-lg-10 mx-auto my-auto">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" method="POST" action="/laporanproses" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="/laporan-proses-mingguan" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="text-center"><strong>LAPORAN MINGGUAN PENGAWAS LAPANGAN</strong></div>
-                            <div class="text-center mb-4">RHL 300 Ha Mangsang</div>
+                            <div class="text-center mb-4">BPDAS SEI JANG DURIANGKANG</div>
                             
                             <div class="form-group row" >
                                 <label class="col-sm-2 col-form-label">Nama<span style="color: red">*</span></label>

@@ -277,7 +277,7 @@
                     </div>
                 </div> 
                 @foreach ($data->gambarlaporan as $gambar)
-                <img src="{{ asset($gambar->gambar) }}" style="height: 350px;width:350px;">
+                <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" style="height: 350px;width:350px;">
                 @endforeach
                 
             </div>

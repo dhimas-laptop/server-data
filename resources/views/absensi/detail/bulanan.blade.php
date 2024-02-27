@@ -276,9 +276,12 @@
                         <input type="text" class="form-control @if($data->problem4===null) is-invalid @endif" value="{{ $data->problem4 }}" disabled>
                     </div>
                 </div> 
+                @foreach ($data->gambarlaporan as $gambar)
                 <div class="form-group row">
-
+                    <img src="{{ asset($gambar->gambar) }}" style="height: 50px;width:100px;">
                 </div>
+                @endforeach
+                
             </div>
           <!-- /.card-body -->
           <div class="card-footer">

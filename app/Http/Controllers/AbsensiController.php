@@ -138,7 +138,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambarlaporan'), $nama_gambar);
+            $gambar->move(public_path('gambarpl'), $nama_gambar);
 
             gambarlaporan::insert([
                 'gambar' => $nama_gambar,
@@ -263,7 +263,7 @@ class AbsensiController extends Controller
 
             foreach ($request->file('gambar') as $gambar) {
             $nama_gambar = time() . '-' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('gambarmingguan'), $nama_gambar);
+            $gambar->move(public_path('gambarpl'), $nama_gambar);
 
             gambarmingguan::insert([
                 'gambar' => $nama_gambar,

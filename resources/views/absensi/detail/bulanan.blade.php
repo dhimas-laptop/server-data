@@ -277,9 +277,7 @@
                     </div>
                 </div> 
                 @foreach ($data->gambarlaporan as $gambar)
-                <div class="form-group row">
-                    <img src="{{ asset($gambar->gambar) }}" style="height: 50px;width:100px;">
-                </div>
+                <img src="{{ asset($gambar->gambar) }}" style="height: 350px;width:350px;">
                 @endforeach
                 
             </div>

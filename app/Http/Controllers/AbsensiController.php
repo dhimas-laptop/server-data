@@ -163,6 +163,8 @@ class AbsensiController extends Controller
         if (Auth::check()) {
             $data = laporan::findOrFail($id);
             return view('absensi/detail/bulanan', ['data' => $data, 'active' => 'bulananPL']);
+        }else {
+            redirect('/login');
         }
     }
 
@@ -178,6 +180,7 @@ class AbsensiController extends Controller
         $validate = $request->validate([
         'nama'=> 'required',
         'lokasi'=> 'required',
+        'kondisi' => 'required',
         'koordinat'=> 'required',
         'luas'=> 'required',
         'das'=> 'required',
@@ -267,7 +270,7 @@ class AbsensiController extends Controller
 
             gambarmingguan::insert([
                 'gambar' => $nama_gambar,
-                'laporan_id' =>$id
+                'mingguan_id' =>$id
             ]);
             }
 
@@ -279,6 +282,16 @@ class AbsensiController extends Controller
         if (Auth::check()) {
         $mingguan = mingguan::orderBy('id', 'DESC')->get();
         return view('absensi/controller/mingguancontrol', ['mingguan' => $mingguan,'active' => "mingguanPL", 'no' => 1]);
+        }else {
+            redirect('/login');
+        }
+    }
+
+    function mingguandetail($id) 
+    {
+        if (Auth::check()) {
+            $data = mingguan::findOrFail($id);
+            return view('absensi/detail/mingguan', ['data' => $data, 'active' => 'mingguanPL']);
         }else {
             redirect('/login');
         }

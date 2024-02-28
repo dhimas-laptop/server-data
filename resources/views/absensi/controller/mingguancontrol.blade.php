@@ -17,9 +17,11 @@
                     <div class="col">
                       <h1>Data Laporan Mingguan Pengawas Lapangan</h1>
                     </div>
+                    @can('admin')
                     <div class="float-right">
-                      <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
-                  </div>
+                        <a class="btn btn-secondary" href="#"><i class="nav-icon fa-solid fa-download"></i> Download</a>
+                    </div>
+                    @endcan
                 </div>
             </div>
         </section>
@@ -38,7 +40,7 @@
                                             <th>Kelurahan</th>
                                             <th>Kecamatan</th>
                                             <th>total</th>
-                                            <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,12 +53,8 @@
                                             <th>{{ $data->kecamatan }}</th>
                                             <th>{{ $data->total }}</th>
                                             <th>
-                                            @if (!is_null($data->gambarmingguan))
-                                                @foreach ($data->gambarmingguan as $gambar)
-                                                <img src="{{asset('gambarmingguan/'.$gambar->gambar)}}" height="100px" width="200px">
-                                                @endforeach
-                                            @endif
-                                        
+                                                <a type="button" class="btn btn-block btn-info btn-flat" href="/mingguanPL/detail/{{$data->id}}"><i class="fa-solid fa-circle-info"></i>Detail</a>
+                                                <button class="btn btn-block btn-default btn-flat" href="#"><i class="fa-regular fa-circle-down"></i>Download</button>
                                             </th>
                                             
                                           </tr>
@@ -70,7 +68,7 @@
                                             <th>Kelurahan</th>
                                             <th>Kecamatan</th>
                                             <th>total</th>
-                                            <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>

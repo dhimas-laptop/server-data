@@ -11,6 +11,6 @@ class gambarmingguan extends Model
     protected $table = "gambarmingguan";
     protected $fillable = [
         'gambar',
-        'laporan_id'
+        'mingguan_id'
     ];
 }

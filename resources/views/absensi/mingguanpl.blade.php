@@ -228,107 +228,132 @@
                                 <label class="col-form-label">Progress Kemajuan Pelaksanaan Rehabilitasi Hutan dan Lahan<span style="color: red">*</span></label>
                                 <table class="table-bordered">
                                     <tr>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Uraian Kegiatan</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Target OH</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Capaian s.d minggu lalu</div></th>
-                                        <th class="bg-navy text-center" colspan="7"><div>Capaian minggu ini (hari ke-)</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Capaian s.d minggu ini (hari ke-)</div></th>
-                                    </tr>
-                                    <tr>
-                                        <th class="bg-navy text-center"><div>1</div></th>
-                                        <th class="bg-navy text-center"><div>2</div></th>
-                                        <th class="bg-navy text-center"><div>3</div></th>
-                                        <th class="bg-navy text-center"><div>4</div></th>
-                                        <th class="bg-navy text-center"><div>5</div></th>
-                                        <th class="bg-navy text-center"><div>6</div></th>
-                                        <th class="bg-navy text-center"><div>7</div></th>
-                                    </tr>
-                                    <tr>
+                                        <th colspan="2"></th>
                                         <th class="bg-navy text-center"><div>Pertemuan kelompok dalam rangka monitoring dan bimbingan teknis pemeliharaan</div></th>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" colspan="2"><div>Target OH</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" colspan="2"><div>Capaian s.d minggu lalu</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" rowspan="7"><div>Capaian minggu ini (hari ke-)</div></th>
+                                        <th class="bg-gradient-orange text-center" style="width: 100px" >1</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan3"></td>
+                                    </tr>  
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>2</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>3</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>4</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan6"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>5</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan7"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>6</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan8"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>7</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan9"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" colspan="2"><div>Capaian s.d minggu ini (hari ke-1 s.d Ke-7)</div></th>
                                         <td><input type="number" class="form-control"  name="kemajuan10"></td>
                                     </tr>
-
                                 </table>
                             </div>                     
                             <div class="form-group">
                                 <label class="col-form-label">Progress Ketersediaan Bahan Penanaman Rehabilitasi Hutan dan Lahan<span style="color: red">*</span></label>
                                 <table class="table-bordered">
                                     <tr>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Uraian Kegiatan</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Target OH</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Capaian s.d minggu lalu</div></th>
-                                        <th class="bg-navy text-center" colspan="7"><div>Capaian minggu ini (hari ke-)</div></th>
-                                        <th class="bg-navy text-center" rowspan="2"><div>Capaian s.d minggu ini (hari ke-)</div></th>
-                                    </tr>
-                                    <tr>
-                                        <th class="bg-navy text-center"><div>1</div></th>
-                                        <th class="bg-navy text-center"><div>2</div></th>
-                                        <th class="bg-navy text-center"><div>3</div></th>
-                                        <th class="bg-navy text-center"><div>4</div></th>
-                                        <th class="bg-navy text-center"><div>5</div></th>
-                                        <th class="bg-navy text-center"><div>6</div></th>
-                                        <th class="bg-navy text-center"><div>7</div></th>
-                                    </tr>
-                                    <tr>
+                                        <th colspan="2"></th>
                                         <th class="bg-navy text-center"><div>Pengadaan pupuk kandang</div></th>
-                                        <td><input type="number" class="form-control"  name="pupuk1" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk2" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk3" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk4" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk5" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk6" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk7" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk8" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk9" ></td>
-                                        <td><input type="number" class="form-control"  name="pupuk10" ></td>
-                                    </tr>
-                                    <tr>
                                         <th class="bg-navy text-center"><div>Pengadaan pupuk NPK</div></th>
-                                        <td><input type="number" class="form-control"  name="npk1" ></td>
-                                        <td><input type="number" class="form-control"  name="npk2" ></td>
-                                        <td><input type="number" class="form-control"  name="npk3" ></td>
-                                        <td><input type="number" class="form-control"  name="npk4" ></td>
-                                        <td><input type="number" class="form-control"  name="npk5" ></td>
-                                        <td><input type="number" class="form-control"  name="npk6" ></td>
-                                        <td><input type="number" class="form-control"  name="npk7" ></td>
-                                        <td><input type="number" class="form-control"  name="npk8" ></td>
-                                        <td><input type="number" class="form-control"  name="npk9" ></td>
-                                        <td><input type="number" class="form-control"  name="npk10" ></td>
-                                    </tr>
-                                    <tr>
                                         <th class="bg-navy text-center"><div>Pengadaan hidrogel</div></th>
-                                        <td><input type="number" class="form-control"  name="hidrogel1" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel2" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel3" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel4" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel5" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel6" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel7" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel8" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel9" ></td>
-                                        <td><input type="number" class="form-control"  name="hidrogel10" ></td>
+                                        <th class="bg-navy text-center"><div>Bibit tanaman sulaman</div></th>
                                     </tr>
                                     <tr>
-                                        <th class="bg-navy text-center"><div>Bibit tanaman sulaman</div></th>
-                                        <td><input type="number" class="form-control"  name="sulam1" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam2" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam3" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam4" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam5" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam6" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam7" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam8" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam9" ></td>
-                                        <td><input type="number" class="form-control"  name="sulam10" ></td>
+                                        <th class="bg-navy text-center" colspan="2"><div>Target OH</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk1"></td>
+                                        <td><input type="number" class="form-control"  name="npk1"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel1"></td>
+                                        <td><input type="number" class="form-control"  name="sulam1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" colspan="2"><div>Capaian s.d minggu lalu</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk2"></td>
+                                        <td><input type="number" class="form-control"  name="npk2"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel2"></td>
+                                        <td><input type="number" class="form-control"  name="sulam2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" rowspan="7"><div>Capaian minggu ini (hari ke-)</div></th>
+                                        <th class="bg-gradient-orange text-center" style="width: 100px" >1</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk3"></td>
+                                        <td><input type="number" class="form-control"  name="npk3"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel3"></td>
+                                        <td><input type="number" class="form-control"  name="sulam3"></td>
+                                    </tr>  
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>2</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk4"></td>
+                                        <td><input type="number" class="form-control"  name="npk4"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel4"></td>
+                                        <td><input type="number" class="form-control"  name="sulam4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>3</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk5"></td>
+                                        <td><input type="number" class="form-control"  name="npk5"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel5"></td>
+                                        <td><input type="number" class="form-control"  name="sulam5"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>4</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk6"></td>
+                                        <td><input type="number" class="form-control"  name="npk6"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel6"></td>
+                                        <td><input type="number" class="form-control"  name="sulam6"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>5</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk7"></td>
+                                        <td><input type="number" class="form-control"  name="npk7"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel7"></td>
+                                        <td><input type="number" class="form-control"  name="sulam7"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>6</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk8"></td>
+                                        <td><input type="number" class="form-control"  name="npk8"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel8"></td>
+                                        <td><input type="number" class="form-control"  name="sulam8"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-gradient-orange text-center"><div>7</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk9"></td>
+                                        <td><input type="number" class="form-control"  name="npk9"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel9"></td>
+                                        <td><input type="number" class="form-control"  name="sulam9"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-navy text-center" colspan="2"><div>Capaian s.d minggu ini (hari ke-1 s.d Ke-7)</div></th>
+                                        <td><input type="number" class="form-control"  name="pupuk10"></td>
+                                        <td><input type="number" class="form-control"  name="npk10"></td>
+                                        <td><input type="number" class="form-control"  name="hidrogel10"></td>
+                                        <td><input type="number" class="form-control"  name="sulam10"></td>
                                     </tr>
                                 </table>
                             </div>

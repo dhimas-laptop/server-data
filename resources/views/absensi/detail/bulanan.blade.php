@@ -178,7 +178,7 @@
                 </div> 
                 <div class="form-group">
                     <label class="col-form-label">Progress Ketersediaan Bahan Penanaman Rehabilitasi Hutan dan Lahan</label>
-                    <table class="table-bordered">
+                    <table class="table-bordered" align="center">
                         <tr>
                             <th></th>
                             <th class="bg-navy text-center"><div>Target Volume</div></th>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Progress Kemajuan Pelaksanaan Rehabilitasi Hutan dan Lahan</label>
-                    <table class="table-bordered">
+                    <table class="table-bordered" align="center">
                         <tr>
                             <th></th>
                             <th class="bg-navy text-center"><div>Target Volume</div></th>

@@ -26,17 +26,32 @@ class AbsensiController extends Controller
 
     public function proses(Request $request)
     {
+
         $validate = $request->validate([
             'nama' => 'required',
             'jenis' => 'required',
             'lokasi' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'informasi' => 'nullable',
             'tanggal' => 'required',
-        ]);
+        ],[
+            'nama.required' => 'Kolom Nama Pendamping Belum Terisi</br>',
+            'jenis.required' => 'Kolom Jenis Pendamping Belum Terisi</br>',
+            'lokasi.required' => 'Kolom Lokasi Penugasan Belum Terisi</br>',
+            'latitude.required' => 'Kolom latitude error</br>',
+            'longitude.required' => 'Kolom longitude error</br>',
+            'tanggal.required' => 'Kolom Tanggal Belum Terisi</br>'
+        ]
+    
+        );
 
         $request->validate([
             'gambar' => 'required',
+        ],[
+            'gambar.required' => 'Foto Geotag belum di Upload'
         ]);
+
             absensi::insertGetId($validate);
             
             $id = absensi::max('id');
@@ -127,10 +142,14 @@ class AbsensiController extends Controller
         'problem2'=> 'required',
         'problem3'=> 'required',
         'problem4'=> 'required',
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
 
         $request->validate([
             'gambar' => 'required',
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
             laporan::insertGetId($validate);
             
@@ -255,10 +274,14 @@ class AbsensiController extends Controller
         'problem1'=> 'required',
         'problem2'=> 'required',
         'problem3'=> 'required',
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
 
         $request->validate([
             'gambar' => 'required',
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
             mingguan::insertGetId($validate);
             

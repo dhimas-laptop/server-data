@@ -57,6 +57,8 @@ class PdinasController extends Controller
 
         $request->validate([
             'filter2' => 'required'
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
         $user = user::get();
         $tahun= $request->filter2;
@@ -127,6 +129,8 @@ class PdinasController extends Controller
             'no_lain' => 'nullable',
             'status_lain' => 'nullable',
             'kode' => 'required'
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);    
 
         $validate['nomor_spt'] = strtoupper($request->nomor_spt);
@@ -398,6 +402,8 @@ class PdinasController extends Controller
                 'status_lain' => 'nullable',
                 'kode' => 'required',
                 'jenis' => 'nullable'
+            ],[
+                'required' => 'Ada kolom yang belum terisi</br>'
             ]);
 
             $validate['nomor_spt'] = strtoupper($request->nomor_spt);
@@ -668,6 +674,8 @@ public function tambah_524119(Request $request)
             'status_lain' => 'nullable',
             'kode' => 'required',
             'jenis' => 'nullable'
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);    
 
             $validate['nomor_spt'] = strtoupper($request->nomor_spt);
@@ -929,6 +937,8 @@ public function tambah_524113(Request $request)
             'no_lain' => 'nullable',
             'status_lain' => 'nullable',
             'kode' => 'required'
+        ],[
+            'required' => 'Ada kolom yang belum terisi</br>'
         ]);
         
             $validate['nomor_spt'] = strtoupper($request->nomor_spt);

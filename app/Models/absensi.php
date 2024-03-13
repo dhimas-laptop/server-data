@@ -13,6 +13,8 @@ class absensi extends Model
         'nama',
         'jenis',
         'lokasi',
+        'latitude',
+        'longitude',
         'informasi',
         'tanggal'
     ];

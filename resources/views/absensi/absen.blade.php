@@ -60,7 +60,7 @@
                             @csrf
                             
                             <div class="text-center"><strong>LAPORAN HARIAN PENDAMPING DAN PENGAWAS LAPANGAN</strong></div>
-                            <div class="text-center mb-4">Rehabilitasi Hutan dan Lahan Tahun 2023</div>
+                            <div class="text-center mb-4">Rehabilitasi Hutan dan Lahan Tahun 2024</div>
                             
                             <div class="form-group row" >
                                 <label class="col-sm-2 col-form-label">Nama Pendamping</label>
@@ -73,10 +73,18 @@
                                   <option value="PL KBR">PL KBR</option>
                                   <option value="Pengawas Lapangan">Pengawas lapangan</option>
                               </select>
-                          </div>
+                            </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Lokasi Penugasan</label>
-                                <input type="text" class="col-sm-10 form-control"  name="lokasi" >
+                                <label class="col-sm-2 col-form-label">Lokasi</label>
+                                <input type="text" class="col-sm-10 form-control"  name="lokasi">
+                            </div> 
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Latitude</label>
+                                <input type="text" class="col-sm-10 form-control"  name="latitude" id="latitude" readonly>
+                            </div> 
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Longitude</label>
+                                <input type="text" class="col-sm-10 form-control"  name="longitude" id="longitude" readonly>
                             </div> 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Informasi/ Permasalahan di Lapangan</label>

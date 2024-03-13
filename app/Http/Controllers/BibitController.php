@@ -41,6 +41,8 @@ class BibitController extends Controller
          'jenis' => 'required',
          'total' => 'required',
          'file' => 'image|required'
+      ],[
+         'required' => 'Ada kolom yang belum terisi</br>'
       ]);
       
       $file = $validator['nama'].'.'.$request->file->extension();

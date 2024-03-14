@@ -22,6 +22,14 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
     public function forYear($no)
     {
         $this->no = $no;
+        $this->spt = null;
+        return $this;
+    }
+
+    public function forSpt($spt)
+    {
+        $this->spt = $spt;
+        $this->no = null;
         return $this;
     }
 
@@ -103,13 +111,13 @@ class SpdExport implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wit
 
     public function view(): View
     {
-        if ($this->no === "all") {
-            $query = spd::orderBy('tgl_spt', 'ASC')->get();
+        if (is_null($this->spt)) {
+            $query = spd::whereYear('tgl_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
             return view('report.spdadmin', [
                 'spd' => $query , 'no' => 1 
             ]);
         }else {
-            $query = spd::where('nomor_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
+            $query = spd::where('nomor_spt', $this->spt)->orderBy('tgl_spt', 'ASC')->get();
             return view('report.spd', [
                 'spd' => $query , 'no' => 1 
             ]);

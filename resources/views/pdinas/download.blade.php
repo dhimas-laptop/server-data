@@ -66,8 +66,10 @@
                         
                         <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Pilih SPT</label>
-                        <select class="form-control select2bs4" style="width:50%;" name="filter2" placeholder="Pilih SPT">
-                        <option value="all">Rekapitulasi SPJ</option>
+                        <select class="form-control select2bs4" style="width:50%;" name="filter1" placeholder="Pilih SPT">
+                        @foreach ($tahun as $tahun)
+                        <option value="{{ $tahun->tgl_spt }}">{{ $tahun->tgl_spt }}</option>
+                        @endforeach
                         </select>
                     </div>
                     <div class="form-group row">

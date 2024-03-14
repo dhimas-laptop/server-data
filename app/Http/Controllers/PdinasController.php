@@ -270,12 +270,13 @@ class PdinasController extends Controller
         if (Auth::check()) { //checking authorization
 
             $spd = spd::select('nomor_spt')->distinct()->orderBy('id', 'DESC')->get();
-            
+            $year = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+
             foreach ($spd as $key) {
                 $data[] = $key->nomor_spt; 
             }
 
-            return view('/pdinas/download',['spd' => $data, 'active' => "tahun"]);
+            return view('/pdinas/download',['spd' => $data, 'tahun' => $year , 'active' => "tahun"]);
 
         }else {
            redirect('/login');
@@ -286,18 +287,15 @@ class PdinasController extends Controller
     {
         if (Auth::check()) { //checking authorization
 
-            $request->validate([
-                'filter2' => 'required'
-            ]);
-
-            if ($request->filter2 === "all") {
-                return (new SpdExport)->forYear($request->filter2)->download('rekapitulasi.xlsx');
-            }else {       
+            if (is_null($request->filter2)) {
+                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+            } else {       
 
             $spt = explode('.', $request->filter2);
             $spt1= explode('/', $spt[1]);
             $spt2= $spt1[0];
-            return (new SpdExport)->forYear($request->filter2)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+            return (new SpdExport)->forSpt($request->filter2)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+
             }
 
         }else {

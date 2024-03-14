@@ -19,8 +19,8 @@
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Berangkat</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Tanggal<br>Kembali</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Uang<br>Harian</b></th>
-    <th align="center" valign="center" colspan="2" style="border: 3px solid black;background: yellow;"><b>Transportasi</b></th>
-    <th align="center" valign="center" colspan="2" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
+    <th align="center" valign="center" colspan="6" style="border: 3px solid black;background: yellow;"><b>Transportasi</b></th>
+    <th align="center" valign="center" colspan="4" style="border: 3px solid black;background: yellow;"><b>Hotel/Penginapan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Total<br>SPJ</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>Kode<br>Kegiatan</b></th>
     <th align="center" valign="center" rowspan="2" style="border: 3px solid black;background: yellow;"><b>status</b></th>

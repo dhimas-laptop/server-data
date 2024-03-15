@@ -78,6 +78,15 @@ class AbsensiController extends Controller
         }
     }
 
+    function absensidetail($id) {
+        if (Auth::check()) {
+            $data = absensi::findOrFail($id);
+            return view('absensi/detail/absensi', ['data' => $data, 'active' => 'absensiPL']);
+        }else {
+            redirect('/login');
+        }
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function bulananpl()

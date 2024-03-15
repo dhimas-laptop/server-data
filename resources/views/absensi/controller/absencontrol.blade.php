@@ -44,7 +44,7 @@
                                             <th>Lokasi</th>
                                             <th>Informasi</th>
                                             <th>Tanggal</th>
-                                            <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,11 +57,9 @@
                                             <th>{{ $data->informasi }}</th>
                                             <th>{{ $data->tanggal }}</th>
                                             <th>
-                                            @foreach ($data->gambarpl as $gambar)
-                                            <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" height="100px" width="200px">
-                                            @endforeach
+                                                <a type="button" class="btn btn-block btn-info btn-flat" href="/absensiPL/detail/{{$data->id}}"><i class="fa-solid fa-circle-info"></i>Detail</a>
                                             </th>
-                                          </tr>
+                                        </tr>
                                       @endforeach
                                     </tbody>
                                     <tfoot>
@@ -72,7 +70,7 @@
                                           <th>Lokasi</th>
                                           <th>Informasi</th>
                                           <th>Tanggal</th>
-                                          <th>Gambar</th>
+                                          <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>

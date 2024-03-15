@@ -95,7 +95,14 @@
                                 <input type="date" class="col-sm-10 form-control"  name="tanggal" >
                             </div>  
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Upload Foto (Geotagging)</label>
+                                <label class="col-sm-4 col-form-label">Upload Foto (Geotagging)</label>
+                                <div class="custom-file">
+                                    <input type="file" class="col-sm-10 custom-file-input" name="gambar[]" multiple>
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div> 
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Upload file Tracking GPX</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="gambar[]" style="70%" multiple>
                                     <label class="custom-file-label">Choose file</label>

@@ -1,7 +1,6 @@
 @extends('../layout/master')
 @section('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>   
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" /> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>    
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 <style>
@@ -83,7 +82,11 @@
                 <div id="map"></div>
             
                 @foreach ($data->gambarpl as $gambar)
-                <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" style="height: 350px;width:350px;">
+                    @if ($gambar->gambar == "pdf")
+                    <embed type="application/pdf" src="{{ asset('gambarpl/'.$gambar->gambar) }}" style="height: 350px;width:350px;">
+                    @else
+                    <img src="{{ asset('gambarpl/'.$gambar->gambar) }}" style="height: 350px;width:350px;">
+                    @endif
                 @endforeach
                 
             </div>
@@ -110,18 +113,13 @@
         infinite: false
       });
     </script>
-<script type="text/javascript">
-  $(document).ready(function(){
-      $('.harga').mask("#.##0,00", {reverse: true});
-   });
-</script>
 <script>
     $(document).ready(function() { 
-		document.getElementById('lt').value = data.coords.latitude
-        document.getElementById('ln').value = data.coords.longitude
+		var lt = document.getElementById('lt').value;
+        var ln = document.getElementById('ln').value;
 		
 		var map = L.map("map").setView(
-			[data.coords.latitude, data.coords.longitude],
+			[lt, ln],
 			13
 		);
 
@@ -135,7 +133,7 @@
 		).addTo(map);
 
 		L.marker([
-			data.coords.latitude, data.coords.longitude
+			lt, ln
 		])
 			.addTo(map)
 			.bindPopup("Location");

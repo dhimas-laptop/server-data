@@ -18,7 +18,9 @@ class absensi extends Model
         'informasi',
         'tanggal'
     ];
+
     public function gambarpl(){
     	return $this->hasMany(gambarpl::class);
     }
+
 }

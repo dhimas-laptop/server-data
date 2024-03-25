@@ -51,7 +51,7 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Lokasi</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @if($data->Lokasi===null) is-invalid @endif" value="{{ $data->Lokasi }}" disabled>
+                        <input type="text" class="form-control @if($data->lokasi===null) is-invalid @endif" value="{{ $data->lokasi }}" disabled>
                     </div>
                 </div>
                 <div class="form-group row">

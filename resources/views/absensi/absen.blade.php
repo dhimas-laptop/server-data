@@ -141,12 +141,12 @@
 
 <script>
     $(document).ready(function() { 
-   if (navigator.geolocation) {
-	navigator.geolocation.getCurrentPosition(showPosition);
-   } else {
-    
-	alert('Your device is not support!');
-	}
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        
+        alert('Your device is not support!');
+        }
 
 	function showPosition(data) {
 		document.getElementById('latitude').value = data.coords.latitude

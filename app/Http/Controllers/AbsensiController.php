@@ -42,9 +42,9 @@ class AbsensiController extends Controller
             'latitude.required' => 'Kolom latitude error</br>',
             'longitude.required' => 'Kolom longitude error</br>',
             'tanggal.required' => 'Kolom Tanggal Belum Terisi</br>'
-        ]
-    
-        );
+        ]);
+
+        $validate['created_at'] = date("Y-m-d H:i:s");
 
         $request->validate([
             'gambar' => 'required',

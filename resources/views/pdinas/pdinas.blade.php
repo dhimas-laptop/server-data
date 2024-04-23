@@ -110,7 +110,10 @@
                                     <div class="row">
                                       <div class="col-2">
                                         <a class="btn btn-success" href="/perjalanan-dinas/update/{{ $spd->id }}"><i class="nav-icon fa-regular fa-edit"></i></a>
-                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a>
+                                        @can()
+                                        <a class="btn btn-danger" id="confirm" href="/perjalanan-dinas/hapus/{{ $spd->id }}"><i class="nav-icon fa-solid fa-trash-can"></i></a> 
+                                        @endcan
+                                        
                                       </div>
                                     </div>
                                 </td>

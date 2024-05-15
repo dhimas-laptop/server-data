@@ -57,6 +57,7 @@
                 <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
                 <select class="col-sm-10 custom-select" name="kode" disabled>
                     <option>---Pilih kode---</option>
+                    <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.PBJ") selected @endif>FD.6738.PBJ</option>
                     <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.RAG") selected @endif>FD.6738.RAG</option>
                     <option value="FF.5407.RBK" @if ($spd->kode === "FF.5407.RBK") selected @endif >FF.5407.RBK</option>
                     <option value="FF.6734.REA" @if ($spd->kode === "FF.6734.REA") selected @endif >FF.6734.REA</option>

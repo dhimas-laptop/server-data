@@ -174,7 +174,9 @@
                         <label class="col-sm-2 col-form-label">Kode Kegiatan*</label>
                         <select class="col-sm-10 custom-select" name="kode">
                             <option value=>---Pilih kode---</option>
+                            <option value="WA.5403.EBA">FD.6738.PBJ</option>
                             <option value="FD.6738.RAG">FD.6738.RAG</option>
+                            <option value="WA.5403.EBA">FD.6738.PBJ</option>
                             <option value="FF.5407.RBK">FF.5407.RBK</option>
                             <option value="FF.6734.REA">FF.6734.REA</option>
                             <option value="FF.6735.QDB">FF.6735.QDB</option>

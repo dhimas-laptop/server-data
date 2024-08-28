@@ -1,4 +1,33 @@
 @extends('guest.master')
+
+@section('banner')
+<!--MAIN BANNER AREA START -->
+    
+<div class="banner-area banner-3">
+    <div class="overlay dark-overlay"></div>
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                        <div class="banner-content content-padding">
+                            <h5 class="subtitle">Kementerian Lingkungan Hidup dan Kehutanan</h5>
+                            <h1 class="banner-title">BPDAS Sei Jang Duriangkang</h1>
+                            <p>Balai Pengelolaan Daerah Aliran Sungai Sei Jang Duriangkang</p>
+                            <p>Kepulauan Riau</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+            
+<!--MAIN HEADER AREA END -->
+@endsection
+
 @section('content')
 <!-- PRICE AREA START  -->
     <section id="pricing" class="section-padding bg-main">

@@ -77,6 +77,18 @@
                               <li><a class="dropdown-item" href="/sk-kkmd">SK KKMD</a></li>
                               <li><a class="dropdown-item" href="/renaksi-kkmd">RENAKSI KKMD</a></li>
                               <li><a class="dropdown-item" href="/sk-pmn">SK PMN</a></li>
+                              <li class="dropdown dropdown-submenu dropright">
+                                <a a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true">Peta Mangrove Kepulauan Riau</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown0301">
+                                  <li><a class="dropdown-item" href="#">Peta Kota Tanjungpinang</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kota Batam</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kab. Bintan</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kab. Anambas</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kab. Lingga</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kab. Natuna</a></li>
+                                  <li><a class="dropdown-item" href="#">Peta Kab. Karimun</a></li>
+                                </ul>
+                              </li>
 
                             </ul>
                           </li>
@@ -91,7 +103,6 @@
                               <li><a class="dropdown-item" href="https://lpse.menlhk.go.id/">LPSE KLHK</a></li>
                               <li><a class="dropdown-item" href="https://jdih.menlhk.go.id/">JDIH KLHK</a></li>
                               <li><a class="dropdown-item" href="https://djpb.kemenkeu.go.id/kppn/tanjungpinang/id/">KPPN Tanjungpinang</a></li>
-                              <li><a class="dropdown-item" href="https://cloud.bpdas-sjd.id">BPDAS Drive</a></li>
                               <li><a class="dropdown-item" href="https://mail.bpdas-sjd.id/">BPDAS MAIL</a></li>
                             </ul>
                           </li>

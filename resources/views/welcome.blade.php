@@ -29,7 +29,7 @@
 @endsection
 
 @section('content')
-<!-- PRICE AREA START  -->
+{{-- <!-- PRICE AREA START  -->
     <section id="pricing" class="section-padding bg-main">
         <div class="container">
         <div class="row">
@@ -213,7 +213,7 @@
         </div>
         </div>
     </section>
-<!-- PRICE AREA END  -->
+<!-- PRICE AREA END  --> --}}
 <!--  ABOUT AREA START  -->
     <section id="intro" class="section-padding">
         <div class="container">

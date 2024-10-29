@@ -427,6 +427,8 @@
             <td colspan="4">
               @if ($data['data']['order'][0]['status'] === "proses")
               <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/> 
+              @if ($data['data']['order'][0]['status'] === "selesai")
+              <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bpdas-sjd.id/view/{{$data['data']['order'][0]['id']}}&amp;size=100x100" alt="" title=""/> 
               @else
               <span class="material-symbols-outlined">
                 cancel

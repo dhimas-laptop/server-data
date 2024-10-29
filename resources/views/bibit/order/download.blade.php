@@ -229,7 +229,7 @@
          <tr><td>&nbsp;</td></tr>
         <tr>
           <td colspan="4" valign="top" style="align:justify">
-              <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tahun {{ date("d M Y", strtotime($data['data']['order'][0]['created_at'])) }} sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>
+              <p>Dengan ini menyatakan bahwa kami sanggup dan siap untuk melaksanakan penanaman dan pemeliharaan tanaman Berkualitas / Bibit Produktif dari BPDAS Sei Jang Duriangkang pada Tanggal ..... Bulan ......... Tahun ....... sesuai dengan jumlah dan jenis tanaman serta lokasi penanaman yang telah kami ajukan.</p>
           </td>
         </tr>
         <tr>
@@ -241,7 +241,7 @@
         
         <tr>
           <td colspan="3" ></td>
-          <td>Tanjungpinang, {{ date("d F Y", strtotime($data['data']['order'][0]['created_at'])) }}</td>
+          <td>Tanjungpinang, </td>
         </tr>
         <tr>
           <td colspan="3"><br></td>
@@ -294,7 +294,7 @@
             <td ><br></td>
            </tr>
            <tr>
-            <td colspan="9">Pada hari ini Tanggal {{date("d", strtotime($data['data']['order'][0]['created_at']))}} bulan {{date("F", strtotime($data['data']['order'][0]['created_at']))}} tahun {{date("Y", strtotime($data['data']['order'][0]['created_at']))}}, yang bertandatangan dibawah ini:</td>
+            <td colspan="9">Pada hari ini Tanggal ..... bulan ............... tahun ........, yang bertandatangan dibawah ini:</td>
            </tr>
            <tr>
             <td>1.</td>

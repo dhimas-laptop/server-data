@@ -62,7 +62,7 @@
       </tr>
       <tr>
         <td colspan="4" style="align:right">
-           Tanjungpinang, {{ date("d F Y", strtotime($data['data']['order'][0]['created_at'])) }}
+           Tanjungpinang, <!-- {{ date("d F Y", strtotime($data['data']['order'][0]['created_at'])) }} -->
         </td>
       </tr>
       <tr>

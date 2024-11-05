@@ -48,7 +48,11 @@
                                             <td>{{ $data['kelompok'] }}</td>
                                             <td>{{ $data['nama_pemohon'] }}</td>
                                             <td>{{ $data['kegiatan'] }}</td>
-                                            <td>{{ $data['order'][0]['total'] }}</td>
+                                            <td>@if (empty($data['order'][0]['total']))
+                                              Data tidak Ada
+                                              @else 
+                                              {{ $data['order'][0]['total'] }}
+                                            @endif</td>
                                             <td>{{ $data['created_at'] }}</td>
                                             <td style="background-color: @if ($data['order'][0]['status'] === "pending")
                                                 yellow
@@ -61,16 +65,16 @@
                                             @endif">{{ $data['order'][0]['status'] }}</td>
                                             <td>
                                               @if ($data['order'][0]['status'] === "pending")
-                                              <a href="/data-order/proses/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
-                                              <a href="/data-order/tolak/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
-                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              <a href="/data-order/proses/{{ $data['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
+                                              <a href="/data-order/tolak/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
+                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif @if ($data['order'][0]['status'] === "proses")
-                                              <a href="/data-order/selesai/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
-                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              <a href="/data-order/selesai/{{ $data['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
+                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif @if ($data['order'][0]['status'] === "ditolak")
-                                              <a href="/data-order/hapus/{{ $data['order'][0]['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
+                                              <a href="/data-order/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
                                               @endif @if ($data['order'][0]['status'] === "selesai")
-                                              <a href="/data-order/download/{{ $data['order'][0]['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif 
                                               
                                             </td>

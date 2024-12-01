@@ -71,8 +71,6 @@
                                               @endif @if ($data['order'][0]['status'] === "proses")
                                               <a href="/data-order/selesai/{{ $data['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
                                               <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif @if ($data['order'][0]['status'] === "ditolak")
-                                              <a href="/data-order/hapus/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i> Hapus</a>
                                               @endif @if ($data['order'][0]['status'] === "selesai")
                                               <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
                                               @endif 

@@ -280,7 +280,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="9" style="align:center">Nomor : BA.{{$data['data']['order'][0]['id']}}/BPDAS.SJD/EV/DAS.2/{{date("m", strtotime($data['data']['order'][0]['created_at']))}}/{{date("Y", strtotime($data['data']['order'][0]['created_at']))}}</td>
+            <td colspan="9" style="align:center">Nomor : </td>
            </tr>
            <tr>
             <td style="width: 5mm;"><br></td>

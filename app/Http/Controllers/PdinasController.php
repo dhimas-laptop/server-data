@@ -474,19 +474,9 @@ class PdinasController extends Controller
             $spd = spd1::select('nomor_spt')->distinct()->get();
             
             foreach ($spd as $key) {
-                $data = explode('/',$key->nomor_spt);
-                $data1 = $data[2];
-                if ($data1 == $role || $data1 == $role1) {
-                    $data2[] = $key->nomor_spt; 
+                $data2[] = $key->nomor_spt;
                 }
-                if ($role === 'admin') {
-                    $data2[] = $key->nomor_spt; 
-                }
-
-                if (isset($data2)) {
                 return view('/pdinas/download1',['spd' => $data2, 'active' => "524114"]);
-                }
-            }
         }else {
            redirect('/login');
        }
@@ -724,40 +714,14 @@ public function detail2($id)
 public function download_524119()
 {
     if (Auth::check()) { //checking authorization
-
-        $role = auth::user()->role;
-            if ($role === 'ev') {
-                $role = "pkdas";
-                $role1 = "PKDAS";
-            } elseif ($role === 'prog') {
-                $role = "pevdas";
-                $role1 = "PEVDAS";
-            } elseif ($role === 'rhl') {
-                $role = "rhl";
-                $role1 = "RHL";
-            } elseif ($role === 'tu') {
-                $role = "tu";
-                $role1 = "TU";
-            } elseif ($role ==='admin') {
-                $role1 = "admin";
-            }
         
         $spd = spd2::select('nomor_spt')->distinct()->get();
         
         foreach ($spd as $key) {
-            $data = explode('/',$key->nomor_spt);
-            $data1 = $data[2];
-            if ($data1 == $role || $data1 == $role1) {
-                $data2[] = $key->nomor_spt; 
-            }
-            if ($role === 'admin') {
-                $data2[] = $key->nomor_spt; 
+            $data2[] = $key->nomor_spt;
             }
 
-            if (isset($data2)) {
-            return view('/pdinas/download2',['spd' => $data2, 'active' => "524119"]);
-            }
-        }
+        return view('/pdinas/download2',['spd' => $data2, 'active' => "524119"]);
         
     }else {
        redirect('/login');

@@ -104,7 +104,7 @@ class BibitController extends Controller
          $response = Http::get('https://bibit.bpdas-sjd.id/API/order');
          $detail = json_decode($response,true);
          return view('/bibit/order/order', ['data' => $detail , 'active' => 'data-order', 'no' => 1]);
-      
+         
       }else {
          redirect('/login');
       }
@@ -235,4 +235,19 @@ class BibitController extends Controller
    // Order End
    // 
    // 
+   public function test()
+   {
+      if (Auth::check()) {
+      
+         $response = Http::get('https://bibit.bpdas-sjd.id/API/order');
+         $detail = json_decode($response,true);
+         return $detail;
+         
+      }else {
+         redirect('/login');
+      }
+           
+   }
 }
+
+   

@@ -48,32 +48,43 @@
                                             <td>{{ $data['kelompok'] }}</td>
                                             <td>{{ $data['nama_pemohon'] }}</td>
                                             <td>{{ $data['kegiatan'] }}</td>
-                                            <td>@if (empty($data['order'][0]['total']))
-                                              Data tidak Ada
-                                              @else 
+                                            <td>@if (isset($data['order'][0]['total']))
                                               {{ $data['order'][0]['total'] }}
+                                              @else 
+                                              Data tidak ada
                                             @endif</td>
                                             <td>{{ $data['created_at'] }}</td>
-                                            <td style="background-color: @if ($data['order'][0]['status'] === "pending")
-                                                yellow
-                                            @endif @if ($data['order'][0]['status'] === "selesai")
-                                                green
-                                            @endif @if ($data['order'][0]['status'] === "proses")
-                                                blue
-                                            @endif @if ($data['order'][0]['status'] === "ditolak")
-                                                red
-                                            @endif">{{ $data['order'][0]['status'] }}</td>
-                                            <td>
+                                            <td style="background-color: 
+                                            @if (isset($data['order'][0]['status']))
                                               @if ($data['order'][0]['status'] === "pending")
-                                              <a href="/data-order/proses/{{ $data['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
-                                              <a href="/data-order/tolak/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
-                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif @if ($data['order'][0]['status'] === "proses")
-                                              <a href="/data-order/selesai/{{ $data['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
-                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif @if ($data['order'][0]['status'] === "selesai")
-                                              <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
-                                              @endif 
+                                                  yellow
+                                              @elseif  ($data['order'][0]['status'] === "selesai")
+                                                  green
+                                              @elseif ($data['order'][0]['status'] === "proses")
+                                                  blue
+                                              @elseif ($data['order'][0]['status'] === "ditolak")
+                                                  red
+                                              @endif
+                                            @endif
+                                            ">
+                                            @if (@isset( $data['order'][0]['status'] ))
+                                            {{ $data['order'][0]['status'] }}                                              
+                                            @endif
+                                            </td>
+                                            <td>
+                                              @if(isset($data['order'][0]['status']))
+                                                @if ($data['order'][0]['status'] === "pending")
+                                                <a href="/data-order/proses/{{ $data['id']}}" id="confirm" class="btn btn-outline-primary"><i class="fa-solid fa-rotate"></i> Proses</a>
+                                                <a href="/data-order/tolak/{{ $data['id']}}" id="confirm" class="btn btn-outline-danger"><i class="fa-solid fa-rectangle-xmark"></i> Tolak</a>
+                                                <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                                @endif @if ($data['order'][0]['status'] === "proses")
+                                                <a href="/data-order/selesai/{{ $data['id']}}" id="confirm" class="btn btn-outline-success"><i class="fa-solid fa-square-check"></i> Selesai</a>
+                                                <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                                @endif @if ($data['order'][0]['status'] === "selesai")
+                                                <a href="/data-order/download/{{ $data['id']}}" class="btn btn-outline-secondary" target="_blank"><i class="fa-solid fa-floppy-disk"></i> Download</a>
+                                                @endif 
+                                              @endif
+
                                               
                                             </td>
                                         </tr>

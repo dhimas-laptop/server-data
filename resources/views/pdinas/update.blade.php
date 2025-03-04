@@ -59,16 +59,14 @@
               <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
               <select class="col-sm-10 custom-select" name="kode">
                   <option>---Pilih kode---</option>
-                  <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.PBJ") selected @endif>FD.6738.PBJ</option>
-                  <option value="FD.6738.RAG" @if ($spd->kode === "FD.6738.RAG") selected @endif>FD.6738.RAG</option>
-                  <option value="FF.5407.RBK" @if ($spd->kode === "FF.5407.RBK") selected @endif >FF.5407.RBK</option>
-                  <option value="FF.6734.REA" @if ($spd->kode === "FF.6734.REA") selected @endif >FF.6734.REA</option>
-                  <option value="FF.6735.QDB" @if ($spd->kode === "FF.6735.QDB") selected @endif >FF.6735.QDB</option>
-                  <option value="FF.6735.UAB" @if ($spd->kode === "FF.6735.UAB") selected @endif >FF.6735.UAB</option>
-                  <option value="FF.6736.REA" @if ($spd->kode === "FF.6736.REA") selected @endif >FF.6736.REA</option>
-                  <option value="FF.6737.QDB" @if ($spd->kode === "FF.6737.QDB") selected @endif >FF.6737.QDB</option>
-                  <option value="FF.6737.REA" @if ($spd->kode === "FF.6737.REA") selected @endif >FF.6737.REA</option>
-                  <option value="WA.5403.EBA" @if ($spd->kode === "WA.5403.EBA") selected @endif >WA.5403.EBA</option>
+                  <option value="FF.7275.RBK" @if ($spd->kode === "FF.7275.RBK") selected @endif >FF.7275.RBK</option>
+                  <option value="FF.7275.REA" @if ($spd->kode === "FF.7275.REA") selected @endif >FF.7275.REA</option>
+                  <option value="FF.7276.QDB" @if ($spd->kode === "FF.7276.QDB") selected @endif >FF.7276.QDB</option>
+                  <option value="FF.7276.UAB" @if ($spd->kode === "FF.7276.UAB") selected @endif >FF.7276.UAB</option>
+                  <option value="FF.7277.REA" @if ($spd->kode === "FF.7277.REA") selected @endif >FF.7277.REA</option>
+                  <option value="FF.7278.QDB" @if ($spd->kode === "FF.7278.QDB") selected @endif >FF.7278.QDB</option>
+                  <option value="FF.7278.REA" @if ($spd->kode === "FF.7278.REA") selected @endif >FF.7278.REA</option>
+                  <option value="WA.7316.EBA" @if ($spd->kode === "WA.7316.EBA") selected @endif >WA.7316.EBA</option>
               </select>
             </div>        
 

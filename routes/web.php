@@ -169,7 +169,12 @@ Route::get('/matriks', [MatriksController::class, 'index'])->middleware('admin')
 //------------------------------------matriks end---------------------------------------------//
 
 //------------------------------------SPJ Start ---------------------------------------------//
-Route::get('/DRPP', [SpjController::class, 'drpp_index'])->middleware('admin');
+Route::get('/input-spj', [SpjController::class, 'input_data'])->middleware('admin');
+Route::get('/penandatangan', [SpjController::class, 'penandatangan'])->middleware('admin');
+
+
 //------------------------------------SPJ end---------------------------------------------//
+
+
 Route::get('/reset', [UserController::class, 'reset'])->middleware('admin');
 Route::get('/test', [BibitController::class, 'test'])->middleware('admin');

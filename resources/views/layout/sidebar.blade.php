@@ -24,13 +24,7 @@
                         BPDAS Mail</a>
                 </div>
             </div>
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="info">
-                    <a href="https://cloud.bpdas-sjd.id/" class="d-block" target="_blank">
-                        <i class="fa-solid fa-cloud"></i>
-                        BPDAS Drive</a>
-                </div>
-            </div>
+            
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul
@@ -112,10 +106,10 @@
                     </li>
                     @can('admin')
                     <li
-                        class="nav-item @if ($active === '524114' || $active === '524119' || $active === 'tahun' || $active === '524113' || $active === 'perjalanan-dinas') menu-open @endif">
+                        class="nav-item @if ($active === 'input'||$active === 'ttd') menu-open @endif">
                         <a
                             href="#"
-                            class="nav-link @if ($active === 'drpp' || $active === 'spby' || $active === 'kwt' || $active === 'rincian' || $active === 'pernyataan' || $active === 'pernyataan') active @endif">
+                            class="nav-link @if ($active === 'input'||$active === 'ttd') active @endif">
                             <i class="fa-solid fa-plane-departure"></i>
                             <p>
                                 SPJ Online
@@ -125,11 +119,20 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a
-                                    href="{{ route('tahun') }}"
-                                    class="nav-link {{ ($active === 'tahun') ? 'active' : '' }}">
+                                    href="/penandatangan"
+                                    class="nav-link {{ ($active === 'ttd') ? 'active' : '' }}">
                                     <i
-                                        class="far {{ ($active === 'tahun') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>524111</p>
+                                        class="far {{ ($active === 'ttd') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Penandatangan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="/input-spj"
+                                    class="nav-link {{ ($active === 'input') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'input') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Input Data</p>
                                 </a>
                             </li>
                         </ul>

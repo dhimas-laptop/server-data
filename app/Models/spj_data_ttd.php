@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ttd extends Model
+class spj_data_ttd extends Model
 {
     use HasFactory;
-    protected $table = "penandatangan";
+    protected $table = "spj_data_ttd";
     protected $fillable = [
-            'namaPenandatangan',
-            'nipPenandatangan',
-            'jabatanPenandatangan'
+        'nama_ttd',
+        'nip_ttd',
+        'jabatan_ttd'
     ];
-    
 }

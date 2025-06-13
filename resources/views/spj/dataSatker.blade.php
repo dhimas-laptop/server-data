@@ -40,18 +40,26 @@
                 <table id="example" class="display">
                   <thead>
                   <tr>
-                    <th>Nama Pejabat Penandatangan</th>
-                    <th>NIP</th>
-                    <th>JABATAN</th>
+                    <th>Kementerian</th>
+                    <th>Eselon</th>
+                    <th>Lokasi</th>
+                    <th>Satker</th>
+                    <th>Alamat</th>
+                    <th>DIPA</th>
+                    <th>Tanggal DIPA</th>
                   </tr>
                   </thead>
                   
 
                   <tfoot>
                   <tr>
-                    <th>Nama Pejabat Penandatangan</th>
-                    <th>NIP</th>
-                    <th>JABATAN</th>
+                    <th>Kementerian</th>
+                    <th>Eselon</th>
+                    <th>Lokasi</th>
+                    <th>Satker</th>
+                    <th>Alamat</th>
+                    <th>DIPA</th>
+                    <th>Tanggal DIPA</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -79,21 +87,45 @@
               <div class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Penandatangan</label>
+                    <label class="col-sm-2 col-form-label">Kementerian</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Nama penandatangan lengkap dengan gelar" id="namattd">
+                      <input type="text" class="form-control" placeholder="Nama kementerian bukan singkatan" id="kementerian">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">NIP Penandatangan</label>
+                    <label class="col-sm-2 col-form-label">Eselon</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Nip penandatangan tanpa spasi" id="nipttd">
+                      <input type="text" class="form-control" placeholder="nama eselon 1" id="eselon">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Jabatan Penandatangan</label>
+                    <label class="col-sm-2 col-form-label">Lokasi</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Jabatan penandatangan" id="jabatanttd">
+                      <input type="text" class="form-control" placeholder="provinsi wilayah kerja " id="lokasi">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Satuan Kerja</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" placeholder="Nama satuan kerja" id="satker">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Alamat</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" placeholder="alamat tempat satker berkedudukan" id="alamat">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">NO. DIPA</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" placeholder="ex: DIPA-029.04.2.693571/2025" id="dipa">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">TGL. DIPA</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control" placeholder="tanggal dipa awal terbit" id="tgl_dipa">
                     </div>
                   </div>
                 </div>
@@ -120,10 +152,10 @@
                 <div class="form-horizontal">
                   <div class="card-body">
                     <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Nama Penandatangan</label>
+                      <label class="col-sm-2 col-form-label">No Dipa</label>
                       <div class="col-sm-10">
-                        <select class="form-control select2bs4" style="width: 100%;" id="idttd">
-                          <option id="option" value="">mama</option>
+                        <select class="form-control select2bs4" style="width: 100%;" id="idSatker">
+                          <option id="option" value=""></option>
                         </select>
                       </div>
                     </div>
@@ -150,12 +182,17 @@
 <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js"></script>
 <script>
     var table = new DataTable('#example', {
-        ajax: '/spj-online/dataTTD',
+        ajax: '/spj-online/data-dataSatker',
         columns: [
-          { data: 'nama_ttd' },
-          { data: 'nip_ttd' },
-          { data: 'jabatan_ttd' },
-      ]
+          { data: 'kementerian' },
+          { data: 'eselon' },
+          { data: 'lokasi' },
+          { data: 'satker' },
+          { data: 'alamat' },
+          { data: 'dipa' },
+          { data: 'tgl_dipa'},
+      ],
+      scrollX: true
     });
 
     //action create post
@@ -175,20 +212,28 @@
           if (result.isConfirmed) {
 
             //define variable
-            let nama_ttd   = $("#namattd").val();
-            let nip_ttd = $('#nipttd').val();
-            let jabatan_ttd = $('#jabatanttd').val();
+            let kementerian   = $('#kementerian').val();
+            let eselon = $('#eselon').val();
+            let lokasi = $('#lokasi').val();
+            let satker   = $('#satker').val();
+            let alamat = $('#alamat').val();
+            let dipa = $('#dipa').val();
+            let tgl_dipa = $('#tgl_dipa').val();    
           
             // ajax
             $.ajax({
 
-                url: `/spj-online/tambahTTD`,
+                url: `/spj-online/tambahSatker`,
                 type: "POST",
                 cache: false,
                 data: {
-                    "nama_ttd" : nama_ttd,
-                    "nip_ttd" : nip_ttd,
-                    "jabatan_ttd" : jabatan_ttd,
+                    "kementerian"   : kementerian,
+                    "eselon"        : eselon,
+                    "lokasi"        : lokasi,
+                    "satker"        : satker,
+                    "alamat"        : alamat,
+                    "dipa"          : dipa,
+                    "tgl_dipa"      : tgl_dipa,
                 },
                 success:function(response){
 
@@ -202,16 +247,17 @@
 
                     $.ajax({
                           type: "GET",
-                          url: "/spj-online/dataTTD",
+                          url: "/spj-online/data-dataSatker",
                           data: "{}",
                           success: function (data) {
                               var s = '<option value="-1">harap pilih nama</option>';
                               for (var i = 0; i < data.data.length; i++) {
-                                  s += '<option value="' + data.data[i].id + '">' + data.data[i].nama_ttd + '</option>';
+                                  s += '<option value="' + data.data[i].id + '">' + data.data[i].dipa + '</option>';
                               }
                               $("#idttd").html(s);
                           }
                       });
+                      
                         
                       
                     table.ajax.reload();
@@ -220,11 +266,13 @@
                 error:function(error){
                     Swal.fire({
                     title: "Gagal",
-                    text: `${error}`,
+                    text: "ada data yang belum terisi",
                     icon: "error",
                     showConfirmButton: false,
                     timer: 2000
                   });
+                  
+
                 }
 
             });
@@ -248,15 +296,15 @@
           if (result.isConfirmed) {
 
             //define variable
-            let idttd   = $("#idttd").val();
+            let idSatker   = $("#idSatker").val();
             // ajax
             $.ajax({
 
-                url: `/spj-online/hapusTTD`,
+                url: `/spj-online/hapusSatker`,
                 type: "POST",
                 cache: false,
                 data: {
-                    "id" : idttd
+                    "id" : idSatker
                 },
                 success:function(response){
 
@@ -269,7 +317,7 @@
                     });
 
                     //reload option
-                    const select = document.getElementById('idttd');
+                    const select = document.getElementById('idSatker');
                     function getOptionByValue(select, value) {
                         const options = select.options;
                         for (let i = 0; i < options.length; i++) {
@@ -279,7 +327,7 @@
                         }
                         return null;
                     }
-                    const optionToRemove = getOptionByValue(select, idttd);
+                    const optionToRemove = getOptionByValue(select, idSatker);
                     if (optionToRemove) {
                         select.removeChild(optionToRemove);
                     }
@@ -306,14 +354,14 @@
     $(document).ready(function () {
       $.ajax({
           type: "GET",
-          url: "/spj-online/dataTTD",
+          url: "/spj-online/data-dataSatker",
           data: "{}",
           success: function (data) {
-              var s = '<option value="-1">harap pilih nama</option>';
+              var s = '<option value="-1">Pilih DIPA</option>';
               for (var i = 0; i < data.data.length; i++) {
-                  s += '<option value="' + data.data[i].id + '">' + data.data[i].nama_ttd + '</option>';
+                  s += '<option value="' + data.data[i].id + '">' + data.data[i].dipa + '</option>';
               }
-              $("#idttd").html(s);
+              $("#idSatker").html(s);
           }
       });
     });

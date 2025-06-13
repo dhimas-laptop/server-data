@@ -13,6 +13,10 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/api/batam',
-        '/api/tanjung-pinang'
+        '/api/tanjung-pinang',
+        '/spj-online/tambahTTD',
+        '/spj-online/hapusTTD',
+        '/spj-online/tambahSatker',
+        '/spj-online/hapusSatker'
     ];
 }

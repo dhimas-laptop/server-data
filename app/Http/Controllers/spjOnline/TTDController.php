@@ -6,13 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\user; 
-use App\Models\spj_data_satker;
 use App\Models\spj_data_ttd;
-use App\Models\spj_data_perjadin;
-use App\Models\spj_data_rincian;
-use App\Models\spj_rincian_lumsum;
-use App\Models\spj_rincian_penginapan;
-use App\Models\spj_rincian_transport;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 

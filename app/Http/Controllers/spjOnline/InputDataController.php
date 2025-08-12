@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\user; 
 use App\Models\spj_data_satker;
+use App\Models\spj_data_ttd;
+use App\Models\spj_data_perjadin;
+use App\Models\spj_data_rincian;
+use App\Models\spj_rincian_lumsum;
+use App\Models\spj_rincian_penginapan;
+use App\Models\spj_rincian_transport;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
@@ -21,7 +27,7 @@ use App\Http\Controllers\Controller;
 //             redirect('/login');
 //         }
 
-class DataSatkerController extends Controller
+class InputDataController extends Controller
 {
 
     //bagian penandatangan
@@ -32,7 +38,7 @@ class DataSatkerController extends Controller
         // auth checking 
         $user = user::get();
         
-        return view('/spj/dataSatker',['active' => 'dataSatker'], compact('user'));
+        return view('/spj/inputData',['active' => 'input'], compact('user'));
         } else {
             redirect('/login');
         }

@@ -106,10 +106,10 @@
                     </li>
                     @can('admin')
                     <li
-                        class="nav-item @if ($active === 'input'||$active === 'ttd') menu-open @endif">
+                        class="nav-item @if ($active === 'dataSatker'||$active === 'ttd') menu-open @endif">
                         <a
                             href="#"
-                            class="nav-link @if ($active === 'input'||$active === 'ttd') active @endif">
+                            class="nav-link @if ($active === 'dataSatker'||$active === 'ttd') active @endif">
                             <i class="fa-solid fa-plane-departure"></i>
                             <p>
                                 SPJ Online
@@ -119,22 +119,23 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a
-                                    href="/penandatangan"
+                                    href="/spj-online/dataSatker"
+                                    class="nav-link {{ ($active === 'dataSatker') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'dataSatker') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Data Satker</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="/spj-online/penandatangan"
                                     class="nav-link {{ ($active === 'ttd') ? 'active' : '' }}">
                                     <i
                                         class="far {{ ($active === 'ttd') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
                                     <p>Penandatangan</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a
-                                    href="/input-spj"
-                                    class="nav-link {{ ($active === 'input') ? 'active' : '' }}">
-                                    <i
-                                        class="far {{ ($active === 'input') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
-                                    <p>Input Data</p>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </li>
                     @endcan 

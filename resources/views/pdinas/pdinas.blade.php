@@ -173,7 +173,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kode Kegiatan*</label>
                         <select class="col-sm-10 custom-select" name="kode">
-                            <option value=>---Pilih kode---</option>
+                            <option>---Pilih kode---</option>
                             <option value="FF.7275.RBK">FF.7275.RBK</option>
                             <option value="FF.7275.REA">FF.7275.REA</option>
                             <option value="FF.7276.QDB">FF.7276.QDB</option>

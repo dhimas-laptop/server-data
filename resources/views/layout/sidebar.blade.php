@@ -106,7 +106,11 @@
                     </li>
                     @can('admin')
                     <li
-                        class="nav-item @if ($active === 'dataSatker'||$active === 'ttd') menu-open @endif">
+                        class="nav-item @if (
+                                                $active === 'dataSatker' ||
+                                                $active === 'ttd' ||
+                                                $active === 'input'
+                                                ) menu-open @endif">
                         <a
                             href="#"
                             class="nav-link @if ($active === 'dataSatker'||$active === 'ttd') active @endif">
@@ -133,6 +137,15 @@
                                     <i
                                         class="far {{ ($active === 'ttd') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
                                     <p>Penandatangan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="/spj-online/inputData"
+                                    class="nav-link {{ ($active === 'input') ? 'active' : '' }}">
+                                    <i
+                                        class="far {{ ($active === 'input') ? 'fa-circle-check' : 'fa-circle' }} nav-icon"></i>
+                                    <p>Input Data</p>
                                 </a>
                             </li>
                             

@@ -19,15 +19,17 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class SpdExport3 implements FromView, ShouldAutoSize, WithStyles, WithEvents, WithColumnWidths, WithColumnFormatting
 {
     use Exportable;
-    public function forYear($no)
+     public function forYear($no)
     {
         $this->no = $no;
+        $this->spt = null;
         return $this;
     }
     
-    public function forRole($role)
+    public function forSpt($spt)
     {
-        $this->role = $role;
+        $this->spt = $spt;
+        $this->no = null;
         return $this;
     }
 
@@ -103,15 +105,17 @@ class SpdExport3 implements FromView, ShouldAutoSize, WithStyles, WithEvents, Wi
 
     public function view(): View
     {
-        if ($this->role === 'admin') {
-            $query = spd3::get();
-        } else {
-            $query = spd3::where('nomor_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
+        if (is_null($this->spt)) {
+            $query = spd3::whereYear('tgl_spt', $this->no)->orderBy('tgl_spt', 'ASC')->get();
+            return view('report.spd3', [
+                'spd' => $query , 'no' => 1 
+            ]);
+        }else {
+            $query = spd3::where('nomor_spt', $this->spt)->orderBy('tgl_spt', 'ASC')->get();
+            return view('report.spd3', [
+                'spd' => $query , 'no' => 1 
+            ]);
         }
-        
-        return view('report.spd3', [
-            'spd' => $query , 'no' => 1 
-         ]);
     }
 
 }

@@ -496,7 +496,7 @@ class PdinasController extends Controller
             $spt1= explode('/', $spt[1]);
             $spt2= $spt1[0];
             $role = auth::user()->role;
-            return (new SpdExport1)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+            return (new SpdExport1)->forSpt($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
         }
             }else {
            redirect('/login');

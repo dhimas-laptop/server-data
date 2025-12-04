@@ -472,11 +472,11 @@ class PdinasController extends Controller
             }
             
             $spd = spd1::select('nomor_spt')->distinct()->get();
-            
+            $year = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
             foreach ($spd as $key) {
                 $data2[] = $key->nomor_spt;
                 }
-                return view('/pdinas/download1',['spd' => $data2, 'active' => "524114"]);
+                return view('/pdinas/download1',['spd' => $data2, 'tahun' => $year, 'active' => "524114"]);
         }else {
            redirect('/login');
        }
@@ -486,17 +486,19 @@ class PdinasController extends Controller
     public function downloadfilter524114(Request $request)
     {
         if (Auth::check()) { //checking authorization
-
-        $request->validate([
-            'filter2' => 'required'
-        ]);
-        $spt = explode('.', $request->filter2);
-        $spt1= explode('/', $spt[1]);
-        $spt2= $spt1[0];
-        $role = auth::user()->role;
-        return (new SpdExport1)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
-
-        }else {
+            if (is_null($request->filter2)) {
+                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+            } else { 
+            $request->validate([
+                'filter2' => 'required'
+            ]);
+            $spt = explode('.', $request->filter2);
+            $spt1= explode('/', $spt[1]);
+            $spt2= $spt1[0];
+            $role = auth::user()->role;
+            return (new SpdExport1)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+        }
+            }else {
            redirect('/login');
        }    
     
@@ -716,12 +718,13 @@ public function download_524119()
     if (Auth::check()) { //checking authorization
         
         $spd = spd2::select('nomor_spt')->distinct()->get();
-        
+        $year = spd::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+
         foreach ($spd as $key) {
             $data2[] = $key->nomor_spt;
             }
 
-        return view('/pdinas/download2',['spd' => $data2, 'active' => "524119"]);
+        return view('/pdinas/download2',['spd' => $data2,'tahun' => $year, 'active' => "524119"]);
         
     }else {
        redirect('/login');
@@ -731,7 +734,9 @@ public function download_524119()
 public function downloadfilter524119(Request $request)
 {
     if (Auth::check()) { //checking authorization
-
+        if (is_null($request->filter2)) {
+                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+            } else { 
         $request->validate([
             'filter2' => 'required'
         ]);
@@ -741,6 +746,7 @@ public function downloadfilter524119(Request $request)
         $role = auth::user()->role;
 
         return (new SpdExport2)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
+    }
     }else {
        redirect('/login');
    }
@@ -967,7 +973,8 @@ public function download_524113()
             }
         
         $spd = spd3::select('nomor_spt')->distinct()->get();
-        
+        $year = spd3::selectRaw('YEAR(tgl_spt) as tgl_spt')->distinct()->get();
+
         foreach ($spd as $key) {
             $data = explode('/',$key->nomor_spt);
             $data1 = $data[2];
@@ -979,7 +986,7 @@ public function download_524113()
             }
 
             if (isset($data2)) {
-            return view('/pdinas/download3',['spd' => $data2, 'active' => "524113"]);
+            return view('/pdinas/download3',['spd' => $data2,'tahun' => $year, 'active' => "524113"]);
             }
         }
     
@@ -991,7 +998,9 @@ public function download_524113()
 public function downloadfilter524113(Request $request)
 {
     if (Auth::check()) { //checking authorization
-
+        if (is_null($request->filter2)) {
+                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+            } else { 
         $request->validate([
             'filter2' => 'required'
         ]);
@@ -1000,7 +1009,8 @@ public function downloadfilter524113(Request $request)
         $spt2= $spt1[0];
         $role = auth::user()->role;
         return (new SpdExport3)->forYear($request->filter2)->forRole($role)->download('Perjalanan-Dinas'.'-'.'ST-'.$spt2.'.xlsx');
-
+    }
+    
     }else {
        redirect('/login');
    }

@@ -487,7 +487,7 @@ class PdinasController extends Controller
     {
         if (Auth::check()) { //checking authorization
             if (is_null($request->filter2)) {
-                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+                return (new SpdExport1)->forYear($request->filter1)->download('rekapitulasi.xlsx');
             } else { 
             $request->validate([
                 'filter2' => 'required'
@@ -735,7 +735,7 @@ public function downloadfilter524119(Request $request)
 {
     if (Auth::check()) { //checking authorization
         if (is_null($request->filter2)) {
-                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+                return (new SpdExport2)->forYear($request->filter1)->download('rekapitulasi.xlsx');
             } else { 
         $request->validate([
             'filter2' => 'required'
@@ -999,7 +999,7 @@ public function downloadfilter524113(Request $request)
 {
     if (Auth::check()) { //checking authorization
         if (is_null($request->filter2)) {
-                return (new SpdExport)->forYear($request->filter1)->download('rekapitulasi.xlsx');
+                return (new SpdExport3)->forYear($request->filter1)->download('rekapitulasi.xlsx');
             } else { 
         $request->validate([
             'filter2' => 'required'

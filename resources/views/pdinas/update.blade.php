@@ -38,10 +38,16 @@
               </div>
              </div>
              <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Tujuan</label>
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Lokasi SPT</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" value="{{ $spd->tujuan }}" style="text-transform: uppercase" name="tujuan" >
               </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Uraian Kegiatan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{ $spd->provinsi }}" style="text-transform: uppercase" name="provinsi">
+                </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Tanggal Berangkat</label>
@@ -130,12 +136,7 @@
                   <input type="text" class="form-control" value="{{ $spd->no_telp }}" name="no_telp">
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Provinsi</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" value="{{ $spd->provinsi }}" style="text-transform: uppercase" name="provinsi">
-                </div>
-              </div>
+              
               <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Total SPJ</label>
                 <div class="col-sm-10">

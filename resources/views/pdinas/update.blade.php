@@ -65,10 +65,13 @@
               <label class="col-sm-2 col-form-label">Kode Kegiatan</label>
               <select class="col-sm-10 custom-select" name="kode">
                   <option>---Pilih kode---</option>
+                  <option value="FF.7274.REA" @if ($spd->kode === "FF.7274.REA") selected @endif >FF.7274.REA</option>
                   <option value="FF.7275.RBK" @if ($spd->kode === "FF.7275.RBK") selected @endif >FF.7275.RBK</option>
                   <option value="FF.7275.REA" @if ($spd->kode === "FF.7275.REA") selected @endif >FF.7275.REA</option>
                   <option value="FF.7276.QDB" @if ($spd->kode === "FF.7276.QDB") selected @endif >FF.7276.QDB</option>
                   <option value="FF.7276.UAB" @if ($spd->kode === "FF.7276.UAB") selected @endif >FF.7276.UAB</option>
+                  <option value="FF.7277.BDB" @if ($spd->kode === "FF.7277.BDB") selected @endif >FF.7277.BDB</option>
+                  <option value="FF.7277.FAN" @if ($spd->kode === "FF.7277.FAN") selected @endif >FF.7277.FAN</option>
                   <option value="FF.7277.REA" @if ($spd->kode === "FF.7277.REA") selected @endif >FF.7277.REA</option>
                   <option value="FF.7278.QDB" @if ($spd->kode === "FF.7278.QDB") selected @endif >FF.7278.QDB</option>
                   <option value="FF.7278.REA" @if ($spd->kode === "FF.7278.REA") selected @endif >FF.7278.REA</option>

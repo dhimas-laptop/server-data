@@ -178,10 +178,13 @@
                         <label class="col-sm-2 col-form-label">Kode Kegiatan*</label>
                         <select class="col-sm-10 custom-select" name="kode">
                             <option>---Pilih kode---</option>
+                            <option value="FF.7274.REA">FF.7274.REA</option>
                             <option value="FF.7275.RBK">FF.7275.RBK</option>
                             <option value="FF.7275.REA">FF.7275.REA</option>
                             <option value="FF.7276.QDB">FF.7276.QDB</option>
                             <option value="FF.7276.UAB">FF.7276.UAB</option>
+                            <option value="FF.7277.BDB">FF.7277.BDB</option>
+                            <option value="FF.7277.FAN">FF.7277.FAN</option>
                             <option value="FF.7277.REA">FF.7277.REA</option>
                             <option value="FF.7278.QDB">FF.7278.QDB</option>
                             <option value="FF.7278.REA">FF.7278.REA</option>

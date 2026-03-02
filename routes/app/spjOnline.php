@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\spjOnline\DataSatkerController;
+use App\Http\Controllers\spjOnline\InputDataController;
 use App\Http\Controllers\spjOnline\TTDController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::get('/spj-online/data-dataSatker', [DataSatkerController::class, 'showDat
 Route::post('/spj-online/tambahSatker', [DataSatkerController::class, 'addData']);
 Route::post('/spj-online/hapusSatker', [DataSatkerController::class, 'deleteData']);
 
-// RUTE UNTUK MODUL 
+// RUTE UNTUK MODUL INPUT DATA
+Route::get('/spj-online/inputData', [InputDataController::class, 'index']);
 
 ?>

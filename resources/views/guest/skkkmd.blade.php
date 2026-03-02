@@ -7,9 +7,9 @@
       <div class="row">
         <div class="col-lg-12 col-sm-12 col-md-8 mb-4">
             <center>
-          <h3 class="mb-3">SK KKMD 2022</h3>
+          <h3 class="mb-3">LKJ 2024 BPDAS SEI JANG DURIANGKANG</h3>
           
-          <embed type="application/pdf" src="{{asset('tdash/pdf/SK-KKMD-KEPRI.pdf')}}" width="800" height="500"></embed>
+          <embed type="application/pdf" src="{{asset('tdash/pdf/LKJ.pdf')}}" width="800" height="500"></embed>
         </center>
         </div>
       </div>

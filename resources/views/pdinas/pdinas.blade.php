@@ -159,9 +159,13 @@
                         <input type="date" class="col-sm-3 form-control  @error('tgl_spt') is-invalid @enderror" name="tgl_spt" placeholder="Masukkan Nomor SPT">
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tujuan*</label>
-                        <input type="text" class="col-sm-10 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Tujuan ">
+                        <label class="col-sm-2 col-form-label">Lokasi SPT*</label>
+                        <input type="text" class="col-sm-10 form-control  @error('tujuan') is-invalid @enderror" style="text-transform: uppercase" name="tujuan" placeholder="Masukkan Lokasi SPT ">
                     </div>  
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Uraian Kegiatan*</label>
+                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan Dalam rangka kegiatan apa SPT ini dibuat">
+                      </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Tanggal Berangkat*</label>
                         <input type="date" class="col-sm-3 form-control  @error('berangkat') is-invalid @enderror" name="berangkat">
@@ -285,12 +289,7 @@
                           <input class="col-sm-10 form-control" type="text" class="form-control" name="no_telp" placeholder="Masukkan nomor telepon hotel bila tidak ada disi (-)">
                         
                       </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provinsi</label>
-                        
-                          <input class="col-sm-10 form-control" type="text" class="form-control" style="text-transform: uppercase" name="provinsi" placeholder="Masukkan provinsi tempat tugas">
-                        
-                      </div>
+                      
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Total SPJ</label>
                         
